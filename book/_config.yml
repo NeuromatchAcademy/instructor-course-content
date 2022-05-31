@@ -5,10 +5,10 @@
 
 #######################################################################################
 # Book settings
-title                       : "Neuromatch Academy: Instructor book for Deep Learning"  # The title of the book. Will be placed in the left navbar.
+title                       : "Neuromatch Academy: Instructor book for Comp Neuro"  # The title of the book. Will be placed in the left navbar.
 author                      : Neuromatch  # The author of the book
 copyright                   : "2021"  # Copyright year to be placed in the footer
-logo                        : nma-dl-logo-square-4xp.jpeg  # A path to the book logo
+logo                        : nma-logo-square-4xp.jpg  # A path to the book logo
 only_build_toc_files        : true
 
 
@@ -57,6 +57,6 @@ launch_buttons:
   colab_url                 : "" # The URL of Google Colab (https://colab.research.google.com)
 
 repository:
-  url                       : https://github.com/NeuromatchAcademy/instructor-course-content-dl  # The URL to your book's repository
+  url                       : https://github.com/NeuromatchAcademy/instructor-course-content  # The URL to your book's repository
   path_to_book              : book  # A path to your book's folder, relative to the repository root.
   branch                    : main  # Which branch of the repository should be used when creating links
