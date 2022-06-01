@@ -5,7 +5,7 @@
 
 #######################################################################################
 # Book settings
-title                       : "Neuromatch Academy: Instructor book for Comp Neuro"  # The title of the book. Will be placed in the left navbar.
+title                       : "Neuromatch Academy: Computational Neuroscience (instructor's version)"  # The title of the book. Will be placed in the left navbar.
 author                      : Neuromatch  # The author of the book
 copyright                   : "2021"  # Copyright year to be placed in the footer
 logo                        : nma-logo-square-4xp.jpg  # A path to the book logo
