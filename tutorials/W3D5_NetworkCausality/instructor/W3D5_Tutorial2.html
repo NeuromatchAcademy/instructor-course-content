@@ -1,0 +1,2514 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tutorial 2: Correlations — Neuromatch Academy: Computational Neuroscience (instructor's version)</title>
+<!-- Loaded before other Sphinx assets -->
+<link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet"/>
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet"/>
+<link href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css" rel="stylesheet"/>
+<link as="font" crossorigin="" href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+<link href="../../../_static/pygments.css" rel="stylesheet" type="text/css">
+<link href="../../../_static/styles/sphinx-book-theme.css" rel="stylesheet" type="text/css">
+<link href="../../../_static/togglebutton.css" rel="stylesheet" type="text/css">
+<link href="../../../_static/copybutton.css" rel="stylesheet" type="text/css">
+<link href="../../../_static/mystnb.css" rel="stylesheet" type="text/css">
+<link href="../../../_static/sphinx-thebe.css" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" rel="stylesheet" type="text/css"/>
+<!-- Pre-loaded scripts that we'll load fully later -->
+<link as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf" rel="preload"/>
+<script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+<script src="../../../_static/jquery.js"></script>
+<script src="../../../_static/underscore.js"></script>
+<script src="../../../_static/doctools.js"></script>
+<script src="../../../_static/togglebutton.js"></script>
+<script src="../../../_static/clipboard.min.js"></script>
+<script src="../../../_static/copybutton.js"></script>
+<script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+<script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+<script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+<script async="async" src="../../../_static/sphinx-thebe.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+<script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+<script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+<link href="../../../_static/nma-logo-square-4xp.jpg" rel="shortcut icon">
+<link href="../../../genindex.html" rel="index" title="Index"/>
+<link href="../../../search.html" rel="search" title="Search"/>
+<link href="W3D5_Tutorial3.html" rel="next" title="Tutorial 3: Simultaneous fitting/regression"/>
+<link href="W3D5_Tutorial1.html" rel="prev" title="Tutorial 1: Interventions"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="None" name="docsearch:language"/>
+<!-- Google Analytics -->
+</link></link></link></link></link></link></head>
+<body data-offset="60" data-spy="scroll" data-target="#bd-toc-nav">
+<!-- Checkboxes to toggle the left sidebar -->
+<input aria-label="Toggle navigation sidebar" class="sidebar-toggle" id="__navigation" name="__navigation" type="checkbox"/>
+<label class="overlay overlay-navbar" for="__navigation">
+<div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input aria-label="Toggle in-page Table of Contents" class="sidebar-toggle" id="__page-toc" name="__page-toc" type="checkbox"/>
+<label class="overlay overlay-pagetoc" for="__page-toc">
+<div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+<div class="container-fluid" id="banner"></div>
+<div class="container-xl">
+<div class="row">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+<div class="bd-sidebar__content">
+<div class="bd-sidebar__top"><div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+<!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+<img alt="logo" class="logo" src="../../../_static/nma-logo-square-4xp.jpg"/>
+<h1 class="site-logo" id="site-title">Neuromatch Academy: Computational Neuroscience (instructor's version)</h1>
+</a>
+</div><form action="../../../search.html" class="bd-search d-flex align-items-center" method="get">
+<i class="icon fas fa-search"></i>
+<input aria-label="Search this book..." autocomplete="off" class="form-control" id="search-input" name="q" placeholder="Search this book..." type="search"/>
+</form><nav aria-label="Main" class="bd-links" id="bd-docs-nav">
+<div class="bd-toc-item active">
+<ul class="nav bd-sidenav bd-sidenav__home-link">
+<li class="toctree-l1">
+<a class="reference internal" href="../../instructor/intro.html">
+                    Introduction
+                </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../Schedule/schedule_intro.html">
+   Schedule
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox">
+<label for="toctree-checkbox-1">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../Schedule/daily_schedules.html">
+     General schedule
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../Schedule/shared_calendars.html">
+     Shared calendars
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../Schedule/timezone_widget.html">
+     Timezone widget
+    </a>
+</li>
+</ul>
+</input></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../TechnicalHelp/tech_intro.html">
+   Technical Help
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox">
+<label for="toctree-checkbox-2">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2 has-children">
+<a class="reference internal" href="../../TechnicalHelp/Jupyterbook.html">
+     Using jupyterbook
+    </a>
+<input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox">
+<label for="toctree-checkbox-3">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l3">
+<a class="reference internal" href="../../TechnicalHelp/Tutorial_colab.html">
+       Using Google Colab
+      </a>
+</li>
+<li class="toctree-l3">
+<a class="reference internal" href="../../TechnicalHelp/Tutorial_kaggle.html">
+       Using Kaggle
+      </a>
+</li>
+</ul>
+</input></li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../TechnicalHelp/Discord.html">
+     Using discord
+    </a>
+</li>
+</ul>
+</input></li>
+</ul>
+<p class="caption">
+<span class="caption-text">
+  Intro to Modeling
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W1D1_ModelTypes/chapter_title.html">
+   Model Types (W1D1)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+<label for="toctree-checkbox-4">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D1_ModelTypes/instructor/W1D1_Intro.html">
+     Intro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D1_ModelTypes/instructor/W1D1_Tutorial1.html">
+     Tutorial 1: “What” models
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D1_ModelTypes/instructor/W1D1_Tutorial2.html">
+     Tutorial 2: “How” models
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D1_ModelTypes/instructor/W1D1_Tutorial3.html">
+     Tutorial 3: “Why” models
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D1_ModelTypes/instructor/W1D1_Tutorial4.html">
+     Tutorial 4: Model Discussions
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D1_ModelTypes/instructor/W1D1_Outro.html">
+     Outro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D1_ModelTypes/further_reading.html">
+     Suggested further readings
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W1D2_ModelingPractice/chapter_title.html">
+   Modeling Practice (W1D2)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+<label for="toctree-checkbox-5">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D2_ModelingPractice/instructor/W1D2_Intro.html">
+     Intro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D2_ModelingPractice/instructor/W1D2_Tutorial1.html">
+     Tutorial 1: Framing the Question
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D2_ModelingPractice/instructor/W1D2_Outro.html">
+     Outro
+    </a>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption">
+<span class="caption-text">
+  Machine Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W1D3_ModelFitting/chapter_title.html">
+   Model Fitting (W1D3)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+<label for="toctree-checkbox-6">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D3_ModelFitting/instructor/W1D3_Intro.html">
+     Intro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D3_ModelFitting/instructor/W1D3_Tutorial1.html">
+     Tutorial 1: Linear regression with MSE
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D3_ModelFitting/instructor/W1D3_Tutorial2.html">
+     Tutorial 2: Linear regression with MLE
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D3_ModelFitting/instructor/W1D3_Tutorial3.html">
+     Tutorial 3: Confidence intervals and bootstrapping
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D3_ModelFitting/instructor/W1D3_Tutorial4.html">
+     Tutorial 4: Multiple linear regression and polynomial regression
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D3_ModelFitting/instructor/W1D3_Tutorial5.html">
+     Tutorial 5: Model Selection: Bias-variance trade-off
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D3_ModelFitting/instructor/W1D3_Tutorial6.html">
+     Tutorial 6: Model Selection: Cross-validation
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D3_ModelFitting/instructor/W1D3_Outro.html">
+     Outro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D3_ModelFitting/further_reading.html">
+     Suggested further readings
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W1D4_GeneralizedLinearModels/chapter_title.html">
+   Generalized Linear Models (W1D4)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+<label for="toctree-checkbox-7">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D4_GeneralizedLinearModels/instructor/W1D4_Intro.html">
+     Intro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D4_GeneralizedLinearModels/instructor/W1D4_Tutorial1.html">
+     Tutorial 1: GLMs for Encoding
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D4_GeneralizedLinearModels/instructor/W1D4_Tutorial2.html">
+     Tutorial 2: Classifiers and regularizers
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D4_GeneralizedLinearModels/instructor/W1D4_Outro.html">
+     Outro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D4_GeneralizedLinearModels/further_reading.html">
+     Suggested further readings
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W1D5_DimensionalityReduction/chapter_title.html">
+   Dimensionality Reduction (W1D5)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+<label for="toctree-checkbox-8">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D5_DimensionalityReduction/instructor/W1D5_Intro.html">
+     Intro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D5_DimensionalityReduction/instructor/W1D5_Tutorial1.html">
+     Tutorial 1: Geometric view of data
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D5_DimensionalityReduction/instructor/W1D5_Tutorial2.html">
+     Tutorial 2: Principal Component Analysis
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D5_DimensionalityReduction/instructor/W1D5_Tutorial3.html">
+     Tutorial 3: Dimensionality Reduction &amp; Reconstruction
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D5_DimensionalityReduction/instructor/W1D5_Tutorial4.html">
+     Tutorial 4:  Nonlinear Dimensionality Reduction
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D5_DimensionalityReduction/instructor/W1D5_Outro.html">
+     Outro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W1D5_DimensionalityReduction/further_reading.html">
+     Suggested further readings
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W2D1_DeepLearning/chapter_title.html">
+   Deep Learning (W2D1)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+<label for="toctree-checkbox-9">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D1_DeepLearning/instructor/W2D1_Intro.html">
+     Intro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D1_DeepLearning/instructor/W2D1_Tutorial1.html">
+     Tutorial 1: Decoding Neural Responses
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D1_DeepLearning/instructor/W2D1_Tutorial2.html">
+     Tutorial 2: Convolutional Neural Networks
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D1_DeepLearning/instructor/W2D1_Tutorial3.html">
+     Tutorial 3: Building and Evaluating Normative Encoding Models
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D1_DeepLearning/instructor/W2D1_Tutorial4.html">
+     Bonus Tutorial: Diving Deeper into Decoding &amp; Encoding
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D1_DeepLearning/instructor/W2D1_Outro.html">
+     Outro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D1_DeepLearning/further_reading.html">
+     Suggested further readings
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../Bonus_Autoencoders/chapter_title.html">
+   Autoencoders (Bonus)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+<label for="toctree-checkbox-10">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../Bonus_Autoencoders/instructor/Bonus_Intro.html">
+     Intro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../Bonus_Autoencoders/instructor/Bonus_Tutorial1.html">
+     Tutorial 1: Intro to Autoencoders
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../Bonus_Autoencoders/instructor/Bonus_Tutorial2.html">
+     Tutorial 2: Autoencoder extensions
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../Bonus_Autoencoders/instructor/Bonus_Tutorial3.html">
+     Tutorial 3: Autoencoders applications
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../Bonus_Autoencoders/instructor/Bonus_Outro.html">
+     Outro
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1">
+<a class="reference internal" href="../../Module_WrapUps/MachineLearning.html">
+   Machine Learning Wrap-Up
+  </a>
+</li>
+</ul>
+<p class="caption">
+<span class="caption-text">
+  Dynamical Systems
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W2D2_LinearSystems/chapter_title.html">
+   Linear Systems (W2D2)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+<label for="toctree-checkbox-11">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D2_LinearSystems/instructor/W2D2_Intro.html">
+     Intro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D2_LinearSystems/instructor/W2D2_Tutorial1.html">
+     Tutorial 1: Linear dynamical systems
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D2_LinearSystems/instructor/W2D2_Tutorial2.html">
+     Tutorial 2: Markov Processes
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D2_LinearSystems/instructor/W2D2_Tutorial3.html">
+     Tutorial 3: Combining determinism and stochasticity
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D2_LinearSystems/instructor/W2D2_Tutorial4.html">
+     Tutorial 4: Autoregressive models
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D2_LinearSystems/instructor/W2D2_Outro.html">
+     Outro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D2_LinearSystems/further_reading.html">
+     Suggested further readings
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W2D3_BiologicalNeuronModels/chapter_title.html">
+   Biological Neuron Models (W2D3)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+<label for="toctree-checkbox-12">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D3_BiologicalNeuronModels/instructor/W2D3_Intro.html">
+     Intro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D3_BiologicalNeuronModels/instructor/W2D3_Tutorial1.html">
+     Tutorial 1: The Leaky Integrate-and-Fire (LIF) Neuron Model
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D3_BiologicalNeuronModels/instructor/W2D3_Tutorial2.html">
+     Tutorial 2: Effects of Input Correlation
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D3_BiologicalNeuronModels/instructor/W2D3_Tutorial3.html">
+     Tutorial 3: Synaptic transmission - Models of static and dynamic synapses
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D3_BiologicalNeuronModels/instructor/W2D3_Tutorial4.html">
+     Bonus Tutorial: Spike-timing dependent plasticity (STDP)
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D3_BiologicalNeuronModels/instructor/W2D3_Outro.html">
+     Outro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D3_BiologicalNeuronModels/further_reading.html">
+     Suggested further readings
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W2D4_DynamicNetworks/chapter_title.html">
+   Dynamic Networks (W2D4)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+<label for="toctree-checkbox-13">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D4_DynamicNetworks/instructor/W2D4_Intro.html">
+     Intro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D4_DynamicNetworks/instructor/W2D4_Tutorial1.html">
+     Tutorial 1: Neural Rate Models
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D4_DynamicNetworks/instructor/W2D4_Tutorial2.html">
+     Tutorial 2: Wilson-Cowan Model
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D4_DynamicNetworks/instructor/W2D4_Tutorial3.html">
+     Bonus Tutorial: Extending the Wilson-Cowan Model
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D4_DynamicNetworks/instructor/W2D4_Outro.html">
+     Outro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W2D4_DynamicNetworks/further_reading.html">
+     Suggested further readings
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1">
+<a class="reference internal" href="../../Module_WrapUps/DynamicalSystems.html">
+   Dynamical Systems Wrap-Up
+  </a>
+</li>
+</ul>
+<p class="caption">
+<span class="caption-text">
+  Stochastic Processes
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W3D1_BayesianDecisions/chapter_title.html">
+   Bayesian Decisions (W3D1)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+<label for="toctree-checkbox-14">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D1_BayesianDecisions/instructor/W3D1_Intro.html">
+     Intro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D1_BayesianDecisions/instructor/W3D1_Tutorial1.html">
+     Tutorial 1: Bayes with a binary hidden state
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D1_BayesianDecisions/instructor/W3D1_Tutorial2.html">
+     Tutorial 2: Bayesian inference and decisions with continuous hidden state
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D1_BayesianDecisions/instructor/W3D1_Tutorial3.html">
+     Bonus Tutorial : Fitting to data
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D1_BayesianDecisions/instructor/W3D1_Outro.html">
+     Outro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D1_BayesianDecisions/further_reading.html">
+     Suggested further readings
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W3D2_HiddenDynamics/chapter_title.html">
+   Hidden Dynamics (W3D2)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+<label for="toctree-checkbox-15">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D2_HiddenDynamics/instructor/W3D2_Intro.html">
+     Intro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D2_HiddenDynamics/instructor/W3D2_Tutorial1.html">
+     Tutorial 1: Sequential Probability Ratio Test
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D2_HiddenDynamics/instructor/W3D2_Tutorial2.html">
+     Tutorial 2: Hidden Markov Model
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D2_HiddenDynamics/instructor/W3D2_Tutorial3.html">
+     Tutorial 3: The Kalman Filter
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D2_HiddenDynamics/instructor/W3D2_Tutorial4.html">
+     Bonus Tutorial 4: The Kalman Filter, part 2
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D2_HiddenDynamics/instructor/W3D2_Tutorial5.html">
+     Bonus Tutorial 5: Expectation Maximization for spiking neurons
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D2_HiddenDynamics/instructor/W3D2_Outro.html">
+     Outro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D2_HiddenDynamics/further_reading.html">
+     Suggested further readings
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W3D3_OptimalControl/chapter_title.html">
+   Optimal Control (W3D3)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+<label for="toctree-checkbox-16">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D3_OptimalControl/instructor/W3D3_Intro.html">
+     Intro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D3_OptimalControl/instructor/W3D3_Tutorial1.html">
+     Tutorial 1: Optimal Control for Discrete States
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D3_OptimalControl/instructor/W3D3_Tutorial2.html">
+     Tutorial 2: Optimal Control for Continuous State
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D3_OptimalControl/instructor/W3D3_Outro.html">
+     Outro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D3_OptimalControl/further_reading.html">
+     Suggested further readings
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../W3D4_ReinforcementLearning/chapter_title.html">
+   Reinforcement Learning (W3D4)
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+<label for="toctree-checkbox-17">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D4_ReinforcementLearning/instructor/W3D4_Intro.html">
+     Intro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D4_ReinforcementLearning/instructor/W3D4_Tutorial1.html">
+     Tutorial 1: Learning to Predict
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D4_ReinforcementLearning/instructor/W3D4_Tutorial2.html">
+     Tutorial 2: Learning to Act: Multi-Armed Bandits
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D4_ReinforcementLearning/instructor/W3D4_Tutorial3.html">
+     Tutorial 3: Learning to Act: Q-Learning
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D4_ReinforcementLearning/instructor/W3D4_Tutorial4.html">
+     Tutorial 4: From Reinforcement Learning to Planning
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D4_ReinforcementLearning/instructor/W3D4_Outro.html">
+     Outro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../W3D4_ReinforcementLearning/further_reading.html">
+     Suggested further readings
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children">
+<a class="reference internal" href="../chapter_title.html">
+   Network Causality (W3D5)
+  </a>
+<input checked="" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+<label for="toctree-checkbox-18">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul class="current">
+<li class="toctree-l2">
+<a class="reference internal" href="W3D5_Intro.html">
+     Intro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="W3D5_Tutorial1.html">
+     Tutorial 1: Interventions
+    </a>
+</li>
+<li class="toctree-l2 current active">
+<a class="current reference internal" href="#">
+     Tutorial 2: Correlations
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="W3D5_Tutorial3.html">
+     Tutorial 3: Simultaneous fitting/regression
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="W3D5_Tutorial4.html">
+     Tutorial 4: Instrumental Variables
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="W3D5_Outro.html">
+     Outro
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../further_reading.html">
+     Suggested further readings
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1">
+<a class="reference internal" href="../../Module_WrapUps/StochasticProcesses.html">
+   Stochastic Processes Wrap-Up
+  </a>
+</li>
+</ul>
+<p class="caption">
+<span class="caption-text">
+  Project Booklet
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../projects/README.html">
+   Introduction to projects
+  </a>
+</li>
+<li class="toctree-l1">
+<a class="reference internal" href="../../../projects/docs/project_guidance.html">
+   Daily guide for projects
+  </a>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../../projects/modelingsteps/intro.html">
+   Modeling Step-by-Step Guide
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+<label for="toctree-checkbox-19">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../../projects/modelingsteps/ModelingSteps_1through4.html">
+     Modeling Steps 1 - 4
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../../projects/modelingsteps/ModelingSteps_5through10.html">
+     Modeling Steps 5 - 10
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../../projects/modelingsteps/TrainIllusionModel.html">
+     Example Model Project: the Train Illusion
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../../projects/modelingsteps/TrainIllusionDataProject.html">
+     Example Data Project: the Train Illusion
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../../projects/docs/datasets_overview.html">
+   Datasets
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
+<label for="toctree-checkbox-20">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2 has-children">
+<a class="reference internal" href="../../../projects/docs/neurons.html">
+     Neurons
+    </a>
+<input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
+<label for="toctree-checkbox-21">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l3">
+<a class="reference internal" href="../../../projects/neurons/README.html">
+       Guide
+      </a>
+</li>
+<li class="toctree-l3">
+<a class="reference internal" href="../../../projects/neurons/neurons_videos.html">
+       Overview videos
+      </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children">
+<a class="reference internal" href="../../../projects/docs/fMRI.html">
+     fMRI
+    </a>
+<input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+<label for="toctree-checkbox-22">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l3">
+<a class="reference internal" href="../../../projects/fMRI/README.html">
+       Guide
+      </a>
+</li>
+<li class="toctree-l3">
+<a class="reference internal" href="../../../projects/fMRI/fMRI_videos.html">
+       Overview videos
+      </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children">
+<a class="reference internal" href="../../../projects/docs/ECoG.html">
+     ECoG
+    </a>
+<input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+<label for="toctree-checkbox-23">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l3">
+<a class="reference internal" href="../../../projects/ECoG/README.html">
+       Guide
+      </a>
+</li>
+<li class="toctree-l3">
+<a class="reference internal" href="../../../projects/ECoG/ECoG_videos.html">
+       Overview videos
+      </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children">
+<a class="reference internal" href="../../../projects/docs/behavior.html">
+     Behavior
+    </a>
+<input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
+<label for="toctree-checkbox-24">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l3">
+<a class="reference internal" href="../../../projects/behavior/README.html">
+       Guide
+      </a>
+</li>
+<li class="toctree-l3">
+<a class="reference internal" href="../../../projects/behavior/behavior_videos.html">
+       Overview videos
+      </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children">
+<a class="reference internal" href="../../../projects/docs/theory.html">
+     Theory
+    </a>
+<input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/>
+<label for="toctree-checkbox-25">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l3">
+<a class="reference internal" href="../../../projects/theory/README.html">
+       Guide
+      </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1">
+<a class="reference internal" href="../../../projects/docs/project_templates.html">
+   Project Templates
+  </a>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../../projects/docs/project_2020_highlights.html">
+   Projects 2020
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/>
+<label for="toctree-checkbox-26">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../../projects/docs/projects_2020/neurons.html">
+     Neurons
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../../projects/docs/projects_2020/theory.html">
+     Theory
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../../projects/docs/projects_2020/behavior.html">
+     Behavior
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../../projects/docs/projects_2020/fMRI.html">
+     fMRI
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../../projects/docs/projects_2020/eeg.html">
+     EEG
+    </a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</nav></div>
+<div class="bd-sidebar__bottom">
+<!-- To handle the deprecated key -->
+<div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+</div>
+</div>
+<div id="rtd-footer-container"></div>
+</div>
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+<div class="header-article row sticky-top noprint">
+<div class="col py-1 d-flex header-article-main">
+<div class="header-article__left">
+<label class="headerbtn" data-placement="right" data-toggle="tooltip" for="__navigation" title="Toggle navigation">
+<span class="headerbtn__icon-container">
+<i class="fas fa-bars"></i>
+</span>
+</label>
+</div>
+<div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+<button aria-label="Launch interactive content" class="headerbtn menu-dropdown__trigger">
+<i class="fas fa-rocket"></i>
+</button>
+<div class="menu-dropdown__content">
+<ul>
+</ul>
+</div>
+</div>
+<button class="headerbtn" data-placement="bottom" data-toggle="tooltip" onclick="toggleFullScreen()" title="Fullscreen mode">
+<span class="headerbtn__icon-container">
+<i class="fas fa-expand"></i>
+</span>
+</button>
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+<button aria-label="Source repositories" class="headerbtn menu-dropdown__trigger">
+<i class="fab fa-github"></i>
+</button>
+<div class="menu-dropdown__content">
+<ul>
+<li>
+<a class="headerbtn" data-placement="left" data-toggle="tooltip" href="https://github.com/NeuromatchAcademy/instructor-course-content" title="Source repository">
+<span class="headerbtn__icon-container">
+<i class="fab fa-github"></i>
+</span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+</li>
+<li>
+<a class="headerbtn" data-placement="left" data-toggle="tooltip" href="https://github.com/NeuromatchAcademy/instructor-course-content/issues/new?title=Issue%20on%20page%20%2Ftutorials/W3D5_NetworkCausality/instructor/W3D5_Tutorial2.html&amp;body=Your%20issue%20content%20here." title="Open an issue">
+<span class="headerbtn__icon-container">
+<i class="fas fa-lightbulb"></i>
+</span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="menu-dropdown menu-dropdown-download-buttons">
+<button aria-label="Download this page" class="headerbtn menu-dropdown__trigger">
+<i class="fas fa-download"></i>
+</button>
+<div class="menu-dropdown__content">
+<ul>
+<li>
+<a class="headerbtn" data-placement="left" data-toggle="tooltip" href="../../../_sources/tutorials/W3D5_NetworkCausality/instructor/W3D5_Tutorial2.ipynb" title="Download source file">
+<span class="headerbtn__icon-container">
+<i class="fas fa-file"></i>
+</span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+</li>
+<li>
+<button class="headerbtn" data-placement="left" data-toggle="tooltip" onclick="printPdf(this)" title="Print to PDF">
+<span class="headerbtn__icon-container">
+<i class="fas fa-file-pdf"></i>
+</span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+</li>
+</ul>
+</div>
+</div>
+<label class="headerbtn headerbtn-page-toc" for="__page-toc">
+<span class="headerbtn__icon-container">
+<i class="fas fa-list"></i>
+</span>
+</label>
+</div>
+</div>
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+<div class="tocsection onthispage pt-5 pb-3">
+<i class="fas fa-list"></i> Contents
+    </div>
+<nav aria-label="Page" id="bd-toc-nav">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#">
+   Tutorial 2: Correlations
+  </a>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#tutorial-objectives">
+   Tutorial objectives
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#tutorial-2-objectives">
+     Tutorial 2 objectives
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#tutorial-2-setting">
+     Tutorial 2 setting
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#tutorial-slides">
+     Tutorial slides
+    </a>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#figure-settings">
+     Figure Settings
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#plotting-functions">
+     Plotting Functions
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#helper-functions">
+     Helper Functions
+    </a>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-1-small-systems">
+   Section 1: Small systems
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-1-correlation-vs-causation">
+     Video 1: Correlation vs causation
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#coding-exercise-1-try-to-approximate-causation-with-correlation">
+     Coding Exercise 1: Try to approximate causation with correlation
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-2-correlation-causation-for-small-systems">
+       Video 2: Correlation ~ causation for small systems
+      </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-2-large-systems">
+   Section 2: Large systems
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-2-1-failure-of-correlation-in-complex-systems">
+     Section 2.1: Failure of correlation in complex systems
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-3-correlation-vs-causation-in-large-systems">
+       Video 3: Correlation vs causation in large systems
+      </a>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-2-2-correlation-as-a-function-of-network-size">
+     Section 2.2: Correlation as a function of network size
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#interactive-demo-2-2-1-connectivity-estimation-as-a-function-of-number-of-neurons">
+       Interactive Demo 2.2.1: Connectivity estimation as a function of number of neurons
+      </a>
+</li>
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#interactive-demo-2-2-2-connectivity-estimation-as-a-function-of-the-sparsity-of-a">
+       Interactive Demo 2.2.2: Connectivity estimation as a function of the sparsity of
+       <span class="math notranslate nohighlight">
+        \(A\)
+       </span>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-3-reflecting-on-causality">
+   Section 3: Reflecting on causality
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#think-3-reflecting-on-causality">
+     Think! 3: Reflecting on causality
+    </a>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-4-summary">
+     Video 4: Summary
+    </a>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#bonus">
+   Bonus
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#bonus-section-1-correlation-as-similarity-metric">
+     Bonus Section 1: Correlation as similarity metric
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#bonus-section-2-low-resolution-systems">
+     Bonus Section 2: Low resolution systems
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#simulate-a-large-system">
+     Simulate a large system
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#bonus-section-1-1-coarsely-sample-the-system">
+       Bonus Section 1.1: Coarsely sample the system
+      </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry">
+<a class="reference internal nav-link" href="#bonus-coding-exercise-1-1-compute-average-activity-across-groups-and-compare-resulting-connectivity-to-the-truth">
+         Bonus Coding Exercise 1.1: Compute average activity across groups and compare resulting connectivity to the truth
+        </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class="article row">
+<div class="col pl-md-3 pl-lg-5 content-container">
+<!-- Table of contents that is only displayed when printing the page -->
+<div class="onlyprint" id="jb-print-docs-body">
+<h1>Tutorial 2: Correlations</h1>
+<!-- Table of contents -->
+<div id="print-main-content">
+<div id="jb-print-toc">
+<div>
+<h2> Contents </h2>
+</div>
+<nav aria-label="Page">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#">
+   Tutorial 2: Correlations
+  </a>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#tutorial-objectives">
+   Tutorial objectives
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#tutorial-2-objectives">
+     Tutorial 2 objectives
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#tutorial-2-setting">
+     Tutorial 2 setting
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#tutorial-slides">
+     Tutorial slides
+    </a>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#figure-settings">
+     Figure Settings
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#plotting-functions">
+     Plotting Functions
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#helper-functions">
+     Helper Functions
+    </a>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-1-small-systems">
+   Section 1: Small systems
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-1-correlation-vs-causation">
+     Video 1: Correlation vs causation
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#coding-exercise-1-try-to-approximate-causation-with-correlation">
+     Coding Exercise 1: Try to approximate causation with correlation
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-2-correlation-causation-for-small-systems">
+       Video 2: Correlation ~ causation for small systems
+      </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-2-large-systems">
+   Section 2: Large systems
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-2-1-failure-of-correlation-in-complex-systems">
+     Section 2.1: Failure of correlation in complex systems
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-3-correlation-vs-causation-in-large-systems">
+       Video 3: Correlation vs causation in large systems
+      </a>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-2-2-correlation-as-a-function-of-network-size">
+     Section 2.2: Correlation as a function of network size
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#interactive-demo-2-2-1-connectivity-estimation-as-a-function-of-number-of-neurons">
+       Interactive Demo 2.2.1: Connectivity estimation as a function of number of neurons
+      </a>
+</li>
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#interactive-demo-2-2-2-connectivity-estimation-as-a-function-of-the-sparsity-of-a">
+       Interactive Demo 2.2.2: Connectivity estimation as a function of the sparsity of
+       <span class="math notranslate nohighlight">
+        \(A\)
+       </span>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#section-3-reflecting-on-causality">
+   Section 3: Reflecting on causality
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#think-3-reflecting-on-causality">
+     Think! 3: Reflecting on causality
+    </a>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#video-4-summary">
+     Video 4: Summary
+    </a>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="#bonus">
+   Bonus
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#bonus-section-1-correlation-as-similarity-metric">
+     Bonus Section 1: Correlation as similarity metric
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#bonus-section-2-low-resolution-systems">
+     Bonus Section 2: Low resolution systems
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#simulate-a-large-system">
+     Simulate a large system
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#bonus-section-1-1-coarsely-sample-the-system">
+       Bonus Section 1.1: Coarsely sample the system
+      </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry">
+<a class="reference internal nav-link" href="#bonus-coding-exercise-1-1-compute-average-activity-across-groups-and-compare-resulting-connectivity-to-the-truth">
+         Bonus Coding Exercise 1.1: Compute average activity across groups and compare resulting connectivity to the truth
+        </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<main id="main-content" role="main">
+<div>
+<p><a href="https://colab.research.google.com/github/NeuromatchAcademy/course-content/blob/main/tutorials/W3D5_NetworkCausality/instructor/W3D5_Tutorial2.ipynb" target="_blank"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a>   <a href="https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/NeuromatchAcademy/course-content/main/tutorials/W3D5_NetworkCausality/instructor/W3D5_Tutorial2.ipynb" target="_blank"><img alt="Open in Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg"/></a></p>
+<div class="section" id="tutorial-2-correlations">
+<h1>Tutorial 2: Correlations<a class="headerlink" href="#tutorial-2-correlations" title="Permalink to this headline">¶</a></h1>
+<p><strong>Week 3, Day 5: Network Causality</strong></p>
+<p><strong>By Neuromatch Academy</strong></p>
+<p><strong>Content creators</strong>: Ari Benjamin, Tony Liu, Konrad Kording</p>
+<p><strong>Content reviewers</strong>: Mike X Cohen, Madineh Sarvestani, Yoni Friedman, Ella Batty, Michael Waskom</p>
+<p><strong>Post-production team:</strong> Gagana B, Spiros Chavlis</p>
+<p><strong>Our 2021 Sponsors, including Presenting Sponsor Facebook Reality Labs</strong></p>
+<p align="center"><img src="https://github.com/NeuromatchAcademy/widgets/blob/master/sponsors.png?raw=True"/></p></div>
+<hr class="docutils"/>
+<div class="section" id="tutorial-objectives">
+<h1>Tutorial objectives<a class="headerlink" href="#tutorial-objectives" title="Permalink to this headline">¶</a></h1>
+<p><em>Estimated timing of tutorial: 45 min</em></p>
+<p>This is tutorial 2 on our day of examining causality. Below is the high level outline of what we’ll cover today, with the sections we will focus on in this tutorial in bold:</p>
+<ol class="simple">
+<li><p>Master definitions of causality</p></li>
+<li><p>Understand that estimating causality is possible</p></li>
+<li><p>Learn 4 different methods and understand when they fail</p>
+<ol class="simple">
+<li><p>perturbations</p></li>
+<li><p><strong>correlations</strong></p></li>
+<li><p>simultaneous fitting/regression</p></li>
+<li><p>instrumental variables</p></li>
+</ol>
+</li>
+</ol>
+<div class="section" id="tutorial-2-objectives">
+<h2>Tutorial 2 objectives<a class="headerlink" href="#tutorial-2-objectives" title="Permalink to this headline">¶</a></h2>
+<p>In tutorial 1, we implemented and explored the dynamical system of neurons we will be working with throughout all of the tutorials today. We also learned about the “gold standard” of measuring causal effects through random perturbations. As random perturbations are often not possible, we will now turn to alternative methods to attempt to measure causality. We will:</p>
+<ul class="simple">
+<li><p>Learn how to estimate connectivity from observations assuming <strong>correlations approximate causation</strong></p></li>
+<li><p>Show that this only works when the network is small</p></li>
+</ul>
+</div>
+<div class="section" id="tutorial-2-setting">
+<h2>Tutorial 2 setting<a class="headerlink" href="#tutorial-2-setting" title="Permalink to this headline">¶</a></h2>
+<p>Often, we can’t force neural activities or brain areas to be on or off. We just have to observe. Maybe we can get the correlation between two nodes – is that good enough? The question we ask in this tutorial is <strong>when is correlation a “good enough” substitute for causation?</strong></p>
+<p>The answer is not “never”, actually, but “sometimes”.</p>
+</div>
+<div class="section" id="tutorial-slides">
+<h2>Tutorial slides<a class="headerlink" href="#tutorial-slides" title="Permalink to this headline">¶</a></h2>
+<p>These are the slides for the videos in all tutorials today</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe allowfullscreen="" frameborder="0" height="480" src="https://mfr.ca-1.osf.io/render?url=https://osf.io/gp4m9/?direct%26mode=render%26action=download%26mode=render" width="854"></iframe>
+</div></div>
+</div>
+</div>
+</div>
+<hr class="docutils"/>
+<div class="section" id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="figure-settings">
+<h2>Figure Settings<a class="headerlink" href="#figure-settings" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Figure Settings</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>       <span class="c1"># interactive display</span>
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = 'retina'
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">"https://raw.githubusercontent.com/NeuromatchAcademy/course-content/master/nma.mplstyle"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plotting-functions">
+<h2>Plotting Functions<a class="headerlink" href="#plotting-functions" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Plotting Functions</span>
+
+<span class="k">def</span> <span class="nf">see_neurons</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">ax</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Visualizes the connectivity matrix.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        A (np.ndarray): the connectivity matrix of shape (n_neurons, n_neurons)</span>
+<span class="sd">        ax (plt.axis): the matplotlib axis to display on</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Nothing, but visualizes A.</span>
+<span class="sd">    """</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">T</span>  <span class="c1"># make up for opposite connectivity</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">'equal'</span><span class="p">)</span>
+    <span class="n">thetas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">thetas</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">thetas</span><span class="p">),</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">A</span> <span class="o">/</span> <span class="n">A</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">head_width</span><span class="o">=</span><span class="mf">.15</span><span class="p">,</span>
+                        <span class="n">width</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">/</span> <span class="mi">25</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s1">'right'</span><span class="p">,</span> <span class="n">length_includes_head</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">plot_estimation_quality_vs_n_neurons</span><span class="p">(</span><span class="n">number_of_neurons</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    A wrapper function that calculates correlation between true and estimated connectivity</span>
+<span class="sd">    matrices for each number of neurons and plots</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      number_of_neurons (list): list of different number of neurons for modeling system</span>
+<span class="sd">      corr_func (function): Function for computing correlation</span>
+<span class="sd">    """</span>
+    <span class="n">corr_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_trials</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">number_of_neurons</span><span class="p">)))</span>
+    <span class="k">for</span> <span class="n">trial</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_trials</span><span class="p">):</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">"simulating trial </span><span class="si">{}</span><span class="s2"> of </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">trial</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n_trials</span><span class="p">))</span>
+      <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">size</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">number_of_neurons</span><span class="p">):</span>
+          <span class="n">corr</span> <span class="o">=</span> <span class="n">get_sys_corr</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">timesteps</span><span class="p">,</span> <span class="n">trial</span><span class="p">)</span>
+          <span class="n">corr_data</span><span class="p">[</span><span class="n">trial</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">corr</span>
+
+    <span class="n">corr_mean</span> <span class="o">=</span> <span class="n">corr_data</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">corr_std</span> <span class="o">=</span> <span class="n">corr_data</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">number_of_neurons</span><span class="p">,</span> <span class="n">corr_mean</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">number_of_neurons</span><span class="p">,</span>
+                     <span class="n">corr_mean</span> <span class="o">-</span> <span class="n">corr_std</span><span class="p">,</span>
+                     <span class="n">corr_mean</span> <span class="o">+</span> <span class="n">corr_std</span><span class="p">,</span>
+                     <span class="n">alpha</span><span class="o">=</span><span class="mf">.2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Number of neurons"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Correlation"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Similarity between A and R as a function of network size"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">plot_connectivity_matrix</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+  <span class="sd">"""Plot the (weighted) connectivity matrix A as a heatmap</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      A (ndarray): connectivity matrix (n_neurons by n_neurons)</span>
+<span class="sd">      ax: axis on which to display connectivity matrix</span>
+<span class="sd">  """</span>
+  <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+  <span class="n">lim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+  <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="n">lim</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">lim</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"coolwarm"</span><span class="p">)</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_size</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_size</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+  <span class="n">cbar</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">.7</span><span class="p">)</span>
+  <span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Connectivity Strength"</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span>
+                     <span class="n">labelpad</span><span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">"bottom"</span><span class="p">)</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">"Connectivity from"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"Connectivity to"</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">plot_true_vs_estimated_connectivity</span><span class="p">(</span><span class="n">estimated_connectivity</span><span class="p">,</span> <span class="n">true_connectivity</span><span class="p">,</span> <span class="n">selected_neuron</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+  <span class="sd">"""Visualize true vs estimated connectivity matrices</span>
+
+<span class="sd">  Args:</span>
+<span class="sd">    estimated_connectivity (ndarray): estimated connectivity (n_neurons by n_neurons)</span>
+<span class="sd">    true_connectivity (ndarray): ground-truth connectivity (n_neurons by n_neurons)</span>
+<span class="sd">    selected_neuron (int or None): None if plotting all connectivity, otherwise connectivity</span>
+<span class="sd">      from selected_neuron will be shown</span>
+
+<span class="sd">  """</span>
+  <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+  <span class="k">if</span> <span class="n">selected_neuron</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">plot_connectivity_matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">estimated_connectivity</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">plot_connectivity_matrix</span><span class="p">(</span><span class="n">true_connectivity</span><span class="p">[:,</span> <span class="p">[</span><span class="n">selected_neuron</span><span class="p">]],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="n">selected_neuron</span><span class="p">])</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="n">selected_neuron</span><span class="p">])</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="n">plot_connectivity_matrix</span><span class="p">(</span><span class="n">estimated_connectivity</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">plot_connectivity_matrix</span><span class="p">(</span><span class="n">true_connectivity</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+  <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"True connectivity"</span><span class="p">)</span>
+  <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"Estimated connectivity"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="helper-functions">
+<h2>Helper Functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title Helper Functions</span>
+
+<span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Compute sigmoid nonlinearity element-wise on x.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (np.ndarray): the numpy data array we want to transform</span>
+<span class="sd">    Returns</span>
+<span class="sd">        (np.ndarray): x with sigmoid nonlinearity applied</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">create_connectivity</span><span class="p">(</span><span class="n">n_neurons</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.9</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Generate our nxn causal connectivity matrix.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        n_neurons (int): the number of neurons in our system.</span>
+<span class="sd">        random_state (int): random seed for reproducibility</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A (np.ndarray): our 0.1 sparse connectivity matrix</span>
+<span class="sd">    """</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">random_state</span><span class="p">)</span>
+    <span class="n">A_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_neurons</span><span class="p">,</span> <span class="n">n_neurons</span><span class="p">),</span> <span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="n">p</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">])</span>
+
+    <span class="c1"># set the timescale of the dynamical system to about 100 steps</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">s_vals</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">A_0</span><span class="p">)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">A_0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.01</span> <span class="o">*</span> <span class="n">s_vals</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="c1"># _, s_val_test, _ = np.linalg.svd(A)</span>
+    <span class="c1"># assert s_val_test[0] &lt; 1, "largest singular value &gt;= 1"</span>
+
+    <span class="k">return</span> <span class="n">A</span>
+
+
+<span class="k">def</span> <span class="nf">simulate_neurons</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">timesteps</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Simulates a dynamical system for the specified number of neurons and timesteps.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        A (np.array): the connectivity matrix</span>
+<span class="sd">        timesteps (int): the number of timesteps to simulate our system.</span>
+<span class="sd">        random_state (int): random seed for reproducibility</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - X has shape (n_neurons, timeteps).</span>
+<span class="sd">    """</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">random_state</span><span class="p">)</span>
+
+    <span class="n">n_neurons</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_neurons</span><span class="p">,</span> <span class="n">timesteps</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">timesteps</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="c1"># solution</span>
+        <span class="n">epsilon</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_neurons</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n_neurons</span><span class="p">))</span>
+        <span class="n">X</span><span class="p">[:,</span> <span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="n">t</span><span class="p">])</span> <span class="o">+</span> <span class="n">epsilon</span><span class="p">)</span>
+
+        <span class="k">assert</span> <span class="n">epsilon</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="n">n_neurons</span><span class="p">,)</span>
+    <span class="k">return</span> <span class="n">X</span>
+
+
+<span class="k">def</span> <span class="nf">get_sys_corr</span><span class="p">(</span><span class="n">n_neurons</span><span class="p">,</span> <span class="n">timesteps</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">neuron_idx</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    A wrapper function for our correlation calculations between A and R.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        n_neurons (int): the number of neurons in our system.</span>
+<span class="sd">        timesteps (int): the number of timesteps to simulate our system.</span>
+<span class="sd">        random_state (int): seed for reproducibility</span>
+<span class="sd">        neuron_idx (int): optionally provide a neuron idx to slice out</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A single float correlation value representing the similarity between A and R</span>
+<span class="sd">    """</span>
+
+    <span class="n">A</span> <span class="o">=</span> <span class="n">create_connectivity</span><span class="p">(</span><span class="n">n_neurons</span><span class="p">,</span> <span class="n">random_state</span><span class="p">)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">simulate_neurons</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">timesteps</span><span class="p">)</span>
+
+    <span class="n">R</span> <span class="o">=</span> <span class="n">correlation_for_all_neurons</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">R</span><span class="o">.</span><span class="n">flatten</span><span class="p">())[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The helper functions defined above are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sigmoid</span></code>: computes sigmoid nonlinearity element-wise on input, from Tutorial 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">create_connectivity</span></code>: generates nxn causal connectivity matrix., from Tutorial 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">simulate_neurons</span></code>: simulates a dynamical system for the specified number of neurons and timesteps, from Tutorial 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_sys_corr</span></code>: a wrapper function for correlation calculations between A and R.</p></li>
+</ul>
+</div>
+</div>
+<hr class="docutils"/>
+<div class="section" id="section-1-small-systems">
+<h1>Section 1: Small systems<a class="headerlink" href="#section-1-small-systems" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="video-1-correlation-vs-causation">
+<h2>Video 1: Correlation vs causation<a class="headerlink" href="#video-1-correlation-vs-causation" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "ee7dadddd67849b4a03843a4be842287"}
+</script></div>
+</div>
+</div>
+<div class="section" id="coding-exercise-1-try-to-approximate-causation-with-correlation">
+<h2>Coding Exercise 1: Try to approximate causation with correlation<a class="headerlink" href="#coding-exercise-1-try-to-approximate-causation-with-correlation" title="Permalink to this headline">¶</a></h2>
+<p>In small systems, correlation can look like causation. Let’s attempt to recover the true connectivity matrix (A) just by correlating the neural state at each timestep with the previous state: <span class="math notranslate nohighlight">\(C=\vec{x_t}{\vec{x_{t+1}}^\top}\)</span>.</p>
+<p>Complete this function to estimate the connectivity matrix of a single neuron by calculating the correlation coefficients with every other neuron at the next timestep. That is, please correlate two vectors: 1) the activity of a selected neuron at time <span class="math notranslate nohighlight">\(t\)</span> 2) The activity of all other neurons at time <span class="math notranslate nohighlight">\(t+1\)</span>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="k">def</span> <span class="nf">compute_connectivity_from_single_neuron</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">selected_neuron</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Computes the connectivity matrix from a single neuron neurons using correlations</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        X (ndarray): the matrix of activities</span>
+<span class="sd">        selected_neuron (int): the index of the selected neuron</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        estimated_connectivity (ndarray): estimated connectivity for the selected neuron, of shape (n_neurons,)</span>
+<span class="sd">    """</span>
+
+    <span class="c1"># Extract the current activity of selected_neuron, t</span>
+    <span class="n">current_activity</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">selected_neuron</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># Extract the observed outcomes of all the neurons</span>
+    <span class="n">next_activity</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span>
+
+    <span class="c1"># Initialize estimated connectivity matrix</span>
+    <span class="n">estimated_connectivity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_neurons</span><span class="p">)</span>
+
+    <span class="c1"># Loop through all neurons</span>
+    <span class="k">for</span> <span class="n">neuron_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_neurons</span><span class="p">):</span>
+
+        <span class="c1"># Get the activity of neuron_idx</span>
+        <span class="n">this_output_activity</span> <span class="o">=</span> <span class="n">next_activity</span><span class="p">[</span><span class="n">neuron_idx</span><span class="p">]</span>
+
+        <span class="c1">########################################################################</span>
+        <span class="c1">## TODO: Estimate the neural correlations between</span>
+        <span class="c1">## this_output_activity        and       current_activity</span>
+        <span class="c1">## -------------------                  ----------------</span>
+        <span class="c1">##</span>
+        <span class="c1">## Note that np.corrcoef returns the full correlation matrix; we want the</span>
+        <span class="c1">## top right corner, which we have already provided.</span>
+        <span class="c1">## FIll out function and remove</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">'Compute neural correlations'</span><span class="p">)</span>
+        <span class="c1">########################################################################</span>
+        <span class="c1"># Compute correlation</span>
+        <span class="n">correlation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="o">...</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># Store this neuron's correlation</span>
+        <span class="n">estimated_connectivity</span><span class="p">[</span><span class="n">neuron_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">correlation</span>
+
+    <span class="k">return</span> <span class="n">estimated_connectivity</span>
+
+
+<span class="c1"># Simulate a 6 neuron system for 5000 timesteps again.</span>
+<span class="n">n_neurons</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">timesteps</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="n">selected_neuron</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Invoke a helper function that generates our nxn causal connectivity matrix</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">create_connectivity</span><span class="p">(</span><span class="n">n_neurons</span><span class="p">)</span>
+
+<span class="c1"># Invoke a helper function that simulates the neural activity</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">simulate_neurons</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">timesteps</span><span class="p">)</span>
+
+<span class="c1"># Estimate connectivity</span>
+<span class="n">estimated_connectivity</span> <span class="o">=</span> <span class="n">compute_connectivity_from_single_neuron</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">selected_neuron</span><span class="p">)</span>
+
+<span class="c1"># Visualize</span>
+<span class="n">plot_true_vs_estimated_connectivity</span><span class="p">(</span><span class="n">estimated_connectivity</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">selected_neuron</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># to_remove solution</span>
+<span class="k">def</span> <span class="nf">compute_connectivity_from_single_neuron</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">selected_neuron</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Computes the connectivity matrix from a single neuron neurons using correlations</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        X (ndarray): the matrix of activities</span>
+<span class="sd">        selected_neuron (int): the index of the selected neuron</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        estimated_connectivity (ndarray): estimated connectivity for the selected neuron, of shape (n_neurons,)</span>
+<span class="sd">    """</span>
+
+    <span class="c1"># Extract the current activity of selected_neuron, t</span>
+    <span class="n">current_activity</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">selected_neuron</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># Extract the observed outcomes of all the neurons</span>
+    <span class="n">next_activity</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span>
+
+    <span class="c1"># Initialize estimated connectivity matrix</span>
+    <span class="n">estimated_connectivity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_neurons</span><span class="p">)</span>
+
+    <span class="c1"># Loop through all neurons</span>
+    <span class="k">for</span> <span class="n">neuron_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_neurons</span><span class="p">):</span>
+
+        <span class="c1"># Get the activity of neuron_idx</span>
+        <span class="n">this_output_activity</span> <span class="o">=</span> <span class="n">next_activity</span><span class="p">[</span><span class="n">neuron_idx</span><span class="p">]</span>
+
+        <span class="c1"># Compute correlation</span>
+        <span class="n">correlation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">this_output_activity</span><span class="p">,</span> <span class="n">current_activity</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># Store this neuron's correlation</span>
+        <span class="n">estimated_connectivity</span><span class="p">[</span><span class="n">neuron_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">correlation</span>
+
+    <span class="k">return</span> <span class="n">estimated_connectivity</span>
+
+
+<span class="c1"># Simulate a 6 neuron system for 5000 timesteps again.</span>
+<span class="n">n_neurons</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">timesteps</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="n">selected_neuron</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Invoke a helper function that generates our nxn causal connectivity matrix</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">create_connectivity</span><span class="p">(</span><span class="n">n_neurons</span><span class="p">)</span>
+
+<span class="c1"># Invoke a helper function that simulates the neural activity</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">simulate_neurons</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">timesteps</span><span class="p">)</span>
+
+<span class="c1"># Estimate connectivity</span>
+<span class="n">estimated_connectivity</span> <span class="o">=</span> <span class="n">compute_connectivity_from_single_neuron</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">selected_neuron</span><span class="p">)</span>
+
+<span class="c1"># Visualize</span>
+<span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">():</span>
+  <span class="n">plot_true_vs_estimated_connectivity</span><span class="p">(</span><span class="n">estimated_connectivity</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">selected_neuron</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/W3D5_Tutorial2_21_0.png" src="../../../_images/W3D5_Tutorial2_21_0.png"/>
+</div>
+</div>
+<p>Hopefully you saw that it pretty much worked. We wrote a function that does what you just did but in matrix form, so it’s a little faster. It also does all neurons at the same time (helper function <code class="docutils literal notranslate"><span class="pre">correlation_for_all_neurons</span></code>).</p>
+<p>Execute this cell get helper function <code class="docutils literal notranslate"><span class="pre">correlation_for_all_neurons</span></code></p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @markdown Execute this cell get helper function `correlation_for_all_neurons`</span>
+
+<span class="k">def</span> <span class="nf">correlation_for_all_neurons</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+  <span class="sd">"""Computes the connectivity matrix for the all neurons using correlations</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        X: the matrix of activities</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        estimated_connectivity (np.ndarray): estimated connectivity for the selected neuron, of shape (n_neurons,)</span>
+<span class="sd">  """</span>
+  <span class="n">n_neurons</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+  <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:],</span> <span class="n">X</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+  <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">S</span><span class="p">)[:</span><span class="n">n_neurons</span><span class="p">,</span> <span class="n">n_neurons</span><span class="p">:]</span>
+  <span class="k">return</span> <span class="n">R</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Execute this cell to visualize full estimated vs true connectivity</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @markdown Execute this cell to visualize full estimated vs true connectivity</span>
+
+<span class="n">R</span> <span class="o">=</span> <span class="n">correlation_for_all_neurons</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">see_neurons</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plot_connectivity_matrix</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">"True connectivity matrix A"</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">see_neurons</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plot_connectivity_matrix</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">"Estimated connectivity matrix R"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/W3D5_Tutorial2_26_0.png" src="../../../_images/W3D5_Tutorial2_26_0.png"/>
+<img alt="../../../_images/W3D5_Tutorial2_26_1.png" src="../../../_images/W3D5_Tutorial2_26_1.png"/>
+</div>
+</div>
+<p>That pretty much worked too. Let’s quantify how much it worked.</p>
+<p>We’ll calculate the correlation coefficient between the true connectivity and the actual connectivity;</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Correlation matrix of A and R:"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">R</span><span class="o">.</span><span class="n">flatten</span><span class="p">())[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correlation matrix of A and R: 0.9596667994046594
+</pre></div>
+</div>
+</div>
+</div>
+<p>It <em>appears</em> in our system that correlation captures causality.</p>
+<div class="section" id="video-2-correlation-causation-for-small-systems">
+<h3>Video 2: Correlation ~ causation for small systems<a class="headerlink" href="#video-2-correlation-causation-for-small-systems" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "c8e426216e4f4944b2bd5679534a78fb"}
+</script></div>
+</div>
+<p><strong>Video correction</strong>: the connectivity graph plots and associated explanations in this and other videos show the wrong direction of connectivity (the arrows should be pointing the opposite direction). This has been fixed in the figures above.</p>
+</div>
+</div>
+</div>
+<hr class="docutils"/>
+<div class="section" id="section-2-large-systems">
+<h1>Section 2: Large systems<a class="headerlink" href="#section-2-large-systems" title="Permalink to this headline">¶</a></h1>
+<p><em>Estimated timing to here from start of tutorial: 15 min</em></p>
+<p>As our system becomes more complex however, correlation fails to capture causality.</p>
+<div class="section" id="section-2-1-failure-of-correlation-in-complex-systems">
+<h2>Section 2.1: Failure of correlation in complex systems<a class="headerlink" href="#section-2-1-failure-of-correlation-in-complex-systems" title="Permalink to this headline">¶</a></h2>
+<p>Let’s jump to a much bigger system. Instead of 6 neurons, we will now use 100 neurons. How does the estimation quality of the connectivity matrix change?</p>
+<p>Execute this cell to simulate large system, estimate connectivity matrix with correlation and return estimation quality</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @markdown Execute this cell to simulate large system, estimate connectivity matrix with correlation and return estimation quality</span>
+
+<span class="c1"># Simulate a 100 neuron system for 5000 timesteps.</span>
+<span class="n">n_neurons</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">timesteps</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">create_connectivity</span><span class="p">(</span><span class="n">n_neurons</span><span class="p">,</span> <span class="n">random_state</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">simulate_neurons</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">timesteps</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">correlation_for_all_neurons</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Correlation matrix of A and R:"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">R</span><span class="o">.</span><span class="n">flatten</span><span class="p">())[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plot_connectivity_matrix</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"True connectivity matrix A"</span><span class="p">)</span>
+<span class="n">plot_connectivity_matrix</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Estimated connectivity matrix R"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correlation matrix of A and R: 0.36293298241778144
+</pre></div>
+</div>
+<img alt="../../../_images/W3D5_Tutorial2_36_1.png" src="../../../_images/W3D5_Tutorial2_36_1.png"/>
+</div>
+</div>
+<div class="section" id="video-3-correlation-vs-causation-in-large-systems">
+<h3>Video 3: Correlation vs causation in large systems<a class="headerlink" href="#video-3-correlation-vs-causation-in-large-systems" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "a984910d4efc43e69fa3b6fb0861db46"}
+</script></div>
+</div>
+</div>
+</div>
+<div class="section" id="section-2-2-correlation-as-a-function-of-network-size">
+<h2>Section 2.2: Correlation as a function of network size<a class="headerlink" href="#section-2-2-correlation-as-a-function-of-network-size" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="interactive-demo-2-2-1-connectivity-estimation-as-a-function-of-number-of-neurons">
+<h3>Interactive Demo 2.2.1: Connectivity estimation as a function of number of neurons<a class="headerlink" href="#interactive-demo-2-2-1-connectivity-estimation-as-a-function-of-number-of-neurons" title="Permalink to this headline">¶</a></h3>
+<p>Instead of looking at just a few neurons (6) or a lot of neurons (100), as above, we will now systematically vary the number of neurons and plot the resulting changes in correlation coefficient between the true and estimated connectivity matrices.</p>
+<p>Execute this cell to enable demo</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @markdown Execute this cell to enable demo</span>
+<span class="nd">@widgets</span><span class="o">.</span><span class="n">interact</span><span class="p">(</span><span class="n">n_neurons</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">plot_corrs</span><span class="p">(</span><span class="n">n_neurons</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
+  <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+  <span class="n">timesteps</span> <span class="o">=</span> <span class="mi">2000</span>
+  <span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span>
+  <span class="n">A</span> <span class="o">=</span> <span class="n">create_connectivity</span><span class="p">(</span><span class="n">n_neurons</span><span class="p">,</span> <span class="n">random_state</span><span class="p">)</span>
+  <span class="n">X</span> <span class="o">=</span> <span class="n">simulate_neurons</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">timesteps</span><span class="p">)</span>
+  <span class="n">R</span> <span class="o">=</span> <span class="n">correlation_for_all_neurons</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+  <span class="n">corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">R</span><span class="o">.</span><span class="n">flatten</span><span class="p">())[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+  <span class="n">plot_connectivity_matrix</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+  <span class="n">plot_connectivity_matrix</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+  <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"True connectivity"</span><span class="p">)</span>
+  <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Estimated connectivity"</span><span class="p">)</span>
+  <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">"Correlation : </span><span class="si">{:.2f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">corr</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+  <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "ad806d7ff0ed4fedb30f6be2866b6d17"}
+</script></div>
+</div>
+<p>Of course there is some variability due to randomness in <span class="math notranslate nohighlight">\(A\)</span>. Let’s average over a few trials and find the relationship.</p>
+<p>Execute this cell to plot connectivity estimation as a function of network size</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @markdown Execute this cell to plot connectivity estimation as a function of network size</span>
+
+<span class="n">n_trials</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">timesteps</span> <span class="o">=</span> <span class="mi">1000</span>  <span class="c1"># shorter timesteps for faster running time</span>
+<span class="n">number_of_neurons</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="n">plot_estimation_quality_vs_n_neurons</span><span class="p">(</span><span class="n">number_of_neurons</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>simulating trial 1 of 5
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>simulating trial 2 of 5
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>simulating trial 3 of 5
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>simulating trial 4 of 5
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>simulating trial 5 of 5
+</pre></div>
+</div>
+<img alt="../../../_images/W3D5_Tutorial2_45_6.png" src="../../../_images/W3D5_Tutorial2_45_6.png"/>
+</div>
+</div>
+</div>
+<div class="section" id="interactive-demo-2-2-2-connectivity-estimation-as-a-function-of-the-sparsity-of-a">
+<h3>Interactive Demo 2.2.2: Connectivity estimation as a function of the sparsity of <span class="math notranslate nohighlight">\(A\)</span><a class="headerlink" href="#interactive-demo-2-2-2-connectivity-estimation-as-a-function-of-the-sparsity-of-a" title="Permalink to this headline">¶</a></h3>
+<p>You may rightly wonder if correlation only fails for large systems for certain types of <span class="math notranslate nohighlight">\(A\)</span>. In this interactive demo, you can examine connectivity estimation as a function of the sparsity of <span class="math notranslate nohighlight">\(A\)</span>. Does connectivity estimation get better or worse with less sparsity?</p>
+<p>Execute this cell to enable demo</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @markdown Execute this cell to enable demo</span>
+<span class="nd">@widgets</span><span class="o">.</span><span class="n">interact</span><span class="p">(</span><span class="n">sparsity</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">.01</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">plot_corrs</span><span class="p">(</span><span class="n">sparsity</span><span class="o">=</span><span class="mf">0.9</span><span class="p">):</span>
+  <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+  <span class="n">timesteps</span> <span class="o">=</span> <span class="mi">2000</span>
+  <span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span>
+  <span class="n">n_neurons</span> <span class="o">=</span> <span class="mi">25</span>
+  <span class="n">A</span> <span class="o">=</span> <span class="n">create_connectivity</span><span class="p">(</span><span class="n">n_neurons</span><span class="p">,</span> <span class="n">random_state</span><span class="p">,</span> <span class="n">sparsity</span><span class="p">)</span>
+  <span class="n">X</span> <span class="o">=</span> <span class="n">simulate_neurons</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">timesteps</span><span class="p">)</span>
+  <span class="n">R</span> <span class="o">=</span> <span class="n">correlation_for_all_neurons</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+  <span class="n">corr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">R</span><span class="o">.</span><span class="n">flatten</span><span class="p">())[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+  <span class="n">plot_connectivity_matrix</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+  <span class="n">plot_connectivity_matrix</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+  <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"True connectivity"</span><span class="p">)</span>
+  <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Estimated connectivity"</span><span class="p">)</span>
+  <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">"Correlation : </span><span class="si">{:.2f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">corr</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+  <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "a6ebe53ddda446b69231982b8d76a787"}
+</script></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils"/>
+<div class="section" id="section-3-reflecting-on-causality">
+<h1>Section 3: Reflecting on causality<a class="headerlink" href="#section-3-reflecting-on-causality" title="Permalink to this headline">¶</a></h1>
+<p><em>Estimated timing to here from start of tutorial: 34 min</em></p>
+<div class="section" id="think-3-reflecting-on-causality">
+<h2>Think! 3: Reflecting on causality<a class="headerlink" href="#think-3-reflecting-on-causality" title="Permalink to this headline">¶</a></h2>
+<p>Please discuss the following questions within groups for around 10 minutes.</p>
+<ul class="simple">
+<li><p>Think of a research paper you’ve written. Did it use previous causal knowledge (e.g. a mechanism), or ask a causal question? Try phrasing that causal relationship in the language of an intervention. (“<em>If I were to force <span class="math notranslate nohighlight">\(A\)</span> to be <span class="math notranslate nohighlight">\(A'\)</span>, <span class="math notranslate nohighlight">\(B\)</span> would…</em>”)</p></li>
+<li><p>What methods for interventions exist in your area of neuroscience?</p></li>
+<li><p>Think about these common “filler” words. Do they imply a causal relationship, in its interventional definition? (<em>regulates, mediates, generates, modulates, shapes, underlies, produces, encodes, induces, enables, ensures, supports, promotes, determines</em>)</p></li>
+<li><p>What dimensionality would you (very roughly) estimate the brain to be? Would you expect correlations between neurons to give you their connectivity? Why?</p></li>
+</ul>
+</div>
+</div>
+<hr class="docutils"/>
+<div class="section" id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
+<p><em>Estimated timing of tutorial: 45 min</em></p>
+<div class="section" id="video-4-summary">
+<h2>Video 4: Summary<a class="headerlink" href="#video-4-summary" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "e145ca53b5654745a29f936c27286675"}
+</script></div>
+</div>
+<p>Now for the takeaway. We know that for large systems correlation ≠ causation. But what about when we coarsely sample the large system? Do we get better at estimating the <em>effective</em> causal interaction between groups (=average of weights) from the correlation between the groups?</p>
+<p>From our simulation above, the answer appears to be no: as the number of neurons per group increases, we don’t see any significant increase in our ability to estimate the causal interaction between groups.</p>
+<p>If you have time after completing all tutorials and are interested, please see Bonus Section 1 below for a brief discussion of correlation as a similarity metric and Bonus Section 2 to learn about causality and correlation in low resolution systems.</p>
+</div>
+</div>
+<hr class="docutils"/>
+<div class="section" id="bonus">
+<h1>Bonus<a class="headerlink" href="#bonus" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils"/>
+<div class="section" id="bonus-section-1-correlation-as-similarity-metric">
+<h2>Bonus Section 1: Correlation as similarity metric<a class="headerlink" href="#bonus-section-1-correlation-as-similarity-metric" title="Permalink to this headline">¶</a></h2>
+<p>We’d like to note here that though we make use of Pearson correlation coefficients throughout all of our tutorials to measure similarity between our estimated connectivity matrix <span class="math notranslate nohighlight">\(R\)</span> and the ground truth connectivity <span class="math notranslate nohighlight">\(A\)</span>, this is not strictly correct usage of Pearson correlations as elements of <span class="math notranslate nohighlight">\(A\)</span> are not normally distributed (they are in fact binary).</p>
+<p>We use Pearson correlations as they are quick and easy to compute within the Numpy framework and provide qualitatively similar results to other correlation metrics. Other ways to compute similarities:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient">Spearman rank correlations</a>, which does not require normally distributed data</p></li>
+<li><p>dichotomizing our estimated matrix <span class="math notranslate nohighlight">\(R\)</span> by the median and then running concordance analysis, such as computing <a class="reference external" href="https://en.wikipedia.org/wiki/Cohen%27s_kappa">Cohen’s kappa</a></p></li>
+</ul>
+<p>Another thing to consider: all we want is some measure of the similarity between <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(R\)</span>. Element-wise comparisons are one way to do this, but are there other ways you can think of? What about matrix similarities?</p>
+</div>
+<hr class="docutils"/>
+<div class="section" id="bonus-section-2-low-resolution-systems">
+<h2>Bonus Section 2: Low resolution systems<a class="headerlink" href="#bonus-section-2-low-resolution-systems" title="Permalink to this headline">¶</a></h2>
+<p>A common situation in neuroscience is that you observe the <em>average</em> activity of large groups of neurons. (Think fMRI, EEG, LFP, etc.)
+We’re going to simulate this effect, and ask if correlations work to recover the average causal effect of groups of neurons or areas.</p>
+<p><strong>Note on the quality of the analogy</strong>: This is not intended as a perfect analogy of the brain or fMRI. Instead, we want to ask: <em>in a big system in which correlations fail to estimate causality, can you at least recover average connectivity between groups?</em></p>
+<p><strong>Some brainy differences to remember</strong>:
+We are assuming that the connectivity is random. In real brains, the neurons that are averaged have correlated input and output connectivities. This will improve the correspondence between correlations and causality for the average effect because the system has a lower true dimensionality. However, in real brains the system is also order of magnitudes larger than what we examine here, and the experimenter never has the fully-observed system.</p>
+</div>
+<div class="section" id="simulate-a-large-system">
+<h2>Simulate a large system<a class="headerlink" href="#simulate-a-large-system" title="Permalink to this headline">¶</a></h2>
+<p>Execute the next cell to simulate a large system of 256 neurons for 10000 timesteps - it will take a bit of time to finish so move on as it runs.</p>
+<p>Execute this cell to simulate a large system</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @markdown Execute this cell to simulate a large system</span>
+
+<span class="n">n_neurons</span> <span class="o">=</span> <span class="mi">256</span>
+<span class="n">timesteps</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">create_connectivity</span><span class="p">(</span><span class="n">n_neurons</span><span class="p">,</span> <span class="n">random_state</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">simulate_neurons</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">timesteps</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_17506</span><span class="o">/</span><span class="mf">4113217855.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">A</span> <span class="o">=</span> <span class="n">create_connectivity</span><span class="p">(</span><span class="n">n_neurons</span><span class="p">,</span> <span class="n">random_state</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">X</span> <span class="o">=</span> <span class="n">simulate_neurons</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">timesteps</span><span class="p">)</span>
+
+<span class="nn">/tmp/ipykernel_17506/2993435089.py</span> in <span class="ni">simulate_neurons</span><span class="nt">(A, timesteps, random_state)</span>
+<span class="g g-Whitespace">     </span><span class="mi">56</span>     <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">timesteps</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span>         <span class="c1"># solution</span>
+<span class="ne">---&gt; </span><span class="mi">58</span>         <span class="n">epsilon</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_neurons</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n_neurons</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span>         <span class="n">X</span><span class="p">[:,</span> <span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="n">t</span><span class="p">])</span> <span class="o">+</span> <span class="n">epsilon</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span> 
+
+<span class="nn">mtrand.pyx</span> in <span class="ni">numpy.random.mtrand.RandomState.multivariate_normal</span><span class="nt">()</span>
+
+<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">svd</span><span class="nt">(*args, **kwargs)</span>
+
+<span class="nn">~/anaconda3/lib/python3.8/site-packages/numpy/linalg/linalg.py</span> in <span class="ni">svd</span><span class="nt">(a, full_matrices, compute_uv, hermitian)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1658</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1659</span>         <span class="n">signature</span> <span class="o">=</span> <span class="s1">'D-&gt;DdD'</span> <span class="k">if</span> <span class="n">isComplexType</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">else</span> <span class="s1">'d-&gt;ddd'</span>
+<span class="ne">-&gt; </span><span class="mi">1660</span>         <span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">vh</span> <span class="o">=</span> <span class="n">gufunc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">signature</span><span class="o">=</span><span class="n">signature</span><span class="p">,</span> <span class="n">extobj</span><span class="o">=</span><span class="n">extobj</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1661</span>         <span class="n">u</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">result_t</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1662</span>         <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">_realType</span><span class="p">(</span><span class="n">result_t</span><span class="p">),</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="bonus-section-1-1-coarsely-sample-the-system">
+<h3>Bonus Section 1.1: Coarsely sample the system<a class="headerlink" href="#bonus-section-1-1-coarsely-sample-the-system" title="Permalink to this headline">¶</a></h3>
+<p>We don’t observe this system. Instead, we observe the average activity of groups.</p>
+<div class="section" id="bonus-coding-exercise-1-1-compute-average-activity-across-groups-and-compare-resulting-connectivity-to-the-truth">
+<h4>Bonus Coding Exercise 1.1: Compute average activity across groups and compare resulting connectivity to the truth<a class="headerlink" href="#bonus-coding-exercise-1-1-compute-average-activity-across-groups-and-compare-resulting-connectivity-to-the-truth" title="Permalink to this headline">¶</a></h4>
+<p>Let’s get a new matrix <code class="docutils literal notranslate"><span class="pre">coarse_X</span></code> that has 16 groups, each reflecting the average activity of 16 neurons (since there are 256 neurons in total).</p>
+<p>We will then define the true coarse connectivity as the average of the neuronal connection strengths between groups. We’ll compute the correlation between our coarsely sampled groups to estimate the connectivity and compare with the true connectivity.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="k">def</span> <span class="nf">get_coarse_corr</span><span class="p">(</span><span class="n">n_groups</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    A wrapper function for our correlation calculations between coarsely sampled</span>
+<span class="sd">    A and R.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        n_groups (int): the number of groups. should divide the number of neurons evenly</span>
+<span class="sd">        X: the simulated system</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A single float correlation value representing the similarity between A and R</span>
+<span class="sd">        ndarray: estimated connectivity matrix</span>
+<span class="sd">        ndarray: true connectivity matrix</span>
+<span class="sd">    """</span>
+
+    <span class="c1">############################################################################</span>
+    <span class="c1">## TODO: Insert your code here to get coarsely sampled X</span>
+    <span class="c1"># Fill out function then remove</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">'Student exercise: please complete get_coarse_corr'</span><span class="p">)</span>
+    <span class="c1">############################################################################</span>
+    <span class="n">coarse_X</span> <span class="o">=</span> <span class="o">...</span>
+
+    <span class="c1"># Make sure coarse_X is the right shape</span>
+    <span class="k">assert</span> <span class="n">coarse_X</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="n">n_groups</span><span class="p">,</span> <span class="n">timesteps</span><span class="p">)</span>
+
+    <span class="c1"># Estimate connectivity from coarse system</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">correlation_for_all_neurons</span><span class="p">(</span><span class="n">coarse_X</span><span class="p">)</span>
+
+    <span class="c1"># Compute true coarse connectivity</span>
+    <span class="n">coarse_A</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n_groups</span><span class="p">,</span> <span class="n">n_neurons</span> <span class="o">//</span> <span class="n">n_groups</span><span class="p">,</span> <span class="n">n_groups</span><span class="p">,</span> <span class="n">n_neurons</span> <span class="o">//</span> <span class="n">n_groups</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Compute true vs estimated connectivity correlation</span>
+    <span class="n">corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">coarse_A</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">R</span><span class="o">.</span><span class="n">flatten</span><span class="p">())[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">corr</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">coarse_A</span>
+
+
+<span class="n">n_groups</span> <span class="o">=</span> <span class="mi">16</span>
+
+<span class="c1"># Call function</span>
+<span class="n">corr</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">coarse_A</span> <span class="o">=</span> <span class="n">get_coarse_corr</span><span class="p">(</span><span class="n">n_groups</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Visualize</span>
+<span class="n">plot_true_vs_estimated_connectivity</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">coarse_A</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># to_remove solution</span>
+
+<span class="k">def</span> <span class="nf">get_coarse_corr</span><span class="p">(</span><span class="n">n_groups</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    A wrapper function for our correlation calculations between coarsely sampled</span>
+<span class="sd">    A and R.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        n_groups (int): the number of groups. should divide the number of neurons evenly</span>
+<span class="sd">        X: the simulated system</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A single float correlation value representing the similarity between A and R</span>
+<span class="sd">        ndarray: estimated connectivity matrix</span>
+<span class="sd">        ndarray: true connectivity matrix</span>
+<span class="sd">    """</span>
+
+    <span class="n">coarse_X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n_groups</span><span class="p">,</span> <span class="n">n_neurons</span> <span class="o">//</span> <span class="n">n_groups</span><span class="p">,</span> <span class="n">timesteps</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Make sure coarse_X is the right shape</span>
+    <span class="k">assert</span> <span class="n">coarse_X</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="n">n_groups</span><span class="p">,</span> <span class="n">timesteps</span><span class="p">)</span>
+
+    <span class="c1"># Estimate connectivity from coarse system</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">correlation_for_all_neurons</span><span class="p">(</span><span class="n">coarse_X</span><span class="p">)</span>
+
+    <span class="c1"># Compute true coarse connectivity</span>
+    <span class="n">coarse_A</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n_groups</span><span class="p">,</span> <span class="n">n_neurons</span> <span class="o">//</span> <span class="n">n_groups</span><span class="p">,</span> <span class="n">n_groups</span><span class="p">,</span> <span class="n">n_neurons</span> <span class="o">//</span> <span class="n">n_groups</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Compute true vs estimated connectivity correlation</span>
+    <span class="n">corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">coarse_A</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">R</span><span class="o">.</span><span class="n">flatten</span><span class="p">())[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">corr</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">coarse_A</span>
+
+
+<span class="n">n_groups</span> <span class="o">=</span> <span class="mi">16</span>
+
+<span class="c1"># Call function</span>
+<span class="n">corr</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">coarse_A</span> <span class="o">=</span> <span class="n">get_coarse_corr</span><span class="p">(</span><span class="n">n_groups</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Visualize</span>
+<span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">():</span>
+  <span class="n">plot_true_vs_estimated_connectivity</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">coarse_A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>How close is the estimated coarse connectivity matrix to the truth?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Correlation: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">corr</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will now look at the estimation quality for different levels of coarseness when averaged over 3 trials.</p>
+<p>Execute this cell to visualize plot</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Execute this cell to visualize plot</span>
+
+<span class="n">n_neurons</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">timesteps</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="n">n_trials</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">groups</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span> <span class="o">**</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">n_neurons</span><span class="p">)))]</span>
+
+<span class="n">corr_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_trials</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">groups</span><span class="p">)))</span>
+
+<span class="k">for</span> <span class="n">trial</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_trials</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Trial </span><span class="si">{}</span><span class="s2"> out of </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">trial</span><span class="p">,</span> <span class="n">n_trials</span><span class="p">))</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">create_connectivity</span><span class="p">(</span><span class="n">n_neurons</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">trial</span><span class="p">)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">simulate_neurons</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">timesteps</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">trial</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">n_groups</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">groups</span><span class="p">):</span>
+        <span class="n">corr_data</span><span class="p">[</span><span class="n">trial</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">get_coarse_corr</span><span class="p">(</span><span class="n">n_groups</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+
+<span class="n">corr_mean</span> <span class="o">=</span> <span class="n">corr_data</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">corr_std</span> <span class="o">=</span> <span class="n">corr_data</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">n_neurons</span><span class="p">,</span> <span class="n">groups</span><span class="p">),</span> <span class="n">corr_mean</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">n_neurons</span><span class="p">,</span> <span class="n">groups</span><span class="p">),</span>
+                  <span class="n">corr_mean</span> <span class="o">-</span> <span class="n">corr_std</span><span class="p">,</span>
+                  <span class="n">corr_mean</span> <span class="o">+</span> <span class="n">corr_std</span><span class="p">,</span>
+                  <span class="n">alpha</span><span class="o">=</span><span class="mf">.2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Number of neurons per group (</span><span class="si">{}</span><span class="s2"> total neurons)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_neurons</span><span class="p">),</span>
+        <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Correlation of estimated effective connectivity"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Connectivity estimation performance vs coarseness of sampling"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We know that for large systems correlation <span class="math notranslate nohighlight">\(\neq\)</span> causation. Here, we have looked at what happens when we coarsely sample a large system. Do we get better at estimating the <em>effective</em> causal interaction between groups (=average of weights) from the correlation between the groups?</p>
+<p>From our simulation above, the answer appears to be no: as the number of neurons per group increases, we don’t see any significant increase in our ability to estimate the causal interaction between groups.</p>
+</div>
+</div>
+</div>
+</div>
+<script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tutorials/W3D5_NetworkCausality/instructor"
+        },
+        predefinedOutput: true
+    }
+    </script>
+<script>kernelName = 'python3'</script>
+</div>
+</main>
+<footer class="footer-article noprint">
+<!-- Previous / next buttons -->
+<div class="prev-next-area">
+<a class="left-prev" href="W3D5_Tutorial1.html" id="prev-link" title="previous page">
+<i class="fas fa-angle-left"></i>
+<div class="prev-next-info">
+<p class="prev-next-subtitle">previous</p>
+<p class="prev-next-title">Tutorial 1: Interventions</p>
+</div>
+</a>
+<a class="right-next" href="W3D5_Tutorial3.html" id="next-link" title="next page">
+<div class="prev-next-info">
+<p class="prev-next-subtitle">next</p>
+<p class="prev-next-title">Tutorial 3: Simultaneous fitting/regression</p>
+</div>
+<i class="fas fa-angle-right"></i>
+</a>
+</div>
+</footer>
+</div>
+</div>
+<div class="footer-content row">
+<footer class="col footer"><p>
+  
+    By Neuromatch<br/>
+  
+      © Copyright 2021.<br/>
+</p>
+</footer>
+</div>
+</div>
+</div>
+</div>
+<!-- Scripts loaded after <body> so the DOM is not blocked -->
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+</body>
+</html>
