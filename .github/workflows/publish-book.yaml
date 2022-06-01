@@ -43,11 +43,6 @@ jobs:
           rm -r nmaci-$BRANCH
           echo ci/ >> .gitignore
 
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-          pip install jupyter-book==0.10.2 ghp-import
-
       - name: Copy tutorials from course-content-dl repo
         run: |
           BRANCH=`python -c 'import os, re; m = re.search(r"course-content:([\w-]+)", os.environ["COMMIT_MESSAGE"]); print("main" if m is None else m.group(1))'`
