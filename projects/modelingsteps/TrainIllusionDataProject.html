@@ -47,7 +47,7 @@ const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="shortcut icon" href="../../_static/nma-logo-square-4xp.jpg"/>
@@ -109,7 +109,7 @@ const thebe_selector_output = ".output, .cell_output"
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../../tutorials/instructor/intro.html">
+                <a class="reference internal" href="../../tutorials/intro.html">
                     Introduction
                 </a>
             </li>
@@ -1691,8 +1691,8 @@ title="Print to PDF"
 <p><em>Part of Step 1</em></p>
 <p>We assume that we have build the train illusion model (see the other example project colab). That model predicts that accumulated sensory evidence from vestibular signals determines the decision of whether self-motion is experienced or not. We now have vestibular neuron data (simulated in our case, but let’s pretend) and would like to see if that prediction holds true.</p>
 <p>The data contains <span class="math notranslate nohighlight">\(N\)</span> neurons and <span class="math notranslate nohighlight">\(M\)</span> trials for each of 3 motion conditions: no self-motion, slowly accelerating self-motion and faster accelerating self-motion.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-50d7ce32-afe4-442b-aa7b-b879c6dd00a2">
-<span class="eqno">(336)<a class="headerlink" href="#equation-50d7ce32-afe4-442b-aa7b-b879c6dd00a2" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0de11c1d-811a-472a-8fb1-a635675f7aa2">
+<span class="eqno">(336)<a class="headerlink" href="#equation-0de11c1d-811a-472a-8fb1-a635675f7aa2" title="Permalink to this equation">¶</a></span>\[\begin{align}
 N &amp;= 40\\
 M &amp;= 400\\
 \end{align}\]</div>
@@ -1714,7 +1714,7 @@ M &amp;= 400\\
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 400, 40, 301)
 (3, 400)
-[0.3575 0.755  0.975 ]
+[0.355  0.7575 0.975 ]
 </pre></div>
 </div>
 </div>
@@ -1733,7 +1733,7 @@ M &amp;= 400\\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f4835591d90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f867f377a90&gt;
 </pre></div>
 </div>
 <img alt="../../_images/TrainIllusionDataProject_16_1.png" src="../../_images/TrainIllusionDataProject_16_1.png" />

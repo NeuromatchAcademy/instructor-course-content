@@ -38,7 +38,7 @@ const thebe_selector_output = ".output, .cell_output"
 </script>
 <script async="async" src="../../../_static/sphinx-thebe.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-<script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+<script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
 <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
 <link href="../../../_static/nma-logo-square-4xp.jpg" rel="shortcut icon">
@@ -83,7 +83,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="bd-toc-item active">
 <ul class="nav bd-sidenav bd-sidenav__home-link">
 <li class="toctree-l1">
-<a class="reference internal" href="../../instructor/intro.html">
+<a class="reference internal" href="../../intro.html">
                     Introduction
                 </a>
 </li>
@@ -1485,7 +1485,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "f1c180e88c474a95adef3b1d30dae23d"}
+{"version_major": 2, "version_minor": 0, "model_id": "92482c04e42f4f3d9708fd2ed4a49128"}
 </script></div>
 </div>
 </div>
@@ -2410,57 +2410,67 @@ Decoder
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 	 Loss train 	 Loss test
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1/10	 0.2069		 0.2071
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1/10	 0.2059		 0.2062
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2/10	 0.1952		 0.1954
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2/10	 0.1941		 0.1943
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3/10	 0.1880		 0.1886
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3/10	 0.1883		 0.1890
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4/10	 0.1843		 0.1848
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5/10	 0.1813		 0.1822
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6/10	 0.1792		 0.1804
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7/10	 0.1783		 0.1793
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_11624</span><span class="o">/</span><span class="mf">285641839.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_3524</span><span class="o">/</span><span class="mf">285641839.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">runSGD</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">input_train</span><span class="p">,</span> <span class="n">input_test</span><span class="p">,</span> <span class="n">n_epochs</span><span class="o">=</span><span class="n">n_epochs</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>        <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">runSGD</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">input_train</span><span class="p">,</span> <span class="n">input_test</span><span class="p">,</span> <span class="n">n_epochs</span><span class="o">=</span><span class="n">n_epochs</span><span class="p">,</span>
+<span class="ne">----&gt; </span><span class="mi">5</span>        <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>
 
-<span class="nn">/tmp/ipykernel_11624/3487241110.py</span> in <span class="ni">runSGD</span><span class="nt">(net, input_train, input_test, criterion, n_epochs, batch_size, verbose)</span>
-<span class="g g-Whitespace">    </span><span class="mi">585</span>     <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">batches</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">586</span> 
-<span class="ne">--&gt; </span><span class="mi">587</span>       <span class="n">output_train</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">588</span>       <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">output_train</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
+<span class="nn">/tmp/ipykernel_3524/3487241110.py</span> in <span class="ni">runSGD</span><span class="nt">(net, input_train, input_test, criterion, n_epochs, batch_size, verbose)</span>
 <span class="g g-Whitespace">    </span><span class="mi">589</span>       <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">590</span>       <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">591</span>       <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">592</span> 
+<span class="g g-Whitespace">    </span><span class="mi">593</span>       <span class="c1"># Keep track of loss at each epoch</span>
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py</span> in <span class="ni">_call_impl</span><span class="nt">(self, *input, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1108</span>         <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_pre_hooks</span> <span class="ow">or</span> <span class="n">_global_backward_hooks</span>
-<span class="g g-Whitespace">   </span><span class="mi">1109</span>                 <span class="ow">or</span> <span class="n">_global_forward_hooks</span> <span class="ow">or</span> <span class="n">_global_forward_pre_hooks</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1110</span>             <span class="k">return</span> <span class="n">forward_call</span><span class="p">(</span><span class="o">*</span><span class="nb">input</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1111</span>         <span class="c1"># Do not call functions when jit is used</span>
-<span class="g g-Whitespace">   </span><span class="mi">1112</span>         <span class="n">full_backward_hooks</span><span class="p">,</span> <span class="n">non_full_backward_hooks</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/site-packages/torch/optim/optimizer.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">86</span>                 <span class="n">profile_name</span> <span class="o">=</span> <span class="s2">"Optimizer.step#</span><span class="si">{}</span><span class="s2">.step"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">87</span>                 <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">profiler</span><span class="o">.</span><span class="n">record_function</span><span class="p">(</span><span class="n">profile_name</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">88</span>                     <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">89</span>             <span class="k">return</span> <span class="n">wrapper</span>
+<span class="g g-Whitespace">     </span><span class="mi">90</span> 
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/torch/nn/modules/container.py</span> in <span class="ni">forward</span><span class="nt">(self, input)</span>
-<span class="g g-Whitespace">    </span><span class="mi">139</span>     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">140</span>         <span class="k">for</span> <span class="n">module</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">141</span>             <span class="nb">input</span> <span class="o">=</span> <span class="n">module</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">142</span>         <span class="k">return</span> <span class="nb">input</span>
-<span class="g g-Whitespace">    </span><span class="mi">143</span> 
+<span class="nn">/opt/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/site-packages/torch/autograd/grad_mode.py</span> in <span class="ni">decorate_context</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span>         <span class="k">def</span> <span class="nf">decorate_context</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span>             <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">clone</span><span class="p">():</span>
+<span class="ne">---&gt; </span><span class="mi">27</span>                 <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span>         <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">decorate_context</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span> 
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py</span> in <span class="ni">_call_impl</span><span class="nt">(self, *input, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1108</span>         <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_pre_hooks</span> <span class="ow">or</span> <span class="n">_global_backward_hooks</span>
-<span class="g g-Whitespace">   </span><span class="mi">1109</span>                 <span class="ow">or</span> <span class="n">_global_forward_hooks</span> <span class="ow">or</span> <span class="n">_global_forward_pre_hooks</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1110</span>             <span class="k">return</span> <span class="n">forward_call</span><span class="p">(</span><span class="o">*</span><span class="nb">input</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1111</span>         <span class="c1"># Do not call functions when jit is used</span>
-<span class="g g-Whitespace">   </span><span class="mi">1112</span>         <span class="n">full_backward_hooks</span><span class="p">,</span> <span class="n">non_full_backward_hooks</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/site-packages/torch/optim/adam.py</span> in <span class="ni">step</span><span class="nt">(self, closure)</span>
+<span class="g g-Whitespace">    </span><span class="mi">151</span>                    <span class="n">weight_decay</span><span class="o">=</span><span class="n">group</span><span class="p">[</span><span class="s1">'weight_decay'</span><span class="p">],</span>
+<span class="g g-Whitespace">    </span><span class="mi">152</span>                    <span class="n">eps</span><span class="o">=</span><span class="n">group</span><span class="p">[</span><span class="s1">'eps'</span><span class="p">],</span>
+<span class="ne">--&gt; </span><span class="mi">153</span>                    <span class="n">maximize</span><span class="o">=</span><span class="n">group</span><span class="p">[</span><span class="s1">'maximize'</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">154</span>         <span class="k">return</span> <span class="n">loss</span>
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/torch/nn/modules/linear.py</span> in <span class="ni">forward</span><span class="nt">(self, input)</span>
-<span class="g g-Whitespace">    </span><span class="mi">101</span> 
-<span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">103</span>         <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">linear</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bias</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">104</span> 
-<span class="g g-Whitespace">    </span><span class="mi">105</span>     <span class="k">def</span> <span class="nf">extra_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/site-packages/torch/optim/_functional.py</span> in <span class="ni">adam</span><span class="nt">(params, grads, exp_avgs, exp_avg_sqs, max_exp_avg_sqs, state_steps, amsgrad, beta1, beta2, lr, weight_decay, eps, maximize)</span>
+<span class="g g-Whitespace">    </span><span class="mi">103</span>             <span class="n">denom</span> <span class="o">=</span> <span class="p">(</span><span class="n">max_exp_avg_sqs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sqrt</span><span class="p">()</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">bias_correction2</span><span class="p">))</span><span class="o">.</span><span class="n">add_</span><span class="p">(</span><span class="n">eps</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span>         <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">105</span>             <span class="n">denom</span> <span class="o">=</span> <span class="p">(</span><span class="n">exp_avg_sq</span><span class="o">.</span><span class="n">sqrt</span><span class="p">()</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">bias_correction2</span><span class="p">))</span><span class="o">.</span><span class="n">add_</span><span class="p">(</span><span class="n">eps</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span> 
+<span class="g g-Whitespace">    </span><span class="mi">107</span> 
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -2493,8 +2503,8 @@ Decoder
 <p><img alt="Unit sphere S2" src="https://github.com/mpbrigham/colaboratory-figures/raw/master/nma/autoencoders/unit_sphere.png"/></p>
 <br/>
 <p>Projecting to the surface of the sphere is implemented by dividing the coordinates <span class="math notranslate nohighlight">\((z_1, z_2, z_3)\)</span> by their <span class="math notranslate nohighlight">\(L_2\)</span> norm.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b685f580-c1d5-45a0-af2f-2427df4f4a10">
-<span class="eqno">(135)<a class="headerlink" href="#equation-b685f580-c1d5-45a0-af2f-2427df4f4a10" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b3fda78e-573e-4a72-ad70-31c2bf24a095">
+<span class="eqno">(135)<a class="headerlink" href="#equation-b3fda78e-573e-4a72-ad70-31c2bf24a095" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 (z_1, z_2, z_3)\longmapsto (s_1, s_2, s_3)=(z_1, z_2, z_3)/\|(z_1, z_2, z_3)\|_2=(z_1, z_2, z_3)/ \sqrt{z_1^2+z_2^2+z_3^2}
 \end{equation}\]</div>
 <p>This mapping projects to the surface of the <a class="reference external" href="https://en.wikipedia.org/wiki/N-sphere"><span class="math notranslate nohighlight">\(S_2\)</span> sphere</a> with unit radius. (Why?)</p>
@@ -2700,8 +2710,8 @@ Decoder
 <div class="section" id="section-3-5-visualize-latent-space-on-surface-of-s-2">
 <h2>Section 3.5: Visualize latent space on surface of <span class="math notranslate nohighlight">\(S_2\)</span><a class="headerlink" href="#section-3-5-visualize-latent-space-on-surface-of-s-2" title="Permalink to this headline">¶</a></h2>
 <p>The 3D coordinates <span class="math notranslate nohighlight">\((s_1, s_2, s_3)\)</span> on the surface of the unit sphere <span class="math notranslate nohighlight">\(S_2\)</span>  can be mapped to <a class="reference external" href="https://en.wikipedia.org/wiki/Spherical_coordinate_system">spherical coordinates</a> <span class="math notranslate nohighlight">\((r, \theta, \phi)\)</span>, as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-370d3b0e-726f-4d73-a2f9-5e626376081d">
-<span class="eqno">(136)<a class="headerlink" href="#equation-370d3b0e-726f-4d73-a2f9-5e626376081d" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-46166fb3-9157-413c-bb2b-d778996d6928">
+<span class="eqno">(136)<a class="headerlink" href="#equation-46166fb3-9157-413c-bb2b-d778996d6928" title="Permalink to this equation">¶</a></span>\[\begin{align}
 r &amp;= \sqrt{s_1^2 + s_2^2 + s_3^2} \\
 \phi &amp;= \arctan \frac{s_2}{s_1} \\
 \theta &amp;= \arccos\frac{s_3}{r}

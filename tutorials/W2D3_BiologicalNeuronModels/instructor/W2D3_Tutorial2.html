@@ -38,7 +38,7 @@ const thebe_selector_output = ".output, .cell_output"
 </script>
 <script async="async" src="../../../_static/sphinx-thebe.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-<script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+<script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
 <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
 <link href="../../../_static/nma-logo-square-4xp.jpg" rel="shortcut icon">
@@ -83,7 +83,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="bd-toc-item active">
 <ul class="nav bd-sidenav bd-sidenav__home-link">
 <li class="toctree-l1">
-<a class="reference internal" href="../../instructor/intro.html">
+<a class="reference internal" href="../../intro.html">
                     Introduction
                 </a>
 </li>
@@ -1818,14 +1818,14 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "9c4ffe7dbb6d4871a9e5beffb3821a15"}
+{"version_major": 2, "version_minor": 0, "model_id": "d52475d27b8049258ce36afe0b9c68d1"}
 </script></div>
 </div>
 <p>A simple model to study the emergence of correlations is to inject common inputs to a pair of neurons and measure the output correlation as a function of the fraction of common inputs.</p>
 <p>Here, we are going to investigate the transfer of correlations by computing the correlation coefficient of spike trains recorded from two unconnected LIF neurons, which received correlated inputs.</p>
 <p>The input current to LIF neuron <span class="math notranslate nohighlight">\(i\)</span> <span class="math notranslate nohighlight">\((i=1,2)\)</span> is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-99fb63ff-b3b1-431a-80a5-fff0b8828be7">
-<span class="eqno">(163)<a class="headerlink" href="#equation-99fb63ff-b3b1-431a-80a5-fff0b8828be7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-610d6743-66a7-4957-82d1-1bee49dcc270">
+<span class="eqno">(163)<a class="headerlink" href="#equation-610d6743-66a7-4957-82d1-1bee49dcc270" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{I_i}{g_L} = \mu_i + \sigma_i (\sqrt{1-c}\xi_i + \sqrt{c}\xi_c) \quad (1)
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mu_i\)</span> is the temporal average of the current. The Gaussian white noise <span class="math notranslate nohighlight">\(\xi_i\)</span> is independent for each neuron, while <span class="math notranslate nohighlight">\(\xi_c\)</span> is common to all neurons. The variable <span class="math notranslate nohighlight">\(c\)</span> (<span class="math notranslate nohighlight">\(0\le c\le1\)</span>) controls the fraction of common and independent inputs. <span class="math notranslate nohighlight">\(\sigma_i\)</span> shows the variance of the total input.</p>
@@ -1881,8 +1881,8 @@ correlate_input(pars, mu=20.0, sig=7.5, c=0.3)
 <div class="section" id="coding-exercise-1a-compute-the-correlation">
 <h2>Coding Exercise 1A: Compute the correlation<a class="headerlink" href="#coding-exercise-1a-compute-the-correlation" title="Permalink to this headline">¶</a></h2>
 <p>The <em>sample correlation coefficient</em> between two input currents <span class="math notranslate nohighlight">\(I_i\)</span> and <span class="math notranslate nohighlight">\(I_j\)</span> is defined as the sample covariance of <span class="math notranslate nohighlight">\(I_i\)</span> and <span class="math notranslate nohighlight">\(I_j\)</span> divided by the square root of the sample variance of <span class="math notranslate nohighlight">\(I_i\)</span> multiplied with the square root of the sample variance of <span class="math notranslate nohighlight">\(I_j\)</span>. In equation form:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-199fe93f-28ef-43ef-b713-57a87ccce41f">
-<span class="eqno">(164)<a class="headerlink" href="#equation-199fe93f-28ef-43ef-b713-57a87ccce41f" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-405d217c-6549-44c7-85bd-47f61b27f802">
+<span class="eqno">(164)<a class="headerlink" href="#equation-405d217c-6549-44c7-85bd-47f61b27f802" title="Permalink to this equation">¶</a></span>\[\begin{align}
 r_{ij} &amp;= \frac{cov(I_i, I_j)}{\sqrt{var(I_i)} \sqrt{var(I_j)}}\\
 cov(I_i, I_j) &amp;= \sum_{k=1}^L (I_i^k -\bar{I}_i)(I_j^k -\bar{I}_j) \\
 var(I_i) &amp;= \sum_{k=1}^L (I_i^k -\bar{I}_i)^2
@@ -1960,7 +1960,7 @@ var(I_i) &amp;= \sum_{k=1}^L (I_i^k -\bar{I}_i)^2
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/W2D3_Tutorial2_24_0.png" src="../../../_images/W2D3_Tutorial2_24_0.png"/>
+<img alt="../../../_images/W2D3_Tutorial2_24_2.png" src="../../../_images/W2D3_Tutorial2_24_2.png"/>
 </div>
 </div>
 <p>The sample correlation coefficients (computed using <code class="docutils literal notranslate"><span class="pre">my_CC</span></code>) match the ground truth correlation coefficient!</p>
@@ -2296,9 +2296,9 @@ investigate the relationship between the input correlation and the output correl
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Simulation time = 0.04 min
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Simulation time = 0.03 min
 Input correlation = 0.3
-Output correlation = 0.12232593975880897
+Output correlation = 0.08157067609645093
 </pre></div>
 </div>
 <img alt="../../../_images/W2D3_Tutorial2_42_1.png" src="../../../_images/W2D3_Tutorial2_42_1.png"/>
@@ -2351,7 +2351,7 @@ Output correlation = 0.12232593975880897
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Simulation time = 0.45 min
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Simulation time = 0.33 min
 </pre></div>
 </div>
 <img alt="../../../_images/W2D3_Tutorial2_47_1.png" src="../../../_images/W2D3_Tutorial2_47_1.png"/>
@@ -2429,21 +2429,21 @@ Output correlation = 0.12232593975880897
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_13732</span><span class="o">/</span><span class="mf">1647026019.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span>                                               <span class="n">c</span><span class="o">=</span><span class="n">c_in</span><span class="p">[</span><span class="n">ic</span><span class="p">],</span> <span class="n">bin_size</span><span class="o">=</span><span class="n">bin_size</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span>                                               <span class="n">n_trials</span><span class="o">=</span><span class="n">no_trial</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">19</span>   <span class="n">r12_sl</span><span class="p">[</span><span class="n">ic</span><span class="p">],</span> <span class="n">sp_sl</span><span class="p">,</span> <span class="n">sp1</span><span class="p">,</span> <span class="n">sp2</span> <span class="o">=</span> <span class="n">LIF_output_cc</span><span class="p">(</span><span class="n">pars</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">sig</span><span class="o">=</span><span class="mf">20.</span><span class="p">,</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_4780</span><span class="o">/</span><span class="mf">1647026019.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span>   <span class="n">r12_sl</span><span class="p">[</span><span class="n">ic</span><span class="p">],</span> <span class="n">sp_sl</span><span class="p">,</span> <span class="n">sp1</span><span class="p">,</span> <span class="n">sp2</span> <span class="o">=</span> <span class="n">LIF_output_cc</span><span class="p">(</span><span class="n">pars</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">sig</span><span class="o">=</span><span class="mf">20.</span><span class="p">,</span>
 <span class="g g-Whitespace">     </span><span class="mi">20</span>                                               <span class="n">c</span><span class="o">=</span><span class="n">c_in</span><span class="p">[</span><span class="n">ic</span><span class="p">],</span> <span class="n">bin_size</span><span class="o">=</span><span class="n">bin_size</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span>                                               <span class="n">n_trials</span><span class="o">=</span><span class="n">no_trial</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">21</span>                                               <span class="n">n_trials</span><span class="o">=</span><span class="n">no_trial</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="n">endtime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="n">timecost</span> <span class="o">=</span> <span class="p">(</span><span class="n">endtime</span> <span class="o">-</span> <span class="n">starttime</span><span class="p">)</span> <span class="o">/</span> <span class="mf">60.</span>
 
-<span class="nn">/tmp/ipykernel_13732/3952591084.py</span> in <span class="ni">LIF_output_cc</span><span class="nt">(pars, mu, sig, c, bin_size, n_trials)</span>
+<span class="nn">/tmp/ipykernel_4780/3952591084.py</span> in <span class="ni">LIF_output_cc</span><span class="nt">(pars, mu, sig, c, bin_size, n_trials)</span>
 <span class="g g-Whitespace">    </span><span class="mi">131</span>     <span class="n">I1gL</span><span class="p">,</span> <span class="n">I2gL</span> <span class="o">=</span> <span class="n">correlate_input</span><span class="p">(</span><span class="n">pars</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sig</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">132</span>     <span class="n">_</span><span class="p">,</span> <span class="n">sp1</span> <span class="o">=</span> <span class="n">run_LIF</span><span class="p">(</span><span class="n">pars</span><span class="p">,</span> <span class="n">pars</span><span class="p">[</span><span class="s1">'g_L'</span><span class="p">]</span> <span class="o">*</span> <span class="n">I1gL</span><span class="p">)</span>
 <span class="ne">--&gt; </span><span class="mi">133</span>     <span class="n">_</span><span class="p">,</span> <span class="n">sp2</span> <span class="o">=</span> <span class="n">run_LIF</span><span class="p">(</span><span class="n">pars</span><span class="p">,</span> <span class="n">pars</span><span class="p">[</span><span class="s1">'g_L'</span><span class="p">]</span> <span class="o">*</span> <span class="n">I2gL</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">134</span> 
 <span class="g g-Whitespace">    </span><span class="mi">135</span>     <span class="n">my_bin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">pars</span><span class="p">[</span><span class="s1">'T'</span><span class="p">],</span> <span class="n">bin_size</span><span class="p">)</span>
 
-<span class="nn">/tmp/ipykernel_13732/3952591084.py</span> in <span class="ni">run_LIF</span><span class="nt">(pars, Iinj)</span>
+<span class="nn">/tmp/ipykernel_4780/3952591084.py</span> in <span class="ni">run_LIF</span><span class="nt">(pars, Iinj)</span>
 <span class="g g-Whitespace">     </span><span class="mi">67</span> 
 <span class="g g-Whitespace">     </span><span class="mi">68</span>     <span class="c1"># update the membrane potential</span>
 <span class="ne">---&gt; </span><span class="mi">69</span>     <span class="n">v</span><span class="p">[</span><span class="n">it</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">+</span> <span class="n">dv</span>
@@ -2484,8 +2484,8 @@ Output correlation = 0.12232593975880897
 <div class="section" id="section-3-2-what-is-the-rationale-behind-varying-mu-and-sigma">
 <h2>Section 3.2: What is the rationale behind varying <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span>?<a class="headerlink" href="#section-3-2-what-is-the-rationale-behind-varying-mu-and-sigma" title="Permalink to this headline">¶</a></h2>
 <p>The mean and the variance of the synaptic current depends on the spike rate of a Poisson process. We can use something called <a class="reference external" href="https://en.wikipedia.org/wiki/Campbell%27s_theorem_(probability)">Campbell’s theorem</a> to estimate the mean and the variance of the synaptic current:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fa9e80ea-2c85-4130-9aee-a949d267d215">
-<span class="eqno">(165)<a class="headerlink" href="#equation-fa9e80ea-2c85-4130-9aee-a949d267d215" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-323c33c0-9384-49ac-85e6-85fa5e2eedd1">
+<span class="eqno">(165)<a class="headerlink" href="#equation-323c33c0-9384-49ac-85e6-85fa5e2eedd1" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mu_{\rm syn} = \lambda J \int P(t) \\
 \sigma_{\rm syn} = \lambda J \int P(t)^2 dt
 \end{align}\]</div>

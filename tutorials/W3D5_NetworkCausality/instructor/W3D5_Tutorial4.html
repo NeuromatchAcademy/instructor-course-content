@@ -38,7 +38,7 @@ const thebe_selector_output = ".output, .cell_output"
 </script>
 <script async="async" src="../../../_static/sphinx-thebe.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-<script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+<script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
 <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
 <link href="../../../_static/nma-logo-square-4xp.jpg" rel="shortcut icon">
@@ -83,7 +83,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="bd-toc-item active">
 <ul class="nav bd-sidenav bd-sidenav__home-link">
 <li class="toctree-l1">
-<a class="reference internal" href="../../instructor/intro.html">
+<a class="reference internal" href="../../intro.html">
                     Introduction
                 </a>
 </li>
@@ -2101,7 +2101,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "df0cac10cafb47f5b60df58456b1592f"}
+{"version_major": 2, "version_minor": 0, "model_id": "3f1627206c8440f19ffc60ebff002ea4"}
 </script></div>
 </div>
 <p>If there is randomness naturally occurring in the system <em>that we can observe</em>, this in effect becomes the perturbations we can use to recover causal effects. This is called an <strong>instrumental variable</strong>. At high level, an instrumental variable must</p>
@@ -2228,15 +2228,15 @@ Getting \)</span>\hat{T}<span class="math notranslate nohighlight">\( is fairly 
 <ol class="simple">
 <li><p>The first stage gets  <span class="math notranslate nohighlight">\(\hat{T}_{\text{smoking}}\)</span> by regressing <span class="math notranslate nohighlight">\(T_{\text{smoking}}\)</span> on <span class="math notranslate nohighlight">\(Z_\text{taxes}\)</span>, fitting the parameter <span class="math notranslate nohighlight">\(\hat{\alpha}\)</span>:</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-75b9283f-5f61-498a-b0ac-985dddd738af">
-<span class="eqno">(331)<a class="headerlink" href="#equation-75b9283f-5f61-498a-b0ac-985dddd738af" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bfef917b-3e8d-4122-b590-4334f0d1c8d1">
+<span class="eqno">(331)<a class="headerlink" href="#equation-bfef917b-3e8d-4122-b590-4334f0d1c8d1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \hat{T}_{\text{smoking}} = \hat{\alpha} Z_\text{taxes}
 \end{equation}\]</div>
 <ol class="simple">
 <li><p>The second stage then regresses <span class="math notranslate nohighlight">\(Y_{\text{birthweight}}\)</span> on <span class="math notranslate nohighlight">\(\hat{T}_{\text{smoking}}\)</span> to obtain an estimate <span class="math notranslate nohighlight">\(\hat{\beta}\)</span> of the causal effect:</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-ffb586ca-881f-4719-a603-e1a15e29af60">
-<span class="eqno">(332)<a class="headerlink" href="#equation-ffb586ca-881f-4719-a603-e1a15e29af60" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-38d68552-c8f9-4b15-ac68-cb7fea796940">
+<span class="eqno">(332)<a class="headerlink" href="#equation-38d68552-c8f9-4b15-ac68-cb7fea796940" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \hat{Y}_{\text{birthweight}} = \hat{\beta} \hat{T}_{\text{smoking}} 
 \end{equation}\]</div>
 <p>The first stage estimates the <strong>unconfounded component</strong> of <span class="math notranslate nohighlight">\(T_{\text{smoking}}\)</span> (ie, unaffected by the confounder <span class="math notranslate nohighlight">\(C_{\text{SES}}\)</span>), as we discussed above.</p>
@@ -2249,7 +2249,7 @@ Getting \)</span>\hat{T}<span class="math notranslate nohighlight">\( is fairly 
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "4e10f6a68d2e48fdabf4052fa1daeffe"}
+{"version_major": 2, "version_minor": 0, "model_id": "70887140c8e6407f84e0e0cb7a31744e"}
 </script></div>
 </div>
 </div>
@@ -2369,7 +2369,7 @@ Correlation between T_hat and C: 0.009
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "4d26f6106a444974a7985d0215b1af39"}
+{"version_major": 2, "version_minor": 0, "model_id": "5e5c20623bdf41998c28222cc8c18f68"}
 </script></div>
 </div>
 </div>
@@ -2471,13 +2471,13 @@ Correlation between T_hat and C: 0.009
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "55c75ae1b8c04e3a98714438ea1f1e2c"}
+{"version_major": 2, "version_minor": 0, "model_id": "658811cbf47948c4a2713c9bccc6f9ca"}
 </script></div>
 </div>
 <p>Now, say we have the neural system we have been simulating, except with an additional variable <span class="math notranslate nohighlight">\(\vec{z}\)</span>. This will be our instrumental variable.</p>
 <p>We treat <span class="math notranslate nohighlight">\(\vec{z}\)</span> as a source of noise in the dynamics of our neurons:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-59d8ddd0-17ef-43e6-93a7-5e33cbb1c36c">
-<span class="eqno">(333)<a class="headerlink" href="#equation-59d8ddd0-17ef-43e6-93a7-5e33cbb1c36c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-16f403a8-7178-49d2-9d72-f43b165fa4d6">
+<span class="eqno">(333)<a class="headerlink" href="#equation-16f403a8-7178-49d2-9d72-f43b165fa4d6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \vec{x}_{t+1} = \sigma(A\vec{x}_t + \eta \vec{z}_{t+1} + \epsilon_t)
 \end{equation}\]</div>
 <ul class="simple">
@@ -2597,7 +2597,7 @@ Correlation between T_hat and C: 0.009
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/W3D5_Tutorial4_53_0.png" src="../../../_images/W3D5_Tutorial4_53_0.png">
+<img alt="../../../_images/W3D5_Tutorial4_53_3.png" src="../../../_images/W3D5_Tutorial4_53_3.png">
 </img></div>
 </div>
 </div>
@@ -2694,7 +2694,7 @@ Correlation between T_hat and C: 0.009
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "27ca778fbd104271b19e6c4df93d8e3d"}
+{"version_major": 2, "version_minor": 0, "model_id": "a77c7c13659a4c03ad64e300abd4f18a"}
 </script></div>
 </div>
 </div>
@@ -2774,7 +2774,7 @@ Correlation between T_hat and C: 0.009
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "1851a2560038463fbc275f6c41a6b89e"}
+{"version_major": 2, "version_minor": 0, "model_id": "296ee111078245a1865da89e81cd0f5b"}
 </script></div>
 </div>
 <p>We can also visualize the performance of regression and IV as a function of the observed neuron ratio below.</p>
@@ -2835,73 +2835,71 @@ Correlation between T_hat and C: 0.009
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8
+</pre></div>
+</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_17670</span><span class="o">/</span><span class="mf">824720672.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_5727</span><span class="o">/</span><span class="mf">824720672.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">44</span> <span class="n">observed_ratio</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]</span>
 <span class="g g-Whitespace">     </span><span class="mi">45</span> 
 <span class="ne">---&gt; </span><span class="mi">46</span> <span class="n">compare_iv_estimate_to_regression</span><span class="p">(</span><span class="n">observed_ratio</span><span class="p">)</span>
 
-<span class="nn">/tmp/ipykernel_17670/824720672.py</span> in <span class="ni">compare_iv_estimate_to_regression</span><span class="nt">(observed_ratio)</span>
+<span class="nn">/tmp/ipykernel_5727/824720672.py</span> in <span class="ni">compare_iv_estimate_to_regression</span><span class="nt">(observed_ratio)</span>
 <span class="g g-Whitespace">     </span><span class="mi">20</span>       <span class="n">sel_A</span> <span class="o">=</span> <span class="n">A</span><span class="p">[:</span><span class="n">sel_idx</span><span class="p">,</span> <span class="p">:</span><span class="n">sel_idx</span><span class="p">]</span>
 <span class="g g-Whitespace">     </span><span class="mi">21</span> 
 <span class="ne">---&gt; </span><span class="mi">22</span>       <span class="n">sel_reg_V</span> <span class="o">=</span> <span class="n">get_regression_estimate</span><span class="p">(</span><span class="n">sel_X</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">23</span>       <span class="n">reg_corrs</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">sel_A</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">sel_reg_V</span><span class="o">.</span><span class="n">flatten</span><span class="p">())[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 <span class="g g-Whitespace">     </span><span class="mi">24</span> 
 
-<span class="nn">/tmp/ipykernel_17670/2490169132.py</span> in <span class="ni">get_regression_estimate</span><span class="nt">(X, neuron_idx)</span>
+<span class="nn">/tmp/ipykernel_5727/2490169132.py</span> in <span class="ni">get_regression_estimate</span><span class="nt">(X, neuron_idx)</span>
 <span class="g g-Whitespace">    </span><span class="mi">145</span>     <span class="n">regression</span> <span class="o">=</span> <span class="n">MultiOutputRegressor</span><span class="p">(</span><span class="n">Lasso</span><span class="p">(</span><span class="n">fit_intercept</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.01</span><span class="p">),</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">146</span> 
 <span class="ne">--&gt; </span><span class="mi">147</span>     <span class="n">regression</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">W</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">148</span> 
 <span class="g g-Whitespace">    </span><span class="mi">149</span>     <span class="k">if</span> <span class="n">neuron_idx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/sklearn/multioutput.py</span> in <span class="ni">fit</span><span class="nt">(self, X, y, sample_weight, **fit_params)</span>
-<span class="g g-Whitespace">    </span><span class="mi">200</span>         <span class="n">fit_params_validated</span> <span class="o">=</span> <span class="n">_check_fit_params</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">fit_params</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">201</span> 
-<span class="ne">--&gt; </span><span class="mi">202</span>         <span class="bp">self</span><span class="o">.</span><span class="n">estimators_</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span>
-<span class="g g-Whitespace">    </span><span class="mi">203</span>             <span class="n">delayed</span><span class="p">(</span><span class="n">_fit_estimator</span><span class="p">)(</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/site-packages/sklearn/multioutput.py</span> in <span class="ni">fit</span><span class="nt">(self, X, y, sample_weight, **fit_params)</span>
 <span class="g g-Whitespace">    </span><span class="mi">204</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">sample_weight</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params_validated</span>
+<span class="g g-Whitespace">    </span><span class="mi">205</span>             <span class="p">)</span>
+<span class="nn">--&gt; 206             for i</span> in <span class="ni">range</span><span class="nt">(y.shape[1])</span>
+<span class="g g-Whitespace">    </span><span class="mi">207</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">208</span> 
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/joblib/parallel.py</span> in <span class="ni">__call__</span><span class="nt">(self, iterable)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1064</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="o">.</span><span class="n">stop_call</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1065</span>             <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_managed_backend</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1066</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_terminate_backend</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1067</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_jobs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1068</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_pickle_cache</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/site-packages/joblib/parallel.py</span> in <span class="ni">__call__</span><span class="nt">(self, iterable)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1054</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1055</span>             <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="o">.</span><span class="n">retrieval_context</span><span class="p">():</span>
+<span class="ne">-&gt; </span><span class="mi">1056</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">retrieve</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1057</span>             <span class="c1"># Make sure that we get a last message telling us we are done</span>
+<span class="g g-Whitespace">   </span><span class="mi">1058</span>             <span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start_time</span>
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/joblib/parallel.py</span> in <span class="ni">_terminate_backend</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">757</span>     <span class="k">def</span> <span class="nf">_terminate_backend</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">758</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">759</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">760</span> 
-<span class="g g-Whitespace">    </span><span class="mi">761</span>     <span class="k">def</span> <span class="nf">_dispatch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/site-packages/joblib/parallel.py</span> in <span class="ni">retrieve</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">933</span>             <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">934</span>                 <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="p">,</span> <span class="s1">'supports_timeout'</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">935</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">936</span>                 <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">937</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/joblib/_parallel_backends.py</span> in <span class="ni">terminate</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">549</span>             <span class="c1"># calls, but cleanup the temporary resources that the Parallel call</span>
-<span class="g g-Whitespace">    </span><span class="mi">550</span>             <span class="c1"># created. This 'hack' requires a private, low-level operation.</span>
-<span class="ne">--&gt; </span><span class="mi">551</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_workers</span><span class="o">.</span><span class="n">_temp_folder_manager</span><span class="o">.</span><span class="n">_unlink_temporary_resources</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">552</span>                 <span class="n">context_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parallel</span><span class="o">.</span><span class="n">_id</span>
-<span class="g g-Whitespace">    </span><span class="mi">553</span>             <span class="p">)</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/site-packages/joblib/_parallel_backends.py</span> in <span class="ni">wrap_future_result</span><span class="nt">(future, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">540</span>         <span class="n">AsyncResults</span><span class="o">.</span><span class="n">get</span> <span class="kn">from</span> <span class="nn">multiprocessing.</span><span class="s2">"""</span>
+<span class="g g-Whitespace">    </span><span class="mi">541</span><span class="s2">         try:</span>
+<span class="ne">--&gt; </span><span class="mi">542</span><span class="s2">             return future.result(timeout=timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">543</span><span class="s2">         except CfTimeoutError as e:</span>
+<span class="g g-Whitespace">    </span><span class="mi">544</span><span class="s2">             raise TimeoutError from e</span>
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/joblib/_memmapping_reducer.py</span> in <span class="ni">_unlink_temporary_resources</span><span class="nt">(self, context_id)</span>
-<span class="g g-Whitespace">    </span><span class="mi">625</span>                         <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">temp_folder</span><span class="p">,</span> <span class="n">filename</span><span class="p">),</span> <span class="s2">"file"</span>
-<span class="g g-Whitespace">    </span><span class="mi">626</span>                     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">627</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_try_delete_folder</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">628</span>                     <span class="n">allow_non_empty</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">context_id</span><span class="o">=</span><span class="n">context_id</span>
-<span class="g g-Whitespace">    </span><span class="mi">629</span>                 <span class="p">)</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/concurrent/futures/_base.py</span> in <span class="ni">result</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">428</span><span class="s2">                 return self.__get_result()</span>
+<span class="g g-Whitespace">    </span><span class="mi">429</span><span class="s2"> </span>
+<span class="ne">--&gt; </span><span class="mi">430</span><span class="s2">             self._condition.wait(timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">431</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">432</span><span class="s2">             if self._state in [CANCELLED, CANCELLED_AND_NOTIFIED]:</span>
 
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/joblib/_memmapping_reducer.py</span> in <span class="ni">_try_delete_folder</span><span class="nt">(self, allow_non_empty, context_id)</span>
-<span class="g g-Whitespace">    </span><span class="mi">652</span>             <span class="n">temp_folder</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cached_temp_folders</span><span class="p">[</span><span class="n">context_id</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">653</span>             <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">654</span>                 <span class="n">delete_folder</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">655</span>                     <span class="n">temp_folder</span><span class="p">,</span> <span class="n">allow_non_empty</span><span class="o">=</span><span class="n">allow_non_empty</span>
-<span class="g g-Whitespace">    </span><span class="mi">656</span>                 <span class="p">)</span>
-
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/joblib/disk.py</span> in <span class="ni">delete_folder</span><span class="nt">(folder_path, onerror, allow_non_empty)</span>
-<span class="g g-Whitespace">    </span><span class="mi">134</span>                         <span class="c1"># yet.</span>
-<span class="g g-Whitespace">    </span><span class="mi">135</span>                         <span class="k">raise</span>
-<span class="ne">--&gt; </span><span class="mi">136</span>                 <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">RM_SUBDIRS_RETRY_TIME</span><span class="p">)</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/threading.py</span> in <span class="ni">wait</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">294</span><span class="s2">         try:    # restore state no matter what (e.g., KeyboardInterrupt)</span>
+<span class="g g-Whitespace">    </span><span class="mi">295</span><span class="s2">             if timeout is None:</span>
+<span class="ne">--&gt; </span><span class="mi">296</span><span class="s2">                 waiter.acquire()</span>
+<span class="g g-Whitespace">    </span><span class="mi">297</span><span class="s2">                 gotit = True</span>
+<span class="g g-Whitespace">    </span><span class="mi">298</span><span class="s2">             else:</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -3082,8 +3080,8 @@ Correlation between T_hat and C: 0.009
 <li><p>the alternative hypothesis <span class="math notranslate nohighlight">\(H_a\)</span>: lagged values of <span class="math notranslate nohighlight">\(X\)</span> <strong>do</strong> help predict values of <span class="math notranslate nohighlight">\(Y\)</span></p></li>
 </ul>
 <p>Mechanically, this is accomplished by fitting autoregressive models for <span class="math notranslate nohighlight">\(y_{t}\)</span>. We fail to reject the hypothesis if none of the <span class="math notranslate nohighlight">\(x_{t-k}\)</span> terms are retained as significant in the regression. For simplicity, we will consider only one time lag. So, we have:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8380a37b-a580-42b7-a649-a10dab0d895e">
-<span class="eqno">(334)<a class="headerlink" href="#equation-8380a37b-a580-42b7-a649-a10dab0d895e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9f797037-c802-4b46-81b8-0483bdde0934">
+<span class="eqno">(334)<a class="headerlink" href="#equation-9f797037-c802-4b46-81b8-0483bdde0934" title="Permalink to this equation">¶</a></span>\[\begin{align}
 H_0: y_t &amp;= a_0 + a_1 y_{t-1} +\epsilon_t \\
 H_a: y_t &amp;= a_0 + a_1 y_{t-1} + b_1 x_{t-1} +\epsilon_t
 \end{align}\]</div>

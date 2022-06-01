@@ -38,7 +38,7 @@ const thebe_selector_output = ".output, .cell_output"
 </script>
 <script async="async" src="../../../_static/sphinx-thebe.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-<script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+<script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
 <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
 <link href="../../../_static/nma-logo-square-4xp.jpg" rel="shortcut icon">
@@ -83,7 +83,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="bd-toc-item active">
 <ul class="nav bd-sidenav bd-sidenav__home-link">
 <li class="toctree-l1">
-<a class="reference internal" href="../../instructor/intro.html">
+<a class="reference internal" href="../../intro.html">
                     Introduction
                 </a>
 </li>
@@ -1891,7 +1891,7 @@ We have a network of <span class="math notranslate nohighlight">\(C\)</span> neu
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/W3D2_Tutorial5_20_0.png" src="../../../_images/W3D2_Tutorial5_20_0.png"/>
+<img alt="../../../_images/W3D2_Tutorial5_20_2.png" src="../../../_images/W3D2_Tutorial5_20_2.png"/>
 </div>
 </div>
 </div>
@@ -1951,23 +1951,23 @@ We have a network of <span class="math notranslate nohighlight">\(C\)</span> neu
 <div class="section" id="e-step-forward-backward-algorithm">
 <h2>E-step: Forward-backward algorithm<a class="headerlink" href="#e-step-forward-backward-algorithm" title="Permalink to this headline">¶</a></h2>
 <p>In the forward pass, we calculate the <strong>forward probabilities</strong>, or the joint probability of <span class="math notranslate nohighlight">\(x_t\)</span> and current and past data <span class="math notranslate nohighlight">\(Y_{1:t}\)</span>: <span class="math notranslate nohighlight">\(a_i(t):=p(x_t=i,Y_{1:t})\)</span> recursively by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eb6ac655-07e1-48f5-96c8-f3eb0d0c8a0b">
-<span class="eqno">(279)<a class="headerlink" href="#equation-eb6ac655-07e1-48f5-96c8-f3eb0d0c8a0b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-411fcc59-a8ad-49ae-98e1-7962098a8407">
+<span class="eqno">(279)<a class="headerlink" href="#equation-411fcc59-a8ad-49ae-98e1-7962098a8407" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 a_i(t) = p_(y_t|x_i=t)\sum_j A_{ji} a_j(t-1)
 \end{equation}\]</div>
 <p>In contrast to the intro, now <span class="math notranslate nohighlight">\(A_{ji}\)</span> means <strong>the transition probability from state <span class="math notranslate nohighlight">\(j\)</span> to state <span class="math notranslate nohighlight">\(i\)</span>.</strong></p>
 <p>The backward pass calculate the <strong>backward probabilities</strong> <span class="math notranslate nohighlight">\(b_i(t):=p_{\theta}(Y_{t+1:T}|x_t=i)\)</span>, which is the likelihood of observing all future data points given current state <span class="math notranslate nohighlight">\(x_t\)</span>. The recursion of <span class="math notranslate nohighlight">\(b_i(t)\)</span> is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0db70490-4504-4634-a244-14097095c826">
-<span class="eqno">(280)<a class="headerlink" href="#equation-0db70490-4504-4634-a244-14097095c826" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4243d0c8-f8c5-4441-95a2-050a739a710e">
+<span class="eqno">(280)<a class="headerlink" href="#equation-4243d0c8-f8c5-4441-95a2-050a739a710e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 b_i(t) = \sum_j p_{\theta}(y_{t+1}|x_{t+1}=j)b_j(t+1)A_{ij}
 \end{equation}\]</div>
 <p>Combining all past and future information, the <strong>singleton and pairwise marginal distributions</strong> are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f2347be9-a014-4e58-a312-ef0bd1974aa1">
-<span class="eqno">(281)<a class="headerlink" href="#equation-f2347be9-a014-4e58-a312-ef0bd1974aa1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-72b61cd3-dbde-45f1-8796-dc22d6a21d5b">
+<span class="eqno">(281)<a class="headerlink" href="#equation-72b61cd3-dbde-45f1-8796-dc22d6a21d5b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \gamma_{i}(t):=p_{\theta}\left(x_{t}=i | Y_{1: T}\right)=\frac{a_{i}(t) b_{i}(t)}{p_{\theta}\left(Y_{1: T}\right)}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-119ef467-232d-4171-9800-df8a9d9f6ee1">
-<span class="eqno">(282)<a class="headerlink" href="#equation-119ef467-232d-4171-9800-df8a9d9f6ee1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d2133bcf-cdaf-47b6-9b41-d7717e2194c5">
+<span class="eqno">(282)<a class="headerlink" href="#equation-d2133bcf-cdaf-47b6-9b41-d7717e2194c5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \xi_{i j}(t) = p_{\theta}(x_t=i,x_{t+1}=j|Y_{1:T}) =\frac{b_{j}(t+1)p_{\theta}\left(y_{t+1} | x_{t+1}=j\right) A_{i j} a_{i}(t)}{p_{\theta}\left(Y_{1: T}\right)}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(p_{\theta}(Y_{1:T})=\sum_i a_i(T)\)</span>.</p>
@@ -1975,14 +1975,14 @@ b_i(t) = \sum_j p_{\theta}(y_{t+1}|x_{t+1}=j)b_j(t+1)A_{ij}
 <div class="section" id="m-step">
 <h2>M-step<a class="headerlink" href="#m-step" title="Permalink to this headline">¶</a></h2>
 <p>The M-step for HMM has a closed-form solution. First the new transition matrix is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b1f4223f-58ea-47e4-bcf4-afb02ecb81c5">
-<span class="eqno">(283)<a class="headerlink" href="#equation-b1f4223f-58ea-47e4-bcf4-afb02ecb81c5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cc509dd6-bccc-4e4a-a6e4-e19236d3cdf5">
+<span class="eqno">(283)<a class="headerlink" href="#equation-cc509dd6-bccc-4e4a-a6e4-e19236d3cdf5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 A_{ij} =\frac{\sum_{t=1}^{T-1} \xi_{i j}(t)}{\sum_{t=1}^{T-1} \gamma_{i}(t)}
 \end{equation}\]</div>
 <p>which is the expected empirical transition probabilities.
 New initial probabilities and parameters of the emission models are also given by their empirical values given single and pairwise marginal distributions:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-024d028b-790f-429d-bafd-cf1ef96bd494">
-<span class="eqno">(284)<a class="headerlink" href="#equation-024d028b-790f-429d-bafd-cf1ef96bd494" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-821623a4-222c-4145-8ad6-177f399a734a">
+<span class="eqno">(284)<a class="headerlink" href="#equation-821623a4-222c-4145-8ad6-177f399a734a" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \psi_i &amp;= \frac{1}{N}\sum_{trials}\gamma_i(1) \\
 \lambda_{i}^{c} &amp;= \frac{\sum_{t} \gamma_{i}(t) y_{t}^{c}}{\sum_{t} \gamma_{i}(t) d t}
 \end{align}\]</div>
@@ -1992,14 +1992,14 @@ New initial probabilities and parameters of the emission models are also given b
 <p><strong>(Optional)</strong></p>
 <p>In this section you will read through the code for the forward-backward algorithm and understand how to implement the computation efficiently in <code class="docutils literal notranslate"><span class="pre">numpy</span></code> by calculating the recursion for all trials at once.</p>
 <p>Let’s re-write the forward and backward recursions in a more compact form:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-24cc884a-e416-4eec-b1df-3ca516a27872">
-<span class="eqno">(285)<a class="headerlink" href="#equation-24cc884a-e416-4eec-b1df-3ca516a27872" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-d4740258-9e6c-455b-b2e8-3bede962afc0">
+<span class="eqno">(285)<a class="headerlink" href="#equation-d4740258-9e6c-455b-b2e8-3bede962afc0" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray}
 a_i^t &amp;=&amp; \sum_j A_{ji}o_j^t a_j^{t-1}\\
 b^t_i &amp;=&amp; \sum_j A_{ij} o_j^{t+1}b_j^{t+1} \text{, where } o_j^{t}=p(y_{t}|x_{t}=j)
 \end{eqnarray}\]</div>
 <p>Let’s take the backward recursion for example. In practice we will handle all trials together since they are independent of each other. After adding a trial index <span class="math notranslate nohighlight">\(l\)</span> to the recursion equations, the backward recursion becomes:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-62e33fbc-1528-4039-a547-1a7e97aa750e">
-<span class="eqno">(286)<a class="headerlink" href="#equation-62e33fbc-1528-4039-a547-1a7e97aa750e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cde8d78c-6c7b-45ea-95c2-2d3832746236">
+<span class="eqno">(286)<a class="headerlink" href="#equation-cde8d78c-6c7b-45ea-95c2-2d3832746236" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 b^t_{li} = \sum_j A_{ij} o_{lj}^{t+1}b_{lj}^{t+1}
 \end{equation}\]</div>
 <p>What we have in hand are:</p>
@@ -2010,8 +2010,8 @@ b^t_{li} = \sum_j A_{ij} o_{lj}^{t+1}b_{lj}^{t+1}
 </ul>
 <p>where <code class="docutils literal notranslate"><span class="pre">N</span></code> stands for the number of trials.</p>
 <p>The index size and meaning doesn’t match for these three arrays: the index is <span class="math notranslate nohighlight">\(i\)</span> for <span class="math notranslate nohighlight">\(A\)</span> in the first dimension and is <span class="math notranslate nohighlight">\(l\)</span> for <span class="math notranslate nohighlight">\(o\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, so we can’t just multiply them together. However, we can do this by viewing vectors <span class="math notranslate nohighlight">\(o^{t+1}_{l\cdot}\)</span> and <span class="math notranslate nohighlight">\(b^{t+1}_{l\cdot}\)</span> as a matrix with 1 row and re-write the backward equation as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fc4f35c2-c48a-4e80-a7a6-47981a77813d">
-<span class="eqno">(287)<a class="headerlink" href="#equation-fc4f35c2-c48a-4e80-a7a6-47981a77813d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cffd02f7-0141-4c39-967f-130c4e95dd6b">
+<span class="eqno">(287)<a class="headerlink" href="#equation-cffd02f7-0141-4c39-967f-130c4e95dd6b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 b^t_{li} = \sum_j A_{ij} o_{l1j}^{t+1}b_{l1j}^{t+1}
 \end{equation}\]</div>
 <p>Now we can just multiply these three arrays element-wise and sum over the last dimension.</p>
@@ -2100,8 +2100,8 @@ b^t_{li} = \sum_j A_{ij} o_{l1j}^{t+1}b_{l1j}^{t+1}
 <ol class="simple">
 <li><p>Calculate new initial probabilities as empirical counts of singleton marginals</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-173630b0-1d2b-48a4-bba7-3b7c6a1338f8">
-<span class="eqno">(288)<a class="headerlink" href="#equation-173630b0-1d2b-48a4-bba7-3b7c6a1338f8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3d243bf3-38b8-4c3d-9969-062b31549a2e">
+<span class="eqno">(288)<a class="headerlink" href="#equation-3d243bf3-38b8-4c3d-9969-062b31549a2e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \psi_i = \frac{1}{N}\sum_{trials}\gamma_i(1)
 \end{equation}\]</div>
 <ol class="simple">
@@ -2110,13 +2110,13 @@ b^t_{li} = \sum_j A_{ij} o_{l1j}^{t+1}b_{l1j}^{t+1}
 <br/>
 <p><strong>For reference:</strong></p>
 <p>New transition matrix is calculated as empirical counts of transition events from marginals</p>
-<div class="amsmath math notranslate nohighlight" id="equation-891e25f2-e351-448a-adc1-e7bbca4e594f">
-<span class="eqno">(289)<a class="headerlink" href="#equation-891e25f2-e351-448a-adc1-e7bbca4e594f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c6b65225-2626-4a35-a79a-31911cf9dd3e">
+<span class="eqno">(289)<a class="headerlink" href="#equation-c6b65225-2626-4a35-a79a-31911cf9dd3e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 A_{ij} =\frac{\sum_{t=1}^{T-1} \xi_{i j}(t)}{\sum_{t=1}^{T-1} \gamma_{i}(t)}
 \end{equation}\]</div>
 <p>New spiking rates for each cell and each state are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-65c658c3-0968-4f0b-b9e9-b2da27372adf">
-<span class="eqno">(290)<a class="headerlink" href="#equation-65c658c3-0968-4f0b-b9e9-b2da27372adf" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6fac9dac-cca3-47b3-ad74-2fcdabbd0d52">
+<span class="eqno">(290)<a class="headerlink" href="#equation-6fac9dac-cca3-47b3-ad74-2fcdabbd0d52" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \lambda_{i}^{c}=\frac{\sum_{t} \gamma_{i}(t) y_{t}^{c}}{\sum_{t} \gamma_{i}(t) d t}
 \end{equation}\]</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
@@ -2244,29 +2244,35 @@ A_{ij} =\frac{\sum_{t=1}^{T-1} \xi_{i j}(t)}{\sum_{t=1}^{T-1} \gamma_{i}(t)}
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>epoch:   0, ll = -481.5065734432824
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>epoch:   1, ll = -461.8610532934206
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>epoch:   1, ll = -461.8610532934207
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>epoch:   2, ll = -456.5662172692466
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>epoch:   3, ll = -455.91302019715675
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_16654</span><span class="o">/</span><span class="mf">3883535533.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_5278</span><span class="o">/</span><span class="mf">111133428.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> 
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Run EM</span>
 <span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">save_vals</span><span class="p">,</span> <span class="n">lls</span><span class="p">,</span> <span class="n">psi</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">L</span> <span class="o">=</span> <span class="n">run_em</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">psi</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
 
-<span class="nn">/tmp/ipykernel_16654/180609753.py</span> in <span class="ni">run_em</span><span class="nt">(epochs, Y, psi, A, L, dt)</span>
-<span class="g g-Whitespace">     </span><span class="mi">97</span>           <span class="n">eclls_for_plot</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">     </span><span class="mi">98</span>           <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bs</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">99</span>               <span class="n">ll</span> <span class="o">=</span> <span class="n">e_step</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">psi</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">dp</span><span class="p">,</span> <span class="n">A</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">dA</span><span class="p">,</span> <span class="n">L</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">dL</span><span class="p">,</span> <span class="n">dt</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">100</span>               <span class="n">lls_for_plot</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ll</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">101</span>               <span class="n">rate</span> <span class="o">=</span> <span class="p">(</span><span class="n">L</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">dL</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
+<span class="nn">/tmp/ipykernel_5278/180609753.py</span> in <span class="ni">run_em</span><span class="nt">(epochs, Y, psi, A, L, dt)</span>
+<span class="g g-Whitespace">    </span><span class="mi">103</span>                        <span class="p">(</span><span class="n">xi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">dA</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">))</span> <span class="o">+</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span>                        <span class="p">(</span><span class="n">gamma</span> <span class="o">*</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">rate</span><span class="p">)</span><span class="o">.</span><span class="n">logpmf</span><span class="p">(</span><span class="n">Y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">105</span>                        <span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)))</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">/</span> <span class="n">T</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span>               <span class="n">eclls_for_plot</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ecll</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span>               <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 
-<span class="nn">/tmp/ipykernel_16654/4110329512.py</span> in <span class="ni">e_step</span><span class="nt">(Y, psi, A, L, dt)</span>
-<span class="g g-Whitespace">     </span><span class="mi">47</span>   <span class="c1"># singleton and pairwise marginal distributions</span>
-<span class="g g-Whitespace">     </span><span class="mi">48</span>   <span class="n">gamma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_a</span> <span class="o">+</span> <span class="n">log_b</span> <span class="o">-</span> <span class="n">ll</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">])</span>
-<span class="ne">---&gt; </span><span class="mi">49</span>   <span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_a</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">log_obs</span> <span class="o">+</span> <span class="n">log_b</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">+</span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span>               <span class="n">log_A</span> <span class="o">-</span> <span class="n">ll</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">51</span> 
+<span class="nn">/opt/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/site-packages/numpy/core/_methods.py</span> in <span class="ni">_sum</span><span class="nt">(a, axis, dtype, out, keepdims, initial, where)</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="k">def</span> <span class="nf">_sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span>          <span class="n">initial</span><span class="o">=</span><span class="n">_NoValue</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">48</span>     <span class="k">return</span> <span class="n">umr_sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">keepdims</span><span class="p">,</span> <span class="n">initial</span><span class="p">,</span> <span class="n">where</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span> 
+<span class="g g-Whitespace">     </span><span class="mi">50</span> <span class="k">def</span> <span class="nf">_prod</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>

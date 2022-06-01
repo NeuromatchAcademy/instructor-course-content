@@ -38,7 +38,7 @@ const thebe_selector_output = ".output, .cell_output"
 </script>
 <script async="async" src="../../../_static/sphinx-thebe.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-<script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+<script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
 <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
 <link href="../../../_static/nma-logo-square-4xp.jpg" rel="shortcut icon">
@@ -83,7 +83,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="bd-toc-item active">
 <ul class="nav bd-sidenav bd-sidenav__home-link">
 <li class="toctree-l1">
-<a class="reference internal" href="../../instructor/intro.html">
+<a class="reference internal" href="../../intro.html">
                     Introduction
                 </a>
 </li>
@@ -1590,132 +1590,6 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_13294</span><span class="o">/</span><span class="mf">410997748.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>   <span class="k">try</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">11</span>     <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span>   <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">ConnectionError</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">"!!! Failed to download data !!!"</span><span class="p">)</span>
-
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/requests/api.py</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">73</span>     <span class="s2">"""</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span><span class="s2"> </span>
-<span class="ne">---&gt; </span><span class="mi">75</span><span class="s2">     return request('get', url, params=params, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">76</span><span class="s2"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">77</span><span class="s2"> </span>
-
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/requests/api.py</span> in <span class="ni">request</span><span class="nt">(method, url, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">59</span><span class="s2">     # cases, and look like a memory leak in others.</span>
-<span class="g g-Whitespace">     </span><span class="mi">60</span><span class="s2">     with sessions.Session() as session:</span>
-<span class="ne">---&gt; </span><span class="mi">61</span><span class="s2">         return session.request(method=method, url=url, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">62</span><span class="s2"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">63</span><span class="s2"> </span>
-
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/requests/sessions.py</span> in <span class="ni">request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
-<span class="g g-Whitespace">    </span><span class="mi">527</span><span class="s2">         }</span>
-<span class="g g-Whitespace">    </span><span class="mi">528</span><span class="s2">         send_kwargs.update(settings)</span>
-<span class="ne">--&gt; </span><span class="mi">529</span><span class="s2">         resp = self.send(prep, **send_kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">530</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">531</span><span class="s2">         return resp</span>
-
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/requests/sessions.py</span> in <span class="ni">send</span><span class="nt">(self, request, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">665</span><span class="s2">             # Redirect resolving generator.</span>
-<span class="g g-Whitespace">    </span><span class="mi">666</span><span class="s2">             gen = self.resolve_redirects(r, request, **kwargs)</span>
-<span class="ne">--&gt; </span><span class="mi">667</span><span class="s2">             history = [resp for resp in gen]</span>
-<span class="g g-Whitespace">    </span><span class="mi">668</span><span class="s2">         else:</span>
-<span class="g g-Whitespace">    </span><span class="mi">669</span><span class="s2">             history = []</span>
-
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/requests/sessions.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">    </span><span class="mi">665</span><span class="s2">             # Redirect resolving generator.</span>
-<span class="g g-Whitespace">    </span><span class="mi">666</span><span class="s2">             gen = self.resolve_redirects(r, request, **kwargs)</span>
-<span class="ne">--&gt; </span><span class="mi">667</span><span class="s2">             history = [resp for resp in gen]</span>
-<span class="g g-Whitespace">    </span><span class="mi">668</span><span class="s2">         else:</span>
-<span class="g g-Whitespace">    </span><span class="mi">669</span><span class="s2">             history = []</span>
-
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/requests/sessions.py</span> in <span class="ni">resolve_redirects</span><span class="nt">(self, resp, req, stream, timeout, verify, cert, proxies, yield_requests, **adapter_kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">235</span><span class="s2">             else:</span>
-<span class="g g-Whitespace">    </span><span class="mi">236</span><span class="s2"> </span>
-<span class="ne">--&gt; </span><span class="mi">237</span><span class="s2">                 resp = self.send(</span>
-<span class="g g-Whitespace">    </span><span class="mi">238</span><span class="s2">                     req,</span>
-<span class="g g-Whitespace">    </span><span class="mi">239</span><span class="s2">                     stream=stream,</span>
-
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/requests/sessions.py</span> in <span class="ni">send</span><span class="nt">(self, request, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">685</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">686</span><span class="s2">         if not stream:</span>
-<span class="ne">--&gt; </span><span class="mi">687</span><span class="s2">             r.content</span>
-<span class="g g-Whitespace">    </span><span class="mi">688</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">689</span><span class="s2">         return r</span>
-
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/requests/models.py</span> in <span class="ni">content</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">836</span><span class="s2">                 self._content = None</span>
-<span class="g g-Whitespace">    </span><span class="mi">837</span><span class="s2">             else:</span>
-<span class="ne">--&gt; </span><span class="mi">838</span><span class="s2">                 self._content = b''.join(self.iter_content(CONTENT_CHUNK_SIZE)) or b''</span>
-<span class="g g-Whitespace">    </span><span class="mi">839</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">840</span><span class="s2">         self._content_consumed = True</span>
-
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/requests/models.py</span> in <span class="ni">generate</span><span class="nt">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">758</span><span class="s2">             if hasattr(self.raw, 'stream'):</span>
-<span class="g g-Whitespace">    </span><span class="mi">759</span><span class="s2">                 try:</span>
-<span class="ne">--&gt; </span><span class="mi">760</span><span class="s2">                     for chunk in self.raw.stream(chunk_size, decode_content=True):</span>
-<span class="g g-Whitespace">    </span><span class="mi">761</span><span class="s2">                         yield chunk</span>
-<span class="g g-Whitespace">    </span><span class="mi">762</span><span class="s2">                 except ProtocolError as e:</span>
-
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/urllib3/response.py</span> in <span class="ni">stream</span><span class="nt">(self, amt, decode_content)</span>
-<span class="g g-Whitespace">    </span><span class="mi">574</span><span class="s2">         else:</span>
-<span class="g g-Whitespace">    </span><span class="mi">575</span><span class="s2">             while not is_fp_closed(self._fp):</span>
-<span class="ne">--&gt; </span><span class="mi">576</span><span class="s2">                 data = self.read(amt=amt, decode_content=decode_content)</span>
-<span class="g g-Whitespace">    </span><span class="mi">577</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">578</span><span class="s2">                 if data:</span>
-
-<span class="nn">~/anaconda3/lib/python3.8/site-packages/urllib3/response.py</span> in <span class="ni">read</span><span class="nt">(self, amt, decode_content, cache_content)</span>
-<span class="g g-Whitespace">    </span><span class="mi">517</span><span class="s2">             else:</span>
-<span class="g g-Whitespace">    </span><span class="mi">518</span><span class="s2">                 cache_content = False</span>
-<span class="ne">--&gt; </span><span class="mi">519</span><span class="s2">                 data = self._fp.read(amt) if not fp_closed else b""</span>
-<span class="g g-Whitespace">    </span><span class="mi">520</span><span class="s2">                 if (</span>
-<span class="g g-Whitespace">    </span><span class="mi">521</span><span class="s2">                     amt != 0 and not data</span>
-
-<span class="nn">~/anaconda3/lib/python3.8/http/client.py</span> in <span class="ni">read</span><span class="nt">(self, amt)</span>
-<span class="g g-Whitespace">    </span><span class="mi">456</span><span class="s2">             # Amount is given, implement using readinto</span>
-<span class="g g-Whitespace">    </span><span class="mi">457</span><span class="s2">             b = bytearray(amt)</span>
-<span class="ne">--&gt; </span><span class="mi">458</span><span class="s2">             n = self.readinto(b)</span>
-<span class="g g-Whitespace">    </span><span class="mi">459</span><span class="s2">             return memoryview(b)[:n].tobytes()</span>
-<span class="g g-Whitespace">    </span><span class="mi">460</span><span class="s2">         else:</span>
-
-<span class="nn">~/anaconda3/lib/python3.8/http/client.py</span> in <span class="ni">readinto</span><span class="nt">(self, b)</span>
-<span class="g g-Whitespace">    </span><span class="mi">500</span><span class="s2">         # connection, and the user is reading more bytes than will be provided</span>
-<span class="g g-Whitespace">    </span><span class="mi">501</span><span class="s2">         # (for example, reading in 1k chunks)</span>
-<span class="ne">--&gt; </span><span class="mi">502</span><span class="s2">         n = self.fp.readinto(b)</span>
-<span class="g g-Whitespace">    </span><span class="mi">503</span><span class="s2">         if not n and b:</span>
-<span class="g g-Whitespace">    </span><span class="mi">504</span><span class="s2">             # Ideally, we would raise IncompleteRead if the content-length</span>
-
-<span class="nn">~/anaconda3/lib/python3.8/socket.py</span> in <span class="ni">readinto</span><span class="nt">(self, b)</span>
-<span class="g g-Whitespace">    </span><span class="mi">667</span><span class="s2">         while True:</span>
-<span class="g g-Whitespace">    </span><span class="mi">668</span><span class="s2">             try:</span>
-<span class="ne">--&gt; </span><span class="mi">669</span><span class="s2">                 return self._sock.recv_into(b)</span>
-<span class="g g-Whitespace">    </span><span class="mi">670</span><span class="s2">             except timeout:</span>
-<span class="g g-Whitespace">    </span><span class="mi">671</span><span class="s2">                 self._timeout_occurred = True</span>
-
-<span class="nn">~/anaconda3/lib/python3.8/ssl.py</span> in <span class="ni">recv_into</span><span class="nt">(self, buffer, nbytes, flags)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1239</span><span class="s2">                   "non-zero flags not allowed in calls to recv_into() on </span><span class="si">%s</span><span class="s2">" %</span>
-<span class="g g-Whitespace">   </span><span class="mi">1240</span><span class="s2">                   self.__class__)</span>
-<span class="ne">-&gt; </span><span class="mi">1241</span><span class="s2">             return self.read(nbytes, buffer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1242</span><span class="s2">         else:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1243</span><span class="s2">             return super().recv_into(buffer, nbytes, flags)</span>
-
-<span class="nn">~/anaconda3/lib/python3.8/ssl.py</span> in <span class="ni">read</span><span class="nt">(self, len, buffer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1097</span><span class="s2">         try:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1098</span><span class="s2">             if buffer is not None:</span>
-<span class="ne">-&gt; </span><span class="mi">1099</span><span class="s2">                 return self._sslobj.read(len, buffer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1100</span><span class="s2">             else:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1101</span><span class="s2">                 return self._sslobj.read(len)</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="figure-settings">
@@ -2160,6 +2034,12 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23589 neurons in response to 360 stimuli
+</pre></div>
+</div>
+<img alt="../../../_images/W2D1_Tutorial4_17_1.png" src="../../../_images/W2D1_Tutorial4_17_1.png"/>
+</div>
 </div>
 </div>
 <div class="section" id="id2">
@@ -2285,6 +2165,16 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iteration 10/50 | loss: 12219.759
+iteration 20/50 | loss: 1672.732
+iteration 30/50 | loss: 548.096
+iteration 40/50 | loss: 235.619
+iteration 50/50 | loss: 144.002
+</pre></div>
+</div>
+<img alt="../../../_images/W2D1_Tutorial4_22_1.png" src="../../../_images/W2D1_Tutorial4_22_1.png"/>
+</div>
 </div>
 </div>
 <div class="section" id="section-1-1-peering-inside-the-decoding-model">
@@ -2324,6 +2214,15 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>shape of W_in:
+(10, 23589)
+shape of W_out:
+(1, 10)
+</pre></div>
+</div>
+<img alt="../../../_images/W2D1_Tutorial4_25_1.png" src="../../../_images/W2D1_Tutorial4_25_1.png"/>
+</div>
 </div>
 <div class="section" id="coding-exercise-1-1-visualizing-weights">
 <h3>Coding Exercise 1.1: Visualizing weights<a class="headerlink" href="#coding-exercise-1-1-visualizing-weights" title="Permalink to this headline">¶</a></h3>
@@ -2340,6 +2239,9 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/W2D1_Tutorial4_27_0.png" src="../../../_images/W2D1_Tutorial4_27_0.png"/>
 </div>
 </div>
 <p>Looking at this tuning curve, there is a bit of noise across orientations, so let’s smooth with a gaussian filter and then find the position of the maximum for each neuron. After getting the maximum position aka the “preferred orientation” for each neuron, we will re-sort the <span class="math notranslate nohighlight">\(\mathbf{W}_{in}\)</span> matrix. The maximum position in a matrix can be computed using the <code class="docutils literal notranslate"><span class="pre">.argmax(axis=_)</span></code> function in python – make sure you specify the right axis though! Next, to get the indices of a matrix sorted we will need to use the <code class="docutils literal notranslate"><span class="pre">.argsort()</span></code> function.</p>
@@ -2397,10 +2299,13 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/W2D1_Tutorial4_30_4.png" src="../../../_images/W2D1_Tutorial4_30_4.png"/>
+</div>
 </div>
 <p>We can plot the activity of hidden units across various stimuli to better understand the hidden units. Recall the formula for the hidden units</p>
-<div class="amsmath math notranslate nohighlight" id="equation-31486685-2f2f-4345-bd14-ac807f05ca74">
-<span class="eqno">(125)<a class="headerlink" href="#equation-31486685-2f2f-4345-bd14-ac807f05ca74" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c16282eb-21c8-4a20-8f5d-4724d97a031b">
+<span class="eqno">(125)<a class="headerlink" href="#equation-c16282eb-21c8-4a20-8f5d-4724d97a031b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{h}^{(n)} = \phi(\mathbf{W}^{in} \mathbf{r}^{(n)} + \mathbf{b}^{in})
 \end{equation}\]</div>
 <p>We can compute the activity <span class="math notranslate nohighlight">\(\mathbf{h}^{(n)}\)</span> directly using <span class="math notranslate nohighlight">\(\mathbf{W}^{in}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{b}^{in}\)</span> or we can modify our network above to return <code class="docutils literal notranslate"><span class="pre">h</span></code> in the <code class="docutils literal notranslate"><span class="pre">.forward()</span></code> method. In this case, we’ll compute using the equation, but in practice the second method is recommended.</p>
@@ -2417,6 +2322,9 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">visualize_hidden_units</span><span class="p">(</span><span class="n">W_in_sorted</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/W2D1_Tutorial4_32_0.png" src="../../../_images/W2D1_Tutorial4_32_0.png"/>
 </div>
 </div>
 </div>
@@ -2481,6 +2389,9 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/W2D1_Tutorial4_38_0.png" src="../../../_images/W2D1_Tutorial4_38_0.png"/>
+</div>
 </div>
 <p>If interested, please see the next section to think more about model criticism, improve the loss function accordingly, and add regularization.</p>
 </div>
@@ -2516,13 +2427,16 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/W2D1_Tutorial4_44_0.png" src="../../../_images/W2D1_Tutorial4_44_0.png"/>
+</div>
 </div>
 </div>
 <div class="section" id="think-2-1-delving-into-error-problems">
 <h3>Think! 2.1: Delving into error problems<a class="headerlink" href="#think-2-1-delving-into-error-problems" title="Permalink to this headline">¶</a></h3>
 <p>In the cell below, we will plot the <em>decoding error</em> for each neural response in the testing set. The decoding error is defined as the decoded stimulus orientation minus true stimulus orientation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c854dab2-1e51-491a-9513-5793126e7751">
-<span class="eqno">(126)<a class="headerlink" href="#equation-c854dab2-1e51-491a-9513-5793126e7751" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-80f9b3ba-b9e7-4578-a47c-3a15b86f256a">
+<span class="eqno">(126)<a class="headerlink" href="#equation-80f9b3ba-b9e7-4578-a47c-3a15b86f256a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \text{decoding error} = y^{(n)} - \tilde{y}^{(n)}
 \end{equation}\]</div>
 <p>In particular, we plot decoding error as a function of the true stimulus orientation.</p>
@@ -2560,8 +2474,8 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>Section 2.2: Improving the loss function<a class="headerlink" href="#section-2-2-improving-the-loss-function" title="Permalink to this headline">¶</a></h2>
 <p>As illustrated in the previous exercise, the squared error is not a good loss function for circular quantities like angles, since two angles that are very close (e.g. <span class="math notranslate nohighlight">\(1^o\)</span> and <span class="math notranslate nohighlight">\(359^o\)</span>) might actually have a very large squared error.</p>
 <p>Here, we’ll avoid this problem by changing our loss function to treat our decoding problem as a <strong>classification problem</strong>. Rather than estimating the <em>exact</em> angle of the stimulus, we’ll now aim to construct a decoder that classifies the stimulus into one of <span class="math notranslate nohighlight">\(C\)</span> classes, corresponding to different bins of angles of width <span class="math notranslate nohighlight">\(b = \frac{360}{C}\)</span>. The true class <span class="math notranslate nohighlight">\(\tilde{y}^{(n)}\)</span> of stimulus <span class="math notranslate nohighlight">\(i\)</span> is now given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-af6ac641-76ef-43f2-8abb-a5b28b13fc25">
-<span class="eqno">(127)<a class="headerlink" href="#equation-af6ac641-76ef-43f2-8abb-a5b28b13fc25" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-15cfaff8-ce58-4b4f-87b6-ccf909404c33">
+<span class="eqno">(127)<a class="headerlink" href="#equation-15cfaff8-ce58-4b4f-87b6-ccf909404c33" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \tilde{y}^{(n)} =
 \begin{cases}
 1 &amp;\text{if angle of stimulus $n$ is in the range } [0, b] \\
@@ -2574,25 +2488,25 @@ C &amp;\text{if angle of stimulus $n$ is in the range } [(C-1)b, 360]
 <p>We have a helper function <code class="docutils literal notranslate"><span class="pre">stimulus_class</span></code> that will extract <code class="docutils literal notranslate"><span class="pre">n_classes</span></code> stimulus classes for us from the stimulus orientations.</p>
 <p>To decode the stimulus class from neural responses, we’ll use a deep network that outputs a <span class="math notranslate nohighlight">\(C\)</span>-dimensional vector of probabilities <span class="math notranslate nohighlight">\(\mathbf{p} = \begin{bmatrix} p_1, p_2, \ldots, p_C \end{bmatrix}^T\)</span>, corresponding to the estimated probabilities of the stimulus belonging to each class <span class="math notranslate nohighlight">\(1, 2, \ldots, C\)</span>.</p>
 <p>To ensure the network’s outputs are indeed probabilities (i.e. they are positive numbers between 0 and 1, and sum to 1), we’ll use a <a class="reference external" href="https://en.wikipedia.org/wiki/Softmax_function">softmax function</a> to transform the real-valued outputs from the hidden layer into probabilities. Letting <span class="math notranslate nohighlight">\(\sigma(\cdot)\)</span> denote this softmax function, the equations describing our network are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ff8a2216-2555-4136-8de6-053444670b72">
-<span class="eqno">(128)<a class="headerlink" href="#equation-ff8a2216-2555-4136-8de6-053444670b72" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8915c8e0-e84f-4451-a362-8908041e68ac">
+<span class="eqno">(128)<a class="headerlink" href="#equation-8915c8e0-e84f-4451-a362-8908041e68ac" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mathbf{h}^{(n)} &amp;= \phi(\mathbf{W}^{in} \mathbf{r}^{(n)} + \mathbf{b}^{in}), &amp;&amp; [\mathbf{W}^{in}: M \times N], \\
 \mathbf{p}^{(n)} &amp;= \sigma(\mathbf{W}^{out} \mathbf{h}^{(n)} + \mathbf{b}^{out}),  &amp;&amp; [\mathbf{W}^{out}: C \times M],
 \end{align}\]</div>
 <p>The decoded stimulus class is then given by that assigned the highest probability by the network:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9ecb10eb-523c-4736-82af-af335f2417b3">
-<span class="eqno">(129)<a class="headerlink" href="#equation-9ecb10eb-523c-4736-82af-af335f2417b3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-74b2ae34-cc00-4e17-97d1-b78a1242210e">
+<span class="eqno">(129)<a class="headerlink" href="#equation-74b2ae34-cc00-4e17-97d1-b78a1242210e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y^{(n)} = \underset{i}{\arg\max} \,\, p_i
 \end{equation}\]</div>
 <p>The softmax function can be implemented in PyTorch simply using <code class="docutils literal notranslate"><span class="pre">torch.softmax()</span></code>.</p>
 <p>Often <em>log</em> probabilities are easier to work with than actual probabilities, because probabilities tend to be very small numbers that computers have trouble representing. We’ll therefore actually use the logarithm of the softmax as the output of our network,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-939fd97c-47c3-4fa7-ac60-6669fe8a8bf6">
-<span class="eqno">(130)<a class="headerlink" href="#equation-939fd97c-47c3-4fa7-ac60-6669fe8a8bf6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-991d0998-38eb-40a8-92e6-d305160a1823">
+<span class="eqno">(130)<a class="headerlink" href="#equation-991d0998-38eb-40a8-92e6-d305160a1823" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{l}^{(n)} = \log \left( \mathbf{p}^{(n)} \right)
 \end{equation}\]</div>
 <p>which can implemented in PyTorch together with the softmax via an <code class="docutils literal notranslate"><span class="pre">nn.LogSoftmax</span></code> layer. The nice thing about the logarithmic function is that it’s <em>monotonic</em>, so if one probability is larger/smaller than another, then its logarithm is also larger/smaller than the other’s. We therefore have that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-22125f1f-b8fd-4e5b-aff1-b7f4901224ba">
-<span class="eqno">(131)<a class="headerlink" href="#equation-22125f1f-b8fd-4e5b-aff1-b7f4901224ba" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8845c9aa-2df6-445e-9106-10c6543cbc49">
+<span class="eqno">(131)<a class="headerlink" href="#equation-8845c9aa-2df6-445e-9106-10c6543cbc49" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y^{(n)} = \underset{i}{\arg\max} \,\, p_i^{(n)} = \underset{i}{\arg\max} \, \log p_i^{(n)} = \underset{i}{\arg\max} \,\, l_i^{(n)}
 \end{equation}\]</div>
 <p>See the next cell for code for constructing a deep network with one hidden layer that of ReLU’s that outputs a vector of log probabilities.</p>
@@ -2638,13 +2552,13 @@ y^{(n)} = \underset{i}{\arg\max} \,\, p_i^{(n)} = \underset{i}{\arg\max} \, \log
 </div>
 </div>
 <p>What should our loss function now be? Ideally, we want the probabilities outputted by our network to be such that the probability of the true stimulus class is high. One way to formalize this is to say that we want to maximize the <em>log</em> probability of the true stimulus class <span class="math notranslate nohighlight">\(\tilde{y}^{(n)}\)</span> under the class probabilities predicted by the network,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7f7bb968-3d77-49b2-9856-51268dd3c99a">
-<span class="eqno">(132)<a class="headerlink" href="#equation-7f7bb968-3d77-49b2-9856-51268dd3c99a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dc3445c5-f4f1-40ef-b93c-7ea8e5d86d2b">
+<span class="eqno">(132)<a class="headerlink" href="#equation-dc3445c5-f4f1-40ef-b93c-7ea8e5d86d2b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \log \left( \text{predicted probability of stimulus } n \text{ being of class } \tilde{y}^{(n)} \right) = \log p^{(n)}_{\tilde{y}^{(n)}} = l^{(n)}_{\tilde{y}^{(n)}}
 \end{equation}\]</div>
 <p>To turn this into a loss function to be <em>minimized</em>, we can then simply multiply it by -1: maximizing the log probability is the same as minimizing the <em>negative</em> log probability. Summing over a batch of <span class="math notranslate nohighlight">\(P\)</span> inputs, our loss function is then given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4f13c4be-bdbe-4c3e-bfd6-8deb83fb7d8d">
-<span class="eqno">(133)<a class="headerlink" href="#equation-4f13c4be-bdbe-4c3e-bfd6-8deb83fb7d8d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-20df0b5a-de7b-4ceb-8175-4eda7bd1c3a2">
+<span class="eqno">(133)<a class="headerlink" href="#equation-20df0b5a-de7b-4ceb-8175-4eda7bd1c3a2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 L = -\sum_{n=1}^P \log p^{(n)}_{\tilde{y}^{(n)}} = -\sum_{n=1}^P l^{(n)}_{\tilde{y}^{(n)}}
 \end{equation}\]</div>
 <p>In the deep learning community, this loss function is typically referred to as the <strong>cross-entropy</strong>, or <strong>negative log likelihood</strong>. The corresponding built-in loss function in PyTorch is <code class="docutils literal notranslate"><span class="pre">nn.NLLLoss()</span></code> (documentation <a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.CrossEntropyLoss.html">here</a>).</p>
@@ -2894,6 +2808,25 @@ L = -\sum_{n=1}^P \log p^{(n)}_{\tilde{y}^{(n)}} = -\sum_{n=1}^P l^{(n)}_{\tilde
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iteration 200/1000 | loss: 0.004 | test_loss: 0.252
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iteration 400/1000 | loss: 0.002 | test_loss: 0.255
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iteration 600/1000 | loss: 0.001 | test_loss: 0.259
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iteration 800/1000 | loss: 0.001 | test_loss: 0.263
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iteration 1000/1000 | loss: 0.001 | test_loss: 0.265
+&gt;&gt;&gt; fraction correct = 0.861
+</pre></div>
+</div>
+<img alt="../../../_images/W2D1_Tutorial4_55_5.png" src="../../../_images/W2D1_Tutorial4_55_5.png"/>
+</div>
 </div>
 <p>How do the weights <span class="math notranslate nohighlight">\(W_{in}\)</span> from the neurons to the hidden layer look now?</p>
 <div class="cell docutils container">
@@ -2909,6 +2842,13 @@ L = -\sum_{n=1}^P \log p^{(n)}_{\tilde{y}^{(n)}} = -\sum_{n=1}^P l^{(n)}_{\tilde
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>shape of W_in:
+(20, 23589)
+</pre></div>
+</div>
+<img alt="../../../_images/W2D1_Tutorial4_57_1.png" src="../../../_images/W2D1_Tutorial4_57_1.png"/>
+</div>
 </div>
 </div>
 </div>
@@ -2917,13 +2857,17 @@ L = -\sum_{n=1}^P \log p^{(n)}_{\tilde{y}^{(n)}} = -\sum_{n=1}^P l^{(n)}_{\tilde
 <div class="section" id="video-1-regularization">
 <h3>Video 1: Regularization<a class="headerlink" href="#video-1-regularization" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "d51144e813cb4c8dae86f2db0dd6aced"}
+</script></div>
 </div>
 <p>As discussed in the lecture, it is often important to incorporate regularization terms into the loss function to avoid overfitting. In particular, in this case, we will use these terms to enforce sparsity in the linear layer from neurons to hidden units.</p>
 <p>Here we’ll consider the classic L2 regularization penalty <span class="math notranslate nohighlight">\(\mathcal{R}_{L2}\)</span>, which is the sum of squares of each weight in the network <span class="math notranslate nohighlight">\(\sum_{ij} {\mathbf{W}^{out}_{ij}}^2\)</span> times a constant that we call <code class="docutils literal notranslate"><span class="pre">L2_penalty</span></code>.</p>
 <p>We will also add an L1 regularization penalty <span class="math notranslate nohighlight">\(\mathcal{R}_{L1}\)</span> to enforce sparsity of the weights, which is the sum of the absolute values of the weights <span class="math notranslate nohighlight">\(\sum_{ij} |{\mathbf{W}^{out}_{ij}}|\)</span> times a constant that we call <code class="docutils literal notranslate"><span class="pre">L1_penalty</span></code>.</p>
 <p>We will add both of these to the loss function:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c0a1afec-6166-4e36-9c59-98197b92d2a7">
-<span class="eqno">(134)<a class="headerlink" href="#equation-c0a1afec-6166-4e36-9c59-98197b92d2a7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d1254e5c-53e1-4335-820b-9f206b1ba7dc">
+<span class="eqno">(134)<a class="headerlink" href="#equation-d1254e5c-53e1-4335-820b-9f206b1ba7dc" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 L = (y - \tilde{y})^2 + \mathcal{R}_{L2} + \mathcal{R}_{L1}
 \end{equation}\]</div>
 <p>The parameters <code class="docutils literal notranslate"><span class="pre">L2_penalty</span></code> and <code class="docutils literal notranslate"><span class="pre">L1_penalty</span></code> are inputs to the train function.</p>
@@ -3043,6 +2987,25 @@ In particular, you will:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iteration 200/1000 | loss: 0.226 | test_loss: 0.477
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iteration 400/1000 | loss: 0.167 | test_loss: 0.411
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iteration 600/1000 | loss: 0.142 | test_loss: 0.387
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iteration 800/1000 | loss: 0.126 | test_loss: 0.370
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iteration 1000/1000 | loss: 0.116 | test_loss: 0.361
+&gt;&gt;&gt; fraction correct = 0.889
+</pre></div>
+</div>
+<img alt="../../../_images/W2D1_Tutorial4_64_5.png" src="../../../_images/W2D1_Tutorial4_64_5.png"/>
+</div>
 </div>
 <p>It seems we were overfitting a little because we increased the accuracy a small amount by adding an L1 and L2 regularization penalty. What errors are still being made by the model?</p>
 <p>Let’s see how the weights look after adding <code class="docutils literal notranslate"><span class="pre">L1_penalty</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>.</p>
@@ -3058,6 +3021,13 @@ In particular, you will:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>shape of W_in:
+(20, 23589)
+</pre></div>
+</div>
+<img alt="../../../_images/W2D1_Tutorial4_66_1.png" src="../../../_images/W2D1_Tutorial4_66_1.png"/>
+</div>
 </div>
 <p>The weights appear to be sparser than before.</p>
 </div>
@@ -3069,6 +3039,10 @@ In particular, you will:</p>
 <div class="section" id="video-2-convolutional-encoding-model">
 <h2>Video 2: Convolutional Encoding Model<a class="headerlink" href="#video-2-convolutional-encoding-model" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "146cc71d23284719a562b3dcda6d0cd5"}
+</script></div>
 </div>
 <p>In neuroscience, we often want to understand how the brain represents external stimuli. One approach to discovering these representations is to build an encoding model that takes as input the external stimuli (in this case grating stimuli) and outputs the neural responses.</p>
 <p>Because the visual cortex is often thought to be a convolutional network where the same filters are combined across the visual field, we will use a model with a convolutional layer. We learned how to build a convolutional layer in the previous section. We will add to this convolutional layer a fully connected layer from the output of the convolutions to the neurons. We will then visualize the weights of this fully connected layer.</p>
@@ -3189,6 +3163,13 @@ In particular, you will:</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>resp_train contains averaged responses of 23589 neurons to 60 binned stimuli
+grating_stimuli contains 60 stimuli of size 12 x 16
+</pre></div>
+</div>
+<img alt="../../../_images/W2D1_Tutorial4_76_1.png" src="../../../_images/W2D1_Tutorial4_76_1.png"/>
 </div>
 </div>
 </div>
@@ -3458,6 +3439,59 @@ In particular, you will:</p>
 <span class="c1"># Visualize</span>
 <span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">():</span>
   <span class="n">plot_training_curves</span><span class="p">(</span><span class="n">train_loss</span><span class="p">,</span> <span class="n">test_loss</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iteration 1/200 | train loss: 1.8895 | test loss: 1.8836
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iteration 20/200 | train loss: 1.0868 | test loss: 1.0772
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iteration 40/200 | train loss: 0.4668 | test loss: 0.4840
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iteration 60/200 | train loss: 0.2013 | test loss: 0.2341
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iteration 80/200 | train loss: 0.1072 | test loss: 0.1456
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iteration 100/200 | train loss: 0.0767 | test loss: 0.1167
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_4524</span><span class="o">/</span><span class="mf">1408630058.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">70</span>                               <span class="n">test_data</span><span class="o">=</span><span class="n">grating_stimuli</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">test_labels</span><span class="o">=</span><span class="n">resp_test</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>                               <span class="n">n_iter</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="ne">---&gt; </span><span class="mi">72</span>                               <span class="n">L2_penalty</span><span class="o">=</span><span class="mf">5e-4</span><span class="p">,</span> <span class="n">L1_penalty</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span> 
+<span class="g g-Whitespace">     </span><span class="mi">74</span> <span class="c1"># Visualize</span>
+
+<span class="nn">/tmp/ipykernel_4524/1963032748.py</span> in <span class="ni">train</span><span class="nt">(net, custom_loss, train_data, train_labels, test_data, test_labels, learning_rate, n_iter, L2_penalty, L1_penalty)</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span>     <span class="c1">### Update parameters</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span>     <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span> <span class="c1"># zero out gradients</span>
+<span class="ne">---&gt; </span><span class="mi">44</span>     <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span> <span class="c1"># Backward pass: compute gradient of the loss with respect to model parameters</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span>     <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span> <span class="c1"># step parameters in gradient direction</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span>     <span class="n">train_loss</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>  <span class="c1"># .item() transforms the tensor to a scalar and does .detach() for us</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/site-packages/torch/_tensor.py</span> in <span class="ni">backward</span><span class="nt">(self, gradient, retain_graph, create_graph, inputs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">361</span>                 <span class="n">create_graph</span><span class="o">=</span><span class="n">create_graph</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">362</span>                 <span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">363</span>         <span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gradient</span><span class="p">,</span> <span class="n">retain_graph</span><span class="p">,</span> <span class="n">create_graph</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">364</span> 
+<span class="g g-Whitespace">    </span><span class="mi">365</span>     <span class="k">def</span> <span class="nf">register_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hook</span><span class="p">):</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/site-packages/torch/autograd/__init__.py</span> in <span class="ni">backward</span><span class="nt">(tensors, grad_tensors, retain_graph, create_graph, grad_variables, inputs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">173</span>     <span class="n">Variable</span><span class="o">.</span><span class="n">_execution_engine</span><span class="o">.</span><span class="n">run_backward</span><span class="p">(</span>  <span class="c1"># Calls into the C++ engine to run the backward pass</span>
+<span class="g g-Whitespace">    </span><span class="mi">174</span>         <span class="n">tensors</span><span class="p">,</span> <span class="n">grad_tensors_</span><span class="p">,</span> <span class="n">retain_graph</span><span class="p">,</span> <span class="n">create_graph</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">175</span>         <span class="n">allow_unreachable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">accumulate_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Calls into the C++ engine to run the backward pass</span>
+<span class="g g-Whitespace">    </span><span class="mi">176</span> 
+<span class="g g-Whitespace">    </span><span class="mi">177</span> <span class="k">def</span> <span class="nf">grad</span><span class="p">(</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
