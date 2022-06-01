@@ -43,13 +43,13 @@ jobs:
           rm -r nmaci-$BRANCH
           echo ci/ >> .gitignore
 
-      - name: Copy tutorials from course-content-dl repo
+      - name: Copy tutorials from course-content repo
         run: |
           BRANCH=`python -c 'import os, re; m = re.search(r"course-content:([\w-]+)", os.environ["COMMIT_MESSAGE"]); print("main" if m is None else m.group(1))'`
           wget https://github.com/NeuromatchAcademy/course-content/archive/refs/heads/$BRANCH.tar.gz
           tar -xzf $BRANCH.tar.gz
-          mv course-content-dl-$BRANCH/tutorials/ tutorials/
-          rm -r course-content-dl-$BRANCH
+          mv course-content-$BRANCH/tutorials/ tutorials/
+          rm -r course-content-$BRANCH
           rm -r $BRANCH.tar.gz
 
       - name: Build the book
