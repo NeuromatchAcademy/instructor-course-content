@@ -41,6 +41,7 @@ jobs:
           pip install -r nmaci-$BRANCH/requirements.txt
           mv nmaci-$BRANCH/scripts/ ci/
           rm -r nmaci-$BRANCH
+          rm -r $BRANCH.tar.gz
           echo ci/ >> .gitignore
 
       - name: Copy tutorials from course-content repo
@@ -50,6 +51,7 @@ jobs:
           tar -xzf $BRANCH.tar.gz
           mv course-content-$BRANCH/tutorials/ tutorials/
           rm -r course-content-$BRANCH
+          rm -r $BRANCH.tar.gz
           rm -r $BRANCH.tar.gz
 
       - name: Build the book
