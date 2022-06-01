@@ -50,8 +50,14 @@ jobs:
           wget https://github.com/NeuromatchAcademy/course-content/archive/refs/heads/$BRANCH.tar.gz
           tar -xzf $BRANCH.tar.gz
           mv course-content-$BRANCH/tutorials/ tutorials/
+          mv course-content-$BRANCH/requirements.txt .
           rm -r course-content-$BRANCH
           rm -r $BRANCH.tar.gz
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install jupyter-book==0.10.2 ghp-import
 
       - name: Build the book
         run: |
