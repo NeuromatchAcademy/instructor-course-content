@@ -59,7 +59,7 @@ jobs:
 
       - name: Build the book
         run: |
-          python ci/generate_book_precourse.py
+          python ci/generate_book.py instructor
           ln -s ../tutorials book/tutorials
           jupyter-book build book
           python ci/parse_html_for_errors.py
