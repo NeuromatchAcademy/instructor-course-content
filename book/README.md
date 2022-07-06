@@ -16,9 +16,15 @@ In order to build the book locally, you will need to do the following:
 
 `tar -xzf main.tar.gz; rm -rf main.tar.gz`
 
-3. Download course-content repo (main branch) and copy files
+3. Download course-content repo (main branch)
 
 `wget https://github.com/NeuromatchAcademy/course-content/archive/refs/heads/main.tar.gz`
+
+`tar -xzf main.tar.gz; rm -rf main.tar.gz`
+
+4. Download precourse repo (main branch)
+
+`wget https://github.com/NeuromatchAcademy/precourse/archive/refs/heads/main.tar.gz`
 
 `tar -xzf main.tar.gz; rm -rf main.tar.gz`
 
@@ -41,6 +47,12 @@ In order to build the book locally, you will need to do the following:
 `mv ../course-content-main/requirements.txt .`
 
 `rm -r ../course-content-main`
+
+`mv ../precourse-main/tutorials/W0D* tutorials/`
+
+`cat ../precourse-main/tutorials/materials.yml tutorials/materials.yml > out.yml`
+
+`mv out.yml tutorials/materials.yml`
 
 6. Create a symlink in the book dir to the tutorials dir. From the repo (i.e., course-content) root directory:
 
