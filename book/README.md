@@ -53,7 +53,7 @@ In order to build the book locally, you will need to do the following:
 
 7. Prepare repo for book building
 
-`python ../nmaci-main/scripts/generate_book_dl.py instructor`
+`python ../nmaci-main/scripts/generate_book.py instructor`
 
 This will use the modified tutorials/materials.yml to create the `_toc.yml` file in the book directory. It will also be responsible for creating any additional markdown files or modifying any tutorial notebooks specifically for book generation. 
 
