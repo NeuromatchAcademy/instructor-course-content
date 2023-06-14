@@ -47,9 +47,6 @@
   #### Assessment:
   Please complete the quiz we prepared for you. [Here](https://portal.neuromatchacademy.org/api/redirect/to/4356eaf3-a41c-4f1d-a53b-f72738f8f37a) is the link.
 
-  #### Assessment:
-  Please complete the quiz we prepared for you. [Here](https://portal.neuromatchacademy.org/api/redirect/to/4356eaf3-a41c-4f1d-a53b-f72738f8f37a) is the link.
-
 ### Tech stack
 - Video: [Watch here](https://youtu.be/E2EtK_yCfTc)
 - Slides: [Download here](https://osf.io/download/z4vfm)
@@ -65,7 +62,7 @@
 - Video: [Watch here](https://youtu.be/3c68dd25dqA)
 - Slides: [Download here](https://osf.io/download/mvsza)
 
-  #### Text for links etc.:
+  #### Useful links, etc.:
   - [Example tutorial](https://deeplearning.neuromatch.io/tutorials/W1D3_MultiLayerPerceptrons/student/W1D3_Tutorial1.html)
   - [Peer programming](https://www.codefellows.org/blog/peer-programming-5-reasons-learning-in-a-group-beats-studying-on-your-own/)
   - [Nicolas method guidelines](https://docs.google.com/document/d/1znLhHKgC_TAia4vRTxQSV3-FV49W8ctBAT-Serex1Vc/edit?usp=sharing) for peer programming
