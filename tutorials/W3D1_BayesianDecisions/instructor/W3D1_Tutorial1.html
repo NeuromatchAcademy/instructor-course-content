@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -2527,8 +2527,8 @@ The gains and losss are defined by the utility of choosing an action, which is f
 </tbody>
 </table>
 <p>To use possible gains and losses to choose an action, we calculate the <strong>expected utility</strong> of that action by weighing these utilities with the probability of that state occuring. This allows us to choose actions by taking probabilities of events into account: we don’t care if the outcome of an action-state pair is a loss if the probability of that state is very low. We can formalize this as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e34ebf79-50c4-4f4a-b232-c0f075e517ca">
-<span class="eqno">(349)<a class="headerlink" href="#equation-e34ebf79-50c4-4f4a-b232-c0f075e517ca" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-44b906eb-4b33-418d-870c-a06afbb34959">
+<span class="eqno">(349)<a class="headerlink" href="#equation-44b906eb-4b33-418d-870c-a06afbb34959" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \text{Expected utility of action a} = \sum_{s}U(s,a)P(s)
 \end{equation}\]</div>
 <p>In other words, the expected utility of an action a is the sum over possible states of the utility of that action and state times the probability of that state.</p>
@@ -2957,20 +2957,20 @@ We will watch someone fish (for let’s say 10 minutes) and our measurement is w
 </div>
 <p>Marginalization is going to be used to combine our prior knowledge, which we call the <strong>prior</strong>, and our new information from a measurement, the <strong>likelihood</strong>. Only in this case, the information we gain about the hidden state we are interested in, where the fish are, is based on the relationship between the probabilities of the measurement and our prior.</p>
 <p>We can now calculate the full posterior distribution for the hidden state (<span class="math notranslate nohighlight">\(s\)</span>) using Bayes’ Rule. As we’ve seen, the posterior is proportional to the prior times the likelihood. This means that the posterior probability of the hidden state (<span class="math notranslate nohighlight">\(s\)</span>) given a measurement (<span class="math notranslate nohighlight">\(m\)</span>) is proportional to the likelihood of the measurement given the state times the prior probability of that state:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2c07901c-4f52-497f-9a0f-ce1012161f24">
-<span class="eqno">(350)<a class="headerlink" href="#equation-2c07901c-4f52-497f-9a0f-ce1012161f24" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ddddf0b2-8e02-4911-9e21-c5f397f583d5">
+<span class="eqno">(350)<a class="headerlink" href="#equation-ddddf0b2-8e02-4911-9e21-c5f397f583d5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P(s | m) \propto P(m | s) P(s)
 \end{equation}\]</div>
 <p>We say proportional to instead of equal because we need to normalize to produce a full probability distribution:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e090161b-006a-48e8-97b5-a476ff82bf90">
-<span class="eqno">(351)<a class="headerlink" href="#equation-e090161b-006a-48e8-97b5-a476ff82bf90" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-16ccf810-e40d-430f-a60c-3ecaa6189cab">
+<span class="eqno">(351)<a class="headerlink" href="#equation-16ccf810-e40d-430f-a60c-3ecaa6189cab" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P(s | m) = \frac{P(m | s) P(s)}{P(m)}
 \end{equation}\]</div>
 <p>Normalizing by this <span class="math notranslate nohighlight">\(P(m)\)</span> means that our posterior is a complete probability distribution that sums or integrates to 1 appropriately. We now can use this new, complete probability distribution for any future inference or decisions we like! In fact, as we will see tomorrow, we can use it as a new prior! Finally, we often call this probability distribution our beliefs over the hidden states, to emphasize that it is our subjective knowledge about the hidden state.</p>
 <p>For many complicated cases, like those we might be using to model behavioral or brain inferences, the normalization term can be intractable or extremely complex to calculate. We can be careful to choose probability distributions whfere we can analytically calculate the posterior probability or numerical approximation is reliable. Better yet, we sometimes don’t need to bother with this normalization! The normalization term, <span class="math notranslate nohighlight">\(P(m)\)</span>, is the probability of the measurement. This does not depend on state so is essentially a constant we can often ignore. We can compare the unnormalized posterior distribution values for different states because how they relate to each other is unchanged when divided by the same constant. We will see how to do this to compare evidence for different hypotheses tomorrow. (It’s also used to compare the likelihood of models fit using maximum likelihood estimation)</p>
 <p>In this relatively simple example, we can compute the marginal likelihood <span class="math notranslate nohighlight">\(P(m)\)</span> easily by using:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cb02d4c4-f1d7-4cfe-ace2-db68f6c401f0">
-<span class="eqno">(352)<a class="headerlink" href="#equation-cb02d4c4-f1d7-4cfe-ace2-db68f6c401f0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9b7921c6-f667-4362-9c58-0f47e51158b4">
+<span class="eqno">(352)<a class="headerlink" href="#equation-9b7921c6-f667-4362-9c58-0f47e51158b4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P(m) = \sum_s P(m | s) P(s)
 \end{equation}\]</div>
 <p>We can then normalize so that we deal with the full posterior distribution.</p>
@@ -3382,13 +3382,13 @@ P(m) = \sum_s P(m | s) P(s)
 <h2>Bonus Section 1: Correlation Formula<a class="headerlink" href="#bonus-section-1-correlation-formula" title="Permalink to this headline">¶</a></h2>
 <p>To understand the way we calculate the correlation, we need to review the definition of covariance and correlation.</p>
 <p>Covariance:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7ee4dd01-2064-4b7b-8b69-ba946c486211">
-<span class="eqno">(353)<a class="headerlink" href="#equation-7ee4dd01-2064-4b7b-8b69-ba946c486211" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b2b2806e-0d9f-489a-837c-6a63504e247d">
+<span class="eqno">(353)<a class="headerlink" href="#equation-b2b2806e-0d9f-489a-837c-6a63504e247d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 cov(X,Y) = \sigma_{XY} = \mathbb{E}[(X - \mu_{x})(Y - \mu_{y})] = \mathbb{E}[X]\mathbb{E}[Y] - \mu_{x}\mu_{y}
 \end{equation}\]</div>
 <p>Correlation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0226d213-e77c-4a06-96a9-8312b2da4df3">
-<span class="eqno">(354)<a class="headerlink" href="#equation-0226d213-e77c-4a06-96a9-8312b2da4df3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-579232a4-eb3b-4963-8492-6a438cd32f6c">
+<span class="eqno">(354)<a class="headerlink" href="#equation-579232a4-eb3b-4963-8492-6a438cd32f6c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \rho_{XY} = \frac{cov(Y,Y)}{\sqrt{\text{var}(X)\text{var}(Y)}} = \frac{\sigma_{XY}}{\sigma_{X}\sigma_{Y}}
 \end{equation}\]</div>
 </div>

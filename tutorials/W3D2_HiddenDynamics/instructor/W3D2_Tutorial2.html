@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -2044,20 +2044,20 @@ const thebe_selector_output = ".output, .cell_output"
 <p>In contrast to last tutorial, the latent state in an HMM is not fixed, but may switch to a different state at each time step. The time dependence is simple: the probability of the state at time <span class="math notranslate nohighlight">\(t\)</span> is wholly determined by the state at time <span class="math notranslate nohighlight">\(t-1\)</span>. This is called called the <strong>Markov property</strong> and the dependency of the whole state sequence <span class="math notranslate nohighlight">\(\{s_1,...,s_t\}\)</span> can be described by a chain structure called a Markov Chain. You have seen a Markov chain in the <a class="reference external" href="https://compneuro.neuromatch.io/tutorials/W0D5_Statistics/student/W0D5_Tutorial2.html#section-1-2-markov-chains">pre-reqs Statistics day</a> and in the <a class="reference external" href="https://compneuro.neuromatch.io/tutorials/W2D2_LinearSystems/student/W2D2_Tutorial2.html">Linear Systems Tutorial 2</a>.</p>
 <p><strong>Markov model for binary latent dynamics</strong></p>
 <p>Let’s reuse the binary switching process you saw in the <a class="reference external" href="https://compneuro.neuromatch.io/tutorials/W2D2_LinearSystems/student/W2D2_Tutorial2.html">Linear Systems Tutorial 2</a>: our state can be either +1 or -1. The probability of switching to state <span class="math notranslate nohighlight">\(s_t=j\)</span> from the previous state <span class="math notranslate nohighlight">\(s_{t-1}=i\)</span> is the conditional probability distribution <span class="math notranslate nohighlight">\(p(s_t = j| s_{t-1} = i)\)</span>. We can summarize these as a <span class="math notranslate nohighlight">\(2\times 2\)</span> matrix we will denote <span class="math notranslate nohighlight">\(D\)</span> for Dynamics.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ce300f16-a32c-4602-ad1c-c9d3634f45d3">
-<span class="eqno">(374)<a class="headerlink" href="#equation-ce300f16-a32c-4602-ad1c-c9d3634f45d3" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-105bf8d6-1b46-42b4-beb1-c314f933870c">
+<span class="eqno">(374)<a class="headerlink" href="#equation-105bf8d6-1b46-42b4-beb1-c314f933870c" title="Permalink to this equation">¶</a></span>\[\begin{align}
 D = \begin{bmatrix}p(s_t = +1 | s_{t-1} = +1) &amp; p(s_t = -1 | s_{t-1} = +1)\\p(s_t = +1 | s_{t-1} = -1)&amp; p(s_t = -1 | s_{t-1} = -1)\end{bmatrix}
 \end{align}\]</div>
 <p><span class="math notranslate nohighlight">\(D_{ij}\)</span> represents the transition probability to switch from state <span class="math notranslate nohighlight">\(i\)</span> to state <span class="math notranslate nohighlight">\(j\)</span> at next time step. Please note that this is in contrast to the meaning used in the intro and in Linear Systems (their transition matrices are the transpose of ours) but syncs with the <a class="reference external" href="https://compneuro.neuromatch.io/tutorials/W0D5_Statistics/student/W0D5_Tutorial2.html#section-1-2-markov-chains">pre-reqs Statistics day</a>.</p>
 <p>We can represent the probability of the <em>current</em> state as a 2-dimensional vector</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0d881cb1-380f-4060-82f1-24139b214f33">
-<span class="eqno">(375)<a class="headerlink" href="#equation-0d881cb1-380f-4060-82f1-24139b214f33" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a6c9c9eb-8638-4354-b187-3a79a74444a8">
+<span class="eqno">(375)<a class="headerlink" href="#equation-a6c9c9eb-8638-4354-b187-3a79a74444a8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P_t = [p(s_t = +1), p(s_t = -1)]
 \end{equation}\]</div>
 <p>The entries are the probability that the current state is +1 and the probability that the current state is -1 so these must sum up to 1.</p>
 <p>We then update the probabilities over time following the Markov process:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-56761940-996d-403a-a77a-5e550022a2b6">
-<span class="eqno">(376)<a class="headerlink" href="#equation-56761940-996d-403a-a77a-5e550022a2b6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4fc3d12b-24ab-45ad-b4a3-5afeadfb983a">
+<span class="eqno">(376)<a class="headerlink" href="#equation-4fc3d12b-24ab-45ad-b4a3-5afeadfb983a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P_{t}= P_{t-1}D \tag{1}
 \end{equation}\]</div>
 <p>If you know the state, the entries of <span class="math notranslate nohighlight">\(P_{t-1}\)</span> would be either 1 or 0 as there is no uncertainty.</p>
@@ -2073,8 +2073,8 @@ P_{t}= P_{t-1}D \tag{1}
 <p>In this exercise, you will implement a binary HMM with Gaussian measurements. Your HMM will start in State +1 and transition between states (both <span class="math notranslate nohighlight">\(-1 \rightarrow 1\)</span> and <span class="math notranslate nohighlight">\(1 \rightarrow -1\)</span>) with probability <code class="docutils literal notranslate"><span class="pre">switch_prob</span></code>. Each state emits measurements drawn from a Gaussian with mean <span class="math notranslate nohighlight">\(+1\)</span> for State +1 and mean <span class="math notranslate nohighlight">\(-1\)</span> for State -1. The standard deviation of both states is given by <code class="docutils literal notranslate"><span class="pre">noise_level</span></code>.</p>
 <p>The exercises in the next cell have three steps:</p>
 <p><strong>STEP 1</strong>. In <code class="docutils literal notranslate"><span class="pre">create_HMM</span></code>, complete the transition matrix  <code class="docutils literal notranslate"><span class="pre">transmat_</span></code> (i.e., <span class="math notranslate nohighlight">\(D\)</span>) in the code.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-525fb91a-a74a-4aa2-b32a-3eb5543b47e2">
-<span class="eqno">(377)<a class="headerlink" href="#equation-525fb91a-a74a-4aa2-b32a-3eb5543b47e2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3c01938d-0a14-4ee1-8205-897bd4ae9185">
+<span class="eqno">(377)<a class="headerlink" href="#equation-3c01938d-0a14-4ee1-8205-897bd4ae9185" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 D = 
 \begin{pmatrix}
 p_{\rm stay} &amp; p_{\rm switch} \\
@@ -2504,15 +2504,15 @@ p_{\rm switch} &amp; p_{\rm stay} \\
 <ul class="simple">
 <li><p><strong>Predict</strong>: transform yesterday’s posterior over <span class="math notranslate nohighlight">\(s_{t-1}\)</span> into today’s prior over <span class="math notranslate nohighlight">\(s_t\)</span> using the transition matrix <span class="math notranslate nohighlight">\(D\)</span>:</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-0484f1c5-a55e-44c4-ab91-5fa864f76029">
-<span class="eqno">(378)<a class="headerlink" href="#equation-0484f1c5-a55e-44c4-ab91-5fa864f76029" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a1ec33dd-d69a-4c77-82fc-05081c28ff41">
+<span class="eqno">(378)<a class="headerlink" href="#equation-a1ec33dd-d69a-4c77-82fc-05081c28ff41" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \text{today's prior}=p(s_t|m_{1:t-1})= p(s_{t-1}|m_{1:t-1}) D
 \end{equation}\]</div>
 <ul class="simple">
 <li><p><strong>Update</strong>: Incorporate measurement <span class="math notranslate nohighlight">\(m_t\)</span> to calculate the posterior <span class="math notranslate nohighlight">\(p(s_t|m_{0:t})\)</span></p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-f2599cf7-d911-4860-9617-f80c0ea664d4">
-<span class="eqno">(379)<a class="headerlink" href="#equation-f2599cf7-d911-4860-9617-f80c0ea664d4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-172e5f9f-72bb-42bb-80a8-1a20de5f4c56">
+<span class="eqno">(379)<a class="headerlink" href="#equation-172e5f9f-72bb-42bb-80a8-1a20de5f4c56" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \text{posterior} \propto \text{prior}\cdot \text{likelihood}=p(m_t|s_t)p(s_t|m_{0:t-1})
 \end{equation}\]</div>
 <p>In this exercise, you will:</p>

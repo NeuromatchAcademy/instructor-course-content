@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -1988,8 +1988,8 @@ const thebe_selector_output = ".output, .cell_output"
 <details>
 <summary> <font color="blue">Click here for text recap of relevant part of video </font></summary>
 <p>Individual neurons respond by spiking. When we average the spikes of neurons in a population, we can define the average firing activity of the population. In this model, we are interested in how the population-averaged firing varies as a function of time and network parameters. Mathematically, we can describe the firing rate dynamic of a feed-forward network as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0ac2ebd5-4ca8-4f88-a264-becec97d5373">
-<span class="eqno">(309)<a class="headerlink" href="#equation-0ac2ebd5-4ca8-4f88-a264-becec97d5373" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d746814a-498a-407c-a06f-f681a13df7de">
+<span class="eqno">(309)<a class="headerlink" href="#equation-d746814a-498a-407c-a06f-f681a13df7de" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \tau \frac{dr}{dt} = -r + F(I_{\text{ext}})  \quad\qquad (1)
 \end{equation}\]</div>
 <p><span class="math notranslate nohighlight">\(r(t)\)</span> represents the average firing rate of the excitatory population at time <span class="math notranslate nohighlight">\(t\)</span>, <span class="math notranslate nohighlight">\(\tau\)</span> controls the timescale of the evolution of the average firing rate, <span class="math notranslate nohighlight">\(I_{\text{ext}}\)</span> represents the external input, and the transfer function <span class="math notranslate nohighlight">\(F(\cdot)\)</span> (which can be related to f-I curve of individual neurons described in the next sections) represents the population activation function in response to all received inputs.</p>
@@ -2058,8 +2058,8 @@ const thebe_selector_output = ".output, .cell_output"
 <h3>Coding Exercise 1.2: Implement F-I curve<a class="headerlink" href="#coding-exercise-1-2-implement-f-i-curve" title="Permalink to this headline">¶</a></h3>
 <p>Let’s first investigate the activation functions before simulating the dynamics of the entire population.</p>
 <p>In this exercise, you will implement a sigmoidal <strong>F-I</strong> curve or transfer function <span class="math notranslate nohighlight">\(F(x)\)</span>, with gain <span class="math notranslate nohighlight">\(a\)</span> and threshold level <span class="math notranslate nohighlight">\(\theta\)</span> as parameters:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ffef809e-b76a-47e2-8348-a506eb7ade0f">
-<span class="eqno">(310)<a class="headerlink" href="#equation-ffef809e-b76a-47e2-8348-a506eb7ade0f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9ec8c669-60da-4856-a24f-89b033a2ebe9">
+<span class="eqno">(310)<a class="headerlink" href="#equation-9ec8c669-60da-4856-a24f-89b033a2ebe9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 F(x;a,\theta) = \frac{1}{1+\text{e}^{-a(x-\theta)}} - \frac{1}{1+\text{e}^{a\theta}}
 \end{equation}\]</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
@@ -2368,22 +2368,22 @@ F(x;a,\theta) = \frac{1}{1+\text{e}^{-a(x-\theta)}} - \frac{1}{1+\text{e}^{a\the
 <details>
 <summary> <font color="blue">Click here for text recap of video </font></summary>
 <p>We can now extend our feed-forward network to a recurrent network, governed by the equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8f7f05db-1dd0-4a7b-ac90-4a3996e44010">
-<span class="eqno">(311)<a class="headerlink" href="#equation-8f7f05db-1dd0-4a7b-ac90-4a3996e44010" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5974396f-ee8e-43bf-8cf8-29dffbc8dd68">
+<span class="eqno">(311)<a class="headerlink" href="#equation-5974396f-ee8e-43bf-8cf8-29dffbc8dd68" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \tau \frac{dr}{dt} &amp;= -r + F(w\cdot r + I_{\text{ext}})  \quad\qquad (3)
 \end{align}\]</div>
 <p>where as before, <span class="math notranslate nohighlight">\(r(t)\)</span> represents the average firing rate of the excitatory population at time <span class="math notranslate nohighlight">\(t\)</span>, <span class="math notranslate nohighlight">\(\tau\)</span> controls the timescale of the evolution of the average firing rate, <span class="math notranslate nohighlight">\(I_{\text{ext}}\)</span> represents the external input, and the transfer function <span class="math notranslate nohighlight">\(F(\cdot)\)</span> (which can be related to f-I curve of individual neurons described in the next sections) represents the population activation function in response to all received inputs. Now we also have <span class="math notranslate nohighlight">\(w\)</span> which denotes the strength (synaptic weight) of the recurrent input to the population.</p>
 <p>As you varied the two parameters in the last Interactive Demo, you noticed that, while at first the system output quickly changes, with time, it reaches its maximum/minimum value and does not change anymore. The value eventually reached by the system is called the <strong>steady state</strong> of the system, or the <strong>fixed point</strong>. Essentially, in the steady states the derivative with respect to time of the activity (<span class="math notranslate nohighlight">\(r\)</span>) is zero, i.e. <span class="math notranslate nohighlight">\(\displaystyle \frac{dr}{dt}=0\)</span>.</p>
 <p>We can find that the steady state of the Equation. (1) by setting <span class="math notranslate nohighlight">\(\displaystyle{\frac{dr}{dt}=0}\)</span> and solve for <span class="math notranslate nohighlight">\(r\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ed41d679-b52d-4845-984c-4b913ca26beb">
-<span class="eqno">(312)<a class="headerlink" href="#equation-ed41d679-b52d-4845-984c-4b913ca26beb" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ba11d654-fa4c-41ce-a7c7-a25b05741df0">
+<span class="eqno">(312)<a class="headerlink" href="#equation-ba11d654-fa4c-41ce-a7c7-a25b05741df0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 -r_{\text{steady}} + F(w\cdot r_{\text{steady}} + I_{\text{ext}};a,\theta) = 0 \qquad (4)
 \end{equation}\]</div>
 <p>When it exists, the solution of Equation. (4) defines a <strong>fixed point</strong> of the dynamical system in Equation (3). Note that if <span class="math notranslate nohighlight">\(F(x)\)</span> is nonlinear, it is not always possible to find an analytical solution, but the solution can be found via numerical simulations, as we will do later.</p>
 <p>From the Interactive Demo, one could also notice that the value of <span class="math notranslate nohighlight">\(\tau\)</span> influences how quickly the activity will converge to the steady state from its initial value.</p>
 <p>In the specific case of <span class="math notranslate nohighlight">\(w=0\)</span>, we can also analytically compute  the solution of Equation (1) (i.e., the thick blue dashed line) and deduce the role of <span class="math notranslate nohighlight">\(\tau\)</span> in determining the convergence to the fixed point:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e75cf5f9-e3b0-4463-9b72-99fa2a69a22c">
-<span class="eqno">(313)<a class="headerlink" href="#equation-e75cf5f9-e3b0-4463-9b72-99fa2a69a22c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ace868ba-8d18-43c8-a610-583aceacb982">
+<span class="eqno">(313)<a class="headerlink" href="#equation-ace868ba-8d18-43c8-a610-583aceacb982" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \displaystyle{r(t) = \big{[}F(I_{\text{ext}};a,\theta) -r(t=0)\big{]} (1-\text{e}^{-\frac{t}{\tau}})} + r(t=0)
 \end{equation}\]</div>
 <br/>
@@ -2393,8 +2393,8 @@ F(x;a,\theta) = \frac{1}{1+\text{e}^{-a(x-\theta)}} - \frac{1}{1+\text{e}^{a\the
 <h3>Coding Exercise 2.1.1: Visualization of the fixed points<a class="headerlink" href="#coding-exercise-2-1-1-visualization-of-the-fixed-points" title="Permalink to this headline">¶</a></h3>
 <p>When it is not possible to find the solution for Equation (3) analytically, a graphical approach can be taken. To that end, it is useful to plot <span class="math notranslate nohighlight">\(\displaystyle{\frac{dr}{dt}}\)</span> as a function of <span class="math notranslate nohighlight">\(r\)</span>. The values of <span class="math notranslate nohighlight">\(r\)</span> for which the plotted function crosses zero on the y axis correspond to fixed points.</p>
 <p>Here, let us, for example, set <span class="math notranslate nohighlight">\(w=5.0\)</span> and <span class="math notranslate nohighlight">\(I^{\text{ext}}=0.5\)</span>. From Equation (3), you can obtain</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f95e0b2b-0c25-40dc-b87f-81d13a7db7c6">
-<span class="eqno">(314)<a class="headerlink" href="#equation-f95e0b2b-0c25-40dc-b87f-81d13a7db7c6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5461abb5-b7d1-435a-b979-4b7d864f93aa">
+<span class="eqno">(314)<a class="headerlink" href="#equation-5461abb5-b7d1-435a-b979-4b7d864f93aa" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{dr}{dt} = [-r + F(w\cdot r + I^{\text{ext}})]\,/\,\tau
 \end{equation}\]</div>
 <p>Then, plot the <span class="math notranslate nohighlight">\(dr/dt\)</span> as a function of <span class="math notranslate nohighlight">\(r\)</span>, and check for the presence of fixed points.</p>
@@ -2879,13 +2879,13 @@ F(x;a,\theta) = \frac{1}{1+\text{e}^{-a(x-\theta)}} - \frac{1}{1+\text{e}^{a\the
 <p>Here we will dive into the math of how to figure out the stability of a fixed point.</p>
 <p>Just like in our equation for the feedforward network, a generic linear system
 <span class="math notranslate nohighlight">\(\frac{dx}{dt} = \lambda (x - b)\)</span>, has a fixed point for <span class="math notranslate nohighlight">\(x=b\)</span>. The analytical solution of such a system can be found to be:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-176ad744-4b90-43f2-8773-9c8a4d15f5d4">
-<span class="eqno">(315)<a class="headerlink" href="#equation-176ad744-4b90-43f2-8773-9c8a4d15f5d4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2e23aa34-1c68-4646-8abb-ffffee0a03de">
+<span class="eqno">(315)<a class="headerlink" href="#equation-2e23aa34-1c68-4646-8abb-ffffee0a03de" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 x(t) = b + \big{(} x(0) - b \big{)} \text{e}^{\lambda t}.
 \end{equation}\]</div>
 <p>Now consider a small perturbation of the activity around the fixed point: <span class="math notranslate nohighlight">\(x(0) = b + \epsilon\)</span>, where <span class="math notranslate nohighlight">\(|\epsilon| \ll 1\)</span>. Will the perturbation <span class="math notranslate nohighlight">\(\epsilon(t)\)</span> grow with time or will it decay to the fixed point? The evolution of the perturbation with time can be written, using the analytical solution for <span class="math notranslate nohighlight">\(x(t)\)</span>, as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1954e418-9c9d-46dc-896b-157188bfcc34">
-<span class="eqno">(316)<a class="headerlink" href="#equation-1954e418-9c9d-46dc-896b-157188bfcc34" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ebcabb2a-2931-4799-9287-747f3a45843d">
+<span class="eqno">(316)<a class="headerlink" href="#equation-ebcabb2a-2931-4799-9287-747f3a45843d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \epsilon (t) = x(t) - b = \epsilon \text{e}^{\lambda t}
 \end{equation}\]</div>
 <br/>
@@ -2894,24 +2894,24 @@ x(t) = b + \big{(} x(0) - b \big{)} \text{e}^{\lambda t}.
 <li><p>if <span class="math notranslate nohighlight">\(\lambda &gt; 0\)</span>, <span class="math notranslate nohighlight">\(\epsilon(t)\)</span> grows with time, <span class="math notranslate nohighlight">\(x(t)\)</span> will leave the fixed point <span class="math notranslate nohighlight">\(b\)</span> exponentially, and the fixed point is, therefore, “<strong>unstable</strong>” .</p></li>
 </ul>
 <p>Similar to what we did in the linear system above, in order to determine the stability of a fixed point <span class="math notranslate nohighlight">\(r^{*}\)</span> of the excitatory population dynamics, we perturb Equation (1) around <span class="math notranslate nohighlight">\(r^{*}\)</span> by <span class="math notranslate nohighlight">\(\epsilon\)</span>, i.e. <span class="math notranslate nohighlight">\(r = r^{*} + \epsilon\)</span>. We can plug in Equation (1) and obtain the equation determining the time evolution of the perturbation <span class="math notranslate nohighlight">\(\epsilon(t)\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-633e6d3a-b412-41ec-bc64-2a7585bf0ff9">
-<span class="eqno">(317)<a class="headerlink" href="#equation-633e6d3a-b412-41ec-bc64-2a7585bf0ff9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d887b1d1-beae-4cbf-9f30-88e9f750e6ea">
+<span class="eqno">(317)<a class="headerlink" href="#equation-d887b1d1-beae-4cbf-9f30-88e9f750e6ea" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \tau \frac{d\epsilon}{dt} \approx -\epsilon + w F'(w\cdot r^{*} + I_{\text{ext}};a,\theta) \epsilon 
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(F'(\cdot)\)</span> is the derivative of the transfer function <span class="math notranslate nohighlight">\(F(\cdot)\)</span>. We can rewrite the above equation as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-41bf5f26-978a-4614-9396-5730f08e0404">
-<span class="eqno">(318)<a class="headerlink" href="#equation-41bf5f26-978a-4614-9396-5730f08e0404" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5055c186-e9d0-4c72-8a01-84c18296d6d3">
+<span class="eqno">(318)<a class="headerlink" href="#equation-5055c186-e9d0-4c72-8a01-84c18296d6d3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{d\epsilon}{dt} \approx \frac{\epsilon}{\tau }[-1 + w F'(w\cdot r^* + I_{\text{ext}};a,\theta)] 
 \end{equation}\]</div>
 <p>That is, as in the linear system above, the value of</p>
-<div class="amsmath math notranslate nohighlight" id="equation-95618904-89d9-4b13-9662-9a7a73662dad">
-<span class="eqno">(319)<a class="headerlink" href="#equation-95618904-89d9-4b13-9662-9a7a73662dad" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-09ea498c-5b5f-48a4-9b79-3372d60b0103">
+<span class="eqno">(319)<a class="headerlink" href="#equation-09ea498c-5b5f-48a4-9b79-3372d60b0103" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \lambda = [-1+ wF'(w\cdot r^* + I_{\text{ext}};a,\theta)]/\tau \qquad (4)
 \end{equation}\]</div>
 <p>determines whether the perturbation will grow or decay to zero, i.e., <span class="math notranslate nohighlight">\(\lambda\)</span> defines the stability of the fixed point. This value is called the <strong>eigenvalue</strong> of the dynamical system.</p>
 <p>The derivative of the sigmoid transfer function is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7532527a-5b7a-4c43-995a-9eecaa9514e8">
-<span class="eqno">(320)<a class="headerlink" href="#equation-7532527a-5b7a-4c43-995a-9eecaa9514e8" title="Permalink to this equation">¶</a></span>\[\begin{align} 
+<div class="amsmath math notranslate nohighlight" id="equation-92d03405-596b-4fe4-8c41-5dc8f56e0e6c">
+<span class="eqno">(320)<a class="headerlink" href="#equation-92d03405-596b-4fe4-8c41-5dc8f56e0e6c" title="Permalink to this equation">¶</a></span>\[\begin{align} 
 \frac{dF}{dx} &amp; = \frac{d}{dx} (1+\exp\{-a(x-\theta)\})^{-1}  \\
 &amp; = a\exp\{-a(x-\theta)\} (1+\exp\{-a(x-\theta)\})^{-2}. \qquad (5)
 \end{align}\]</div>
@@ -2957,8 +2957,8 @@ x(t) = b + \big{(} x(0) - b \big{)} \text{e}^{\lambda t}.
 <h3>Bonus Coding Exercise 1: Compute eigenvalues<a class="headerlink" href="#bonus-coding-exercise-1-compute-eigenvalues" title="Permalink to this headline">¶</a></h3>
 <p>As discussed above, for the case with <span class="math notranslate nohighlight">\(w=5.0\)</span> and <span class="math notranslate nohighlight">\(I_{\text{ext}}=0.5\)</span>, the system displays <strong>three</strong> fixed points. However, when we simulated the dynamics and varied the initial conditions <span class="math notranslate nohighlight">\(r_{\rm init}\)</span>, we could only obtain <strong>two</strong> steady states. In this exercise, we will now check the stability of each of the three fixed points by calculating the corresponding eigenvalues with the function <code class="docutils literal notranslate"><span class="pre">eig_single</span></code>. Check the sign of each eigenvalue (i.e., stability of each fixed point). How many of the fixed points are stable?</p>
 <p>Note that the expression of the eigenvalue at fixed point <span class="math notranslate nohighlight">\(r^*\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8eeb05c6-b116-4a01-a8dc-021e7c276609">
-<span class="eqno">(321)<a class="headerlink" href="#equation-8eeb05c6-b116-4a01-a8dc-021e7c276609" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9f71b8f2-0bde-4aae-b9f0-d5fdcf9d3aad">
+<span class="eqno">(321)<a class="headerlink" href="#equation-9f71b8f2-0bde-4aae-b9f0-d5fdcf9d3aad" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \lambda = [-1+ wF'(w\cdot r^* + I_{\text{ext}};a,\theta)]/\tau
 \end{equation}\]</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
@@ -3036,8 +3036,8 @@ x(t) = b + \big{(} x(0) - b \big{)} \text{e}^{\lambda t}.
 <div class="section" id="bonus-section-2-noisy-input-drives-the-transition-between-two-stable-states">
 <h2>Bonus Section 2: Noisy input drives the transition between two stable states<a class="headerlink" href="#bonus-section-2-noisy-input-drives-the-transition-between-two-stable-states" title="Permalink to this headline">¶</a></h2>
 <p>As discussed in several previous tutorials, the Ornstein-Uhlenbeck (OU) process is usually used to generate a noisy input into the neuron. The OU input <span class="math notranslate nohighlight">\(\eta(t)\)</span> follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-08a2a951-b099-45fc-9eda-f95f03dfd8df">
-<span class="eqno">(322)<a class="headerlink" href="#equation-08a2a951-b099-45fc-9eda-f95f03dfd8df" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5939507c-3902-4afd-8e07-994b10ca219a">
+<span class="eqno">(322)<a class="headerlink" href="#equation-5939507c-3902-4afd-8e07-994b10ca219a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \tau_\eta \frac{d}{dt}\eta(t) = -\eta (t) + \sigma_\eta\sqrt{2\tau_\eta}\xi(t)
 \end{equation}\]</div>
 <p>Execute the following function <code class="docutils literal notranslate"><span class="pre">my_OU(pars,</span> <span class="pre">sig,</span> <span class="pre">myseed=False)</span></code> to generate an OU process.</p>

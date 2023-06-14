@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -2053,8 +2053,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="section-1-1-what-is-a-2d-convolution">
 <h2>Section 1.1: What is a 2D convolution?<a class="headerlink" href="#section-1-1-what-is-a-2d-convolution" title="Permalink to this headline">¶</a></h2>
 <p>A 2D convolution is an integral of the product of a filter <span class="math notranslate nohighlight">\(f\)</span> and an input image <span class="math notranslate nohighlight">\(I\)</span> computed at various positions as the filter is slid across the input. The output of the convolution operation at position <span class="math notranslate nohighlight">\((x,y)\)</span> can be written as follows, where the filter <span class="math notranslate nohighlight">\(f\)</span> is size <span class="math notranslate nohighlight">\((K, K)\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-caf8fdc9-1f2a-4b54-be83-7e345bb2586c">
-<span class="eqno">(242)<a class="headerlink" href="#equation-caf8fdc9-1f2a-4b54-be83-7e345bb2586c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ff73ae2d-9fa0-4e00-9de3-871d7c633893">
+<span class="eqno">(242)<a class="headerlink" href="#equation-ff73ae2d-9fa0-4e00-9de3-871d7c633893" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 C(x,y) = \sum_{k_x=-K/2}^{K/2} \sum_{k_y=-K/2}^{K/2} f(k_x,k_y) I(x+k_x,y+k_y)
 \end{equation}\]</div>
 <p>This <strong>convolutional filter</strong> is often called a <strong>kernel</strong>.</p>

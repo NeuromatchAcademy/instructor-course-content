@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -2218,23 +2218,23 @@ As shown by Hubel and Wiesel in 1959 there are neurons in primary visual cortex 
 <p>Imagine that your collaborator tells you that they have recorded the activity of visual neurons while presenting either a horizontal or vertical grid as a visual stimulus. The activity of the neurons is measured as binary: they are either active or inactive in response to the stimulus.</p>
 <p>After recording from a large number of neurons they find that when presenting a horizontal grid, on average 40% of neurons are active, while 30% respond to vertical grids.</p>
 <p>We will use the following notation to indicate the probability that a randomly chosen neuron responds to horizontal grids</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bf39c29a-47d4-45ae-8ab1-db49bc9fdd23">
-<span class="eqno">(105)<a class="headerlink" href="#equation-bf39c29a-47d4-45ae-8ab1-db49bc9fdd23" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0cf9e55f-c048-4b73-9840-533c26c59c70">
+<span class="eqno">(105)<a class="headerlink" href="#equation-0cf9e55f-c048-4b73-9840-533c26c59c70" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P(h_+)=0.4
 \end{equation}\]</div>
 <p>and this to show the probability it responds to vertical:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-41bd4161-086d-4774-b0df-2f569fdaad92">
-<span class="eqno">(106)<a class="headerlink" href="#equation-41bd4161-086d-4774-b0df-2f569fdaad92" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4d78fce1-192c-45a4-be74-762425352265">
+<span class="eqno">(106)<a class="headerlink" href="#equation-4d78fce1-192c-45a4-be74-762425352265" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P(v_+)=0.3
 \end{equation}\]</div>
 <p>We can find the complementary event, that the neuron does not respond to the horizontal grid, using the fact that these events must add up to 1. We see that the probability the neuron does not respond to the horizontal grid (<span class="math notranslate nohighlight">\(h_0\)</span>) is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-90c91149-c339-49a6-b20b-633e4a2f2b33">
-<span class="eqno">(107)<a class="headerlink" href="#equation-90c91149-c339-49a6-b20b-633e4a2f2b33" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0343e40b-da91-4159-8a25-a2930436a449">
+<span class="eqno">(107)<a class="headerlink" href="#equation-0343e40b-da91-4159-8a25-a2930436a449" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P(h_0)=1-P(h_+)=0.6
 \end{equation}\]</div>
 <p>and that the probability to not respond to vertical is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c1573d6e-27d5-402e-8922-f9d4460d5351">
-<span class="eqno">(108)<a class="headerlink" href="#equation-c1573d6e-27d5-402e-8922-f9d4460d5351" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e96fdba4-1b99-4379-b9bd-07b3abb1880d">
+<span class="eqno">(108)<a class="headerlink" href="#equation-e96fdba4-1b99-4379-b9bd-07b3abb1880d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P(v_0)=1-P(v_+)=0.7
 \end{equation}\]</div>
 <p>We will practice computing various probabilities in this framework.</p>
@@ -2332,8 +2332,8 @@ P(v_0)=1-P(v_+)=0.7
 <p>As an example imagine that a rat is able to move freely between 3 areas: a dark rest area
 (<span class="math notranslate nohighlight">\(state=1\)</span>), a nesting area (<span class="math notranslate nohighlight">\(state=2\)</span>) and a bright area for collecting food (<span class="math notranslate nohighlight">\(state=3\)</span>). Every 5 minutes (timepoint <span class="math notranslate nohighlight">\(i\)</span>) we record the rat’s location. We can use a <strong>categorical distribution</strong> to look at the probability that the rat moves to one state from another.</p>
 <p>The table below shows the probability of the rat transitioning from one area to another between timepoints (<span class="math notranslate nohighlight">\(state_i\)</span> to <span class="math notranslate nohighlight">\(state_{i+1}\)</span>).</p>
-<div class="amsmath math notranslate nohighlight" id="equation-39487a41-aa39-4665-9a30-9bc6d6aa0370">
-<span class="eqno">(109)<a class="headerlink" href="#equation-39487a41-aa39-4665-9a30-9bc6d6aa0370" title="Permalink to this equation">¶</a></span>\[\begin{matrix}
+<div class="amsmath math notranslate nohighlight" id="equation-c2b44037-f2b9-496b-aeb6-012937baf3dd">
+<span class="eqno">(109)<a class="headerlink" href="#equation-c2b44037-f2b9-496b-aeb6-012937baf3dd" title="Permalink to this equation">¶</a></span>\[\begin{matrix}
 \hline
 state_{i} &amp;P(state_{i+1}=1|state_i=*) &amp;P(state_{i+1}=2|state_i=*) &amp; P(state_{i+1}=3|state=_i*) \\ \hline
 state_{i}=1 &amp; 0.2 &amp; 0.6 &amp; 0.2 \\
@@ -2343,31 +2343,31 @@ state_{i}=3 &amp; 0.8 &amp; 0.2 &amp; 0.0 \\
 \end{matrix}\]</div>
 <p>We are modeling this as a Markov chain, so the animal is only in one of the states at a time and can transition between the states.</p>
 <p>We want to get the probability of each state at time <span class="math notranslate nohighlight">\(i+1\)</span>. We know from Section 1.1 that we can use marginalisation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-edf5f626-3c7c-48b0-91cd-cd3ed4f69c51">
-<span class="eqno">(110)<a class="headerlink" href="#equation-edf5f626-3c7c-48b0-91cd-cd3ed4f69c51" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-58536476-3828-4d60-b321-4d6fc4751972">
+<span class="eqno">(110)<a class="headerlink" href="#equation-58536476-3828-4d60-b321-4d6fc4751972" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P(state_{i+1} = 1) = P(state_{i+1}=1|state_i=1)P(state_i = 1) +  P(state_{i+1}=1|state_i=2)P(state_i = 2) +  P(state_{i+1}=1|state_i=3)P(state_i = 3)
 \end{equation}\]</div>
 <p>Let’s say we had a row vector (a vector defined as a row, not a column so matrix multiplication will work out) of the probabilities of the current state:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-de03ceed-06d4-4dbd-850f-31c1a53bd22b">
-<span class="eqno">(111)<a class="headerlink" href="#equation-de03ceed-06d4-4dbd-850f-31c1a53bd22b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3a30e685-63ee-483d-ba18-f86dba3e1c21">
+<span class="eqno">(111)<a class="headerlink" href="#equation-3a30e685-63ee-483d-ba18-f86dba3e1c21" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P_i = [P(state_i = 1), P(state_i = 2), P(state_i = 3) ]
 \end{equation}\]</div>
 <p>If we actually know where the rat is at the current time point, this would be deterministic (e.g., <span class="math notranslate nohighlight">\(P_i = [0, 1, 0]\)</span> if the rat is in state 2). Otherwise, this could be probabilistic (e.g. <span class="math notranslate nohighlight">\(P_i = [0.1, 0.7, 0.2]\)</span>).</p>
 <p>To compute the vector of probabilities of the state at the time <span class="math notranslate nohighlight">\(i+1\)</span>, we can use linear algebra and multiply our vector of the probabilities of the current state with the transition matrix.  Recall your matrix multiplication skills from W0D3 to check this!</p>
-<div class="amsmath math notranslate nohighlight" id="equation-340b1377-e843-4486-9981-0c2943d2d41a">
-<span class="eqno">(112)<a class="headerlink" href="#equation-340b1377-e843-4486-9981-0c2943d2d41a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d1a2e3a3-d6f7-4e5e-a614-445a71b8172c">
+<span class="eqno">(112)<a class="headerlink" href="#equation-d1a2e3a3-d6f7-4e5e-a614-445a71b8172c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P_{i+1} = P_{i} T
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(T\)</span> is our transition matrix.</p>
 <p>This is the same formula for every step, which allows us to get the probabilities for a time more than 1 step in advance easily. If we started at <span class="math notranslate nohighlight">\(i=0\)</span> and wanted to look at the probabilities at step <span class="math notranslate nohighlight">\(i=2\)</span>, we could do:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b612c048-90f2-4238-baea-9ae41f47ab2b">
-<span class="eqno">(113)<a class="headerlink" href="#equation-b612c048-90f2-4238-baea-9ae41f47ab2b" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-86a76fc8-f2b0-4e72-a5c6-e30602d09629">
+<span class="eqno">(113)<a class="headerlink" href="#equation-86a76fc8-f2b0-4e72-a5c6-e30602d09629" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P_{1} &amp;= P_{0}T\\
 P_{2} &amp;= P_{1}T = P_{0}TT = P_{0}T^2\\
 \end{align}\]</div>
 <p>So, every time we take a further step we can just multiply with the transition matrix again. So, the probability vector of states at j timepoints after the current state at timepoint i is equal to the probability vector at timepoint i times the transition matrix raised to the jth power.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-17e0e65d-3e1d-422e-8b79-117c7ad61310">
-<span class="eqno">(114)<a class="headerlink" href="#equation-17e0e65d-3e1d-422e-8b79-117c7ad61310" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9c1116a9-49a3-4d84-a106-31d9816dff75">
+<span class="eqno">(114)<a class="headerlink" href="#equation-9c1116a9-49a3-4d84-a106-31d9816dff75" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P_{i + j} = P_{i}T^j
 \end{equation}\]</div>
 <p>If the animal starts in area 2, what is the probability the animal will again be in area 2 when we check on it 20 minutes (4 transitions) later?</p>
@@ -2444,8 +2444,8 @@ P_{i + j} = P_{i}T^j
 </div>
 <p>The proportion of time spend in each of the three areas are 0.4473, 0.4211, and 0.1316, respectively.</p>
 <p>Imagine now that if the animal is satiated and tired the transitions change to:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1507f6f2-8ccc-4821-af73-34766cda0b99">
-<span class="eqno">(115)<a class="headerlink" href="#equation-1507f6f2-8ccc-4821-af73-34766cda0b99" title="Permalink to this equation">¶</a></span>\[\begin{matrix}
+<div class="amsmath math notranslate nohighlight" id="equation-a1a00040-1e3e-483c-9dba-e03c5dc0c352">
+<span class="eqno">(115)<a class="headerlink" href="#equation-a1a00040-1e3e-483c-9dba-e03c5dc0c352" title="Permalink to this equation">¶</a></span>\[\begin{matrix}
 \hline
 state_{i} &amp; P(state_{i+1}=1|state_i=*) &amp; P(state_{i+1}=2|state_i=*) &amp; P(state_{i+1}=3|state_i=*) \\
 \hline
@@ -2473,13 +2473,13 @@ state_{i}=3 &amp; 0.8 &amp; 0.2 &amp; 0.0\\
 <summary> <font color="blue">Click here for text recap of video </font></summary>
 <p>A generative model (such as the Gaussian distribution from the previous tutorial) allows us to make predictions about outcomes.</p>
 <p>However, after we observe <span class="math notranslate nohighlight">\(n\)</span> data points, we can also evaluate our model (and any of its associated parameters) by calculating the <strong>likelihood</strong> of our model having generated each of those data points <span class="math notranslate nohighlight">\(x_i\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-10b94e45-a48c-44ae-afb0-1ea6010fdbb9">
-<span class="eqno">(116)<a class="headerlink" href="#equation-10b94e45-a48c-44ae-afb0-1ea6010fdbb9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-984142cd-6ac2-456f-a266-96f268c1fc4b">
+<span class="eqno">(116)<a class="headerlink" href="#equation-984142cd-6ac2-456f-a266-96f268c1fc4b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P(x_i|\mu,\sigma)=\mathcal{N}(x_i,\mu,\sigma)
 \end{equation}\]</div>
 <p>For all data points <span class="math notranslate nohighlight">\(\mathbf{x}=(x_1, x_2, x_3, ...x_n) \)</span> we can then calculate the likelihood for the whole dataset by computing the product of the likelihood for each single data point.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e4b7d097-b4db-4c5c-863a-b8227c1cace8">
-<span class="eqno">(117)<a class="headerlink" href="#equation-e4b7d097-b4db-4c5c-863a-b8227c1cace8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5676c811-5d6b-4245-8d94-2077a4474204">
+<span class="eqno">(117)<a class="headerlink" href="#equation-5676c811-5d6b-4245-8d94-2077a4474204" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P(\mathbf{x}|\mu,\sigma)=\prod_{i=1}^n \mathcal{N}(x_i,\mu,\sigma)
 \end{equation}\]</div>
 </details>
@@ -2623,8 +2623,8 @@ P(\mathbf{x}|\mu,\sigma)=\prod_{i=1}^n \mathcal{N}(x_i,\mu,\sigma)
 <div class="cell tag_remove-input docutils container">
 </div>
 <p>Implicitly, by looking for the parameters that give the highest likelihood in the last section, we have been searching for the <strong>maximum likelihood</strong> estimate.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-56a31009-c313-4d42-b0fc-4289b01c60b6">
-<span class="eqno">(118)<a class="headerlink" href="#equation-56a31009-c313-4d42-b0fc-4289b01c60b6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a180708b-0509-4026-bac7-ec6bbdc10cef">
+<span class="eqno">(118)<a class="headerlink" href="#equation-a180708b-0509-4026-bac7-ec6bbdc10cef" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 (\hat{\mu},\hat{\sigma}) = \underset{\mu,\sigma}{\operatorname{argmax}}L(\mu,\sigma) = \underset{\mu,\sigma}{\operatorname{argmax}} \prod_{i=1}^n \mathcal{N}(x_i,\mu,\sigma).
 \end{equation}\]</div>
 <p>In next sections, we will look at other ways of inferring such parameter variables.</p>
@@ -2844,8 +2844,8 @@ sigma parameter values (and generating new data from a distribution with thesepa
 </div>
 <p>We will start to introduce Bayesian inference here to contrast with our maximum likelihood methods, but you will also revisit Bayesian inference in great detail on W3D1 of the course so we won’t dive into all details.</p>
 <p>For Bayesian inference we do not focus on the likelihood function <span class="math notranslate nohighlight">\(L(y)=P(x|y)\)</span>, but instead focus on the posterior distribution:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c8473a92-2e74-4f68-9a4c-0b60e3d928df">
-<span class="eqno">(119)<a class="headerlink" href="#equation-c8473a92-2e74-4f68-9a4c-0b60e3d928df" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a1a20127-fdfe-4d21-841b-d540b5164508">
+<span class="eqno">(119)<a class="headerlink" href="#equation-a1a20127-fdfe-4d21-841b-d540b5164508" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P(y|x)=\frac{P(x|y)P(y)}{P(x)}
 \end{equation}\]</div>
 <p>which is composed of the <strong>likelihood</strong> function <span class="math notranslate nohighlight">\(P(x|y)\)</span>, the <strong>prior</strong> <span class="math notranslate nohighlight">\(P(y)\)</span> and a normalising term <span class="math notranslate nohighlight">\(P(x)\)</span> (which we will ignore for now).</p>
@@ -2957,8 +2957,8 @@ P(y|x)=\frac{P(x|y)P(y)}{P(x)}
 <p>Let’s return to our example from Tutorial 1 using the binomial distribution - rat in a T-maze.</p>
 <p>Bayesian inference can be used for any likelihood distribution, but it is a lot more convenient to work with <strong>conjugate</strong> priors, where multiplying the prior with the likelihood just provides another instance of the prior distribution with updated values.</p>
 <p>For the binomial likelihood it is convenient to use the <strong>beta</strong> distribution as a prior</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5d340b5f-059b-4760-bb91-999ced65e638">
-<span class="eqno">(120)<a class="headerlink" href="#equation-5d340b5f-059b-4760-bb91-999ced65e638" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4a1d5c6a-7d03-4836-9f55-122005de8d30">
+<span class="eqno">(120)<a class="headerlink" href="#equation-4a1d5c6a-7d03-4836-9f55-122005de8d30" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 f(p;\alpha ,\beta )={\frac {1}{\mathrm {B} (\alpha ,\beta )}}p^{\alpha -1}(1-p)^{\beta -1}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(B\)</span> is the beta function, <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> are parameters, and <span class="math notranslate nohighlight">\(p\)</span> is the probability of the rat turning left or right. The beta distribution is thus a distribution over a probability.</p>
@@ -3266,8 +3266,8 @@ Bayesian inference gives you a full distribution over the variables that you are
 <p align="center"><img src="https://raw.githubusercontent.com/NeuromatchAcademy/precourse/main/tutorials/W0D5_Statistics/static/nodes_.png"/></p><p>There is a table below describing all the relationships between <span class="math notranslate nohighlight">\(w, r\)</span>, and s$.</p>
 <p>Obviously the grass is more likely to be wet if either the sprinklers were on or it was raining. On any given day the sprinklers have probability 0.25 of being on, <span class="math notranslate nohighlight">\(P(s = 1) = 0.25\)</span>, while there is a probability 0.1 of rain, <span class="math notranslate nohighlight">\(P (r = 1) = 0.1\)</span>. The table then lists the conditional probabilities for the given being wet, given a rain and sprinkler condition for that day.</p>
 <br/>
-<div class="amsmath math notranslate nohighlight" id="equation-570a2f4e-68db-4702-9bc1-2937190a5638">
-<span class="eqno">(121)<a class="headerlink" href="#equation-570a2f4e-68db-4702-9bc1-2937190a5638" title="Permalink to this equation">¶</a></span>\[\begin{matrix}
+<div class="amsmath math notranslate nohighlight" id="equation-1c16371e-e626-4148-8d60-c63424aaa1f2">
+<span class="eqno">(121)<a class="headerlink" href="#equation-1c16371e-e626-4148-8d60-c63424aaa1f2" title="Permalink to this equation">¶</a></span>\[\begin{matrix}
 \hline
 r &amp; s &amp; P(w=0|r,s) &amp; P(w=1|r,s)\\
 \hline
@@ -3282,18 +3282,18 @@ r &amp; s &amp; P(w=0|r,s) &amp; P(w=1|r,s)\\
 <p>We can start by writing out the joint probability:
 <span class="math notranslate nohighlight">\(P(r,w,s)=P(w|r,s)P(r)P(s)\)</span></p>
 <p>The conditional probability is then:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ccf1f774-54d1-47f0-afc7-770048d35a78">
-<span class="eqno">(122)<a class="headerlink" href="#equation-ccf1f774-54d1-47f0-afc7-770048d35a78" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8d4906f8-616d-4b17-b38b-7fa955a67847">
+<span class="eqno">(122)<a class="headerlink" href="#equation-8d4906f8-616d-4b17-b38b-7fa955a67847" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P(s|w)=\frac{\sum_{r} P(w|s,r)P(s)  P(r)}{P(w)}=\frac{P(s) \sum_{r} P(w|s,r) P(r)}{P(w)}
 \end{equation}\]</div>
 <p>Note that we are summing over all possible conditions for <span class="math notranslate nohighlight">\(r\)</span> as we do not know if it was raining. Specifically, we want to know the probability of sprinklers having been on given the wet grass, <span class="math notranslate nohighlight">\(P(s=1|w=1)\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-64337f03-c0a8-44ed-9189-337ac0157efc">
-<span class="eqno">(123)<a class="headerlink" href="#equation-64337f03-c0a8-44ed-9189-337ac0157efc" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-35114617-8f38-45e1-b9aa-bfa84a2570d6">
+<span class="eqno">(123)<a class="headerlink" href="#equation-35114617-8f38-45e1-b9aa-bfa84a2570d6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P(s=1|w=1) = \frac{P(s = 1)( P(w = 1|s = 1, r = 1) P(r = 1)+ P(w = 1|s = 1,r = 0)  P(r = 0))}{P(w = 1)} 
 \end{equation}\]</div>
 <p>where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-055f4065-23bd-49ad-8388-1cf6484bd620">
-<span class="eqno">(124)<a class="headerlink" href="#equation-055f4065-23bd-49ad-8388-1cf6484bd620" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-d4e4774f-be02-41d7-bad6-054128e5c58b">
+<span class="eqno">(124)<a class="headerlink" href="#equation-d4e4774f-be02-41d7-bad6-054128e5c58b" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray}
 P(w=1)=P(s=1)( P(w=1|s=1,r=1 ) P(r=1) &amp;+ P(w=1|s=1,r=0)  P(r=0))\\
 +P(s=0)( P(w=1|s=0,r=1 )  P(r=1) &amp;+ P(w=1|s=0,r=0)  P(r=0))\\
 \end{eqnarray}\]</div>

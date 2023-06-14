@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -2683,8 +2683,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p><img alt="Unit sphere S2" src="https://github.com/mpbrigham/colaboratory-figures/raw/master/nma/autoencoders/unit_sphere.png"/></p>
 <br/>
 <p>Projecting to the surface of the sphere is implemented by dividing the coordinates <span class="math notranslate nohighlight">\((z_1, z_2, z_3)\)</span> by their <span class="math notranslate nohighlight">\(L_2\)</span> norm.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8532f365-1619-4c67-ac3b-94b10efe0edc">
-<span class="eqno">(262)<a class="headerlink" href="#equation-8532f365-1619-4c67-ac3b-94b10efe0edc" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-395075e3-1d2c-416b-864e-8314f6fbcd2e">
+<span class="eqno">(262)<a class="headerlink" href="#equation-395075e3-1d2c-416b-864e-8314f6fbcd2e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 (z_1, z_2, z_3)\longmapsto (s_1, s_2, s_3)=(z_1, z_2, z_3)/\|(z_1, z_2, z_3)\|_2=(z_1, z_2, z_3)/ \sqrt{z_1^2+z_2^2+z_3^2}
 \end{equation}\]</div>
 <p>This mapping projects to the surface of the <a class="reference external" href="https://en.wikipedia.org/wiki/N-sphere"><span class="math notranslate nohighlight">\(S_2\)</span> sphere</a> with unit radius. (Why?)</p>
@@ -2890,8 +2890,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="section-3-5-visualize-latent-space-on-surface-of-s-2">
 <h2>Section 3.5: Visualize latent space on surface of <span class="math notranslate nohighlight">\(S_2\)</span><a class="headerlink" href="#section-3-5-visualize-latent-space-on-surface-of-s-2" title="Permalink to this headline">¶</a></h2>
 <p>The 3D coordinates <span class="math notranslate nohighlight">\((s_1, s_2, s_3)\)</span> on the surface of the unit sphere <span class="math notranslate nohighlight">\(S_2\)</span>  can be mapped to <a class="reference external" href="https://en.wikipedia.org/wiki/Spherical_coordinate_system">spherical coordinates</a> <span class="math notranslate nohighlight">\((r, \theta, \phi)\)</span>, as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6489232f-c739-486f-830d-320686193403">
-<span class="eqno">(263)<a class="headerlink" href="#equation-6489232f-c739-486f-830d-320686193403" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-529ef3c7-1f42-4619-b198-90b6ffb95248">
+<span class="eqno">(263)<a class="headerlink" href="#equation-529ef3c7-1f42-4619-b198-90b6ffb95248" title="Permalink to this equation">¶</a></span>\[\begin{align}
 r &amp;= \sqrt{s_1^2 + s_2^2 + s_3^2} \\
 \phi &amp;= \arctan \frac{s_2}{s_1} \\
 \theta &amp;= \arccos\frac{s_3}{r}

@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -1783,8 +1783,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p><em>Estimated timing of tutorial: 1 hour</em></p>
 <p>In this tutorial, we will be learning about behavior of dynamical systems – systems that evolve in time – where the rules by which they evolve in time are described precisely by a differential equation.</p>
 <p>Differential equations are equations that express the <strong>rate of change</strong> of the state variable <span class="math notranslate nohighlight">\(x\)</span>. One typically describes this rate of change using the derivative of <span class="math notranslate nohighlight">\(x\)</span> with respect to time (<span class="math notranslate nohighlight">\(dx/dt\)</span>) on the left hand side of the differential equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0e37acc3-c873-4bd9-8096-01f4dee72da0">
-<span class="eqno">(264)<a class="headerlink" href="#equation-0e37acc3-c873-4bd9-8096-01f4dee72da0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8c5238b4-c482-4385-ac31-e10e1c113f63">
+<span class="eqno">(264)<a class="headerlink" href="#equation-8c5238b4-c482-4385-ac31-e10e1c113f63" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{dx}{dt} = f(x)
 \end{equation}\]</div>
 <p>A common notational short-hand is to write <span class="math notranslate nohighlight">\(\dot{x}\)</span> for <span class="math notranslate nohighlight">\(\frac{dx}{dt}\)</span>. The dot means “the derivative with respect to time”.</p>
@@ -2010,21 +2010,21 @@ const thebe_selector_output = ".output, .cell_output"
 \[\dot{x} = a x\]</div>
 <p>where <span class="math notranslate nohighlight">\(a\)</span> is a scalar.</p>
 <p>Solutions for how <span class="math notranslate nohighlight">\(x\)</span> evolves in time when its dynamics are governed by such a differential equation take the form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cc7f3e0d-11fc-4dae-b477-149db577d4fe">
-<span class="eqno">(265)<a class="headerlink" href="#equation-cc7f3e0d-11fc-4dae-b477-149db577d4fe" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-76f7428d-cc50-4bfb-a113-352c3a1eea44">
+<span class="eqno">(265)<a class="headerlink" href="#equation-76f7428d-cc50-4bfb-a113-352c3a1eea44" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 x(t) = x_0\exp(a t)
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(x_0\)</span> is the <strong>initial condition</strong> of the equation – that is, the value of <span class="math notranslate nohighlight">\(x\)</span> at time <span class="math notranslate nohighlight">\(0\)</span>.</p>
 </details>
 <p>To gain further intuition, let’s explore the behavior of such systems with a simple simulation. We can simulate an ordinary differential equation by approximating or modeling time as a discrete list of time steps <span class="math notranslate nohighlight">\(t_0, t_1, t_2, \dots\)</span>, such that <span class="math notranslate nohighlight">\(t_{i+1}=t_i+dt\)</span>. We can get the small change <span class="math notranslate nohighlight">\(dx\)</span> over a small duration <span class="math notranslate nohighlight">\(dt\)</span> of time from the definition of the differential:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5ec6a164-0743-4917-ba9e-f4b2f5965e9b">
-<span class="eqno">(266)<a class="headerlink" href="#equation-5ec6a164-0743-4917-ba9e-f4b2f5965e9b" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-fcc40c78-ebd9-423e-9b51-2b855488dd62">
+<span class="eqno">(266)<a class="headerlink" href="#equation-fcc40c78-ebd9-423e-9b51-2b855488dd62" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray}
 \dot x &amp;=&amp; \frac{dx}{dt} \\
 dx &amp;=&amp; \dot x\, dt
 \end{eqnarray}\]</div>
 <p>So, at each time step <span class="math notranslate nohighlight">\(t_i\)</span>, we compute a value of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(x(t_i)\)</span>, as the sum of the value of <span class="math notranslate nohighlight">\(x\)</span> at the previous time step, <span class="math notranslate nohighlight">\(x(t_{i-1})\)</span> and a small change <span class="math notranslate nohighlight">\(dx=\dot x\,dt\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-be707297-b418-4bd1-9b1d-a28a9609dce5">
-<span class="eqno">(267)<a class="headerlink" href="#equation-be707297-b418-4bd1-9b1d-a28a9609dce5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-898594e1-ff15-4bd3-bf50-b691fd7d136a">
+<span class="eqno">(267)<a class="headerlink" href="#equation-898594e1-ff15-4bd3-bf50-b691fd7d136a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 x(t_i)=x(t_{i-1})+\dot x(t_{i-1}) dt
 \end{equation}\]</div>
 <p>This very simple integration scheme, known as <strong>forward Euler integration</strong>, works well if <span class="math notranslate nohighlight">\(dt\)</span> is small and the ordinary differential equation is simple. It can run into issues when the ordinary differential equation is very noisy or when the dynamics include sudden big changes of <span class="math notranslate nohighlight">\(x\)</span>. Such big jumps can occur, for example, in models of excitable neurons. In such cases, one needs to choose an integration scheme carefully. However, for our simple system, the simple integration scheme should work just fine!</p>
@@ -2279,14 +2279,14 @@ x(t_i)=x(t_{i-1})+\dot x(t_{i-1}) dt
 <details>
 <summary> <font color="blue">Click here for text recap of relevant part of video </font></summary>
 <p>Adding one additional variable (or <em>dimension</em>) adds more variety of behaviors. Additional variables are useful in modeling the dynamics of more complex systems with richer behaviors, such as systems of multiple neurons. We can write such a system using two linear ordinary differential equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3ef3c75a-fa12-4b59-99c1-e65972679a01">
-<span class="eqno">(268)<a class="headerlink" href="#equation-3ef3c75a-fa12-4b59-99c1-e65972679a01" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-9a25c9aa-3501-47c8-9a6e-8fc1fe893b49">
+<span class="eqno">(268)<a class="headerlink" href="#equation-9a25c9aa-3501-47c8-9a6e-8fc1fe893b49" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray}
   \dot{x}_1 &amp;=&amp; {a}_{11} x_1 \\
   \dot{x}_2 &amp;=&amp; {a}_{22} x_2 \\
 \end{eqnarray}\]</div>
 <p>So far, this system consists of two variables (e.g. neurons) in isolation. To make things interesting, we can add interaction terms:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-781c0ee1-e3f5-437a-a7d5-46253f20fd32">
-<span class="eqno">(269)<a class="headerlink" href="#equation-781c0ee1-e3f5-437a-a7d5-46253f20fd32" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-80063796-5de9-4b61-a531-7a0a57def3f2">
+<span class="eqno">(269)<a class="headerlink" href="#equation-80063796-5de9-4b61-a531-7a0a57def3f2" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray}
   \dot{x}_1 &amp;=&amp; {a}_{11} x_1 + {a}_{12} x_2 \\
   \dot{x}_2 &amp;=&amp; {a}_{21} x_1 + {a}_{22} x_2 \\
 \end{eqnarray}\]</div>
@@ -2299,8 +2299,8 @@ x(t_i)=x(t_{i-1})+\dot x(t_{i-1}) dt
 <h2>Coding Exercise 3: Sample trajectories in 2 dimensions<a class="headerlink" href="#coding-exercise-3-sample-trajectories-in-2-dimensions" title="Permalink to this headline">¶</a></h2>
 <p><em>Referred to in video as step 1 and 2 of exercise 1C</em></p>
 <p>We want to simulate some <strong>trajectories</strong> of a given system and plot how  𝑥1  and  𝑥2  evolve in time. We will begin with this example system:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-521b71fb-5c0f-480d-b6d3-4d6514efb370">
-<span class="eqno">(270)<a class="headerlink" href="#equation-521b71fb-5c0f-480d-b6d3-4d6514efb370" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c89275d1-51c8-44c6-84c5-d9108d48976e">
+<span class="eqno">(270)<a class="headerlink" href="#equation-c89275d1-51c8-44c6-84c5-d9108d48976e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \dot{\mathbf{x}} = \bigg[\begin{array} &amp; 2 &amp; -5 \\ 1 &amp; -2 \end{array} \bigg] \mathbf{x}
 \end{equation}\]</div>
 <p>We will use an integrator from scipy, so we won’t have to solve the system ourselves. We have a helper function, <code class="docutils literal notranslate"><span class="pre">plot_trajectory</span></code>, that plots these trajectories given a system function. In this exercise, we will write the system function for a linear system with two variables.</p>
@@ -2430,8 +2430,8 @@ x(t_i)=x(t_{i-1})+\dot x(t_{i-1}) dt
 <div class="section" id="interactive-demo-3b-varying-initial-conditions">
 <h2>Interactive Demo 3B: Varying Initial Conditions<a class="headerlink" href="#interactive-demo-3b-varying-initial-conditions" title="Permalink to this headline">¶</a></h2>
 <p>We will now vary the initial conditions for a given <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4072c23f-dbbc-4a03-a16f-ef9bec37f3a5">
-<span class="eqno">(271)<a class="headerlink" href="#equation-4072c23f-dbbc-4a03-a16f-ef9bec37f3a5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d4b297ad-d9e0-4641-9e1a-7d59923bb938">
+<span class="eqno">(271)<a class="headerlink" href="#equation-d4b297ad-d9e0-4641-9e1a-7d59923bb938" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \dot{\mathbf{x}} = \bigg[\begin{array} &amp; 2 &amp; -5 \\ 1 &amp; -2 \end{array} \bigg] \mathbf{x}
 \end{equation}\]</div>
 <p>What kinds of qualitatively different dynamics do you observe? Hint: Keep an eye on the x-axis and y-axis!</p>

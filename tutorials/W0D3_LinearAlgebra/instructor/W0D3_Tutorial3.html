@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -1889,8 +1889,8 @@ a_{1, t} &amp;= w_{1, 1}a_{1, t-1} + w_{2, 1}a_{2, t-1}\
 a_{2, t} &amp;= w_{1, 2}a_{1, t-1} + w_{2, 2}a_{2, t-1}
 \end{aligned}</p>
 <br/>
-<div class="amsmath math notranslate nohighlight" id="equation-3e8d3892-f26a-41ef-b67e-1129bcdd5f72">
-<span class="eqno">(37)<a class="headerlink" href="#equation-3e8d3892-f26a-41ef-b67e-1129bcdd5f72" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5e2ce305-d850-484d-87af-c0d7f809b1f6">
+<span class="eqno">(37)<a class="headerlink" href="#equation-5e2ce305-d850-484d-87af-c0d7f809b1f6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{W} = \begin{bmatrix} w_{1, 1} &amp; w_{2, 1} \\ w_{1, 2} &amp; w_{2, 2} \end{bmatrix}, \mathbf{a}_{t} =   \begin{bmatrix} a_{1, t} \\ a_{2, t} \end{bmatrix}
 \end{equation}\]</div>
 <details>
@@ -1899,23 +1899,23 @@ a_{2, t} &amp;= w_{1, 2}a_{1, t-1} + w_{2, 2}a_{2, t-1}
 <p>Let’s now introduce the concept of time. We will chop time up into little bins and look at the activity of neurons in each bin. That is, we will work in a <strong>discrete</strong> time framework. For example, if each bin is 1 second long, we will look at the firing rate of each neuron at intervals of a second.</p>
 <p>Instead of examining pre- and post- synaptic neurons, we will examine two neurons in one area that are connected. In our model, the activity of neuron 1 at one time bin depends on the activities of both neurons during the previous time bin multiplied by the respective weights from itself and neuron 2. It might seem weird for a neuron to have a weight to itself - this is abstracting away some biological details but basically conveys how much the neural activity depends on its history. (Throughout this course, we’ll see lots of neuron models and how some model biological detail more faithfully while others abstract.)</p>
 <p>We will refer to the activity of neuron i during time bin j as <span class="math notranslate nohighlight">\(a_{i, j}\)</span>. The weight from neuron y to neuron x will be <span class="math notranslate nohighlight">\(w_{y, x}\)</span>. With this helpful notation, we can write an equation for the activity of neuron 1 at time bin t:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-51d6f274-efa2-49d0-8053-d5883d683e77">
-<span class="eqno">(38)<a class="headerlink" href="#equation-51d6f274-efa2-49d0-8053-d5883d683e77" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7de91713-e066-4960-8d89-53ee29fd5646">
+<span class="eqno">(38)<a class="headerlink" href="#equation-7de91713-e066-4960-8d89-53ee29fd5646" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 a_{1, t} = w_{1, 1}a_{1, t-1} + w_{2, 1}a_{2, t-1}
 \end{equation}\]</div>
 <p>And the symmetric model is true of neuron 2:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d5b342f4-5591-42d1-bfe9-e2fd96e5f265">
-<span class="eqno">(39)<a class="headerlink" href="#equation-d5b342f4-5591-42d1-bfe9-e2fd96e5f265" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3e8298ad-72ce-4df7-a76c-c370b12a2634">
+<span class="eqno">(39)<a class="headerlink" href="#equation-3e8298ad-72ce-4df7-a76c-c370b12a2634" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 a_{2, t} = w_{1, 2}a_{1, t-1} + w_{2, 2}a_{2, t-1}
 \end{equation}\]</div>
 <p>This is already a mess of subscript numbers - luckily we can use matrices and vectors once again and our model becomes:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1c903570-ead9-4482-b883-bf31de124b72">
-<span class="eqno">(40)<a class="headerlink" href="#equation-1c903570-ead9-4482-b883-bf31de124b72" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-88fa39c7-6047-4d2e-bd90-afbda28bb7f2">
+<span class="eqno">(40)<a class="headerlink" href="#equation-88fa39c7-6047-4d2e-bd90-afbda28bb7f2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{a}_{t} = \mathbf{W}\mathbf{a}_{t-1}
 \end{equation}\]</div>
 <p>where:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cbb4a85e-cffe-47eb-99de-9c08e6329c5b">
-<span class="eqno">(41)<a class="headerlink" href="#equation-cbb4a85e-cffe-47eb-99de-9c08e6329c5b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-48489205-394f-44f3-9716-7946b47d5dcb">
+<span class="eqno">(41)<a class="headerlink" href="#equation-48489205-394f-44f3-9716-7946b47d5dcb" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{W} = \begin{bmatrix} w_{1, 1} &amp; w_{2, 1} \\ w_{1, 2} &amp; w_{2, 2} \end{bmatrix}, \mathbf{a}_{t} =   \begin{bmatrix} a_{1, t} \\ a_{2, t} \end{bmatrix}\end{equation}\]</div>
 <p>It turns out that this is a <strong>discrete dynamical system</strong>. Dynamical systems are concerned with how quantities evolve other time, in this case our neural firing rates. When we model the evolution of quantities over time using a discrete time framework, it is, unsurprisingly, a discrete dynamical system. We will see continuous dynamical systems (where we embrace the full continuity of time) tomorrow and later in the comp neuro course during W2D2: Linear Dynamics.</p>
 </details></div>
@@ -1923,8 +1923,8 @@ a_{2, t} = w_{1, 2}a_{1, t-1} + w_{2, 2}a_{2, t-1}
 <h2>Coding Exercise 1: Implementing the circuit<a class="headerlink" href="#coding-exercise-1-implementing-the-circuit" title="Permalink to this headline">¶</a></h2>
 <p>In this exercise, you will implement the function <code class="docutils literal notranslate"><span class="pre">circuit_implementation</span></code>. Given a weight matrix, initial activities at time 0, and a number of time bins to model, this function calculates the neural firing rates at each time bin.</p>
 <p>We will use initial firing rates of 1 for both neurons:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-343216f0-8682-46e6-ba3b-c5014ea86379">
-<span class="eqno">(42)<a class="headerlink" href="#equation-343216f0-8682-46e6-ba3b-c5014ea86379" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f309c5ea-8399-4a40-8fa6-e60bf9847945">
+<span class="eqno">(42)<a class="headerlink" href="#equation-f309c5ea-8399-4a40-8fa6-e60bf9847945" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{a}_0 =
 \begin{bmatrix}
 1 \\
@@ -1932,8 +1932,8 @@ a_{2, t} = w_{1, 2}a_{1, t-1} + w_{2, 2}a_{2, t-1}
 \end{bmatrix}
 \end{equation}\]</div>
 <p>and the weight matrix:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c65dd5e9-560a-4ebf-954f-7b599a9846f7">
-<span class="eqno">(43)<a class="headerlink" href="#equation-c65dd5e9-560a-4ebf-954f-7b599a9846f7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cc8705bd-a81d-4383-8917-ed526120756d">
+<span class="eqno">(43)<a class="headerlink" href="#equation-cc8705bd-a81d-4383-8917-ed526120756d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{W} =
 \begin{bmatrix}
 1 &amp; 0.2 \\
@@ -2033,8 +2033,8 @@ a_{2, t} = w_{1, 2}a_{1, t-1} + w_{2, 2}a_{2, t-1}
 </div>
 </div>
 <p>The firing rates of both neurons are exploding to infinity over time. Let’s now see what happens with a different weight matrix:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8f8cf97f-9618-46fc-88f7-76bb2fe47f9f">
-<span class="eqno">(44)<a class="headerlink" href="#equation-8f8cf97f-9618-46fc-88f7-76bb2fe47f9f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-72e4d6e1-9bed-40d1-a586-8a6bb67551a6">
+<span class="eqno">(44)<a class="headerlink" href="#equation-72e4d6e1-9bed-40d1-a586-8a6bb67551a6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{W} =
 \begin{bmatrix}
 0.2 &amp; 0.1 \\
@@ -2175,21 +2175,21 @@ $<span class="math notranslate nohighlight">\(\mathbf{a}_{0} = \mathbf{v} \)</sp
 <p>We now know that if our initial activities (or initial condition) fall on an eigenvector of <span class="math notranslate nohighlight">\(\mathbf{W}\)</span>, the activities will evolve along that line, either exploding to infinity if the absolute value of the eigenvalue is above 1 or decaying to the origin it it is below 1. What if our initial condition doesn’t fall along the eigenvector though?</p>
 <p>To understand what will happen, we will use the ideas of basis vectors and linear combinations from Tutorial 1.</p>
 <p>Let’s assume for now that our weight matrix has two distinct eigenvectors (<span class="math notranslate nohighlight">\(\mathbf{v}_1\)</span> and <span class="math notranslate nohighlight">\(\mathbf{v}_2\)</span>) with corresponding eigenvalues <span class="math notranslate nohighlight">\(\lambda_1\)</span> and <span class="math notranslate nohighlight">\(\lambda_2\)</span>, and that these eigenvectors form a basis for 2D space. That means we can write any vector in 2D space as a linear combination of our eigenvectors, including our initial activity vector:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ea518cd1-62f4-4059-9211-b156392e157b">
-<span class="eqno">(45)<a class="headerlink" href="#equation-ea518cd1-62f4-4059-9211-b156392e157b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b7c69e1a-c074-48a2-bfd5-08e6abc6bb4e">
+<span class="eqno">(45)<a class="headerlink" href="#equation-b7c69e1a-c074-48a2-bfd5-08e6abc6bb4e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{a}_0 = c_1\mathbf{v}_1 + c_2\mathbf{v}_2
 \end{equation}\]</div>
 <p>Let’s compute the next time step, using our previous strategy of substitution:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-34380b6e-821e-4cd2-a3ad-5c7e5347f1b7">
-<span class="eqno">(46)<a class="headerlink" href="#equation-34380b6e-821e-4cd2-a3ad-5c7e5347f1b7" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d96a8d0c-acbc-4cf5-9cbc-785671624bd2">
+<span class="eqno">(46)<a class="headerlink" href="#equation-d96a8d0c-acbc-4cf5-9cbc-785671624bd2" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mathbf{a}_1 &amp;= \mathbf{W}\mathbf{a}_0 \\
 &amp;= \mathbf{W}(c_1\mathbf{v}_1 + c_2\mathbf{v}_2) \\
 &amp;= c_1\mathbf{W}\mathbf{v}_1 + c_2\mathbf{W}\mathbf{v}_2 \\
 &amp;= c_1\lambda_1\mathbf{v}_1 + c_2\lambda_2\mathbf{v}_2
 \end{align}\]</div>
 <p>All activities can be written as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-164712fc-9072-47e1-8302-988c1c19b703">
-<span class="eqno">(47)<a class="headerlink" href="#equation-164712fc-9072-47e1-8302-988c1c19b703" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5a2ef7f5-6a62-4757-b91e-ee289bcc1e08">
+<span class="eqno">(47)<a class="headerlink" href="#equation-5a2ef7f5-6a62-4757-b91e-ee289bcc1e08" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{a}_i = c_1\lambda_1^i\mathbf{v}_1 + c_2\lambda_2^i\mathbf{v}_2
 \end{equation}\]</div>
 <p>We’ll see what this means for our system in the next demo.</p>
@@ -2249,8 +2249,8 @@ $<span class="math notranslate nohighlight">\(\mathbf{a}_{0} = \mathbf{v} \)</sp
 <h3>Interactive demo 2.2: Changing both eigenvalues<a class="headerlink" href="#interactive-demo-2-2-changing-both-eigenvalues" title="Permalink to this headline">¶</a></h3>
 <p>In the demo below, you can now change both eigenvalues and the initial condition (with <code class="docutils literal notranslate"><span class="pre">a0_1</span></code> setting neuron 1 initial activity and <code class="docutils literal notranslate"><span class="pre">a0_2</span></code> setting neuron 2 initial activity). We will only look at positive eigenvalues to keep things a little more simple. We also make sure the second eigenvalue is always the smaller one (just for better visualization purposes).</p>
 <p>Think each of the following questions through based on the equation we just arrived at and then play with the demo to see if you are correct.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2e699d54-34fd-4987-8226-d37e365d411b">
-<span class="eqno">(48)<a class="headerlink" href="#equation-2e699d54-34fd-4987-8226-d37e365d411b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-94e87815-126c-45ce-b177-67320f1060ea">
+<span class="eqno">(48)<a class="headerlink" href="#equation-94e87815-126c-45ce-b177-67320f1060ea" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{a}_i = c_1\lambda_1^i\mathbf{v}_1 + c_2\lambda_2^i\mathbf{v}_2
 \end{equation}\]</div>
 <ol class="simple">
@@ -2332,8 +2332,8 @@ $<span class="math notranslate nohighlight">\(\mathbf{a}_{0} = \mathbf{v} \)</sp
 <div class="section" id="summary">
 <h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
 <p>You have seen how we can predict what happens in a discrete dynamical system with an update rule of:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-03490307-5bdc-483e-9b3a-f750ee675ae3">
-<span class="eqno">(49)<a class="headerlink" href="#equation-03490307-5bdc-483e-9b3a-f750ee675ae3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1eab46b9-6bf2-409b-a966-bb70e792591f">
+<span class="eqno">(49)<a class="headerlink" href="#equation-1eab46b9-6bf2-409b-a966-bb70e792591f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{a}_t = \mathbf{W}\mathbf{a}_{t-1}
 \end{equation}\]</div>
 <br/>

@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -2171,14 +2171,14 @@ Oftentimes the variable you would like to predict takes only one of two possible
 <details>
 <summary> <font color="blue">Click here for text recap of relevant part of video </font></summary>
 <p>The fundamental input/output equation of logistic regression is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-abeff03f-9f20-4803-a90b-e273efff7374">
-<span class="eqno">(190)<a class="headerlink" href="#equation-abeff03f-9f20-4803-a90b-e273efff7374" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5ef861b6-ee82-443f-ade0-a6a01506d40b">
+<span class="eqno">(190)<a class="headerlink" href="#equation-5ef861b6-ee82-443f-ade0-a6a01506d40b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \hat{y} \equiv p(y=1|x,\theta) = \sigma(\theta^\top x)
 \end{equation}\]</div>
 <p>Note that we interpret the output of logistic regression, <span class="math notranslate nohighlight">\(\hat{y}\)</span>, as the <strong>probability that y = 1</strong> given inputs <span class="math notranslate nohighlight">\(x\)</span> and parameters <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
 <p>Here <span class="math notranslate nohighlight">\(\sigma(\cdot)\)</span> is a “squashing” function called the <strong>sigmoid function</strong> or <strong>logistic function</strong>. Its output is in the range <span class="math notranslate nohighlight">\(0 \leq y \leq 1\)</span>. It looks like this:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d02965f0-b605-4bc4-8bdb-fb1207efd97f">
-<span class="eqno">(191)<a class="headerlink" href="#equation-d02965f0-b605-4bc4-8bdb-fb1207efd97f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b0ef4826-0fa2-4ad6-a12d-c138444bc243">
+<span class="eqno">(191)<a class="headerlink" href="#equation-b0ef4826-0fa2-4ad6-a12d-c138444bc243" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \sigma(z) = \frac{1}{1 + \textrm{exp}(-z)}
 \end{equation}\]</div>
 <p>Recall that <span class="math notranslate nohighlight">\(z = \theta^\top x\)</span>. The parameters decide whether <span class="math notranslate nohighlight">\(\theta^\top x\)</span> will be very negative, in which case <span class="math notranslate nohighlight">\(\sigma(\theta^\top x)\approx 0\)</span>, or very positive, meaning  <span class="math notranslate nohighlight">\(\sigma(\theta^\top x)\approx 1\)</span>.</p>
@@ -2478,8 +2478,8 @@ Oftentimes the variable you would like to predict takes only one of two possible
 <h2>Section 3.1: <span class="math notranslate nohighlight">\(L_2\)</span> regularization<a class="headerlink" href="#section-3-1-l-2-regularization" title="Permalink to this headline">¶</a></h2>
 <p><em>Estimated timing to here from start of tutorial: 53 min</em></p>
 <p>Regularization comes in different flavors. A very common one uses an <span class="math notranslate nohighlight">\(L_2\)</span> or “ridge” penalty. This changes the objective function to</p>
-<div class="amsmath math notranslate nohighlight" id="equation-21fd6bd7-d40e-4be6-a66a-52778feefcf7">
-<span class="eqno">(192)<a class="headerlink" href="#equation-21fd6bd7-d40e-4be6-a66a-52778feefcf7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-728a4fe3-80eb-48b0-b61f-fa288677d086">
+<span class="eqno">(192)<a class="headerlink" href="#equation-728a4fe3-80eb-48b0-b61f-fa288677d086" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 -\log\mathcal{L}'(\theta | X, y)= -\log\mathcal{L}(\theta | X, y) +\frac\beta2\sum_i\theta_i^2,
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\beta\)</span> is a <em>hyperparameter</em> that sets the <em>strength</em> of the regularization.</p>
@@ -2541,8 +2541,8 @@ Oftentimes the variable you would like to predict takes only one of two possible
 <h2>Section 3.2: <span class="math notranslate nohighlight">\(L_1\)</span> regularization<a class="headerlink" href="#section-3-2-l-1-regularization" title="Permalink to this headline">¶</a></h2>
 <p><em>Estimated timing to here from start of tutorial: 1 hr, 3 min</em></p>
 <p><span class="math notranslate nohighlight">\(L_2\)</span> is not the only option for regularization. There is also the <span class="math notranslate nohighlight">\(L_1\)</span>, or “Lasso” penalty. This changes the objective function to</p>
-<div class="amsmath math notranslate nohighlight" id="equation-87ef7732-3d5b-4caa-b4d8-a3d96c0147e9">
-<span class="eqno">(193)<a class="headerlink" href="#equation-87ef7732-3d5b-4caa-b4d8-a3d96c0147e9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f7f2e921-d396-4516-aec4-f5a8402cd3bb">
+<span class="eqno">(193)<a class="headerlink" href="#equation-f7f2e921-d396-4516-aec4-f5a8402cd3bb" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 -\log\mathcal{L}'(\theta | X, y) = -\log\mathcal{L}(\theta | X, y) +\frac\beta2\sum_i|\theta_i|
 \end{equation}\]</div>
 <p>In practice, using the summed absolute values of the weights causes <em>sparsity</em>: instead of just getting smaller, some of the weights will get forced to <span class="math notranslate nohighlight">\(0\)</span>:</p>
@@ -2816,8 +2816,8 @@ A “sparse” vector has mostly zero elements:
 <hr class="docutils"/>
 <div class="section" id="notation">
 <h1>Notation<a class="headerlink" href="#notation" title="Permalink to this headline">¶</a></h1>
-<div class="amsmath math notranslate nohighlight" id="equation-4a604b48-7683-4236-98fa-6a3720cafeed">
-<span class="eqno">(194)<a class="headerlink" href="#equation-4a604b48-7683-4236-98fa-6a3720cafeed" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-aa2bda26-b9bd-4698-9595-ceb9e725a93c">
+<span class="eqno">(194)<a class="headerlink" href="#equation-aa2bda26-b9bd-4698-9595-ceb9e725a93c" title="Permalink to this equation">¶</a></span>\[\begin{align}
 x &amp;\quad \text{input}\\
 y &amp;\quad \text{measurement, response}\\
 \theta &amp;\quad \text{parameter}\\
@@ -2837,40 +2837,40 @@ L_2 &amp;\quad \text{ridge regularization}\\
 <div class="section" id="bonus-section-1-the-logistic-regression-model-in-full">
 <h2>Bonus Section 1: The Logistic Regression model in full<a class="headerlink" href="#bonus-section-1-the-logistic-regression-model-in-full" title="Permalink to this headline">¶</a></h2>
 <p>The fundamental input/output equation of logistic regression is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a24a9669-3683-451b-99c6-8070cdaea9ca">
-<span class="eqno">(195)<a class="headerlink" href="#equation-a24a9669-3683-451b-99c6-8070cdaea9ca" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2b7c7b53-ea51-4b1d-b9fc-caf09f01f78d">
+<span class="eqno">(195)<a class="headerlink" href="#equation-2b7c7b53-ea51-4b1d-b9fc-caf09f01f78d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 p(y_i = 1 |x_i, \theta) = \sigma(\theta^\top x_i)
 \end{equation}\]</div>
 <p><strong>The logistic link function</strong></p>
 <p>You’ve seen <span class="math notranslate nohighlight">\(\theta^T x_i\)</span> before, but the <span class="math notranslate nohighlight">\(\sigma\)</span> is new. It’s the <em>sigmoidal</em> or <em>logistic</em> link function that “squashes” <span class="math notranslate nohighlight">\(\theta^T x_i\)</span> to keep it between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(1\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-75d2a1c9-c34e-4058-a260-c0cde7d837f2">
-<span class="eqno">(196)<a class="headerlink" href="#equation-75d2a1c9-c34e-4058-a260-c0cde7d837f2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d3260bd5-1037-40d4-82d5-45a0916502aa">
+<span class="eqno">(196)<a class="headerlink" href="#equation-d3260bd5-1037-40d4-82d5-45a0916502aa" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \sigma(z) = \frac{1}{1 + \textrm{exp}(-z)}
 \end{equation}\]</div>
 <p><strong>The Bernoulli likelihood</strong></p>
 <p>You might have noticed that the output of the sigmoid, <span class="math notranslate nohighlight">\(\hat{y}\)</span> is not a binary value (0 or 1), even though the true data <span class="math notranslate nohighlight">\(y\)</span> is! Instead, we interpret the value of <span class="math notranslate nohighlight">\(\hat{y}\)</span> as the <em>probability that y = 1</em>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-75d777dd-8692-48b3-92f7-05165285d4ce">
-<span class="eqno">(197)<a class="headerlink" href="#equation-75d777dd-8692-48b3-92f7-05165285d4ce" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0808e91f-facb-47af-b1ad-ab224e522d1c">
+<span class="eqno">(197)<a class="headerlink" href="#equation-0808e91f-facb-47af-b1ad-ab224e522d1c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \hat{y_i} \equiv p(y_i=1|x_i,\theta) = \frac{1}{{1 + \textrm{exp}(-\theta^\top x_i)}}
 \end{equation}\]</div>
 <p>To get the likelihood of the parameters, we need to define <em>the probability of seeing <span class="math notranslate nohighlight">\(y\)</span> given <span class="math notranslate nohighlight">\(\hat{y}\)</span></em>. In logistic regression, we do this using the Bernoulli distribution:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cfbb2a17-7871-4e75-8453-d2f00db7095b">
-<span class="eqno">(198)<a class="headerlink" href="#equation-cfbb2a17-7871-4e75-8453-d2f00db7095b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-044a2f39-8bf6-4578-af04-d32e0591e2f7">
+<span class="eqno">(198)<a class="headerlink" href="#equation-044a2f39-8bf6-4578-af04-d32e0591e2f7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P(y_i\ |\ \hat{y}_i) = \hat{y}_i^{y_i}(1 - \hat{y}_i)^{(1 - y_i)}
 \end{equation}\]</div>
 <p>So plugging in the regression model:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e0ffa95b-1707-4f2d-8615-f08b763ddcbe">
-<span class="eqno">(199)<a class="headerlink" href="#equation-e0ffa95b-1707-4f2d-8615-f08b763ddcbe" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c88a5462-9aca-48dc-97bd-88f0aead8f3c">
+<span class="eqno">(199)<a class="headerlink" href="#equation-c88a5462-9aca-48dc-97bd-88f0aead8f3c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P(y_i\ |\ \theta, x_i) = \sigma(\theta^\top x_i)^{y_i}\left(1 - \sigma(\theta^\top x_i)\right)^{(1 - y_i)}.
 \end{equation}\]</div>
 <p>This expression effectively measures how good our parameters <span class="math notranslate nohighlight">\(\theta\)</span> are. We can also write it as the likelihood of the parameters given the data:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f203502d-7218-4ab9-b11c-cb9056881f50">
-<span class="eqno">(200)<a class="headerlink" href="#equation-f203502d-7218-4ab9-b11c-cb9056881f50" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3dba905a-d7e6-4741-81be-edb0645dd9a5">
+<span class="eqno">(200)<a class="headerlink" href="#equation-3dba905a-d7e6-4741-81be-edb0645dd9a5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathcal{L}(\theta\ |\ y_i, x_i) = P(y_i\ |\ \theta, x_i),
 \end{equation}\]</div>
 <p>and then use this as a target of optimization, considering all of the trials independently:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-462a3c23-a1e5-4a9d-9899-78d54039d9fc">
-<span class="eqno">(201)<a class="headerlink" href="#equation-462a3c23-a1e5-4a9d-9899-78d54039d9fc" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-180534b7-1ad7-4d54-b411-8b18a79aeb7d">
+<span class="eqno">(201)<a class="headerlink" href="#equation-180534b7-1ad7-4d54-b411-8b18a79aeb7d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \log\mathcal{L}(\theta | X, y) = \sum_{i=1}^Ny_i\log\left(\sigma(\theta^\top x_i)\right)\ +\ (1-y_i)\log\left(1 - \sigma(\theta^\top x_i)\right).
 \end{equation}\]</div>
 </div>

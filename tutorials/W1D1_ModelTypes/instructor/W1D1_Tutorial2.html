@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -1922,8 +1922,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>How does a neuron spike?</p>
 <p>A neuron charges and discharges an electric field across its cell membrane. The state of this electric field can be described by the <em>membrane potential</em>. The membrane potential rises due to excitation of the neuron, and when it reaches a threshold a spike occurs. The potential resets, and must rise to a threshold again before the next spike occurs.</p>
 <p>One of the simplest models of spiking neuron behavior is the linear integrate-and-fire model neuron. In this model, the neuron increases its membrane potential <span class="math notranslate nohighlight">\(V_m\)</span> over time in response to excitatory input currents <span class="math notranslate nohighlight">\(I\)</span> scaled by some factor <span class="math notranslate nohighlight">\(\alpha\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d50d6ad3-b170-46d7-96be-ae8d33589110">
-<span class="eqno">(125)<a class="headerlink" href="#equation-d50d6ad3-b170-46d7-96be-ae8d33589110" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6afeef37-85af-401f-8650-9a0aa0b90583">
+<span class="eqno">(125)<a class="headerlink" href="#equation-6afeef37-85af-401f-8650-9a0aa0b90583" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 dV_m = {\alpha}I
 \end{equation}\]</div>
 <p>Once <span class="math notranslate nohighlight">\(V_m\)</span> reaches a threshold value a spike is produced, <span class="math notranslate nohighlight">\(V_m\)</span> is reset to a starting value, and the process continues.</p>
@@ -1937,8 +1937,8 @@ dV_m = {\alpha}I
 <p>We’ll assume the input current <span class="math notranslate nohighlight">\(I\)</span> over a timestep is due to equal contributions from a non-negative (<span class="math notranslate nohighlight">\(\ge 0\)</span>) integer number of input spikes arriving in that timestep. Our model neuron might integrate currents from 3 input spikes in one timestep, and 7 spikes in the next timestep. We should see similar behavior when sampling from our distribution.</p>
 <p>Given no other information about the input neurons, we will also assume that the distribution has a mean (i.e. mean rate, or number of spikes received per timestep), and that the spiking events of the input neuron(s) are independent in time. Are these reasonable assumptions in the context of real neurons?</p>
 <p>A suitable distribution given these assumptions is the Poisson distribution, which we’ll use to model <span class="math notranslate nohighlight">\(I\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6951c40f-4502-436e-a783-7c07a6e2c764">
-<span class="eqno">(126)<a class="headerlink" href="#equation-6951c40f-4502-436e-a783-7c07a6e2c764" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d20894eb-5853-4489-89c0-d308e71551ed">
+<span class="eqno">(126)<a class="headerlink" href="#equation-d20894eb-5853-4489-89c0-d308e71551ed" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 I \sim \mathrm{Poisson}(\lambda)
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\lambda\)</span> is the mean of the distribution: the average rate of spikes received per timestep.</p>
@@ -2110,14 +2110,14 @@ I \sim \mathrm{Poisson}(\lambda)
 <p><em>Estimated timing to here from start of tutorial: 20 min</em></p>
 <p>Our linear integrate-and-fire neuron from the previous section was indeed able to produce spikes. However, our ISI histogram doesn’t look much like empirical ISI histograms seen in Tutorial 1, which had an exponential-like shape. What is our model neuron missing, given that it doesn’t behave like a real neuron?</p>
 <p>In the previous model we only considered excitatory behavior – the only way the membrane potential could decrease was upon a spike event. We know, however, that there are other factors that can drive <span class="math notranslate nohighlight">\(V_m\)</span> down. First is the natural tendency of the neuron to return to some steady state or resting potential. We can update our previous model as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5d9188f1-0737-4241-aadc-9b0931756088">
-<span class="eqno">(127)<a class="headerlink" href="#equation-5d9188f1-0737-4241-aadc-9b0931756088" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ee5f0ff6-27d6-400e-8a3e-927e19ac7f5e">
+<span class="eqno">(127)<a class="headerlink" href="#equation-ee5f0ff6-27d6-400e-8a3e-927e19ac7f5e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 dV_m = -{\beta}V_m + {\alpha}I
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(V_m\)</span> is the current membrane potential and <span class="math notranslate nohighlight">\(\beta\)</span> is some leakage factor. This is a basic form of the popular Leaky Integrate-and-Fire model neuron (for a more detailed discussion of the LIF Neuron, see Bonus Section 2 and the Biological Neuron Models day later in this course).</p>
 <p>We also know that in addition to excitatory presynaptic neurons, we can have inhibitory presynaptic neurons as well. We can model these inhibitory neurons with another Poisson random variable:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d7410402-7d94-4701-b5ee-70c17e320648">
-<span class="eqno">(128)<a class="headerlink" href="#equation-d7410402-7d94-4701-b5ee-70c17e320648" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6bd19521-ed3d-47ba-b4f4-4a386732342c">
+<span class="eqno">(128)<a class="headerlink" href="#equation-6bd19521-ed3d-47ba-b4f4-4a386732342c" title="Permalink to this equation">¶</a></span>\[\begin{align}
 I &amp;= I_{\mathrm{exc}} - I_{\mathrm{inh}} \\
 I_{\mathrm{exc}} &amp;\sim \mathrm{Poisson}(\lambda_{\mathrm{exc}}) \\
 I_{\mathrm{inh}} &amp;\sim \mathrm{Poisson}(\lambda_{\mathrm{inh}})
@@ -2322,8 +2322,8 @@ I_{\mathrm{inh}} &amp;\sim \mathrm{Poisson}(\lambda_{\mathrm{inh}})
 <hr class="docutils"/>
 <div class="section" id="notation">
 <h1>Notation<a class="headerlink" href="#notation" title="Permalink to this headline">¶</a></h1>
-<div class="amsmath math notranslate nohighlight" id="equation-040f1d52-a97d-4d63-90e5-7efe5ae08ba0">
-<span class="eqno">(129)<a class="headerlink" href="#equation-040f1d52-a97d-4d63-90e5-7efe5ae08ba0" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e4403d8f-a4cd-4c6c-8bca-50c4d4241d49">
+<span class="eqno">(129)<a class="headerlink" href="#equation-e4403d8f-a4cd-4c6c-8bca-50c4d4241d49" title="Permalink to this equation">¶</a></span>\[\begin{align}
 V_m &amp;\quad \text{membrane potential} \\
 dV_m &amp;\quad \text{change in membrane potential}\\
 C_m &amp;\quad \text{membrane capacitance}\\
@@ -2350,8 +2350,8 @@ V_\mathrm{rest} &amp;\quad \text{resting potential}\\
 <div class="section" id="bonus-section-2-the-lif-model-neuron">
 <h2>Bonus Section 2: The LIF Model Neuron<a class="headerlink" href="#bonus-section-2-the-lif-model-neuron" title="Permalink to this headline">¶</a></h2>
 <p>The full equation for the LIF neuron is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cc105a57-6be0-4599-b582-4e29293337db">
-<span class="eqno">(130)<a class="headerlink" href="#equation-cc105a57-6be0-4599-b582-4e29293337db" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0ac28103-2938-4f6b-bb04-84b4cf45d6b2">
+<span class="eqno">(130)<a class="headerlink" href="#equation-0ac28103-2938-4f6b-bb04-84b4cf45d6b2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 C_{m}\frac{dV_m}{dt} = -(V_m - V_{\mathrm{rest}})/R_{m} + I
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(C_m\)</span> is the membrane capacitance, <span class="math notranslate nohighlight">\(R_m\)</span> is the membrane resistance, <span class="math notranslate nohighlight">\(V_{\mathrm{rest}}\)</span> is the resting potential, and <span class="math notranslate nohighlight">\(I\)</span> is some input current (from other neurons, an electrode, etc.).</p>

@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -2111,8 +2111,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>A simple model to study the emergence of correlations is to inject common inputs to a pair of neurons and measure the output correlation as a function of the fraction of common inputs.</p>
 <p>Here, we are going to investigate the transfer of correlations by computing the correlation coefficient of spike trains recorded from two unconnected LIF neurons, which received correlated inputs.</p>
 <p>The input current to LIF neuron <span class="math notranslate nohighlight">\(i\)</span> <span class="math notranslate nohighlight">\((i=1,2)\)</span> is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-598b29be-bd9e-4eee-a8e0-403525e10426">
-<span class="eqno">(290)<a class="headerlink" href="#equation-598b29be-bd9e-4eee-a8e0-403525e10426" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-56e9337e-b87f-4a37-91fb-ca8c5022c41c">
+<span class="eqno">(290)<a class="headerlink" href="#equation-56e9337e-b87f-4a37-91fb-ca8c5022c41c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{I_i}{g_L} = \mu_i + \sigma_i (\sqrt{1-c}\xi_i + \sqrt{c}\xi_c) \quad (1)
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mu_i\)</span> is the temporal average of the current. The Gaussian white noise <span class="math notranslate nohighlight">\(\xi_i\)</span> is independent for each neuron, while <span class="math notranslate nohighlight">\(\xi_c\)</span> is common to all neurons. The variable <span class="math notranslate nohighlight">\(c\)</span> (<span class="math notranslate nohighlight">\(0\le c\le1\)</span>) controls the fraction of common and independent inputs. <span class="math notranslate nohighlight">\(\sigma_i\)</span> shows the variance of the total input.</p>
@@ -2153,8 +2153,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="coding-exercise-1a-compute-the-correlation">
 <h2>Coding Exercise 1A: Compute the correlation<a class="headerlink" href="#coding-exercise-1a-compute-the-correlation" title="Permalink to this headline">¶</a></h2>
 <p>The <em>sample correlation coefficient</em> between two input currents <span class="math notranslate nohighlight">\(I_i\)</span> and <span class="math notranslate nohighlight">\(I_j\)</span> is defined as the sample covariance of <span class="math notranslate nohighlight">\(I_i\)</span> and <span class="math notranslate nohighlight">\(I_j\)</span> divided by the square root of the sample variance of <span class="math notranslate nohighlight">\(I_i\)</span> multiplied with the square root of the sample variance of <span class="math notranslate nohighlight">\(I_j\)</span>. In equation form:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a0b504a1-70c2-4ef0-9cd2-effcd76bc781">
-<span class="eqno">(291)<a class="headerlink" href="#equation-a0b504a1-70c2-4ef0-9cd2-effcd76bc781" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ff33951c-b0b2-4375-906e-9e96529e1659">
+<span class="eqno">(291)<a class="headerlink" href="#equation-ff33951c-b0b2-4375-906e-9e96529e1659" title="Permalink to this equation">¶</a></span>\[\begin{align}
 r_{ij} &amp;= \frac{cov(I_i, I_j)}{\sqrt{var(I_i)} \sqrt{var(I_j)}}\\
 cov(I_i, I_j) &amp;= \sum_{k=1}^L (I_i^k -\bar{I}_i)(I_j^k -\bar{I}_j) \\
 var(I_i) &amp;= \sum_{k=1}^L (I_i^k -\bar{I}_i)^2
@@ -2664,8 +2664,8 @@ investigate the relationship between the input correlation and the output correl
 <div class="section" id="section-3-2-what-is-the-rationale-behind-varying-mu-and-sigma">
 <h2>Section 3.2: What is the rationale behind varying <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span>?<a class="headerlink" href="#section-3-2-what-is-the-rationale-behind-varying-mu-and-sigma" title="Permalink to this headline">¶</a></h2>
 <p>The mean and the variance of the synaptic current depends on the spike rate of a Poisson process. We can use something called <a class="reference external" href="https://en.wikipedia.org/wiki/Campbell%27s_theorem_(probability)">Campbell’s theorem</a> to estimate the mean and the variance of the synaptic current:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7e87a490-3600-4750-b6e7-0ee1b1731e3d">
-<span class="eqno">(292)<a class="headerlink" href="#equation-7e87a490-3600-4750-b6e7-0ee1b1731e3d" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-dd842ae6-9cf9-4690-84e4-417a64fbb51b">
+<span class="eqno">(292)<a class="headerlink" href="#equation-dd842ae6-9cf9-4690-84e4-417a64fbb51b" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mu_{\rm syn} = \lambda J \int P(t) \\
 \sigma_{\rm syn} = \lambda J \int P(t)^2 dt
 \end{align}\]</div>

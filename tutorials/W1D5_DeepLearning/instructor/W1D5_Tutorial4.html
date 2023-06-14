@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -2574,8 +2574,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>We can plot the activity of hidden units across various stimuli to better understand the hidden units. Recall the formula for the hidden units</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d7e62563-acd0-4e77-b854-1c574ba32bab">
-<span class="eqno">(252)<a class="headerlink" href="#equation-d7e62563-acd0-4e77-b854-1c574ba32bab" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-275a873e-889c-4bc5-b9ff-067db466a1a5">
+<span class="eqno">(252)<a class="headerlink" href="#equation-275a873e-889c-4bc5-b9ff-067db466a1a5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{h}^{(n)} = \phi(\mathbf{W}^{in} \mathbf{r}^{(n)} + \mathbf{b}^{in})
 \end{equation}\]</div>
 <p>We can compute the activity <span class="math notranslate nohighlight">\(\mathbf{h}^{(n)}\)</span> directly using <span class="math notranslate nohighlight">\(\mathbf{W}^{in}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{b}^{in}\)</span> or we can modify our network above to return <code class="docutils literal notranslate"><span class="pre">h</span></code> in the <code class="docutils literal notranslate"><span class="pre">.forward()</span></code> method. In this case, we’ll compute using the equation, but in practice the second method is recommended.</p>
@@ -2696,8 +2696,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="think-2-1-delving-into-error-problems">
 <h3>Think! 2.1: Delving into error problems<a class="headerlink" href="#think-2-1-delving-into-error-problems" title="Permalink to this headline">¶</a></h3>
 <p>In the cell below, we will plot the <em>decoding error</em> for each neural response in the testing set. The decoding error is defined as the decoded stimulus orientation minus true stimulus orientation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8bde54e9-4e93-43fd-b0a6-06c6d751b546">
-<span class="eqno">(253)<a class="headerlink" href="#equation-8bde54e9-4e93-43fd-b0a6-06c6d751b546" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9f68a083-7118-4001-b3f5-34d79242bbaf">
+<span class="eqno">(253)<a class="headerlink" href="#equation-9f68a083-7118-4001-b3f5-34d79242bbaf" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \text{decoding error} = y^{(n)} - \tilde{y}^{(n)}
 \end{equation}\]</div>
 <p>In particular, we plot decoding error as a function of the true stimulus orientation.</p>
@@ -2735,8 +2735,8 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>Section 2.2: Improving the loss function<a class="headerlink" href="#section-2-2-improving-the-loss-function" title="Permalink to this headline">¶</a></h2>
 <p>As illustrated in the previous exercise, the squared error is not a good loss function for circular quantities like angles, since two angles that are very close (e.g. <span class="math notranslate nohighlight">\(1^o\)</span> and <span class="math notranslate nohighlight">\(359^o\)</span>) might actually have a very large squared error.</p>
 <p>Here, we’ll avoid this problem by changing our loss function to treat our decoding problem as a <strong>classification problem</strong>. Rather than estimating the <em>exact</em> angle of the stimulus, we’ll now aim to construct a decoder that classifies the stimulus into one of <span class="math notranslate nohighlight">\(C\)</span> classes, corresponding to different bins of angles of width <span class="math notranslate nohighlight">\(b = \frac{360}{C}\)</span>. The true class <span class="math notranslate nohighlight">\(\tilde{y}^{(n)}\)</span> of stimulus <span class="math notranslate nohighlight">\(i\)</span> is now given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e10cdea3-dea6-4169-a93b-e53e80865e03">
-<span class="eqno">(254)<a class="headerlink" href="#equation-e10cdea3-dea6-4169-a93b-e53e80865e03" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-785cc159-ea2d-43dd-84d4-cbf7f4d941e0">
+<span class="eqno">(254)<a class="headerlink" href="#equation-785cc159-ea2d-43dd-84d4-cbf7f4d941e0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \tilde{y}^{(n)} =
 \begin{cases}
 1 &amp;\text{if angle of stimulus $n$ is in the range } [0, b] \\
@@ -2749,25 +2749,25 @@ C &amp;\text{if angle of stimulus $n$ is in the range } [(C-1)b, 360]
 <p>We have a helper function <code class="docutils literal notranslate"><span class="pre">stimulus_class</span></code> that will extract <code class="docutils literal notranslate"><span class="pre">n_classes</span></code> stimulus classes for us from the stimulus orientations.</p>
 <p>To decode the stimulus class from neural responses, we’ll use a deep network that outputs a <span class="math notranslate nohighlight">\(C\)</span>-dimensional vector of probabilities <span class="math notranslate nohighlight">\(\mathbf{p} = \begin{bmatrix} p_1, p_2, \ldots, p_C \end{bmatrix}^T\)</span>, corresponding to the estimated probabilities of the stimulus belonging to each class <span class="math notranslate nohighlight">\(1, 2, \ldots, C\)</span>.</p>
 <p>To ensure the network’s outputs are indeed probabilities (i.e. they are positive numbers between 0 and 1, and sum to 1), we’ll use a <a class="reference external" href="https://en.wikipedia.org/wiki/Softmax_function">softmax function</a> to transform the real-valued outputs from the hidden layer into probabilities. Letting <span class="math notranslate nohighlight">\(\sigma(\cdot)\)</span> denote this softmax function, the equations describing our network are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dff6654e-5cf4-4aae-80ca-45bfcbc1051d">
-<span class="eqno">(255)<a class="headerlink" href="#equation-dff6654e-5cf4-4aae-80ca-45bfcbc1051d" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-abe21b2b-10aa-489f-896f-687f7ac3fa34">
+<span class="eqno">(255)<a class="headerlink" href="#equation-abe21b2b-10aa-489f-896f-687f7ac3fa34" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mathbf{h}^{(n)} &amp;= \phi(\mathbf{W}^{in} \mathbf{r}^{(n)} + \mathbf{b}^{in}), &amp;&amp; [\mathbf{W}^{in}: M \times N], \\
 \mathbf{p}^{(n)} &amp;= \sigma(\mathbf{W}^{out} \mathbf{h}^{(n)} + \mathbf{b}^{out}),  &amp;&amp; [\mathbf{W}^{out}: C \times M],
 \end{align}\]</div>
 <p>The decoded stimulus class is then given by that assigned the highest probability by the network:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bf1759b9-f5a7-45d6-a43e-eec088ee9945">
-<span class="eqno">(256)<a class="headerlink" href="#equation-bf1759b9-f5a7-45d6-a43e-eec088ee9945" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c246e640-1e17-426e-a0bd-da91115a9edb">
+<span class="eqno">(256)<a class="headerlink" href="#equation-c246e640-1e17-426e-a0bd-da91115a9edb" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y^{(n)} = \underset{i}{\arg\max} \,\, p_i
 \end{equation}\]</div>
 <p>The softmax function can be implemented in PyTorch simply using <code class="docutils literal notranslate"><span class="pre">torch.softmax()</span></code>.</p>
 <p>Often <em>log</em> probabilities are easier to work with than actual probabilities, because probabilities tend to be very small numbers that computers have trouble representing. We’ll therefore actually use the logarithm of the softmax as the output of our network,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-10fab529-501a-4bf1-8133-1b9baa6b2450">
-<span class="eqno">(257)<a class="headerlink" href="#equation-10fab529-501a-4bf1-8133-1b9baa6b2450" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-275d7f9c-19cf-4b2c-bbb7-b66c347c1c4a">
+<span class="eqno">(257)<a class="headerlink" href="#equation-275d7f9c-19cf-4b2c-bbb7-b66c347c1c4a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{l}^{(n)} = \log \left( \mathbf{p}^{(n)} \right)
 \end{equation}\]</div>
 <p>which can implemented in PyTorch together with the softmax via an <code class="docutils literal notranslate"><span class="pre">nn.LogSoftmax</span></code> layer. The nice thing about the logarithmic function is that it’s <em>monotonic</em>, so if one probability is larger/smaller than another, then its logarithm is also larger/smaller than the other’s. We therefore have that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7cb0ac03-73e6-41a9-a92a-91187c1548e1">
-<span class="eqno">(258)<a class="headerlink" href="#equation-7cb0ac03-73e6-41a9-a92a-91187c1548e1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fb503864-70b0-48df-a8ef-be9ceb657622">
+<span class="eqno">(258)<a class="headerlink" href="#equation-fb503864-70b0-48df-a8ef-be9ceb657622" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y^{(n)} = \underset{i}{\arg\max} \,\, p_i^{(n)} = \underset{i}{\arg\max} \, \log p_i^{(n)} = \underset{i}{\arg\max} \,\, l_i^{(n)}
 \end{equation}\]</div>
 <p>See the next cell for code for constructing a deep network with one hidden layer that of ReLU’s that outputs a vector of log probabilities.</p>
@@ -2813,13 +2813,13 @@ y^{(n)} = \underset{i}{\arg\max} \,\, p_i^{(n)} = \underset{i}{\arg\max} \, \log
 </div>
 </div>
 <p>What should our loss function now be? Ideally, we want the probabilities outputted by our network to be such that the probability of the true stimulus class is high. One way to formalize this is to say that we want to maximize the <em>log</em> probability of the true stimulus class <span class="math notranslate nohighlight">\(\tilde{y}^{(n)}\)</span> under the class probabilities predicted by the network,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c3c83314-7413-4b6b-8f2e-3e0ba5b0a52f">
-<span class="eqno">(259)<a class="headerlink" href="#equation-c3c83314-7413-4b6b-8f2e-3e0ba5b0a52f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-06c3ebd4-49d3-4096-9fd3-e01cf5ad82f5">
+<span class="eqno">(259)<a class="headerlink" href="#equation-06c3ebd4-49d3-4096-9fd3-e01cf5ad82f5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \log \left( \text{predicted probability of stimulus } n \text{ being of class } \tilde{y}^{(n)} \right) = \log p^{(n)}_{\tilde{y}^{(n)}} = l^{(n)}_{\tilde{y}^{(n)}}
 \end{equation}\]</div>
 <p>To turn this into a loss function to be <em>minimized</em>, we can then simply multiply it by -1: maximizing the log probability is the same as minimizing the <em>negative</em> log probability. Summing over a batch of <span class="math notranslate nohighlight">\(P\)</span> inputs, our loss function is then given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fb7a67a7-c298-4982-9214-d96eedbd7abc">
-<span class="eqno">(260)<a class="headerlink" href="#equation-fb7a67a7-c298-4982-9214-d96eedbd7abc" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8e842152-2afd-447f-b4cf-9fb225f0d79e">
+<span class="eqno">(260)<a class="headerlink" href="#equation-8e842152-2afd-447f-b4cf-9fb225f0d79e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 L = -\sum_{n=1}^P \log p^{(n)}_{\tilde{y}^{(n)}} = -\sum_{n=1}^P l^{(n)}_{\tilde{y}^{(n)}}
 \end{equation}\]</div>
 <p>In the deep learning community, this loss function is typically referred to as the <strong>cross-entropy</strong>, or <strong>negative log likelihood</strong>. The corresponding built-in loss function in PyTorch is <code class="docutils literal notranslate"><span class="pre">nn.NLLLoss()</span></code> (documentation <a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.CrossEntropyLoss.html">here</a>).</p>
@@ -3098,8 +3098,8 @@ L = -\sum_{n=1}^P \log p^{(n)}_{\tilde{y}^{(n)}} = -\sum_{n=1}^P l^{(n)}_{\tilde
 <p>Here we’ll consider the classic L2 regularization penalty <span class="math notranslate nohighlight">\(\mathcal{R}_{L2}\)</span>, which is the sum of squares of each weight in the network <span class="math notranslate nohighlight">\(\sum_{ij} {\mathbf{W}^{out}_{ij}}^2\)</span> times a constant that we call <code class="docutils literal notranslate"><span class="pre">L2_penalty</span></code>.</p>
 <p>We will also add an L1 regularization penalty <span class="math notranslate nohighlight">\(\mathcal{R}_{L1}\)</span> to enforce sparsity of the weights, which is the sum of the absolute values of the weights <span class="math notranslate nohighlight">\(\sum_{ij} |{\mathbf{W}^{out}_{ij}}|\)</span> times a constant that we call <code class="docutils literal notranslate"><span class="pre">L1_penalty</span></code>.</p>
 <p>We will add both of these to the loss function:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-da59dfdc-13a5-4270-829b-7cc8a5407dcb">
-<span class="eqno">(261)<a class="headerlink" href="#equation-da59dfdc-13a5-4270-829b-7cc8a5407dcb" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cc9b8e60-671a-426d-bd37-efc52803cf17">
+<span class="eqno">(261)<a class="headerlink" href="#equation-cc9b8e60-671a-426d-bd37-efc52803cf17" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 L = (y - \tilde{y})^2 + \mathcal{R}_{L2} + \mathcal{R}_{L1}
 \end{equation}\]</div>
 <p>The parameters <code class="docutils literal notranslate"><span class="pre">L2_penalty</span></code> and <code class="docutils literal notranslate"><span class="pre">L1_penalty</span></code> are inputs to the train function.</p>

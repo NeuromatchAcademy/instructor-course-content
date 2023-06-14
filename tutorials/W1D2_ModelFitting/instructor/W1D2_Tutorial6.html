@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -2046,8 +2046,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>In order to choose the best model for a given problem, we can ask how likely the data is under a given model. We want to choose a model that assigns high probability to the data. A commonly used method for model selection that uses this approach is <strong>Akaike’s Information Criterion (AIC)</strong>.</p>
 <p>Essentially, AIC estimates how much information would be lost if the model predictions were used instead of the true data (the relative information value of the model). We compute the AIC for each model and choose the model with the lowest AIC. Note that AIC only tells us relative qualities, not absolute - we do not know from AIC how good our model is independent of others.</p>
 <p>AIC strives for a good tradeoff between overfitting and underfitting by taking into account the complexity of the model and the information lost. AIC is calculated as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-41e7c744-d7ec-43a3-b73f-1702b97b56cb">
-<span class="eqno">(179)<a class="headerlink" href="#equation-41e7c744-d7ec-43a3-b73f-1702b97b56cb" title="Permalink to this equation">¶</a></span>\[\begin{equation}  
+<div class="amsmath math notranslate nohighlight" id="equation-a9aa23e7-c352-4f74-b0f3-785081593087">
+<span class="eqno">(179)<a class="headerlink" href="#equation-a9aa23e7-c352-4f74-b0f3-785081593087" title="Permalink to this equation">¶</a></span>\[\begin{equation}  
 \mathrm{AIC} = 2K - 2 \log(L)
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(K\)</span> is the number of parameters in your model and <span class="math notranslate nohighlight">\(L\)</span> is the likelihood that the model could have produced the output data.</p>
@@ -2055,24 +2055,24 @@ const thebe_selector_output = ".output, .cell_output"
 <p>As we saw in Tutorial 2, there is a link between mean squared error and the likelihood estimates for linear regression models that we can take advantage of.</p>
 <p><em>Derivation time!</em></p>
 <p>We start with our formula for AIC from above:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6dce734d-8438-42e2-9d2c-596b54755888">
-<span class="eqno">(180)<a class="headerlink" href="#equation-6dce734d-8438-42e2-9d2c-596b54755888" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8543529a-92fe-4513-9bec-b8c2ac99e15e">
+<span class="eqno">(180)<a class="headerlink" href="#equation-8543529a-92fe-4513-9bec-b8c2ac99e15e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathrm{AIC} = 2k - 2 \log L
 \end{equation}\]</div>
 <p>For a model with normal errors, we can use the log likelihood of the normal distribution:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-64f1066c-fa1c-4b29-87fd-0488981795ce">
-<span class="eqno">(181)<a class="headerlink" href="#equation-64f1066c-fa1c-4b29-87fd-0488981795ce" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4e50bbec-0a55-48ac-87be-869c80e6cb4c">
+<span class="eqno">(181)<a class="headerlink" href="#equation-4e50bbec-0a55-48ac-87be-869c80e6cb4c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \log L = -\frac{n}{2} \log(2 \pi) -\frac{n}{2}\log(\sigma^2) - \sum_i^N \frac{1}{2 \sigma^2} (y_i - \tilde y_i)^2
 \end{equation}\]</div>
 <p>We can drop the first as it is a constant and we’re only assessing relative information with AIC. The last term is actually also a constant: we don’t know <span class="math notranslate nohighlight">\(\sigma^2\)</span> in advance so we use the empirical estimate from the residual (<span class="math notranslate nohighlight">\(\hat{\sigma}^2 = 1/N\sum_i^N (y_i - \tilde y_i)^2\)</span>). Once we plug this in, the two <span class="math notranslate nohighlight">\(\sum [(y - \tilde y)^2]\)</span> terms (in the numerator and denominator, respectively) cancel out and we are left with the last term as <span class="math notranslate nohighlight">\(\frac N 2\)</span>.</p>
 <p>Once we drop the constant terms and incorporate into the AIC formula we get:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-57f4c044-c485-45f0-adfd-a8a5497ed367">
-<span class="eqno">(182)<a class="headerlink" href="#equation-57f4c044-c485-45f0-adfd-a8a5497ed367" title="Permalink to this equation">¶</a></span>\[\begin{equation} 
+<div class="amsmath math notranslate nohighlight" id="equation-2ed96707-313e-46f9-a777-eafae03a6549">
+<span class="eqno">(182)<a class="headerlink" href="#equation-2ed96707-313e-46f9-a777-eafae03a6549" title="Permalink to this equation">¶</a></span>\[\begin{equation} 
 \mathrm{AIC} = 2k + n\log(\sigma^2)
 \end{equation}\]</div>
 <p>We can replace <span class="math notranslate nohighlight">\(\sigma^2\)</span> with the computation for variance (the sum of squared errors divided by number of samples). Thus, we end up with the following formula for AIC for linear and polynomial regression:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5f2913f2-f358-4fda-9013-eb5268efcf4a">
-<span class="eqno">(183)<a class="headerlink" href="#equation-5f2913f2-f358-4fda-9013-eb5268efcf4a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9b739a9d-06a7-4257-bcdd-a7554e8d28bf">
+<span class="eqno">(183)<a class="headerlink" href="#equation-9b739a9d-06a7-4257-bcdd-a7554e8d28bf" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathrm{AIC} = 2K + n \log(\frac{\mathrm{SSE}}{n})
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(k\)</span> is the number of parameters, <span class="math notranslate nohighlight">\(n\)</span> is the number of samples, and <span class="math notranslate nohighlight">\(\mathrm{SSE}\)</span> is the summed squared error.</p>

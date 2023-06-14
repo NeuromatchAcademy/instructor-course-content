@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -2596,20 +2596,20 @@ You can read the theorems <a class="reference external" href="https://colab.rese
 <details>
 <summary> <font color="blue">Click here for text recap of video </font></summary>
 <p>The Leaky Integrate and Fire (LIF) differential equation is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b22d5cc3-1190-4ee2-a2a7-a83be3a532cd">
-<span class="eqno">(82)<a class="headerlink" href="#equation-b22d5cc3-1190-4ee2-a2a7-a83be3a532cd" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d48a2fe8-8785-48e1-9c7f-b15dc4a7112a">
+<span class="eqno">(82)<a class="headerlink" href="#equation-d48a2fe8-8785-48e1-9c7f-b15dc4a7112a" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{dV}{dt} = \frac{-(V-E_L) + R_mI(t)}{\tau_m}\,
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\tau_m\)</span> is the time constant, <span class="math notranslate nohighlight">\(V\)</span> is the membrane potential, <span class="math notranslate nohighlight">\(E_L\)</span> is the resting potential, <span class="math notranslate nohighlight">\(R_m\)</span> is leak resistance and <span class="math notranslate nohighlight">\(I(t)\)</span> is the external input current.</p>
 <p>The solution of the LIF can be estimated by applying the Euler method to give the difference equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dd6da29d-44ed-4263-9f0c-2a90551d6b7e">
-<span class="eqno">(83)<a class="headerlink" href="#equation-dd6da29d-44ed-4263-9f0c-2a90551d6b7e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0229e774-2d57-4ac4-a5c8-5f428f3b19f9">
+<span class="eqno">(83)<a class="headerlink" href="#equation-0229e774-2d57-4ac4-a5c8-5f428f3b19f9" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{\color{red}{V[k+1]}-\color{green}{V[k]}}{\color{blue}{\Delta t}}=\big(\frac{-(\color{green}{V[k]}-\color{blue}{E_L}) + \color{blue}{R_m}I[k]}{\color{blue}{\tau_m}}\big),\\
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(V[k]\)</span> is the estimate of the membrane potential at time point <span class="math notranslate nohighlight">\(t[k]\)</span>.
 Re-arranging the equation such that all the known terms are on the right gives:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7b2a5718-abcf-455b-89e8-1586baa8c68a">
-<span class="eqno">(84)<a class="headerlink" href="#equation-7b2a5718-abcf-455b-89e8-1586baa8c68a" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c11a8a8b-7c71-4c77-889e-1ef07f871bb7">
+<span class="eqno">(84)<a class="headerlink" href="#equation-c11a8a8b-7c71-4c77-889e-1ef07f871bb7" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \color{red}{V[k+1]}=\color{green}{V[k]}+\color{blue}{\Delta t}\big(\frac{-(\color{green}{V[k]}-\color{blue}{E_L}) + \color{blue}{R_m}I[k]}{\color{blue}{\tau_m}}\big),\\
 \text{for } k=0\cdots n-1,
 \end{align}\]</div>
@@ -2618,8 +2618,8 @@ Re-arranging the equation such that all the known terms are on the right gives:<
 <div class="section" id="coding-exercise-2-lif-and-euler">
 <h2>Coding Exercise 2: LIF and Euler<a class="headerlink" href="#coding-exercise-2-lif-and-euler" title="Permalink to this headline">¶</a></h2>
 <p>Code the difference equation for the LIF:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d685cf04-dd4a-4dcd-b922-900853ef8f44">
-<span class="eqno">(85)<a class="headerlink" href="#equation-d685cf04-dd4a-4dcd-b922-900853ef8f44" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ef7f12c2-db06-4b8a-a275-c6bb24ba8235">
+<span class="eqno">(85)<a class="headerlink" href="#equation-ef7f12c2-db06-4b8a-a275-c6bb24ba8235" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \color{red}{V[k+1]}=\color{green}{V[k]}+\color{blue}{\Delta t}\big(\frac{-(\color{green}{V[k]}-\color{blue}{E_L}) + \color{blue}{R_m}I[k]}{\color{blue}{\tau_m}}\big),\\
 \text{for } k=0\cdots n-1,
 \end{align}\]</div>
@@ -2787,22 +2787,22 @@ Looking at systems of differential equations will also allow us to introduce the
 <p>In the previous section we looked at the LIF model for a single neuron. We now model a collection of neurons using a differential equation which describes the firing rate of a population of neurons.
 We will model the firing rate <span class="math notranslate nohighlight">\(r\)</span> of two types of populations of neurons which interact, the excitation population firing rate <span class="math notranslate nohighlight">\(r_E\)</span> and inhibition population firing rate <span class="math notranslate nohighlight">\(r_I\)</span>. These firing rates of neurons regulate each other by weighted connections <span class="math notranslate nohighlight">\(w\)</span>. The directed graph below illustrates this.</p>
 <p>Our system of differential equations is a linear version of the Wilson Cowan model. Consider the equations,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c28bf3c7-5f19-4db8-9036-a4a1a4e5675d">
-<span class="eqno">(86)<a class="headerlink" href="#equation-c28bf3c7-5f19-4db8-9036-a4a1a4e5675d" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-becf89f7-9f81-4def-b7c6-c961a6e31a82">
+<span class="eqno">(86)<a class="headerlink" href="#equation-becf89f7-9f81-4def-b7c6-c961a6e31a82" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \tau_E \frac{dr_E}{dt} &amp;= w_{EE}r_E+w_{EI}r_I, \\
 \tau_I \frac{dr_I}{dt} &amp;= w_{IE}r_E+w_{II}r_I
 \end{align}\]</div>
 <p><span class="math notranslate nohighlight">\(r_E(t)\)</span> represents the average activation (or firing rate) of the excitatory population at time <span class="math notranslate nohighlight">\(t\)</span>, and <span class="math notranslate nohighlight">\(r_I(t)\)</span> the activation (or firing rate) of the inhibitory population. The parameters <span class="math notranslate nohighlight">\(\tau_E\)</span> and <span class="math notranslate nohighlight">\(\tau_I\)</span> control the timescales of the dynamics of each population. Connection strengths are given by: <span class="math notranslate nohighlight">\(w_{EE}\)</span> (E <span class="math notranslate nohighlight">\(\rightarrow\)</span> E), <span class="math notranslate nohighlight">\(w_{EI}\)</span> (I <span class="math notranslate nohighlight">\(\rightarrow\)</span> E), <span class="math notranslate nohighlight">\(w_{IE}\)</span> (E <span class="math notranslate nohighlight">\(\rightarrow\)</span> I), and <span class="math notranslate nohighlight">\(w_{II}\)</span> (I <span class="math notranslate nohighlight">\(\rightarrow\)</span> I). The terms <span class="math notranslate nohighlight">\(w_{EI}\)</span> and <span class="math notranslate nohighlight">\(w_{IE}\)</span> represent connections from inhibitory to excitatory population and vice versa, respectively.</p>
 <p>To start we will further simplify the linear system of equations by setting <span class="math notranslate nohighlight">\(w_{EE}\)</span> and <span class="math notranslate nohighlight">\(w_{II}\)</span> to zero, we now have the equations</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d58b6e27-77ad-4d52-8650-42c0b89ea71e">
-<span class="eqno">(87)<a class="headerlink" href="#equation-d58b6e27-77ad-4d52-8650-42c0b89ea71e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cfabeb9b-ed08-45b6-b783-d23481be36c1">
+<span class="eqno">(87)<a class="headerlink" href="#equation-cfabeb9b-ed08-45b6-b783-d23481be36c1" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \tau_E \frac{dr_E}{dt} &amp;= w_{EI}r_I, \\
 \tau_I \frac{dr_I}{dt} &amp;= w_{IE}r_E, \qquad (1)
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\tau_E=100\)</span> and <span class="math notranslate nohighlight">\(\tau_I=120\)</span>, no internal connection <span class="math notranslate nohighlight">\(w_{EE}=w_{II}=0\)</span>, and <span class="math notranslate nohighlight">\(w_{EI}=-1\)</span> and <span class="math notranslate nohighlight">\(w_{IE}=1\)</span>,
 with the initial conditions</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4d78e636-e830-4e15-9662-42c22c39b636">
-<span class="eqno">(88)<a class="headerlink" href="#equation-4d78e636-e830-4e15-9662-42c22c39b636" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-62da05e6-fc51-43de-bc64-58ac3bba010e">
+<span class="eqno">(88)<a class="headerlink" href="#equation-62da05e6-fc51-43de-bc64-58ac3bba010e" title="Permalink to this equation">¶</a></span>\[\begin{align}
 r_E(0)=30, \\ 
 r_I(0)=20.
 \end{align}\]</div>
@@ -2974,8 +2974,8 @@ r_I[0]&amp;=20.\\
 <p>In the animated figure below, the panel of the left shows the excitation firing rate <span class="math notranslate nohighlight">\(r_E\)</span> and the inhibition firing rate <span class="math notranslate nohighlight">\(r_I\)</span> as a function of time. The panel on the right hand side is the phase plane plot which shows the inhibition firing rate <span class="math notranslate nohighlight">\(r_I\)</span> as a function of excitation firing rate <span class="math notranslate nohighlight">\(r_E\)</span>.</p>
 <p>An addition to the phase plane plot are the “nullcline”. These lines plot when the rate of change <span class="math notranslate nohighlight">\(\frac{d}{dt}\)</span> of the variables is equal to <span class="math notranslate nohighlight">\(0\)</span>. We saw a variation of this for a single differential equation in the differential equation tutorial.</p>
 <p>As we have two differential equations we set <span class="math notranslate nohighlight">\(\frac{dr_E}{dt}=0\)</span> and <span class="math notranslate nohighlight">\(\frac{dr_I}{dt}=0\)</span> which gives the equations,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a1d95de3-9384-4e60-b199-46754efc2ebd">
-<span class="eqno">(89)<a class="headerlink" href="#equation-a1d95de3-9384-4e60-b199-46754efc2ebd" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-43015461-0f53-4499-a252-e6672bdb71a6">
+<span class="eqno">(89)<a class="headerlink" href="#equation-43015461-0f53-4499-a252-e6672bdb71a6" title="Permalink to this equation">¶</a></span>\[\begin{align}
 0&amp;= w_{EI}r_I, \\
 0&amp;= w_{IE}r_E,\\
 \end{align}\]</div>
@@ -3021,15 +3021,15 @@ r_I[0]&amp;=20.\\
 <h2>Section 3.3: Adding internal connections<a class="headerlink" href="#section-3-3-adding-internal-connections" title="Permalink to this headline">¶</a></h2>
 <p><em>Estimated timing to here from start of tutorial: 57 min</em></p>
 <p>Building up the equations in the previous section we re-introduce internal connections <span class="math notranslate nohighlight">\(w_{EE}\)</span>, <span class="math notranslate nohighlight">\(w_{II}\)</span>. The two coupled differential equations, each representing the dynamics of the excitatory or inhibitory population are now:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b5947f5a-c1d1-4172-849a-4db39d00ce2e">
-<span class="eqno">(90)<a class="headerlink" href="#equation-b5947f5a-c1d1-4172-849a-4db39d00ce2e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6eeae1f5-a629-4f75-bdfb-29cca7574c52">
+<span class="eqno">(90)<a class="headerlink" href="#equation-6eeae1f5-a629-4f75-bdfb-29cca7574c52" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \tau_E \frac{dr_E}{dt} &amp;=w_{EE}r_E +w_{EI}r_I, \\
 \tau_I \frac{dr_I}{dt} &amp;=w_{IE}r_E +w_{II}r_I ,
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\tau_E=100\)</span> and <span class="math notranslate nohighlight">\(\tau_I=120\)</span>, <span class="math notranslate nohighlight">\(w_{EE}=1\)</span> and <span class="math notranslate nohighlight">\(w_{II}=-1\)</span>, and <span class="math notranslate nohighlight">\(w_{EI}=-5\)</span> and <span class="math notranslate nohighlight">\(w_{IE}=0.6\)</span>,
 with the initial conditions</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cef89273-0c2e-4461-a07e-d3f3b042c1a2">
-<span class="eqno">(91)<a class="headerlink" href="#equation-cef89273-0c2e-4461-a07e-d3f3b042c1a2" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-99dad232-87db-4854-9bb7-9fc23221b189">
+<span class="eqno">(91)<a class="headerlink" href="#equation-99dad232-87db-4854-9bb7-9fc23221b189" title="Permalink to this equation">¶</a></span>\[\begin{align}
 r_E(0)=30, \\ 
 r_I(0)=20.
 \end{align}\]</div>
@@ -3126,14 +3126,14 @@ rI_0&amp;=20.\\
 <h2>Section 3.4 Phase Plane and Nullclines Part 2<a class="headerlink" href="#section-3-4-phase-plane-and-nullclines-part-2" title="Permalink to this headline">¶</a></h2>
 <p><em>Estimated timing to here from start of tutorial: 62 min</em></p>
 <p>Like before, we have two differential equations so we can plot the results on a phase plane. We can also calculate the Nullclines when we set <span class="math notranslate nohighlight">\(\frac{dr_E}{dt}=0\)</span> and <span class="math notranslate nohighlight">\(\frac{dr_I}{dt}=0\)</span> which gives,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ef51f7c7-6fa0-4914-ab1c-5e740421f689">
-<span class="eqno">(92)<a class="headerlink" href="#equation-ef51f7c7-6fa0-4914-ab1c-5e740421f689" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-39357522-4830-4ab5-b7ef-47655319fd9b">
+<span class="eqno">(92)<a class="headerlink" href="#equation-39357522-4830-4ab5-b7ef-47655319fd9b" title="Permalink to this equation">¶</a></span>\[\begin{align}
 0&amp;= w_{EE}r_E+w_{EI}r_I, \\
 0&amp;= w_{IE}r_E+w_{II}r_I,
 \end{align}\]</div>
 <p>re-arranging as two lines</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b6d3e7c0-ab1f-47a3-8048-f6bf2c18261b">
-<span class="eqno">(93)<a class="headerlink" href="#equation-b6d3e7c0-ab1f-47a3-8048-f6bf2c18261b" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-152ff2c1-8c52-4a33-8a91-fd63c4f5dab9">
+<span class="eqno">(93)<a class="headerlink" href="#equation-152ff2c1-8c52-4a33-8a91-fd63c4f5dab9" title="Permalink to this equation">¶</a></span>\[\begin{align}
 r_I&amp;= -\frac{w_{EE}}{w_{EI}}r_E, \\
 r_I&amp;= -\frac{w_{IE}}{w_{II}}r_E, 
 \end{align}\]</div>
@@ -3241,13 +3241,13 @@ This will be much more relevant when dealing with more complicated (non-linear) 
 <div class="section" id="bonus-section-1-the-4th-order-runge-kutta">
 <h2>Bonus Section 1: The 4th Order Runge Kutta<a class="headerlink" href="#bonus-section-1-the-4th-order-runge-kutta" title="Permalink to this headline">¶</a></h2>
 <p>Another popular numerical method to estimate the solution of differential equations of the general form:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e9766389-666a-42af-adbc-29374b3e10f5">
-<span class="eqno">(94)<a class="headerlink" href="#equation-e9766389-666a-42af-adbc-29374b3e10f5" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ad2b7612-867f-451b-a74a-e1e91b1e234e">
+<span class="eqno">(94)<a class="headerlink" href="#equation-ad2b7612-867f-451b-a74a-e1e91b1e234e" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{dt}y=f(t,y)
 \end{align}\]</div>
 <p>is the 4th Order Runge Kutta:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f781ac8c-c660-4193-b7df-edce05d5c829">
-<span class="eqno">(95)<a class="headerlink" href="#equation-f781ac8c-c660-4193-b7df-edce05d5c829" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1620ca2b-0e5a-4ef6-8f8d-a2f3dbfb7801">
+<span class="eqno">(95)<a class="headerlink" href="#equation-1620ca2b-0e5a-4ef6-8f8d-a2f3dbfb7801" title="Permalink to this equation">¶</a></span>\[\begin{align}
 k_1 &amp;= f(t_k,y_k)\\
 k_2 &amp;= f(t_k+\frac{\Delta t}{2},y_k+\frac{\Delta t}{2}k_1)\\
 k_3 &amp;= f(t_k+\frac{\Delta t}{2},y_k+\frac{\Delta t}{2}k_2)\\
@@ -3333,8 +3333,8 @@ k_4&amp;=0.3(\color{green}{p[k]}+k_3),\\
 An issue with these studies is that there is not a consistent  definition of what constitutes an oscillation. Right now it is a bit of I know one when I see one problem.</p>
 <p>In an essay from May 2021 in PLOS Biology by Keith Dowling (a past Neuromatch TA) and M. Florencia Assaneo discussed a mathematical way of thinking about what should be expected experimentally  when studying  oscillations. In the essay they propose that instead of thinking about the brain we should look at this question from the mathematical side, to motivate what can be defined as an oscillation.</p>
 <p>To do this they used Stuart–Landau equations, which is a system of differential equations</p>
-<div class="amsmath math notranslate nohighlight" id="equation-251a5923-edfe-459c-a18b-a25858f719c8">
-<span class="eqno">(96)<a class="headerlink" href="#equation-251a5923-edfe-459c-a18b-a25858f719c8" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c0b24db6-e2d7-4d6e-98ec-7e7118a92ef4">
+<span class="eqno">(96)<a class="headerlink" href="#equation-c0b24db6-e2d7-4d6e-98ec-7e7118a92ef4" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{dx}{dt} &amp;= \lambda x-\omega y -\gamma (x^2+y^2)x+s\\
 \frac{dy}{dt} &amp;= \lambda y+\omega x -\gamma (x^2+y^2)y 
 \end{align}\]</div>

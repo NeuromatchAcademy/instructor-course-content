@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -1993,8 +1993,8 @@ and <span class="math notranslate nohighlight">\(\mu_{o2c}\)</span>.</p>
 <!-- Although the system started initially in the Closed ($x=0$) state, over time, it settles into a equilibrium distribution where we can predict on what fraction of time it is Open as a function of the $\mu$ parameters.  -->
 <p>(see diagram in lecture)</p>
 <p>The same system of transitions can then be formulated using a vector of 2 elements as the state vector and a dynamics matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>. The result of this formulation is a <em>state transition matrix</em>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f30faeb8-040e-40db-b3ae-4ee4a91cd3c1">
-<span class="eqno">(272)<a class="headerlink" href="#equation-f30faeb8-040e-40db-b3ae-4ee4a91cd3c1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-37a130da-2879-4a6a-a133-ee33429e8f34">
+<span class="eqno">(272)<a class="headerlink" href="#equation-37a130da-2879-4a6a-a133-ee33429e8f34" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \left[ \begin{array}{c} C \\ O \end{array} \right]_{k+1} = \mathbf{A} \left[ \begin{array}{c} C \\ O \end{array} \right]_k = \left[ \begin{array} &amp; 1-\mu_{\text{c2o}} &amp; \mu_{\text{o2c}} \\ \mu_{\text{c2o}} &amp; 1-\mu_{\text{o2c}} \end{array} \right] \left[ \begin{array}{c} C \\ O \end{array} \right]_k.
 \end{equation}\]</div>
 <p>Each transition probability shown in the matrix is as follows:</p>

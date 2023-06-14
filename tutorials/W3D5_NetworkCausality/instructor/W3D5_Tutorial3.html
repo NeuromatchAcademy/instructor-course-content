@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -1975,14 +1975,14 @@ Confonds can be controlled for by adding them as covariates in a regression. But
 <p>where <span class="math notranslate nohighlight">\(\sigma\)</span> is our sigmoid nonlinearity from before: <span class="math notranslate nohighlight">\(\sigma(x) = \frac{1}{1 + e^{-x}}\)</span></p>
 <p>Our system is a closed system, too, so there are no omitted variables. The regression coefficients should be the causal effect. Are they?</p>
 <p>We will use a regression approach to estimate the causal influence of all neurons to neuron #1. Specifically, we will use linear regression to determine the <span class="math notranslate nohighlight">\(A\)</span> in:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-04d3aed2-7af0-42c5-b65d-bfe3c7a532a6">
-<span class="eqno">(458)<a class="headerlink" href="#equation-04d3aed2-7af0-42c5-b65d-bfe3c7a532a6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8d317e63-fe08-4645-a0e0-19098f1c9230">
+<span class="eqno">(458)<a class="headerlink" href="#equation-8d317e63-fe08-4645-a0e0-19098f1c9230" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \sigma^{-1}(\vec{x}_{t+1}) = A\vec{x}_t + \epsilon_t ,
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\sigma^{-1}\)</span> is the inverse sigmoid transformation, also sometimes referred to as the <strong>logit</strong> transformation: <span class="math notranslate nohighlight">\(\sigma^{-1}(x) = \log(\frac{x}{1-x})\)</span>.</p>
 <p>Let <span class="math notranslate nohighlight">\(W\)</span> be the <span class="math notranslate nohighlight">\(\vec{x}_t\)</span> values, up to the second-to-last timestep <span class="math notranslate nohighlight">\(T-1\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-84b7fe32-8c7d-47a6-b645-0af6654c6393">
-<span class="eqno">(459)<a class="headerlink" href="#equation-84b7fe32-8c7d-47a6-b645-0af6654c6393" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-913767e8-3d7b-4ea7-a105-31854e993fce">
+<span class="eqno">(459)<a class="headerlink" href="#equation-913767e8-3d7b-4ea7-a105-31854e993fce" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 W = 
 \begin{bmatrix}
 \mid &amp; \mid &amp; ... &amp; \mid \\ 
@@ -1991,16 +1991,16 @@ W =
 \end{bmatrix}_{n \times (T-1)}
 \end{equation}\]</div>
 <p>Let <span class="math notranslate nohighlight">\(Y\)</span> be the <span class="math notranslate nohighlight">\(\vec{x}_{t+1}\)</span> values for a selected neuron, indexed by <span class="math notranslate nohighlight">\(i\)</span>, starting from the second timestep up to the last timestep <span class="math notranslate nohighlight">\(T\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0e07f56c-6f7e-47cc-8637-86e5df77e5b3">
-<span class="eqno">(460)<a class="headerlink" href="#equation-0e07f56c-6f7e-47cc-8637-86e5df77e5b3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0a0ac0ab-faea-4571-b816-ee21109ca9fb">
+<span class="eqno">(460)<a class="headerlink" href="#equation-0a0ac0ab-faea-4571-b816-ee21109ca9fb" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 Y = 
 \begin{bmatrix}
 x_{i,1}  &amp; x_{i,2}  &amp; ... &amp; x_{i, T}  \\ 
 \end{bmatrix}_{1 \times (T-1)}
 \end{equation}\]</div>
 <p>You will then fit the following model:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9f5143cd-2adf-453a-b534-805db1ee27d1">
-<span class="eqno">(461)<a class="headerlink" href="#equation-9f5143cd-2adf-453a-b534-805db1ee27d1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ff20aeec-7264-4b83-9871-92d08a59623e">
+<span class="eqno">(461)<a class="headerlink" href="#equation-ff20aeec-7264-4b83-9871-92d08a59623e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \sigma^{-1}(Y^T) = W^TV
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(V\)</span> is the <span class="math notranslate nohighlight">\(n \times 1\)</span> coefficient matrix of this regression, which will be the estimated connectivity matrix between the selected neuron and the rest of the neurons.</p>

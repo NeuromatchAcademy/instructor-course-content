@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -2056,8 +2056,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="section-1-1-the-lif-model">
 <h2>Section 1.1: The LIF Model<a class="headerlink" href="#section-1-1-the-lif-model" title="Permalink to this headline">¶</a></h2>
 <p>A <em>membrane equation</em> and a <em>reset condition</em> define our <em>leaky-integrate-and-fire (LIF)</em> neuron:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-aefbdf44-8fc9-49af-8e28-ea8e0a0dc027">
-<span class="eqno">(1)<a class="headerlink" href="#equation-aefbdf44-8fc9-49af-8e28-ea8e0a0dc027" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4dccad56-d6af-4c2d-8f94-dca7eb00f8d3">
+<span class="eqno">(1)<a class="headerlink" href="#equation-4dccad56-d6af-4c2d-8f94-dca7eb00f8d3" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \tau_m\,\frac{d}{dt}\,V(t) &amp;= E_{L} - V(t) + R\,I(t) &amp;\text{if }\quad V(t) \leq V_{th} \\ \\
 V(t) &amp;= V_{reset} &amp;\text{otherwise}
 \end{align}\]</div>
@@ -2120,8 +2120,8 @@ where $V(t)$ is the membrane potential, $\tau_m$ is the membrane time constant, 
 <h3>Coding Exercise 2: Simulating an input current<a class="headerlink" href="#coding-exercise-2-simulating-an-input-current" title="Permalink to this headline">¶</a></h3>
 <p><img alt="synaptic input" src="https://github.com/mpbrigham/colaboratory-figures/raw/master/nma/python-for-nma/synaptic_input.png"/></p>
 <p>We need to simulate the synaptic input <span class="math notranslate nohighlight">\(I(t)\)</span> that goes into our model neuron. We will start with a sinusoidal model to simulate this input (visualized above), using the equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-29ac4899-71f3-4087-90c1-6cf29df5df80">
-<span class="eqno">(2)<a class="headerlink" href="#equation-29ac4899-71f3-4087-90c1-6cf29df5df80" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ad4be791-b41e-4166-bdb6-4b563493406e">
+<span class="eqno">(2)<a class="headerlink" href="#equation-ad4be791-b41e-4166-bdb6-4b563493406e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 I(t)=I_{mean}\left(1+\sin\left(\frac{2 \pi}{0.01}\,t\right)\right)
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(I_{mean}\)</span> is the mean current input and <span class="math notranslate nohighlight">\(t\)</span> is the time.</p>
@@ -2300,8 +2300,8 @@ I(t)=I_{mean}\left(1+\sin\left(\frac{2 \pi}{0.01}\,t\right)\right)
 </div>
 <p>In the next exercises, we will simulate the evolution of the membrane equation in discrete time steps, with a sufficiently small <span class="math notranslate nohighlight">\(\Delta t\)</span>.</p>
 <p>We start by writing the time derivative <span class="math notranslate nohighlight">\(d/dt\,V(t)\)</span> in the membrane equation without taking the limit <span class="math notranslate nohighlight">\(\Delta t \to 0\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-982a6a42-0829-4f04-ab6f-07d262a6001a">
-<span class="eqno">(3)<a class="headerlink" href="#equation-982a6a42-0829-4f04-ab6f-07d262a6001a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e3fb1f2f-15e8-418e-82cc-58512e4fa2b2">
+<span class="eqno">(3)<a class="headerlink" href="#equation-e3fb1f2f-15e8-418e-82cc-58512e4fa2b2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \tau_m\,\frac{V\left(t+\Delta t\right)-V\left(t\right)}{\Delta t} = E_{L} - V(t) + R\,I(t) \qquad\qquad (1)
 \end{equation}\]</div>
 <p>The value of membrane potential <span class="math notranslate nohighlight">\(V\left(t+\Delta t\right)\)</span> can be expressed in terms of its previous value <span class="math notranslate nohighlight">\(V(t)\)</span> by simple algebraic manipulation. For <em>small enough</em> values of <span class="math notranslate nohighlight">\(\Delta t\)</span>, this provides a good approximation of the continuous-time integration.</p>
@@ -2311,8 +2311,8 @@ I(t)=I_{mean}\left(1+\sin\left(\frac{2 \pi}{0.01}\,t\right)\right)
 <h3>Coding Exercise 4: Simulating membrane potential<a class="headerlink" href="#coding-exercise-4-simulating-membrane-potential" title="Permalink to this headline">¶</a></h3>
 <p>Compute the values of <span class="math notranslate nohighlight">\(V(t)\)</span> between <span class="math notranslate nohighlight">\(t=0\)</span> and <span class="math notranslate nohighlight">\(t=0.01\)</span> with step <span class="math notranslate nohighlight">\(\Delta t=0.001\)</span> and <span class="math notranslate nohighlight">\(V(0)=E_L\)</span>.</p>
 <p>We need to reorganize the Eq. (1) to isolate <span class="math notranslate nohighlight">\(V\left( t+\Delta t \right)\)</span> on the left side, and express it as function of <span class="math notranslate nohighlight">\(V(t)\)</span> and the other terms:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b508169d-fd00-4bcc-8928-649aeaa16958">
-<span class="eqno">(4)<a class="headerlink" href="#equation-b508169d-fd00-4bcc-8928-649aeaa16958" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e026e268-87ad-4b22-b4cc-3de876ecad13">
+<span class="eqno">(4)<a class="headerlink" href="#equation-e026e268-87ad-4b22-b4cc-3de876ecad13" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 V(t + \Delta t) =  V(t) + \frac{\Delta t}{\tau_m}\left( E_L -V(t) + R I(t) \right)
 \end{equation}\]</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#################################################</span>
@@ -2551,8 +2551,8 @@ V(t + \Delta t) =  V(t) + \frac{\Delta t}{\tau_m}\left( E_L -V(t) + R I(t) \righ
 <div class="section" id="section-4-random-synaptic-input">
 <h1>Section 4: Random synaptic input<a class="headerlink" href="#section-4-random-synaptic-input" title="Permalink to this headline">¶</a></h1>
 <p>From the perspective of neurons, synaptic input is random (or stochastic). We’ll improve the synaptic input model by introducing random input current with statistical properties similar to the previous exercise:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-58e21d48-68d2-4723-a73c-9e546115e90c">
-<span class="eqno">(5)<a class="headerlink" href="#equation-58e21d48-68d2-4723-a73c-9e546115e90c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-264f40a7-9763-4f22-9198-b9ba6da0d536">
+<span class="eqno">(5)<a class="headerlink" href="#equation-264f40a7-9763-4f22-9198-b9ba6da0d536" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 I(t) = I_{mean}\left(1+0.1\sqrt{\frac{t_{max}}{\Delta t}}\,\xi(t)\right)\qquad\text{with }\xi(t)\sim \mathcal{U}(-1,1)
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathcal{U}(-1,1)\)</span> is the <a class="reference external" href="https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)">uniform distribution</a> with support <span class="math notranslate nohighlight">\(x\in[-1,1]\)</span>.</p>
@@ -2662,8 +2662,8 @@ I(t) = I_{mean}\left(1+0.1\sqrt{\frac{t_{max}}{\Delta t}}\,\xi(t)\right)\qquad\t
 <div class="cell tag_remove-input docutils container">
 </div>
 <p>Multiple runs of the previous exercise may give the impression of periodic regularity in the evolution of <span class="math notranslate nohighlight">\(V(t)\)</span>. We’ll collect the sample mean over <span class="math notranslate nohighlight">\(N=50\)</span> realizations of <span class="math notranslate nohighlight">\(V(t)\)</span>  with random input to test such a hypothesis. The sample mean, sample variance and sample autocovariance at times <span class="math notranslate nohighlight">\(\left\{t, s\right\}\in[0,t_{max}]\)</span>, and for <span class="math notranslate nohighlight">\(N\)</span> realizations <span class="math notranslate nohighlight">\(V_n(t)\)</span> are given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f9910577-5ec1-49c1-a814-f988b0502028">
-<span class="eqno">(6)<a class="headerlink" href="#equation-f9910577-5ec1-49c1-a814-f988b0502028" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-236df303-af29-417e-ba6e-984679624c80">
+<span class="eqno">(6)<a class="headerlink" href="#equation-236df303-af29-417e-ba6e-984679624c80" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \\
 \left\langle V(t)\right\rangle &amp;= \frac{1}{N}\sum_{n=1}^N V_n(t) &amp; &amp; \text{sample mean}\\
 \left\langle (V(t)-\left\langle V(t)\right\rangle)^2\right\rangle &amp;= \frac{1}{N-1} \sum_{n=1}^N \left(V_n(t)-\left\langle V(t)\right\rangle\right)^2 &amp; &amp; \text{sample variance} \\

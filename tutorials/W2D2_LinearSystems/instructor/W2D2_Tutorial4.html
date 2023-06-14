@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -1843,8 +1843,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell tag_remove-input docutils container">
 </div>
 <p>To see how this works, let’s continue the previous example with the drift-diffusion (OU) process. Our process had the following form:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e57c74a1-fa58-45e5-8743-64e7edf84b1d">
-<span class="eqno">(278)<a class="headerlink" href="#equation-e57c74a1-fa58-45e5-8743-64e7edf84b1d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-141c2184-9520-4df7-8a2e-9e4f1968aaae">
+<span class="eqno">(278)<a class="headerlink" href="#equation-141c2184-9520-4df7-8a2e-9e4f1968aaae" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 x_{k+1} = x_{\infty} + \lambda(x_k - x_{\infty}) + \sigma \eta
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\eta\)</span> is sampled from a standard normal distribution.</p>
@@ -1877,8 +1877,8 @@ x_{k+1} = x_{\infty} + \lambda(x_k - x_{\infty}) + \sigma \eta
 </div>
 <p>What if we were given these positions <span class="math notranslate nohighlight">\(x\)</span> as they evolve in time as data, how would we get back out the dynamics of the system <span class="math notranslate nohighlight">\(\lambda\)</span>?</p>
 <p>Since a little bird told us that this system takes on the form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d04d7ae0-23a5-43af-a8b6-dc0e89da535e">
-<span class="eqno">(279)<a class="headerlink" href="#equation-d04d7ae0-23a5-43af-a8b6-dc0e89da535e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3e43df78-4142-451e-93f7-b2b0a5a048cf">
+<span class="eqno">(279)<a class="headerlink" href="#equation-3e43df78-4142-451e-93f7-b2b0a5a048cf" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 x_{k+1} = \lambda x_k + \eta \,,
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\eta\)</span> is noise from a normal distribution, our approach is to solve for <span class="math notranslate nohighlight">\(\lambda\)</span> as a <strong>regression problem</strong>.</p>
@@ -1902,8 +1902,8 @@ x_{k+1} = \lambda x_k + \eta \,,
 </div>
 <p>Hooray, it’s a line! This is evidence that the <em>dynamics that generated the data</em> is <strong>linear</strong>. We can now reformulate this task as a regression problem.</p>
 <p>Let <span class="math notranslate nohighlight">\(\mathbf{x_1} = x_{0:T-1}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{x_2} = x_{1:T}\)</span> be vectors of the data indexed so that they are shifted in time by one. Then, our regression problem is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-66f973a3-6691-4904-bb30-00ba082512da">
-<span class="eqno">(280)<a class="headerlink" href="#equation-66f973a3-6691-4904-bb30-00ba082512da" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-77954812-06db-4903-b0a6-62d668c88e92">
+<span class="eqno">(280)<a class="headerlink" href="#equation-77954812-06db-4903-b0a6-62d668c88e92" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{x}_2 = \lambda \mathbf{x}_1
 \end{equation}\]</div>
 <p>This model is <strong>autoregressive</strong>, where <em>auto</em> means self. In other words, it’s a regression of the time series on itself from the past. The equation as written above is only a function of itself from <em>one step</em> in the past, so we can call it a <em>first order</em> autoregressive model.</p>
@@ -1998,8 +1998,8 @@ x_{k+1} = \lambda x_k + \eta \,,
 </div>
 <p>Now that we have established the autoregressive framework, generalizing for dependence on data points from the past is straightforward. <strong>Higher order</strong> autoregression models a future time point based on <em>more than one point in the past</em>.</p>
 <p>In one dimension, we can write such an order-<span class="math notranslate nohighlight">\(r\)</span> model as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-88d0aed7-8170-4858-ac96-9d01051aed76">
-<span class="eqno">(281)<a class="headerlink" href="#equation-88d0aed7-8170-4858-ac96-9d01051aed76" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5c266e4b-f457-47ce-a90f-bd837cbc0686">
+<span class="eqno">(281)<a class="headerlink" href="#equation-5c266e4b-f457-47ce-a90f-bd837cbc0686" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 x_{k+1} = \alpha_0 + \alpha_1 x_k + \alpha_2 x_{k-1} + \alpha_3 x_{k-2} + \dots + \alpha_{r+1} x_{k-r} \, ,
 \end{equation}\]</div>
 <p>where the <span class="math notranslate nohighlight">\(\alpha\)</span>’s are the <span class="math notranslate nohighlight">\(r+1\)</span> coefficients to be fit to the data available.</p>

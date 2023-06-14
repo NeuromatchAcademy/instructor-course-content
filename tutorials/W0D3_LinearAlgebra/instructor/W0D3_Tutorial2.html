@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -2092,28 +2092,28 @@ const thebe_selector_output = ".output, .cell_output"
 <details>
 <summary> <font color="blue">Click here for text recap of video </font></summary>
 <p>In a variety of contexts, we may encounter systems of linear equations like this one:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-327faa8c-3e15-4715-a67e-b382f6c92194">
-<span class="eqno">(23)<a class="headerlink" href="#equation-327faa8c-3e15-4715-a67e-b382f6c92194" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1ba778de-cb8e-493d-847a-050c28d73475">
+<span class="eqno">(23)<a class="headerlink" href="#equation-1ba778de-cb8e-493d-847a-050c28d73475" title="Permalink to this equation">¶</a></span>\[\begin{align}
 3x_1 + 2x_2 + x_3 &amp;= y_1 \\
 7x_1 + x_2 + 2x_3 &amp;= y_2 \\
 x_1 - x_2  - 2x_3 &amp;= y_3
 \end{align}\]</div>
 <p>We may know all the <span class="math notranslate nohighlight">\(x\)</span>’s and want to solve for <span class="math notranslate nohighlight">\(y\)</span>’s, or we may know the <span class="math notranslate nohighlight">\(y\)</span>’s and want to solve for the <span class="math notranslate nohighlight">\(x\)</span>’s. We can solve this in several different ways but one especially appealing way is to cast it as a matrix-vector equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-846af9dd-d57f-4fea-bbed-6a92a22a9ec4">
-<span class="eqno">(24)<a class="headerlink" href="#equation-846af9dd-d57f-4fea-bbed-6a92a22a9ec4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4483a158-bca7-4c57-86df-cfd4808bd367">
+<span class="eqno">(24)<a class="headerlink" href="#equation-4483a158-bca7-4c57-86df-cfd4808bd367" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{W}\mathbf{x} = \mathbf{y}
 \end{equation}\]</div>
 <p>where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e7d59f22-f6ac-4cbf-a0e7-a3e3b773ce90">
-<span class="eqno">(25)<a class="headerlink" href="#equation-e7d59f22-f6ac-4cbf-a0e7-a3e3b773ce90" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9e939266-ca86-419e-bb26-016f12ca54b6">
+<span class="eqno">(25)<a class="headerlink" href="#equation-9e939266-ca86-419e-bb26-016f12ca54b6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{W} = \begin{bmatrix} 3 &amp; 2 &amp; 1 \\ 7 &amp; 1 &amp; 2 \\ 1 &amp;-1 &amp;-2 \end{bmatrix},
 \mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}, 
 \mathbf{y} = \begin{bmatrix} y_1 \\ y_2 \\ y_3 \end{bmatrix}\\
 \end{equation}\]</div>
 <p>If we know <span class="math notranslate nohighlight">\(\mathbf{W}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, we can solve for <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> using matrix-vector multiplication. Each row of <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> is computed as the dot product of the equivalent row of <span class="math notranslate nohighlight">\(\mathbf{W}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>.</p>
 <p>If we know <span class="math notranslate nohighlight">\(\mathbf{W}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>, we can sometimes solve for <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> by using the inverse of <span class="math notranslate nohighlight">\(\mathbf{W}\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6f17b830-6c34-4783-9392-3334b748eb9e">
-<span class="eqno">(26)<a class="headerlink" href="#equation-6f17b830-6c34-4783-9392-3334b748eb9e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-750852b0-1df3-4b40-8217-df18998c2aaf">
+<span class="eqno">(26)<a class="headerlink" href="#equation-750852b0-1df3-4b40-8217-df18998c2aaf" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{x} = W^{-1}\mathbf{y}
 \end{equation}\]</div>
 <p>The reason this only sometimes works will be dived into later in this tutorial!</p>
@@ -2121,8 +2121,8 @@ x_1 - x_2  - 2x_3 &amp;= y_3
 <div class="section" id="coding-exercise-1-1-understanding-neural-transformations">
 <h3>Coding Exercise 1.1: Understanding neural transformations<a class="headerlink" href="#coding-exercise-1-1-understanding-neural-transformations" title="Permalink to this headline">¶</a></h3>
 <p>We will look at a group of 2 LGN neurons which get input from 2 retinal neurons: we will call the population of LGN neurons population <span class="math notranslate nohighlight">\(p\)</span>. Below, we have the system of linear equations that dictates the neuron models for each population. <span class="math notranslate nohighlight">\(r_1\)</span> and <span class="math notranslate nohighlight">\(r_2\)</span> correspond to the retinal neural activities (of neuron 1 and 2). <span class="math notranslate nohighlight">\(g_{p_1}\)</span> and  <span class="math notranslate nohighlight">\(g_{p_2}\)</span> correspond to the responses of the LGN neurons 1 and 2 in population <span class="math notranslate nohighlight">\(p\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fea7779c-2d5e-4e4c-8097-dffa831a45fb">
-<span class="eqno">(27)<a class="headerlink" href="#equation-fea7779c-2d5e-4e4c-8097-dffa831a45fb" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-24b46ff2-e503-409e-9aee-19a00747c4b5">
+<span class="eqno">(27)<a class="headerlink" href="#equation-24b46ff2-e503-409e-9aee-19a00747c4b5" title="Permalink to this equation">¶</a></span>\[\begin{align}
 r_1 + 3r_2 &amp;= g_{p_1} \\
 2r_1 + r_2 &amp;= g_{p_2}
 \end{align}\]</div>
@@ -2130,16 +2130,16 @@ r_1 + 3r_2 &amp;= g_{p_1} \\
 <ol class="simple">
 <li><p>Cast each equation (i.e., <span class="math notranslate nohighlight">\(g_{p_1}\)</span> and <span class="math notranslate nohighlight">\(g_{p_2}\)</span>) as a matrix-vector multiplication:</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-38a69e36-e9ed-4373-91fd-fe4d5171c0be">
-<span class="eqno">(28)<a class="headerlink" href="#equation-38a69e36-e9ed-4373-91fd-fe4d5171c0be" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-40671374-82f7-47ef-b222-0caba3faa40d">
+<span class="eqno">(28)<a class="headerlink" href="#equation-40671374-82f7-47ef-b222-0caba3faa40d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{g}_p = \mathbf{P}\mathbf{r}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(P\)</span> is the weight matrix to population <span class="math notranslate nohighlight">\(p\)</span>.</p>
 <ol class="simple">
 <li><p>Let’s say we only recorded from the LGN cells (and know the weight matrix) and are trying to figure out how the retinal cells responded. Solve the matrix equation for the given LGN activities:</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-9b34a358-6649-4df5-8450-c87806854a86">
-<span class="eqno">(29)<a class="headerlink" href="#equation-9b34a358-6649-4df5-8450-c87806854a86" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c0e84a60-53bd-47cc-8d0e-e5c4a0aa71e1">
+<span class="eqno">(29)<a class="headerlink" href="#equation-c0e84a60-53bd-47cc-8d0e-e5c4a0aa71e1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{g}_p = 
 \begin{bmatrix}
 16 \\
@@ -2183,8 +2183,8 @@ r_1 + 3r_2 &amp;= g_{p_1} \\
 </div>
 <p>You should see the output [1, 5]</p>
 <p>You can recover how the retinal neurons respond given the weight matrix and LGN responses! You have solved the system of equations using matrices. We can’t always do this though: let’s say we have a different group of 2 LGN neurons -  population q - with the following weight matrix from the retinal neurons.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ff9596af-a42b-4e4f-b5bf-b4b071cb53f9">
-<span class="eqno">(30)<a class="headerlink" href="#equation-ff9596af-a42b-4e4f-b5bf-b4b071cb53f9" title="Permalink to this equation">¶</a></span>\[\begin{equation}Q = 
+<div class="amsmath math notranslate nohighlight" id="equation-9470b1d5-0dae-43b5-b036-d0a8dc42f55b">
+<span class="eqno">(30)<a class="headerlink" href="#equation-9470b1d5-0dae-43b5-b036-d0a8dc42f55b" title="Permalink to this equation">¶</a></span>\[\begin{equation}Q = 
 \begin{bmatrix}
 4 &amp; 1 \\
 8 &amp; 2
@@ -2349,8 +2349,8 @@ r_1 + 3r_2 &amp;= g_{p_1} \\
 </div>
 <p>This video covers eigenvalues and eigenvectors.</p>
 <p>Eigenvectors, <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> of a matrix <span class="math notranslate nohighlight">\(\mathbf{W}\)</span> are vectors that, when multipled by the matrix, equal a scalar multiple of themselves. That scalar multiple is the corresponding eigenvalue, <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dcf8a552-6147-4a4f-b004-eb50cfd41498">
-<span class="eqno">(31)<a class="headerlink" href="#equation-dcf8a552-6147-4a4f-b004-eb50cfd41498" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-186cfb0a-654f-49c8-b658-c73374216801">
+<span class="eqno">(31)<a class="headerlink" href="#equation-186cfb0a-654f-49c8-b658-c73374216801" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{W}\mathbf{v} = \lambda\mathbf{v}
 \end{equation}\]</div>
 <p>If we have one eigenvector for a matrix, we technically have an infinite amount: every vector along the span of that eigenvector is also an eigenvector. So, we often use the unit vector in that direction to summarize all the eigenvectors along that line.</p>
@@ -2421,13 +2421,13 @@ r_1 + 3r_2 &amp;= g_{p_1} \\
 <div class="cell tag_remove-input docutils container">
 </div>
 <p>We sometimes want to multiple two matrices together, instead of a matrix with a vector. Let’s say we’re multiplying matrices <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{B}\)</span> to get <span class="math notranslate nohighlight">\(\mathbf{C}\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cf5bc50a-1d8e-4dac-99b5-cb59d84d1b35">
-<span class="eqno">(32)<a class="headerlink" href="#equation-cf5bc50a-1d8e-4dac-99b5-cb59d84d1b35" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-99052112-c13f-43f9-98a3-6b1a79a6de4f">
+<span class="eqno">(32)<a class="headerlink" href="#equation-99052112-c13f-43f9-98a3-6b1a79a6de4f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{C} = \mathbf{A}\mathbf{B}\text{.}
 \end{equation}\]</div>
 <p>We take the dot product of each row of A with each column of B. The resulting scalar is placed in the element of <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> that is the same row (as the row in A) and column (as the column in B). So the element of <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> at row 4 and column 2 is the dot product of the 4th row of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> and the 2nd column of <span class="math notranslate nohighlight">\(\mathbf{B}\)</span>. We can write this in a formula as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cebda454-18ac-4429-8797-b7175ff8c22d">
-<span class="eqno">(33)<a class="headerlink" href="#equation-cebda454-18ac-4429-8797-b7175ff8c22d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-00bccaf0-4cd6-42ce-afc7-55a01032fb2d">
+<span class="eqno">(33)<a class="headerlink" href="#equation-00bccaf0-4cd6-42ce-afc7-55a01032fb2d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{C}_{\text{row i, column j}} = \mathbf{A}_{\text{row i}} \cdot \mathbf{B}_{\text{column j}}
 \end{equation}\]</div>
 </div>
@@ -2435,8 +2435,8 @@ r_1 + 3r_2 &amp;= g_{p_1} \\
 <h2>Exercise 2: Computation corner<a class="headerlink" href="#exercise-2-computation-corner" title="Permalink to this headline">¶</a></h2>
 <p>Break out the pen and paper - it’s critical to implement matrix multiplication yourself to fully understand how it works.</p>
 <p>Let’s say we have 3 retina neurons and 2 LGN neurons. The weight matrix, <span class="math notranslate nohighlight">\(W\)</span>, between the retina and LGN neurons is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-92956ed3-7165-4da1-a740-65b346ad5b5b">
-<span class="eqno">(34)<a class="headerlink" href="#equation-92956ed3-7165-4da1-a740-65b346ad5b5b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5615a188-d819-4ed6-a4d1-3959b4ca55da">
+<span class="eqno">(34)<a class="headerlink" href="#equation-5615a188-d819-4ed6-a4d1-3959b4ca55da" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 W = 
 \begin{bmatrix}
 3 &amp;  2 &amp; 1 \\
@@ -2444,8 +2444,8 @@ W =
 \end{bmatrix}
 \end{equation}\]</div>
 <p>We are going to look at the activity at two time steps (each time step is a column). Our retina activity matrix, <span class="math notranslate nohighlight">\(R\)</span>, is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6ee38e34-5d57-4ebc-aab8-3153fb8d5d52">
-<span class="eqno">(35)<a class="headerlink" href="#equation-6ee38e34-5d57-4ebc-aab8-3153fb8d5d52" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-79fff0c7-33f6-4223-8849-d99fd7da18bd">
+<span class="eqno">(35)<a class="headerlink" href="#equation-79fff0c7-33f6-4223-8849-d99fd7da18bd" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 R = 
 \begin{bmatrix}
 0 &amp;  1  \\
@@ -2454,8 +2454,8 @@ R =
 \end{bmatrix}
 \end{equation}\]</div>
 <p>Please compute the LGN neural activity, <span class="math notranslate nohighlight">\(G\)</span>, according to our linear model:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5cf0f6c7-9e1d-49b1-bee5-de6d35148688">
-<span class="eqno">(36)<a class="headerlink" href="#equation-5cf0f6c7-9e1d-49b1-bee5-de6d35148688" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bae35344-4d1e-49ce-8af1-027a8157524d">
+<span class="eqno">(36)<a class="headerlink" href="#equation-bae35344-4d1e-49ce-8af1-027a8157524d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 G = WR.
 \end{equation}\]</div>
 <p>Please calculate it 1) by-hand and then 2) using code. Check that the answers match!</p>

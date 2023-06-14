@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -1814,13 +1814,13 @@ const thebe_selector_output = ".output, .cell_output"
 <p><strong>Linear least squares regression</strong> is an old but gold  optimization procedure that we are going to use for data fitting. Least squares (LS) optimization problems are those in which the objective function is a quadratic function of the
 parameter(s) being optimized.</p>
 <p>Suppose you have a set of measurements: for each data point or measurement, you have <span class="math notranslate nohighlight">\(y_{i}\)</span> (the “dependent” variable) obtained for a different input value, <span class="math notranslate nohighlight">\(x_{i}\)</span> (the “independent” or “explanatory” variable).  Suppose we believe the measurements are proportional to the input values, but are corrupted by some (random) measurement errors, <span class="math notranslate nohighlight">\(\epsilon_{i}\)</span>, that is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-10404e72-f3c9-4c0e-8fb7-cf742380f904">
-<span class="eqno">(137)<a class="headerlink" href="#equation-10404e72-f3c9-4c0e-8fb7-cf742380f904" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b8296b2c-33d8-47a7-9041-4977a8b1d344">
+<span class="eqno">(137)<a class="headerlink" href="#equation-b8296b2c-33d8-47a7-9041-4977a8b1d344" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y_{i}= \theta x_{i}+\epsilon_{i}
 \end{equation}\]</div>
 <p>for some unknown slope parameter <span class="math notranslate nohighlight">\(\theta.\)</span> The least squares regression problem uses <strong>mean squared error (MSE)</strong> as its objective function, it aims to find the value of the parameter <span class="math notranslate nohighlight">\(\theta\)</span> by minimizing the average of squared errors:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2efe15f8-f59f-43a6-a183-c7c49f223d80">
-<span class="eqno">(138)<a class="headerlink" href="#equation-2efe15f8-f59f-43a6-a183-c7c49f223d80" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-14c0c4c1-f4a1-4835-9487-b3b4902adf9a">
+<span class="eqno">(138)<a class="headerlink" href="#equation-14c0c4c1-f4a1-4835-9487-b3b4902adf9a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \min _{\theta} \frac{1}{N}\sum_{i=1}^{N}\left(y_{i}-\theta x_{i}\right)^{2}
 \end{equation}\]</div>
 <p>We will now explore how MSE is used in fitting a linear regression model to data. For illustrative purposes, we will create a simple synthetic dataset where we know the true underlying model. This will allow us to see how our estimation efforts compare in uncovering the real model (though in practice we rarely have this luxury).</p>
@@ -1862,13 +1862,13 @@ y_{i}= \theta x_{i}+\epsilon_{i}
 <h2>Coding Exercise 1: Compute MSE<a class="headerlink" href="#coding-exercise-1-compute-mse" title="Permalink to this headline">¶</a></h2>
 <p>In this exercise you will implement a method to compute the mean squared error for a set of inputs <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, measurements <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>, and slope estimate <span class="math notranslate nohighlight">\(\hat{\theta}\)</span>. Here, <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> are vectors of data points. We will then compute and print the mean squared error for 3 different choices of theta.</p>
 <p>As a reminder, the equation for computing the estimated y for a single data point is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-88c4c235-8b7b-4024-aee8-50a277415d0b">
-<span class="eqno">(139)<a class="headerlink" href="#equation-88c4c235-8b7b-4024-aee8-50a277415d0b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c80d47e5-9779-494a-91f7-b2517c0c12d1">
+<span class="eqno">(139)<a class="headerlink" href="#equation-c80d47e5-9779-494a-91f7-b2517c0c12d1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \hat{y}_{i}= \theta x_{i}
 \end{equation}\]</div>
 <p>and for mean squared error is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-25230d26-8731-4189-af4a-b41c7e8c528a">
-<span class="eqno">(140)<a class="headerlink" href="#equation-25230d26-8731-4189-af4a-b41c7e8c528a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-52303d2b-3239-46bb-8bb3-a15517b6e6ad">
+<span class="eqno">(140)<a class="headerlink" href="#equation-52303d2b-3239-46bb-8bb3-a15517b6e6ad" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \min _{\theta} \frac{1}{N}\sum_{i=1}^{N}\left(y_{i}-\hat{y}_i\right)^{2}
 \end{equation}\]</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mse</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">theta_hat</span><span class="p">):</span>
@@ -2055,8 +2055,8 @@ theta_hat of 1.5 has an MSE of 4.52</br></p>
 <p><em>Estimated timing to here from start of tutorial: 20 min</em></p>
 <p>While the approach detailed above (computing MSE at various values of <span class="math notranslate nohighlight">\(\hat\theta\)</span>) quickly got us to a good estimate, it still relied on evaluating the MSE value across a grid of hand-specified values. If we didn’t pick a good range to begin with, or with enough granularity, we might miss the best possible estimator. Let’s go one step further, and instead of finding the minimum MSE from a set of candidate estimates, let’s solve for it analytically.</p>
 <p>We can do this by minimizing the cost function. Mean squared error is a convex objective function, therefore we can compute its minimum using calculus. Please see video or Bonus Section 1 for this derivation! After computing the minimum, we find that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-182bfd7a-c96a-48da-9016-d366f32e81b3">
-<span class="eqno">(141)<a class="headerlink" href="#equation-182bfd7a-c96a-48da-9016-d366f32e81b3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1bc3da22-f3d1-4182-a9c5-a2383787dbde">
+<span class="eqno">(141)<a class="headerlink" href="#equation-1bc3da22-f3d1-4182-a9c5-a2383787dbde" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \hat\theta = \frac{\mathbf{x}^\top \mathbf{y}}{\mathbf{x}^\top \mathbf{x}}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> are vectors of data points.</p>
@@ -2145,8 +2145,8 @@ theta_hat of 1.5 has an MSE of 4.52</br></p>
 </div>
 <div class="section" id="notation">
 <h1>Notation<a class="headerlink" href="#notation" title="Permalink to this headline">¶</a></h1>
-<div class="amsmath math notranslate nohighlight" id="equation-3b501ff1-d282-4b76-abc2-d5e0b0b0665e">
-<span class="eqno">(142)<a class="headerlink" href="#equation-3b501ff1-d282-4b76-abc2-d5e0b0b0665e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4fb0828d-e394-495b-a313-9cee9f2fee08">
+<span class="eqno">(142)<a class="headerlink" href="#equation-4fb0828d-e394-495b-a313-9cee9f2fee08" title="Permalink to this equation">¶</a></span>\[\begin{align}
 x_{i} &amp;\quad \text{input, independent variable}\\
 y_{i} &amp;\quad \text{measurement, dependent variable}\\
 \mathbf{x} &amp;\quad \text{vector of input values}\\
@@ -2167,19 +2167,19 @@ y_{i} &amp;\quad \text{measurement, dependent variable}\\
 <h2>Bonus Section 1: Least Squares Optimization Derivation<a class="headerlink" href="#bonus-section-1-least-squares-optimization-derivation" title="Permalink to this headline">¶</a></h2>
 <p>We will outline here the derivation of the least squares solution.</p>
 <p>We first set the derivative of the error expression with respect to <span class="math notranslate nohighlight">\(\theta\)</span> equal to zero,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5de34d55-a660-40c9-a098-d80915d910ae">
-<span class="eqno">(143)<a class="headerlink" href="#equation-5de34d55-a660-40c9-a098-d80915d910ae" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-794d9036-8058-4736-b647-173d52596c7b">
+<span class="eqno">(143)<a class="headerlink" href="#equation-794d9036-8058-4736-b647-173d52596c7b" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{d}{d\theta}\frac{1}{N}\sum_{i=1}^N(y_i - \theta x_i)^2 &amp;= 0 \\
 \frac{1}{N}\sum_{i=1}^N-2x_i(y_i - \theta x_i) &amp;= 0
 \end{align}\]</div>
 <p>where we used the chain rule. Now solving for <span class="math notranslate nohighlight">\(\theta\)</span>, we obtain an optimal value of:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8e694eb5-2ca5-4924-8b62-0fdb91a20a73">
-<span class="eqno">(144)<a class="headerlink" href="#equation-8e694eb5-2ca5-4924-8b62-0fdb91a20a73" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ebcebdf0-a50f-460e-8731-6b36883d467a">
+<span class="eqno">(144)<a class="headerlink" href="#equation-ebcebdf0-a50f-460e-8731-6b36883d467a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \hat\theta = \frac{\sum_{i=1}^N x_i y_i}{\sum_{i=1}^N x_i^2}
 \end{equation}\]</div>
 <p>Which we can write in vector notation as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-10740447-5f04-470c-b854-71c82c85ec7d">
-<span class="eqno">(145)<a class="headerlink" href="#equation-10740447-5f04-470c-b854-71c82c85ec7d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bfd65584-108f-4a59-98e6-248613b83c9f">
+<span class="eqno">(145)<a class="headerlink" href="#equation-bfd65584-108f-4a59-98e6-248613b83c9f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \hat\theta = \frac{\mathbf{x}^\top \mathbf{y}}{\mathbf{x}^\top \mathbf{x}}
 \end{equation}\]</div>
 <br/>

@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -2074,33 +2074,33 @@ p(m_t | s = -1) &amp;= \mathcal{N}(-\mu, \sigma^2)\\
 </summary>
 <p>We can do a little math to find the SPRT update <span class="math notranslate nohighlight">\(\Delta_t\)</span> to the log-likelihood ratio. You can derive this yourself, filling in the steps below, or skip to the end result.</p>
 <p>Assume measurements are Gaussian-distributed with different means depending on the discrete latent variable <span class="math notranslate nohighlight">\(s\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-57409f9b-99b1-42fc-ac29-1d634e616ff5">
-<span class="eqno">(367)<a class="headerlink" href="#equation-57409f9b-99b1-42fc-ac29-1d634e616ff5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-00864ec4-6d6a-49e3-b706-c55016c93301">
+<span class="eqno">(367)<a class="headerlink" href="#equation-00864ec4-6d6a-49e3-b706-c55016c93301" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 p(m|s=\pm 1) = \mathcal{N}\left(\mu_\pm,\sigma^2\right)=\frac{1}{\sqrt{2\pi\sigma^2}}\exp{\left[-\frac{(m-\mu_\pm)^2}{2\sigma^2}\right]}
 \end{equation}\]</div>
 <p>In the log likelihood ratio for a single data point <span class="math notranslate nohighlight">\(m_i\)</span>, the normalizations cancel to give</p>
-<div class="amsmath math notranslate nohighlight" id="equation-89925fb8-8e08-4a7b-8f97-02117d48b384">
-<span class="eqno">(368)<a class="headerlink" href="#equation-89925fb8-8e08-4a7b-8f97-02117d48b384" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a115f8e7-5d60-43f6-8a1f-cc3845a5da58">
+<span class="eqno">(368)<a class="headerlink" href="#equation-a115f8e7-5d60-43f6-8a1f-cc3845a5da58" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \Delta_t=\log \frac{p(m_t|s=+1)}{p(m_t|s=-1)} = \frac{1}{2\sigma^2}\left[-\left(m_t-\mu_+\right)^2 + (m_t-\mu_-)^2\right] \tag{5}
 \end{equation}\]</div>
 <p>It’s convenient to rewrite <span class="math notranslate nohighlight">\(m=\mu_\pm + \sigma \epsilon\)</span>, where <span class="math notranslate nohighlight">\(\epsilon\sim \mathcal{N}(0,1)\)</span> is a standard Gaussian variable with zero mean and unit variance. (Why does this give the correct probability for <span class="math notranslate nohighlight">\(m\)</span>?). The preceding formula can then be rewritten as
 $<span class="math notranslate nohighlight">\(\Delta_t = \frac{1}{2\sigma^2}\left( -((\mu_\pm+\sigma\epsilon)-\mu_+)^2 + ((\mu_\pm+\sigma\epsilon)-\mu_-)^2\right) \tag{5}\)</span><span class="math notranslate nohighlight">\(
 Let's assume that \)</span>s=+1<span class="math notranslate nohighlight">\( so \)</span>\mu_\pm=\mu_+<span class="math notranslate nohighlight">\( (if \)</span>s=-1<span class="math notranslate nohighlight">\( then the result is the same with a reversed sign). In that case, the means in the first term \)</span>m_t-\mu_+$ cancel, leaving</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e9715c51-c05f-49de-976c-dcb42df5ebbf">
-<span class="eqno">(369)<a class="headerlink" href="#equation-e9715c51-c05f-49de-976c-dcb42df5ebbf" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-84138413-d5af-4c57-b42a-c13cb0886145">
+<span class="eqno">(369)<a class="headerlink" href="#equation-84138413-d5af-4c57-b42a-c13cb0886145" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \Delta_t = \frac{\delta^2\mu^2}{2\sigma^2}+\frac{\delta\mu}{\sigma}\epsilon_t \tag{5}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\delta\mu=\mu_+-\mu_-\)</span>. If we take <span class="math notranslate nohighlight">\(\mu_\pm=\pm\mu\)</span>, then <span class="math notranslate nohighlight">\(\delta\mu=2\mu\)</span>, and</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2c1b88a6-dbfa-4d45-a216-747b634a3138">
-<span class="eqno">(370)<a class="headerlink" href="#equation-2c1b88a6-dbfa-4d45-a216-747b634a3138" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5ab2dbc8-1872-496f-a271-70770defd96f">
+<span class="eqno">(370)<a class="headerlink" href="#equation-5ab2dbc8-1872-496f-a271-70770defd96f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \Delta_t=2\frac{\mu^2}{\sigma^2}+2\frac{\mu}{\sigma}\epsilon_t
 \end{equation}\]</div>
 <p>The first term is a constant <em>drift</em>, and the second term is a random <em>diffusion</em>.</p>
 <p>The SPRT says that we should add up these evidences, <span class="math notranslate nohighlight">\(L_T=\sum_{t=1}^T \Delta_t\)</span>. Note that the <span class="math notranslate nohighlight">\(\Delta_t\)</span> are independent. Recall that for independent random variables, the mean of a sum is the sum of the means. And the variance of a sum is the sum of the variances.</p>
 </details>
 <p>Adding these <span class="math notranslate nohighlight">\(\Delta_t\)</span> over time gives</p>
-<div class="amsmath math notranslate nohighlight" id="equation-106e9b44-757f-41e6-b82d-14249c44c923">
-<span class="eqno">(371)<a class="headerlink" href="#equation-106e9b44-757f-41e6-b82d-14249c44c923" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b6ac49a5-617f-4b67-b232-8ec4d2977f71">
+<span class="eqno">(371)<a class="headerlink" href="#equation-b6ac49a5-617f-4b67-b232-8ec4d2977f71" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 L_T\sim\mathcal{N}\left(2\frac{\mu^2}{\sigma^2}T,\ 4\frac{\mu^2}{\sigma^2}T\right)=\mathcal{N}(bT,c^2T)
 \end{equation}\]</div>
 <p>as claimed. The log-likelihood ratio <span class="math notranslate nohighlight">\(L_t\)</span> is a biased random walk — normally distributed with a time-dependent mean and variance. This is the <strong>Drift Diffusion Model</strong>.</p>
@@ -2538,8 +2538,8 @@ L_T\sim\mathcal{N}\left(2\frac{\mu^2}{\sigma^2}T,\ 4\frac{\mu^2}{\sigma^2}T\righ
 </div>
 <p>In the figure above, we are plotting the simulated accuracies in orange. We can actually find an analytical equation for the average accuracy in this specific case, which we plot in blue. We will not dive into this analytical solution here but you can imagine that if you ran a bunch of different simulations and had the equivalent number of orange lines, the average of those would resemble the blue line.</p>
 <p>In the insets, we are showing the evidence distributions for the two states at a certain time point. Recall from Section 1 that the likelihood ratio at time <span class="math notranslate nohighlight">\(T\)</span> for state of +1 is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ed27ca7e-775f-43cf-805a-2fd37d75a781">
-<span class="eqno">(372)<a class="headerlink" href="#equation-ed27ca7e-775f-43cf-805a-2fd37d75a781" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b69ad5dd-24c1-46a4-b15c-a0ed26a6bc43">
+<span class="eqno">(372)<a class="headerlink" href="#equation-b69ad5dd-24c1-46a4-b15c-a0ed26a6bc43" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 L_T\sim\mathcal{N}\left(2\frac{\mu^2}{\sigma^2}T,\ 4\frac{\mu^2}{\sigma^2}T\right)=\mathcal{N}(bT,c^2T)
 \end{equation}\]</div>
 <p>If the state is -1, the mean is the reverse sign. We are plotting this Gaussian distribution for the state equaling -1 (dashed line) and the state equaling +1 (solid line). The area in red reflects the error rate - this region corresponds to <span class="math notranslate nohighlight">\(L_T\)</span> being below 0 even though the true state is +1 so you would decide on the wrong state. As more time goes by, these distributions separate more and the error is lower.</p>
@@ -2683,8 +2683,8 @@ L_T\sim\mathcal{N}\left(2\frac{\mu^2}{\sigma^2}T,\ 4\frac{\mu^2}{\sigma^2}T\righ
 <ul class="simple">
 <li><p>Complete the function <code class="docutils literal notranslate"><span class="pre">threshold_from_errorrate</span></code> to calculate the evidence threshold from desired error rate <span class="math notranslate nohighlight">\(\alpha\)</span> as described in the formulas below. The evidence thresholds <span class="math notranslate nohighlight">\(th_1\)</span> and <span class="math notranslate nohighlight">\(th_0\)</span> for <span class="math notranslate nohighlight">\(p_+\)</span> and <span class="math notranslate nohighlight">\(p_-\)</span> are opposite of each other as shown below, so you can just return the absolute value.</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-f273bad7-8ef5-4a03-a370-3c2b8753657d">
-<span class="eqno">(373)<a class="headerlink" href="#equation-f273bad7-8ef5-4a03-a370-3c2b8753657d" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-906baa93-7213-462c-81c5-13cd880e20d7">
+<span class="eqno">(373)<a class="headerlink" href="#equation-906baa93-7213-462c-81c5-13cd880e20d7" title="Permalink to this equation">¶</a></span>\[\begin{align}
 th_{L} &amp;= \log \frac{\alpha}{1-\alpha} = -th_{R} \\
 th_{R} &amp;= \log \frac{1-\alpha}{\alpha} = -th{_1}
 \end{align}\]</div>

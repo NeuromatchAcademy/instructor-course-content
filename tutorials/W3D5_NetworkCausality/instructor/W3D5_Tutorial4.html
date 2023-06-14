@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -2505,15 +2505,15 @@ Getting \)</span>\hat{T}<span class="math notranslate nohighlight">\( is fairly 
 <ol class="simple">
 <li><p>The first stage gets  <span class="math notranslate nohighlight">\(\hat{T}_{\text{smoking}}\)</span> by regressing <span class="math notranslate nohighlight">\(T_{\text{smoking}}\)</span> on <span class="math notranslate nohighlight">\(Z_\text{taxes}\)</span>, fitting the parameter <span class="math notranslate nohighlight">\(\hat{\alpha}\)</span>:</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-81fab343-d183-451a-8b04-b28bf452e735">
-<span class="eqno">(462)<a class="headerlink" href="#equation-81fab343-d183-451a-8b04-b28bf452e735" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-39bb41d5-41e1-4ad7-a3ba-865dcfa3312e">
+<span class="eqno">(462)<a class="headerlink" href="#equation-39bb41d5-41e1-4ad7-a3ba-865dcfa3312e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \hat{T}_{\text{smoking}} = \hat{\alpha} Z_\text{taxes}
 \end{equation}\]</div>
 <ol class="simple">
 <li><p>The second stage then regresses <span class="math notranslate nohighlight">\(Y_{\text{birthweight}}\)</span> on <span class="math notranslate nohighlight">\(\hat{T}_{\text{smoking}}\)</span> to obtain an estimate <span class="math notranslate nohighlight">\(\hat{\beta}\)</span> of the causal effect:</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-71179bff-2401-42e3-bffc-16a193b822f4">
-<span class="eqno">(463)<a class="headerlink" href="#equation-71179bff-2401-42e3-bffc-16a193b822f4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c4e1a480-4686-439a-93d5-040812662e5f">
+<span class="eqno">(463)<a class="headerlink" href="#equation-c4e1a480-4686-439a-93d5-040812662e5f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \hat{Y}_{\text{birthweight}} = \hat{\beta} \hat{T}_{\text{smoking}} 
 \end{equation}\]</div>
 <p>The first stage estimates the <strong>unconfounded component</strong> of <span class="math notranslate nohighlight">\(T_{\text{smoking}}\)</span> (ie, unaffected by the confounder <span class="math notranslate nohighlight">\(C_{\text{SES}}\)</span>), as we discussed above.</p>
@@ -2730,8 +2730,8 @@ Getting \)</span>\hat{T}<span class="math notranslate nohighlight">\( is fairly 
 </div>
 <p>Now, say we have the neural system we have been simulating, except with an additional variable <span class="math notranslate nohighlight">\(\vec{z}\)</span>. This will be our instrumental variable.</p>
 <p>We treat <span class="math notranslate nohighlight">\(\vec{z}\)</span> as a source of noise in the dynamics of our neurons:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8be85971-fda4-480f-990b-f84d592a1ad4">
-<span class="eqno">(464)<a class="headerlink" href="#equation-8be85971-fda4-480f-990b-f84d592a1ad4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-057b59ce-c834-48c7-9cff-cfe874821372">
+<span class="eqno">(464)<a class="headerlink" href="#equation-057b59ce-c834-48c7-9cff-cfe874821372" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \vec{x}_{t+1} = \sigma(A\vec{x}_t + \eta \vec{z}_{t+1} + \epsilon_t)
 \end{equation}\]</div>
 <ul class="simple">
@@ -3243,8 +3243,8 @@ Getting \)</span>\hat{T}<span class="math notranslate nohighlight">\( is fairly 
 <li><p>the alternative hypothesis <span class="math notranslate nohighlight">\(H_a\)</span>: lagged values of <span class="math notranslate nohighlight">\(X\)</span> <strong>do</strong> help predict values of <span class="math notranslate nohighlight">\(Y\)</span></p></li>
 </ul>
 <p>Mechanically, this is accomplished by fitting autoregressive models for <span class="math notranslate nohighlight">\(y_{t}\)</span>. We fail to reject the hypothesis if none of the <span class="math notranslate nohighlight">\(x_{t-k}\)</span> terms are retained as significant in the regression. For simplicity, we will consider only one time lag. So, we have:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-48efb319-a507-4fc2-a763-894230afe289">
-<span class="eqno">(465)<a class="headerlink" href="#equation-48efb319-a507-4fc2-a763-894230afe289" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-92c00135-311d-4104-9708-02f15a7d88c1">
+<span class="eqno">(465)<a class="headerlink" href="#equation-92c00135-311d-4104-9708-02f15a7d88c1" title="Permalink to this equation">¶</a></span>\[\begin{align}
 H_0: y_t &amp;= a_0 + a_1 y_{t-1} +\epsilon_t \\
 H_a: y_t &amp;= a_0 + a_1 y_{t-1} + b_1 x_{t-1} +\epsilon_t
 \end{align}\]</div>

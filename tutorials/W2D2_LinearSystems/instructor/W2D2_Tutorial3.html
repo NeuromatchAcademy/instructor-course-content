@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -1852,8 +1852,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Here, we will consider what the <em>E. coli</em> does in the absence of food odors. What’s the best strategy when one does not know where to head? Why, flail around randomly, of course!</p>
 <p>The <strong>random walk</strong> is exactly that — at every time step, use a random process like flipping a coin to change one’s heading accordingly. Note that this process is closely related to <em>Brownian motion</em>, so you may sometimes hear that terminology used as well.</p>
 <p>Let’s start with a <strong>one-dimensional random walk</strong>. A bacterium starts at <span class="math notranslate nohighlight">\(x=0\)</span>. At every time step, it flips a coin (a very small, microscopic coin of protein mintage), then heads left <span class="math notranslate nohighlight">\(\Delta x = -1\)</span> or right <span class="math notranslate nohighlight">\(\Delta x = +1\)</span> for with equal probability. For instance, if at time step <span class="math notranslate nohighlight">\(1\)</span> the result of the coin flip is to head right, then its position at that time step becomes <span class="math notranslate nohighlight">\(x_1 = x_0 + \Delta x = 1.\)</span> Continuing in this way, its position at time step <span class="math notranslate nohighlight">\(k+1\)</span> is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d15a2cca-038e-4fc3-956e-3021894cbc08">
-<span class="eqno">(273)<a class="headerlink" href="#equation-d15a2cca-038e-4fc3-956e-3021894cbc08" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c03013f9-8f6d-4ec1-88cf-16b8d816d977">
+<span class="eqno">(273)<a class="headerlink" href="#equation-c03013f9-8f6d-4ec1-88cf-16b8d816d977" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 x_{k+1} = x_k + \Delta x
 \end{equation}\]</div>
 <p>We will simulate this process below and plot the position of the bacterium as a function of the time step.</p>
@@ -2161,13 +2161,13 @@ x_{k+1} = x_k + \Delta x
 </div>
 </div>
 <p>Notice that this process decays towards position <span class="math notranslate nohighlight">\(x=0\)</span>. We can make it decay towards any position by adding another parameter <span class="math notranslate nohighlight">\(x_\infty\)</span>. The rate of decay is proportional to the difference between <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(x_\infty\)</span>. Our new system is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-922f0ba6-ab58-41be-8a5e-7f9cb78726ab">
-<span class="eqno">(274)<a class="headerlink" href="#equation-922f0ba6-ab58-41be-8a5e-7f9cb78726ab" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2ffc47ea-e977-4e8b-acd6-79f1133a4366">
+<span class="eqno">(274)<a class="headerlink" href="#equation-2ffc47ea-e977-4e8b-acd6-79f1133a4366" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 x_{k+1} = x_\infty + \lambda(x_k - x_{\infty})
 \end{equation}\]</div>
 <p>We have to modify our analytic solution slightly to take this into account:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0a4d1e27-1d0a-44ba-b325-622ba6efc5cb">
-<span class="eqno">(275)<a class="headerlink" href="#equation-0a4d1e27-1d0a-44ba-b325-622ba6efc5cb" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-343e22b3-091f-40b1-9dc5-70e035d76c2b">
+<span class="eqno">(275)<a class="headerlink" href="#equation-343e22b3-091f-40b1-9dc5-70e035d76c2b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 x_k = x_\infty(1 - \lambda^k) + x_0 \lambda^k.
 \end{equation}\]</div>
 <p>Let’s simulate and plot the dynamics of this process below. Hopefully, we see that it start at <span class="math notranslate nohighlight">\(x_0\)</span> and decay towards <span class="math notranslate nohighlight">\(x_{\infty}.\)</span></p>
@@ -2196,8 +2196,8 @@ x_k = x_\infty(1 - \lambda^k) + x_0 \lambda^k.
 </div>
 <p>Now we are ready to take this basic, deterministic difference equation and add a diffusion process on top of it! Fun times in Python land.</p>
 <p>As a point of terminology: this type of process is commonly known as a <strong>drift-diffusion model</strong> or <strong>Ornstein-Uhlenbeck (OU) process</strong>. The model is a combination of a <em>drift</em> term toward <span class="math notranslate nohighlight">\(x_{\infty}\)</span> and a <em>diffusion</em> term that walks randomly. You may sometimes see them written as continuous stochastic differential equations, but here we are doing the discrete version to maintain continuity in the tutorial. The discrete version of our OU process has the following form:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-196753b1-abad-4d97-b401-7692ac7115ff">
-<span class="eqno">(276)<a class="headerlink" href="#equation-196753b1-abad-4d97-b401-7692ac7115ff" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5bc097ef-7ee9-4011-8e79-171c370acf8f">
+<span class="eqno">(276)<a class="headerlink" href="#equation-5bc097ef-7ee9-4011-8e79-171c370acf8f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 x_{k+1} = x_\infty + \lambda(x_k - x_{\infty}) + \sigma \eta
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\eta\)</span> is sampled from a standard normal distribution (<span class="math notranslate nohighlight">\(\mu=0, \sigma=1\)</span>).</p>
@@ -2331,8 +2331,8 @@ x_{k+1} = x_\infty + \lambda(x_k - x_{\infty}) + \sigma \eta
 <p>But what about the <strong>variance</strong>?</p>
 <p>Unlike the random walk, because there’s a decay process that “pulls” <span class="math notranslate nohighlight">\(x\)</span> back towards <span class="math notranslate nohighlight">\(x_\infty\)</span>, the variance does not grow without bound with large <span class="math notranslate nohighlight">\(t\)</span>. Instead, when it gets far from <span class="math notranslate nohighlight">\(x_\infty\)</span>, the position of <span class="math notranslate nohighlight">\(x\)</span> is restored, until an equilibrium is reached.</p>
 <p>The equilibrium variance for our drift-diffusion system is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-346f1283-87d4-454c-a0d3-1eef8b8ecde2">
-<span class="eqno">(277)<a class="headerlink" href="#equation-346f1283-87d4-454c-a0d3-1eef8b8ecde2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c3259440-e810-4351-9bfd-31931926a581">
+<span class="eqno">(277)<a class="headerlink" href="#equation-c3259440-e810-4351-9bfd-31931926a581" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \text{Var} = \frac{\sigma^2}{1 - \lambda^2}.
 \end{equation}\]</div>
 <p>Notice that the value of this equilibrium variance depends on <span class="math notranslate nohighlight">\(\lambda\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span>. It does not depend on <span class="math notranslate nohighlight">\(x_0\)</span> and <span class="math notranslate nohighlight">\(x_\infty\)</span>.</p>

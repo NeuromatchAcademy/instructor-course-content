@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -2280,8 +2280,8 @@ Steps:</p>
 </div>
 <p>We now want to calculate the posterior using <em>Bayes Rule</em>. Since we have already created a likelihood and a prior for each brain encoded position <span class="math notranslate nohighlight">\(\tilde x\)</span>, all we need to do is to multiply them row-wise. That is, each row of the posterior array will be the posterior resulting from the multiplication of the prior and likelihood of the same equivalent row.</p>
 <p>Mathematically:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bb01b6d8-3828-46a6-84f1-724a8f4ce586">
-<span class="eqno">(363)<a class="headerlink" href="#equation-bb01b6d8-3828-46a6-84f1-724a8f4ce586" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1ee23e49-2cde-4a51-a0fe-b0a810e62d1a">
+<span class="eqno">(363)<a class="headerlink" href="#equation-1ee23e49-2cde-4a51-a0fe-b0a810e62d1a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 Posterior\left[i, :\right] \propto Likelihood\left[i, :\right] \odot Prior\left[i, :\right]
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\odot\)</span> represents the <a class="reference external" href="https://en.wikipedia.org/wiki/Hadamard_product_(matrices)">Hadamard Product</a> (i.e., element-wise multiplication) of the corresponding prior and likelihood row vectors <code class="docutils literal notranslate"><span class="pre">i</span></code> from each matrix.</p>
@@ -2500,12 +2500,12 @@ Posterior\left[i, :\right] \propto Likelihood\left[i, :\right] \odot Prior\left[
 </div>
 <p>Now that we have a true stimulus <span class="math notranslate nohighlight">\(x\)</span> and a way to link it to potential encodings, we will be able to calculate the distribution of encodings and ultimately estimates. To integrate over all possible hypothetical values of <span class="math notranslate nohighlight">\(\tilde x\)</span> we marginalize, that is, we first compute the dot-product from the true presented stimulus and our binary decision array and then sum over x.</p>
 <p>Mathematically, this means that we want to compute:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-74100b5d-3079-4def-8425-ab06a1f75106">
-<span class="eqno">(364)<a class="headerlink" href="#equation-74100b5d-3079-4def-8425-ab06a1f75106" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-dd5ff16a-0f86-4efa-8c39-f8556509464b">
+<span class="eqno">(364)<a class="headerlink" href="#equation-dd5ff16a-0f86-4efa-8c39-f8556509464b" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray}
 Marginalization Array = Input Array \odot Binary Decision Array
 \end{eqnarray}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-ddf6d4e4-8851-49ff-9a4f-bc168d752e69">
-<span class="eqno">(365)<a class="headerlink" href="#equation-ddf6d4e4-8851-49ff-9a4f-bc168d752e69" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-fa0f619e-8b57-437b-a0b3-b433762c1b55">
+<span class="eqno">(365)<a class="headerlink" href="#equation-fa0f619e-8b57-437b-a0b3-b433762c1b55" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray}
 Marginal = \int_{\tilde x} Marginalization Array
 \end{eqnarray}\]</div>
 <p>Since we are performing integration over discrete values using arrays for visualization purposes, the integration reduces to a simple sum over <span class="math notranslate nohighlight">\(\tilde x\)</span>.</p>
@@ -2663,8 +2663,8 @@ Marginal = \int_{\tilde x} Marginalization Array
 <p>The likelihood has already been constructed; since it depends  only on the hypothetical stimuli, it will not change. However, we will have to implement the prior matrix, since it depends on <span class="math notranslate nohighlight">\(p_{independent}\)</span>. We will therefore have to recompute the posterior, input and the marginal in order to get <span class="math notranslate nohighlight">\(p(\hat{x} \mid x)\)</span>.</p>
 <p>Using <span class="math notranslate nohighlight">\(p(\hat{x} \mid x)\)</span>, we will then compute the negative log-likelihood for each trial and find the value of <span class="math notranslate nohighlight">\(p_{independent}\)</span> that minimizes the negative log-likelihood (i.e. maximizes the log-likelihood.  See the model fitting tutorial from W1D3 for a refresher).</p>
 <p>In this experiment, we assume that trials are independent from one another. This is a common assumption–and it’s often even true! It allows us to define negative log-likelihood as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f2738b8a-8a14-48e5-a517-e24780481805">
-<span class="eqno">(366)<a class="headerlink" href="#equation-f2738b8a-8a14-48e5-a517-e24780481805" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-37339c4d-164d-4ab6-8224-c565f4c62c1b">
+<span class="eqno">(366)<a class="headerlink" href="#equation-37339c4d-164d-4ab6-8224-c565f4c62c1b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 -LL = - \sum_i \log p(\hat{x}_i \mid x_i)
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\hat{x}_i\)</span> is the participant’s response for trial <span class="math notranslate nohighlight">\(i\)</span>, with presented stimulus <span class="math notranslate nohighlight">\(x_i\)</span></p>

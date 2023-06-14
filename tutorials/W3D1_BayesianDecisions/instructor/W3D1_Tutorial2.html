@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -3110,8 +3110,8 @@ The Bayesian approach can be used on any probability distribution. While many va
 <p>Gaussians have two parameters. The <strong>mean</strong> <span class="math notranslate nohighlight">\(\mu\)</span>, which sets the location of its center. Its “scale” or spread is controlled by its <strong>standard deviation</strong> <span class="math notranslate nohighlight">\(\sigma\)</span> or its square, the <strong>variance</strong> <span class="math notranslate nohighlight">\(\sigma^2\)</span>. These can be a bit easy to mix up: make sure you are careful about whether you are referring to/using standard deviation or variance.</p>
 </details>
 <p>The equation for a Gaussian distribution on a variable <span class="math notranslate nohighlight">\(x\)</span> is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-54f5f3c0-8fb4-4e30-a9d9-8dcee2c5b85c">
-<span class="eqno">(355)<a class="headerlink" href="#equation-54f5f3c0-8fb4-4e30-a9d9-8dcee2c5b85c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0ecb0e6c-0023-47b8-88f6-f0872432d176">
+<span class="eqno">(355)<a class="headerlink" href="#equation-0ecb0e6c-0023-47b8-88f6-f0872432d176" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathcal{N}(\mu,\sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left(\frac{-(x-\mu)^2}{2\sigma^2}\right)
 \end{equation}\]</div>
 <p>In our example, <span class="math notranslate nohighlight">\(x\)</span> is the location of the Astrocat in one direction. <span class="math notranslate nohighlight">\(\mathcal{N}(\mu,\sigma^2)\)</span> is a standard notation to refer to a <strong>N</strong>ormal (Gaussian) distribution. For example, <span class="math notranslate nohighlight">\(\mathcal{N}(0, 1)\)</span> denotes a Gaussian distribution with mean 0 and variance 1. The exact form of this equation is not particularly intuitive, but we will see how mean and standard deviation values affect the probability distribution.</p>
@@ -3179,8 +3179,8 @@ The Bayesian approach can be used on any probability distribution. While many va
 <details>
 <summary> <font color="‘blue’">Click here for text recap of video </font></summary>
 <p>When we multiply Gaussians, we are not multiplying random variables but the actual underlying distributions. If we multiply two Gaussian distributions, with means <span class="math notranslate nohighlight">\(\mu_1\)</span> and <span class="math notranslate nohighlight">\(\mu_2\)</span> and standard deviations <span class="math notranslate nohighlight">\(\sigma_1\)</span> and <span class="math notranslate nohighlight">\(\sigma_2\)</span>, we get another Gaussian. The Gaussian resulting from the multiplication will have mean <span class="math notranslate nohighlight">\(\mu_3\)</span> and standard deviation <span class="math notranslate nohighlight">\(\sigma_3\)</span> where:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-071fcde0-2dc6-49d2-bf2d-94cef8ee4b7b">
-<span class="eqno">(356)<a class="headerlink" href="#equation-071fcde0-2dc6-49d2-bf2d-94cef8ee4b7b" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a4bc6fe4-758c-4a0c-ba4b-7f67b40e6e76">
+<span class="eqno">(356)<a class="headerlink" href="#equation-a4bc6fe4-758c-4a0c-ba4b-7f67b40e6e76" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mu_{3} &amp;= a\mu_{1} + (1-a)\mu_{2} \\
 \sigma_{3}^{-2} &amp;= \sigma_{1}^{-2} + \sigma_{2}^{-2} \\
 a &amp;= \frac{\sigma_{1}^{-2}}{\sigma_{1}^{-2} + \sigma_{2}^{-2}}
@@ -3347,8 +3347,8 @@ a &amp;= \frac{\sigma_{1}^{-2}}{\sigma_{1}^{-2} + \sigma_{2}^{-2}}
 <div class="section" id="section-3-1-standard-loss-functions">
 <h2>Section 3.1: Standard loss functions<a class="headerlink" href="#section-3-1-standard-loss-functions" title="Permalink to this headline">¶</a></h2>
 <p>There are lots of different possible loss functions. We will focus on three: <strong>mean-squared error</strong> where the loss is the difference between truth and estimate squared, <strong>absolute error</strong> where the loss is the absolute difference between truth and estimate, and <strong>Zero-one Loss</strong> where the loss is 1 unless we’re exactly right (the estimate equals the truth). We can represent these with the following formulas:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c4df33df-d0c8-4bb0-a282-8e4df604c99a">
-<span class="eqno">(357)<a class="headerlink" href="#equation-c4df33df-d0c8-4bb0-a282-8e4df604c99a" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-05790d18-2ff0-472b-bdc3-5b8967def54e">
+<span class="eqno">(357)<a class="headerlink" href="#equation-05790d18-2ff0-472b-bdc3-5b8967def54e" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray}
 \textrm{Mean Squared Error} &amp;=&amp; (\mu - \hat{\mu})^2 \\ 
 \textrm{Absolute Error} &amp;=&amp; \big|\mu - \hat{\mu}\big| \\ 
 \textrm{Zero-One Loss} &amp;=&amp; \begin{cases}
@@ -3516,14 +3516,14 @@ a &amp;= \frac{\sigma_{1}^{-2}}{\sigma_{1}^{-2} + \sigma_{2}^{-2}}
 <summary> <font color="‘blue’">Click here for text recap of relevant part of video </font></summary>
 <p>If the two variables in a two dimensional Gaussian are independent, looking at one tells us nothing about the other. But what if the the two variables are correlated (covary)?</p>
 <p>The covariance of two Gaussians with means <span class="math notranslate nohighlight">\(\mu_X\)</span> and <span class="math notranslate nohighlight">\(\mu_Y\)</span> and standard deviations <span class="math notranslate nohighlight">\(\sigma_X\)</span> and <span class="math notranslate nohighlight">\(\sigma_Y\)</span>is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6fc829e6-b46f-48d6-8368-29e83f08bbfe">
-<span class="eqno">(358)<a class="headerlink" href="#equation-6fc829e6-b46f-48d6-8368-29e83f08bbfe" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2580e224-2fba-42e2-81e2-cd8da9e41c37">
+<span class="eqno">(358)<a class="headerlink" href="#equation-2580e224-2fba-42e2-81e2-cd8da9e41c37" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \sigma_{XY} = \mathbb{E}[(X-\mu_{X})(Y-\mu_{Y})]
 \end{equation}\]</div>
 <p><span class="math notranslate nohighlight">\(\mathbb{E}[\cdot]\)</span> here denotes the expected value. So the covariance is the expected value of the random variable <span class="math notranslate nohighlight">\(X\)</span> minus the mean of the Gaussian distribution on <span class="math notranslate nohighlight">\(X\)</span> times the random variable Y minus the mean of the Gaussian distribution on <span class="math notranslate nohighlight">\(Y\)</span>.</p>
 <p>The correlation is the covariance normalized, so that it goes between -1 (exactly anticorrelated) to 1 (exactly correlated).</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1738079e-acde-46a1-ac1d-c3f7baad124a">
-<span class="eqno">(359)<a class="headerlink" href="#equation-1738079e-acde-46a1-ac1d-c3f7baad124a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a19b1eaa-8a1c-4bcf-b82a-6e7c75d10a0a">
+<span class="eqno">(359)<a class="headerlink" href="#equation-a19b1eaa-8a1c-4bcf-b82a-6e7c75d10a0a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \rho_{XY} = \frac{\sigma_{XY}}{\sigma_{X}\sigma_{Y}}
 \end{equation}\]</div>
 <p>These are key concepts and while we are considering two hidden states (or two random variables), they extend to <span class="math notranslate nohighlight">\(N\)</span> dimensional vectors of Gaussian random variables. You will find these used all over computational neuroscience.</p>
@@ -3674,18 +3674,18 @@ a &amp;= \frac{\sigma_{1}^{-2}}{\sigma_{1}^{-2} + \sigma_{2}^{-2}}
 <div class="section" id="section-5-1-the-gaussian-example">
 <h2>Section 5.1: The Gaussian example<a class="headerlink" href="#section-5-1-the-gaussian-example" title="Permalink to this headline">¶</a></h2>
 <p>Bayes’ rule tells us how to combine two sources of information: the prior (e.g., a noisy representation of Ground Control’s expectations about where Astrocat is) and the likelihood (e.g., a noisy representation of the Astrocat after taking a measurement), to obtain a posterior distribution (our belief distribution) taking into account both pieces of information. Remember Bayes’ rule:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4c4277f2-c031-4d71-9f74-f0eb91d2a5fa">
-<span class="eqno">(360)<a class="headerlink" href="#equation-4c4277f2-c031-4d71-9f74-f0eb91d2a5fa" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e1251048-5203-4b7e-a12a-8b264294df8a">
+<span class="eqno">(360)<a class="headerlink" href="#equation-e1251048-5203-4b7e-a12a-8b264294df8a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \text{Posterior} = \frac{ \text{Likelihood} \times \text{Prior}}{ \text{Normalization constant}}
 \end{equation}\]</div>
 <p>We will look at what happens when both the prior and likelihood are Gaussians. In these equations, <span class="math notranslate nohighlight">\(\mathcal{N}(\mu,\sigma^2)\)</span> denotes a Gaussian distribution with parameters <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma^2\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-626a6460-6e1b-48b3-8bcc-f787f0fd1a31">
-<span class="eqno">(361)<a class="headerlink" href="#equation-626a6460-6e1b-48b3-8bcc-f787f0fd1a31" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-53482830-4ff9-41be-a230-bef4b9990781">
+<span class="eqno">(361)<a class="headerlink" href="#equation-53482830-4ff9-41be-a230-bef4b9990781" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathcal{N}(\mu, \sigma) = \frac{1}{\sqrt{2 \pi \sigma^2}} \; \exp \bigg( \frac{-(x-\mu)^2}{2\sigma^2} \bigg)
 \end{equation}\]</div>
 <p>When both the prior and likelihood are Gaussians, Bayes Rule translates into the following form:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-37ff24d2-6685-4ffc-9c15-f92e99abec60">
-<span class="eqno">(362)<a class="headerlink" href="#equation-37ff24d2-6685-4ffc-9c15-f92e99abec60" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-80d0e143-9c63-43ee-9d5f-5543482fdca9">
+<span class="eqno">(362)<a class="headerlink" href="#equation-80d0e143-9c63-43ee-9d5f-5543482fdca9" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \text{Likelihood} &amp;= \mathcal{N}(\mu_{likelihood},\sigma_{likelihood}^2) \\
 \text{Prior} &amp;= \mathcal{N}(\mu_{prior},\sigma_{prior}^2) \\
 \text{Posterior} &amp;= \mathcal{N}\left( \frac{\sigma^2_{likelihood}\mu_{prior}+\sigma^2_{prior}\mu_{likelihood}}{\sigma^2_{likelihood}+\sigma^2_{prior}}, \frac{\sigma^2_{likelihood}\sigma^2_{prior}}{\sigma^2_{likelihood}+\sigma^2_{prior}} \right) \\

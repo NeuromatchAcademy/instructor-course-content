@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -2099,8 +2099,8 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>Section 1.2: Fit Linear-Gaussian regression model<a class="headerlink" href="#section-1-2-fit-linear-gaussian-regression-model" title="Permalink to this headline">¶</a></h2>
 <p><em>Estimated timing to here from start of tutorial: 25 min</em></p>
 <p>First, we will use the design matrix to compute the maximum likelihood estimate for a linear-Gaussian GLM (aka “general linear model”). The maximum likelihood estimate of <span class="math notranslate nohighlight">\(\theta\)</span> in this model can be solved analytically using the equation you learned about on Day 3:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9e005d45-6e66-4a77-ab4a-8b20f7d67178">
-<span class="eqno">(184)<a class="headerlink" href="#equation-9e005d45-6e66-4a77-ab4a-8b20f7d67178" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-41d85a7c-add1-4c97-bc03-54301b840942">
+<span class="eqno">(184)<a class="headerlink" href="#equation-41d85a7c-add1-4c97-bc03-54301b840942" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \boldsymbol{\hat \theta} = (\mathbf{X}^{\top}\mathbf{X})^{-1}\mathbf{X}^{\top}\mathbf{y}
 \end{equation}\]</div>
 <p>Before we can apply this equation, we need to augment the design matrix to account for the mean of <span class="math notranslate nohighlight">\(y\)</span>, because the spike counts are all <span class="math notranslate nohighlight">\(\geq 0\)</span>. We do this by adding a constant column of 1’s to the design matrix, which will allow the model to learn an additive offset weight. We will refer to this additional weight as <span class="math notranslate nohighlight">\(b\)</span> (for bias), although it is alternatively known as a “DC term” or “intercept”.</p>
@@ -2313,23 +2313,23 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p>What should the objective function look like? We want it to return the negative log likelihood: <span class="math notranslate nohighlight">\(-\log P(y \mid \mathbf{X}, \theta).\)</span></p>
 <p>In the Poisson GLM,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0fe0098b-e258-45b3-a1df-743c60a24d87">
-<span class="eqno">(185)<a class="headerlink" href="#equation-0fe0098b-e258-45b3-a1df-743c60a24d87" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b3b41f81-f245-4c67-a957-2b69f3c68afc">
+<span class="eqno">(185)<a class="headerlink" href="#equation-b3b41f81-f245-4c67-a957-2b69f3c68afc" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \log P(\mathbf{y} \mid \mathbf{X}, \theta) = \sum_t \log P(y_t \mid \mathbf{x_t},\theta),
 \end{equation}\]</div>
 <p>where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3bb6b451-9854-4fd7-aaf8-44a61d4a5eab">
-<span class="eqno">(186)<a class="headerlink" href="#equation-3bb6b451-9854-4fd7-aaf8-44a61d4a5eab" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6031eeba-49e7-4a77-8817-549ca19c7330">
+<span class="eqno">(186)<a class="headerlink" href="#equation-6031eeba-49e7-4a77-8817-549ca19c7330" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P(y_t \mid \mathbf{x_t}, \theta) = \frac{\lambda_t^{y_t}\exp(-\lambda_t)}{y_t!} \text{, with rate } \lambda_t = \exp(\mathbf{x_t}^{\top} \theta).
 \end{equation}\]</div>
 <p>Now, taking the log likelihood for all the data we obtain:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-51e8e2da-a207-41e1-b56f-1b4829b7e194">
-<span class="eqno">(187)<a class="headerlink" href="#equation-51e8e2da-a207-41e1-b56f-1b4829b7e194" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d4a203d9-d4a2-4eb2-a6a7-a792242df40a">
+<span class="eqno">(187)<a class="headerlink" href="#equation-d4a203d9-d4a2-4eb2-a6a7-a792242df40a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \log P(\mathbf{y} \mid X, \theta) = \sum_t( y_t \log\left(\lambda_t) - \lambda_t - \log(y_t !)\right).
 \end{equation}\]</div>
 <p>Because we are going to minimize the negative log likelihood with respect to the parameters <span class="math notranslate nohighlight">\(\theta\)</span>, we can ignore the last term that does not depend on <span class="math notranslate nohighlight">\(\theta\)</span>. For faster implementation, let us rewrite this in matrix notation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-531be703-df94-4ca1-b5a4-3aa5dbb9ce30">
-<span class="eqno">(188)<a class="headerlink" href="#equation-531be703-df94-4ca1-b5a4-3aa5dbb9ce30" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bda0c28d-b22c-4ece-840c-dc1bd69b3bc0">
+<span class="eqno">(188)<a class="headerlink" href="#equation-bda0c28d-b22c-4ece-840c-dc1bd69b3bc0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{y}^{\top} \log(\mathbf{\lambda}) - \mathbf{1}^{\top} \mathbf{\lambda} \text{, with  rate } \mathbf{\lambda} = \exp(\mathbf{X} \theta)
 \end{equation}\]</div>
 <p>Finally, don’t forget to add the minus sign for your function to return the negative log likelihood.</p>
@@ -2548,8 +2548,8 @@ P(y_t \mid \mathbf{x_t}, \theta) = \frac{\lambda_t^{y_t}\exp(-\lambda_t)}{y_t!} 
 <hr class="docutils"/>
 <div class="section" id="notation">
 <h1>Notation<a class="headerlink" href="#notation" title="Permalink to this headline">¶</a></h1>
-<div class="amsmath math notranslate nohighlight" id="equation-5c16fa39-eab0-4374-9067-96fe29d9b536">
-<span class="eqno">(189)<a class="headerlink" href="#equation-5c16fa39-eab0-4374-9067-96fe29d9b536" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d3bb5877-4e40-4f1a-9ea2-aa7130aae1f0">
+<span class="eqno">(189)<a class="headerlink" href="#equation-d3bb5877-4e40-4f1a-9ea2-aa7130aae1f0" title="Permalink to this equation">¶</a></span>\[\begin{align}
 y &amp;\quad \text{measurement or response, here: spike count}\\
 T &amp;\quad \text{number of time points}\\
 d &amp;\quad \text{input dimensionality}\\

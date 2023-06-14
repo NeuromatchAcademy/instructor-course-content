@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -2166,13 +2166,13 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The sign of the derivative of a function (or signal) tells whether the signal is increasing or decreasing. For a signal going through changes as a function of time, the derivative will become zero when the signal changes its direction of change (e.g. from increasing to decreasing). That is, at local minimum or maximum values, the slope of the signal will be zero. This property is used in optimizing problems. But we can also use it to find peaks in a signal.</p>
 <p>Integration can be thought of as the reverse of differentation. If we integrate the velocity with respect to time, we can calculate the distance traveled. By integrating a function, we are basically trying to find functions that would have the original one as their derivative. When we integrate a function, our integral will have an added unknown scalar constant, <span class="math notranslate nohighlight">\(C\)</span>.
 For example, if</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a4f54122-fac6-47c8-ae49-7767dd00b853">
-<span class="eqno">(50)<a class="headerlink" href="#equation-a4f54122-fac6-47c8-ae49-7767dd00b853" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-587a3c35-3b3d-485c-9730-23df048578a1">
+<span class="eqno">(50)<a class="headerlink" href="#equation-587a3c35-3b3d-485c-9730-23df048578a1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 g(t) = 1.5t^2 + 4t - 1
 \end{equation}\]</div>
 <p>our integral function <span class="math notranslate nohighlight">\(f(t)\)</span> will be:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-381ccce2-4bb9-48fa-ab68-b1b93bf93625">
-<span class="eqno">(51)<a class="headerlink" href="#equation-381ccce2-4bb9-48fa-ab68-b1b93bf93625" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a9e76c7b-3185-46f5-9595-9c562cb95406">
+<span class="eqno">(51)<a class="headerlink" href="#equation-a9e76c7b-3185-46f5-9595-9c562cb95406" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 f(t) = \int g(t) dt = 0.5t^3 + 2t^2 - t + C
 \end{equation}\]</div>
 <p>This constant exists because the derivative of a constant is 0 so we cannot know what the constant should be. This is an indefinite integral. If we compute a definite integral, that is the integral between two limits of the input, we will not have this unknown constant and the integral of a function will capture the area under the curve of that function between those two limits.</p>
@@ -2224,13 +2224,13 @@ f(t) = \int g(t) dt = 0.5t^3 + 2t^2 - t + C
 <p>In the demo above you may have noticed that the derivative and integral of the exponential function is same as the exponential function itself.</p>
 <p>Some functions like the exponential function, when differentiated or integrated, equal a scalar times the same function. This is a similar idea to eigenvectors of a matrix being those that, when multipled by the matrix, equal a scalar times themselves, as you saw yesterday!</p>
 <p>When</p>
-<div class="amsmath math notranslate nohighlight" id="equation-32fa0506-b3e6-4160-a037-fd48021a8917">
-<span class="eqno">(52)<a class="headerlink" href="#equation-32fa0506-b3e6-4160-a037-fd48021a8917" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a9112480-fccc-4d4f-9b61-b0185ef349fb">
+<span class="eqno">(52)<a class="headerlink" href="#equation-a9112480-fccc-4d4f-9b61-b0185ef349fb" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{d(f(t)}{dt} = a \cdot f(t)\text{,}
 \end{equation}\]</div>
 <p>we say that <span class="math notranslate nohighlight">\(f(t)\)</span> is an <strong>eigenfunction</strong> for derivative operator, where <span class="math notranslate nohighlight">\(a\)</span> is a scaling factor. Similarly, when</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e701923c-06e5-41b5-a8ca-ab241728a5e6">
-<span class="eqno">(53)<a class="headerlink" href="#equation-e701923c-06e5-41b5-a8ca-ab241728a5e6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-515696a6-68c0-439e-a81d-3600f4adfcd5">
+<span class="eqno">(53)<a class="headerlink" href="#equation-515696a6-68c0-439e-a81d-3600f4adfcd5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \int f(t)dt = a \cdot f(t)\text{,} 
 \end{equation}\]</div>
 <p>we say that <span class="math notranslate nohighlight">\(f(t)\)</span> is an <strong>eigenfunction</strong> for integral operator.</p>
@@ -2258,16 +2258,16 @@ f(t) = \int g(t) dt = 0.5t^3 + 2t^2 - t + C
 <h3>Section 2.1.1: Product Rule<a class="headerlink" href="#section-2-1-1-product-rule" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes we encounter functions which are the product of two functions that both depend on the variable.
 How do we take the derivative of such functions? For this we use the <a class="reference external" href="https://en.wikipedia.org/wiki/Product_rule">Product Rule</a>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d2f2e41b-660d-4bca-b8b1-58aff403dad7">
-<span class="eqno">(54)<a class="headerlink" href="#equation-d2f2e41b-660d-4bca-b8b1-58aff403dad7" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fd209c5c-6ee0-4ceb-857e-f027ec1be0b2">
+<span class="eqno">(54)<a class="headerlink" href="#equation-fd209c5c-6ee0-4ceb-857e-f027ec1be0b2" title="Permalink to this equation">¶</a></span>\[\begin{align}
 f(t) &amp;= u(t) \cdot v(t) \\ \\
 \frac{d(f(t))}{dt} &amp;= v \cdot \frac{du}{dt} + u \cdot \frac{dv}{dt}
 \end{align}\]</div>
 <div class="section" id="coding-exercise-2-1-1-derivative-of-the-postsynaptic-potential-alpha-function">
 <h4>Coding Exercise 2.1.1: Derivative of the postsynaptic potential alpha function<a class="headerlink" href="#coding-exercise-2-1-1-derivative-of-the-postsynaptic-potential-alpha-function" title="Permalink to this headline">¶</a></h4>
 <p>Let’s use the product rule to get the derivative of the post-synaptic potential alpha function. As we saw in Video 3, the shape of the postsynaptic potential is given by the so called alpha function:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-032ba16e-1000-460c-998a-9dd6760aec3e">
-<span class="eqno">(55)<a class="headerlink" href="#equation-032ba16e-1000-460c-998a-9dd6760aec3e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-66060945-0fe0-41bd-8aea-ec206b36be17">
+<span class="eqno">(55)<a class="headerlink" href="#equation-66060945-0fe0-41bd-8aea-ec206b36be17" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 f(t) = t \cdot \text{exp}\left( -\frac{t}{\tau} \right)
 \end{equation}\]</div>
 <p>Here <span class="math notranslate nohighlight">\(f(t)\)</span> is a product of <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(\text{exp} \left(-\frac{t}{\tau} \right)\)</span>. So we can have <span class="math notranslate nohighlight">\(u(t) = t\)</span> and <span class="math notranslate nohighlight">\(v(t) = \text{exp} \left( -\frac{t}{\tau} \right)\)</span> and use the product rule!</p>
@@ -2336,8 +2336,8 @@ f(t) = t \cdot \text{exp}\left( -\frac{t}{\tau} \right)
 <h3>Section 2.1.2: Chain Rule<a class="headerlink" href="#section-2-1-2-chain-rule" title="Permalink to this headline">¶</a></h3>
 <p>Many times we encounter situations in which the variable <span class="math notranslate nohighlight">\(a\)</span> is changing with time (<span class="math notranslate nohighlight">\(t\)</span>) and affecting another variable <span class="math notranslate nohighlight">\(r\)</span>. How can we estimate the derivative of <span class="math notranslate nohighlight">\(r\)</span> with respect to <span class="math notranslate nohighlight">\(a\)</span> i.e. <span class="math notranslate nohighlight">\(\frac{dr}{da} = ?\)</span></p>
 <p>To calculate <span class="math notranslate nohighlight">\(\frac{dr}{da}\)</span> we use the <a class="reference external" href="https://en.wikipedia.org/wiki/Chain_rule">Chain Rule</a>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3be48c90-15e5-4673-9648-09037453337e">
-<span class="eqno">(56)<a class="headerlink" href="#equation-3be48c90-15e5-4673-9648-09037453337e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d7d43608-5ec7-4903-84bd-486010573c69">
+<span class="eqno">(56)<a class="headerlink" href="#equation-d7d43608-5ec7-4903-84bd-486010573c69" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{dr}{da} = \frac{dr}{dt}\cdot\frac{dt}{da}
 \end{equation}\]</div>
 <p>That is, we calculate the derivative of both variables with respect to t and divide that derivative of <span class="math notranslate nohighlight">\(r\)</span> by that  derivative of <span class="math notranslate nohighlight">\(a\)</span>.</p>
@@ -2345,8 +2345,8 @@ f(t) = t \cdot \text{exp}\left( -\frac{t}{\tau} \right)
 <div class="section" id="math-exercise-2-1-2-chain-rule">
 <h4>Math Exercise 2.1.2: Chain Rule<a class="headerlink" href="#math-exercise-2-1-2-chain-rule" title="Permalink to this headline">¶</a></h4>
 <p>Let’s say that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4598cc97-950b-45b9-a72b-b505d78ce8f2">
-<span class="eqno">(57)<a class="headerlink" href="#equation-4598cc97-950b-45b9-a72b-b505d78ce8f2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4e72a1a2-49f7-4f4e-a762-792775edcca4">
+<span class="eqno">(57)<a class="headerlink" href="#equation-4e72a1a2-49f7-4f4e-a762-792775edcca4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 r(a) = e^{a^4 + 1}
 \end{equation}\]</div>
 <p>What is <span class="math notranslate nohighlight">\(\frac{dr}{da}\)</span>? This is a more complex function so we can’t simply consult a table of common derivatives. Can you use the chain rule to help?</p>
@@ -2404,8 +2404,8 @@ r(a) = e^{a^4 + 1}
 <h2>Section 2.2: Numerical Differentiation<a class="headerlink" href="#section-2-2-numerical-differentiation" title="Permalink to this headline">¶</a></h2>
 <p><em>Estimated timing to here from start of tutorial: 30 min</em></p>
 <p>Formally, the derivative of a function <span class="math notranslate nohighlight">\(\mathcal{f}(x)\)</span> at any value <span class="math notranslate nohighlight">\(a\)</span> is given by the finite difference (FD) formula:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f3f4db0a-885a-4f46-8072-7809a09f401d">
-<span class="eqno">(58)<a class="headerlink" href="#equation-f3f4db0a-885a-4f46-8072-7809a09f401d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-463d3441-2688-4da6-ad52-3f595d1be670">
+<span class="eqno">(58)<a class="headerlink" href="#equation-463d3441-2688-4da6-ad52-3f595d1be670" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 FD = \frac{f(a+h) - f(a)}{h}
 \end{equation}\]</div>
 <p>As <span class="math notranslate nohighlight">\(h\rightarrow 0\)</span>, the <span class="math notranslate nohighlight">\(FD\)</span> approaches the actual value of the derivative. Let’s check this.</p>
@@ -2473,8 +2473,8 @@ in a time series whose length is one short of the original time series.</p>
 <h2>Section 2.3: Transfer Function and Gain of a Neuron<a class="headerlink" href="#section-2-3-transfer-function-and-gain-of-a-neuron" title="Permalink to this headline">¶</a></h2>
 <p><em>Estimated timing to here from start of tutorial: 34 min</em></p>
 <p>When we inject a constant current (DC) in a neuron, its firing rate changes as a function of strength of the injected current. This is called the <strong>input-output transfer function</strong> or just the <em>transfer function</em> or <em>I/O Curve</em> of the neuron. For most neurons this can be approximated by a sigmoid function e.g.,:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-89800d79-f6e6-4c8c-97de-4c12af06cc1c">
-<span class="eqno">(59)<a class="headerlink" href="#equation-89800d79-f6e6-4c8c-97de-4c12af06cc1c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-eed983f3-a48f-4a81-b68e-b2fc487366d5">
+<span class="eqno">(59)<a class="headerlink" href="#equation-eed983f3-a48f-4a81-b68e-b2fc487366d5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 rate(I) = \frac{1}{1+\text{exp}(-a \cdot (I-\theta))} - \frac{1}{\text{exp}(a \cdot \theta)} + \eta
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(I\)</span> is injected current, <span class="math notranslate nohighlight">\(rate\)</span> is the neuron firing rate and <span class="math notranslate nohighlight">\(\eta\)</span> is noise (Gaussian noise with zero mean and <span class="math notranslate nohighlight">\(\sigma\)</span> standard deviation).</p>
@@ -2602,13 +2602,13 @@ rate(I) = \frac{1}{1+\text{exp}(-a \cdot (I-\theta))} - \frac{1}{\text{exp}(a \c
 <summary> <font color="blue">Click here for text recap of video </font></summary>
 <p>In the previous section, you looked at function of single variable <span class="math notranslate nohighlight">\(t\)</span> or <span class="math notranslate nohighlight">\(x\)</span>. In most cases, we encounter functions of multiple variables. For example, in the brain, the firing rate of a neuron is a function of both excitatory and inhibitory input rates. In the following, we will look into how to calculate derivatives of such functions.</p>
 <p>When we take the derrivative of a multivariable function with respect to one of the variables it is called the <strong>partial derivative</strong>. For example if we have a function:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f0fee754-f413-41c4-bbe7-a7e9fda6b0b8">
-<span class="eqno">(60)<a class="headerlink" href="#equation-f0fee754-f413-41c4-bbe7-a7e9fda6b0b8" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6b3ee3f8-cf2c-419e-87aa-53546d014bfb">
+<span class="eqno">(60)<a class="headerlink" href="#equation-6b3ee3f8-cf2c-419e-87aa-53546d014bfb" title="Permalink to this equation">¶</a></span>\[\begin{align}
 f(x,y) = x^2 + 2xy + y^2
 \end{align}\]</div>
 <p>The we can define the partial derivatives as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-526dd533-e323-45f1-999b-c1bfe2c321b5">
-<span class="eqno">(61)<a class="headerlink" href="#equation-526dd533-e323-45f1-999b-c1bfe2c321b5" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-18330cee-7545-4856-9982-eb3f4b7dab77">
+<span class="eqno">(61)<a class="headerlink" href="#equation-18330cee-7545-4856-9982-eb3f4b7dab77" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \frac{\partial(f(x,y))}{\partial x} = 2x + 2y + 0 \\\\
 \frac{\partial(f(x,y))}{\partial y} = 0 + 2x + 2y
 \end{align}\]</div>
@@ -2779,8 +2779,8 @@ If we wish to integrate a function <span class="math notranslate nohighlight">\(
 <div class="section" id="coding-exercise-4-2-calculating-charge-transfer-with-excitatory-input">
 <h3>Coding Exercise 4.2: Calculating Charge Transfer with Excitatory Input<a class="headerlink" href="#coding-exercise-4-2-calculating-charge-transfer-with-excitatory-input" title="Permalink to this headline">¶</a></h3>
 <p>An incoming spike elicits a change in the post-synaptic membrane potential (PSP) which can be captured by the following function:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8c792294-1851-466e-be04-ff69f1f596a1">
-<span class="eqno">(62)<a class="headerlink" href="#equation-8c792294-1851-466e-be04-ff69f1f596a1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a15d2827-d0cd-481d-a011-af8521e25b14">
+<span class="eqno">(62)<a class="headerlink" href="#equation-a15d2827-d0cd-481d-a011-af8521e25b14" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 PSP(t) = J \cdot t \cdot \text{exp}\left(-\frac{t-t_{sp}}{\tau_{s}}\right)
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(J\)</span> is the synaptic amplitude, <span class="math notranslate nohighlight">\(t_{sp}\)</span> is the spike time and <span class="math notranslate nohighlight">\(\tau_s\)</span> is the synaptic time constant.</p>

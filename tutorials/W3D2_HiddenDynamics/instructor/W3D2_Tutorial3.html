@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -2698,8 +2698,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p><strong>Step 1: Change yesterday’s posterior into today’s prior</strong></p>
 <p>Use the mathematical model to calculate how deterministic changes in the process shift yesterday’s posterior, <span class="math notranslate nohighlight">\(\mathcal{N}(\mu_{s_{t-1}}, \sigma_{s_{t-1}}^2)\)</span>, and how random changes in the process broaden the shifted distribution:</p>
 <blockquote>
-<div><div class="amsmath math notranslate nohighlight" id="equation-87db530b-898f-4d22-96f4-98200dafba02">
-<span class="eqno">(380)<a class="headerlink" href="#equation-87db530b-898f-4d22-96f4-98200dafba02" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div><div class="amsmath math notranslate nohighlight" id="equation-3cad8bfb-5dd0-4a42-8ef6-e83203671c58">
+<span class="eqno">(380)<a class="headerlink" href="#equation-3cad8bfb-5dd0-4a42-8ef6-e83203671c58" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 p(s_t|m_{1:t-1}) = p(Ds_{t-1}+w_{t-1} | m_{1:t-1}) = \mathcal{N}(D\mu_{s_{t-1}} + 0, D^2\sigma_{s_{t-1}}^2 +\sigma_p^2)
 \end{equation}\]</div>
 </div></blockquote>
@@ -2709,8 +2709,8 @@ p(s_t|m_{1:t-1}) = p(Ds_{t-1}+w_{t-1} | m_{1:t-1}) = \mathcal{N}(D\mu_{s_{t-1}} 
 <p><strong>2a: add information from prior and likelihood</strong></p>
 <p>To find the posterior variance, we first compute the posterior information (which is the inverse of the variance) by adding the information provided by the prior and the likelihood:</p>
 <blockquote>
-<div><div class="amsmath math notranslate nohighlight" id="equation-7cc0896c-1cdd-4156-87f8-6535008d47d5">
-<span class="eqno">(381)<a class="headerlink" href="#equation-7cc0896c-1cdd-4156-87f8-6535008d47d5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div><div class="amsmath math notranslate nohighlight" id="equation-c5152c4c-7a95-42aa-a607-364392d999c4">
+<span class="eqno">(381)<a class="headerlink" href="#equation-c5152c4c-7a95-42aa-a607-364392d999c4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{1}{\sigma_{s_t}^2} = \frac{1}{D^2\sigma_{s_{t-1}}^2 +\sigma_p^2} + \frac{1}{\sigma_m^2}
 \end{equation}\]</div>
 </div></blockquote>
@@ -2718,8 +2718,8 @@ p(s_t|m_{1:t-1}) = p(Ds_{t-1}+w_{t-1} | m_{1:t-1}) = \mathcal{N}(D\mu_{s_{t-1}} 
 <p><strong>2b: add means from prior and likelihood</strong></p>
 <p>To find the posterior mean, we calculate a weighted average of means from prior and likelihood, where each weight, <span class="math notranslate nohighlight">\(g\)</span>, is just the fraction of information that each Gaussian provides!</p>
 <blockquote>
-<div><div class="amsmath math notranslate nohighlight" id="equation-2b59a944-02f2-42aa-80fb-aa1b1ea9d84b">
-<span class="eqno">(382)<a class="headerlink" href="#equation-2b59a944-02f2-42aa-80fb-aa1b1ea9d84b" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div><div class="amsmath math notranslate nohighlight" id="equation-a0f5f8b2-f62c-4634-9889-a6888ae5ec9d">
+<span class="eqno">(382)<a class="headerlink" href="#equation-a0f5f8b2-f62c-4634-9889-a6888ae5ec9d" title="Permalink to this equation">¶</a></span>\[\begin{align}
 g_{\rm{prior}} &amp;= \frac{\rm{information}_{\textit{ }\rm{prior}}}{\rm{information}_{\textit{ }\rm{posterior}}} \\
 g_{\rm{likelihood}} &amp;= \frac{\rm{information}_{\textit{ }\rm{likelihood}}}{\rm{information}_{\textit{ }\rm{posterior}}} \\
 \bar{\mu}_t &amp;= g_{\rm{prior}} D\mu_{s_{t-1}} + g_{\rm{likelihood}} m_t
@@ -2733,8 +2733,8 @@ g_{\rm{likelihood}} &amp;= \frac{\rm{information}_{\textit{ }\rm{likelihood}}}{\
 </div>
 <p><strong>Optional: Relationship to classic description of Kalman filter:</strong></p>
 <p>We’re teaching this recipe because it is interpretable and connects to past lessons about the sum rule and product rule for Gaussians. But the classic description of the Kalman filter is a little different. The above weights, <span class="math notranslate nohighlight">\(g_{\rm{prior}}\)</span> and <span class="math notranslate nohighlight">\(g_{\rm{likelihood}}\)</span>, add up to <span class="math notranslate nohighlight">\(1\)</span> and can be written one in terms of the other; then, if we let <span class="math notranslate nohighlight">\(K = g_{\rm{likelihood}}\)</span>, the posterior mean can be expressed as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2e149dba-e797-4d73-b911-6c529688e6fb">
-<span class="eqno">(383)<a class="headerlink" href="#equation-2e149dba-e797-4d73-b911-6c529688e6fb" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-51d982f8-e631-44b6-95a9-a258d0e80d45">
+<span class="eqno">(383)<a class="headerlink" href="#equation-51d982f8-e631-44b6-95a9-a258d0e80d45" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \bar{\mu}_t = (1-K) D\bar{\mu}_{t-1} + K m_t = D\bar{\mu}_{t-1} + K (m_t - D\bar{\mu}_{t-1})
 \end{equation}\]</div>
 <p>In classic textbooks, you will often find this expression for the posterior mean; <span class="math notranslate nohighlight">\(K\)</span> is known as the Kalman gain and its function is to choose a value partway between the current measurement <span class="math notranslate nohighlight">\(m_t\)</span> and the prediction from Step 1.</p>

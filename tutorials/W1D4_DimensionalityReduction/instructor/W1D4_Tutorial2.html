@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -2014,24 +2014,24 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="section-1-calculate-the-eigenvectors-of-the-the-sample-covariance-matrix">
 <h1>Section 1: Calculate the eigenvectors of the the sample covariance matrix<a class="headerlink" href="#section-1-calculate-the-eigenvectors-of-the-the-sample-covariance-matrix" title="Permalink to this headline">¶</a></h1>
 <p>As we saw in the lecture, PCA represents data in a new orthonormal basis defined by the eigenvectors of the covariance matrix. Remember that in the previous tutorial, we generated bivariate normal data with a specified covariance matrix <span class="math notranslate nohighlight">\(\bf \Sigma\)</span>, whose <span class="math notranslate nohighlight">\((i,j)\)</span>th element is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2d582f6e-fd70-489d-98c0-7c51d5cba324">
-<span class="eqno">(213)<a class="headerlink" href="#equation-2d582f6e-fd70-489d-98c0-7c51d5cba324" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-de59ae23-4932-4346-9190-56e0da697721">
+<span class="eqno">(213)<a class="headerlink" href="#equation-de59ae23-4932-4346-9190-56e0da697721" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \Sigma_{ij} = \mathbb{E}[ x_i x_j ] - \mathbb{E}[ x_i] \mathbb{E}[ x_j ] .
 \end{equation}\]</div>
 <p>However, in real life we don’t have access to this ground-truth covariance
 matrix. To get around this, we can use the sample covariance matrix, <span class="math notranslate nohighlight">\(\bf\hat\Sigma\)</span>, which is calculated directly from the data. The <span class="math notranslate nohighlight">\((i,j)\)</span>th element of the sample covariance matrix is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e893ff41-318c-4873-abb5-9dfa1f714e7b">
-<span class="eqno">(214)<a class="headerlink" href="#equation-e893ff41-318c-4873-abb5-9dfa1f714e7b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5f17c6bd-3841-4854-bf3c-3ca3c7eb9096">
+<span class="eqno">(214)<a class="headerlink" href="#equation-5f17c6bd-3841-4854-bf3c-3ca3c7eb9096" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \hat \Sigma_{ij} =  \frac{1}{N_\text{samples}}{\bf x}_i^\top {\bf x}_j - \bar {\bf x}_i \bar{\bf x}_j ,
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\({\bf x}_i = [ x_i(1), x_i(2), \dots,x_i(N_\text{samples})]^\top\)</span> is a column vector representing all measurements of neuron <span class="math notranslate nohighlight">\(i\)</span>, and  <span class="math notranslate nohighlight">\(\bar {\bf x}_i\)</span> is the mean of neuron <span class="math notranslate nohighlight">\(i\)</span> across samples:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9ea65d87-32e7-42be-b893-70e7534d2505">
-<span class="eqno">(215)<a class="headerlink" href="#equation-9ea65d87-32e7-42be-b893-70e7534d2505" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cdd1970d-0a8d-4449-a403-49b06e5b0fa8">
+<span class="eqno">(215)<a class="headerlink" href="#equation-cdd1970d-0a8d-4449-a403-49b06e5b0fa8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \bar {\bf x}_i = \frac{1}{N_\text{samples}} \sum_{k=1}^{N_\text{samples}} x_i(k).
 \end{equation}\]</div>
 <p>If we assume that the data has already been mean-subtracted, then we can write the sample covariance matrix in a much simpler matrix form:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a2b3baea-99bd-4408-a872-05e3464fc77f">
-<span class="eqno">(216)<a class="headerlink" href="#equation-a2b3baea-99bd-4408-a872-05e3464fc77f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ed4fd1ab-2a5e-440c-9af8-7f47582b7a0f">
+<span class="eqno">(216)<a class="headerlink" href="#equation-ed4fd1ab-2a5e-440c-9af8-7f47582b7a0f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 {\bf \hat \Sigma} = \frac{1}{N_\text{samples}} {\bf X}^\top {\bf X}.
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\bf X\)</span> is the full data matrix (each column of <span class="math notranslate nohighlight">\(\bf X\)</span> is a different <span class="math notranslate nohighlight">\(\bf x_i\)</span>).</p>
@@ -2208,8 +2208,8 @@ matrix. To get around this, we can use the sample covariance matrix, <span class
 <h1>Section 2: Perform PCA by projecting data onto the eigenvectors<a class="headerlink" href="#section-2-perform-pca-by-projecting-data-onto-the-eigenvectors" title="Permalink to this headline">¶</a></h1>
 <p><em>Estimated timing to here from start of tutorial: 25 min</em></p>
 <p>To perform PCA, we will project the data onto the eigenvectors of the covariance matrix, i.e.,:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d98072cb-7d7e-44d7-ae32-c4e1cb1e09e8">
-<span class="eqno">(217)<a class="headerlink" href="#equation-d98072cb-7d7e-44d7-ae32-c4e1cb1e09e8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ed23661c-61a2-455c-96ed-62b3bdc2a71f">
+<span class="eqno">(217)<a class="headerlink" href="#equation-ed23661c-61a2-455c-96ed-62b3bdc2a71f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \bf S = X W
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\bf S\)</span> is an <span class="math notranslate nohighlight">\(N_\text{samples} \times N\)</span> matrix representing the projected data (also called <em>scores</em>), and <span class="math notranslate nohighlight">\(\bf W\)</span> is an <span class="math notranslate nohighlight">\(N\times N\)</span> orthogonal matrix, each of whose columns represents the eigenvectors of the covariance matrix (also called <em>weights</em> or <em>loadings</em>).</p>
@@ -2385,8 +2385,8 @@ matrix. To get around this, we can use the sample covariance matrix, <span class
 <hr class="docutils"/>
 <div class="section" id="notation">
 <h1>Notation<a class="headerlink" href="#notation" title="Permalink to this headline">¶</a></h1>
-<div class="amsmath math notranslate nohighlight" id="equation-41b7d059-2027-4d4a-9485-9ae09743f099">
-<span class="eqno">(218)<a class="headerlink" href="#equation-41b7d059-2027-4d4a-9485-9ae09743f099" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-50525269-f761-4a13-b63d-2ef453d04fec">
+<span class="eqno">(218)<a class="headerlink" href="#equation-50525269-f761-4a13-b63d-2ef453d04fec" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mathbf{x_i}  &amp;\quad \text{all measurements of neuron } i\\
 \bar{\bf x_i}  &amp;\quad \text{mean across samples for neuron } i \\
 \bf \Sigma &amp;\quad \text{covariance matrix}\\

@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -2318,15 +2318,15 @@ const thebe_selector_output = ".output, .cell_output"
 </details>
 <p>The binomial distribution simulates <span class="math notranslate nohighlight">\(n\)</span> number of binary events, such as the <span class="math notranslate nohighlight">\(Left, Right\)</span> choices of the random rat in the T-maze. Imagine that you have done an experiment and found that your rat turned left in 7 out of 10 trials. What is the probability of the rat indeed turning left 7 times (<span class="math notranslate nohighlight">\(k = 7\)</span>)?</p>
 <p>This is given by the binomial probability of <span class="math notranslate nohighlight">\(k\)</span>, given <span class="math notranslate nohighlight">\(n\)</span> trials and probability <span class="math notranslate nohighlight">\(p\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-42989ec5-2461-45f8-a361-111984540e87">
-<span class="eqno">(97)<a class="headerlink" href="#equation-42989ec5-2461-45f8-a361-111984540e87" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8147b5d8-ff61-454b-a5e9-f1bbf0db3945">
+<span class="eqno">(97)<a class="headerlink" href="#equation-8147b5d8-ff61-454b-a5e9-f1bbf0db3945" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(k|n,p) &amp;= \left( \begin{array} \\n \\ k\end{array} \right) p^k (1-p)^{n-k} \\
 \binom{n}{k} &amp;= {\frac {n!}{k!(n-k)!}}
 \end{align}\]</div>
 <p>In this formula, <span class="math notranslate nohighlight">\(p\)</span> is the probability of turning left, <span class="math notranslate nohighlight">\(n\)</span> is the number of binary events, or trials, and <span class="math notranslate nohighlight">\(k\)</span> is the number of times the rat turned left. The term <span class="math notranslate nohighlight">\(\binom {n}{k}\)</span> is the binomial coefficient.</p>
 <p>This is an example of a <em>probability mass function</em>, which specifies the probability that a discrete random variable is equal to each value. In other words, how large a part of the probability space (mass) is placed at each exact discrete value. We require that all probability adds up to 1, i.e. that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2a5e369d-0045-49e5-8e44-5f2c2711c578">
-<span class="eqno">(98)<a class="headerlink" href="#equation-2a5e369d-0045-49e5-8e44-5f2c2711c578" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c81071cf-f10b-4602-9295-0598921e5529">
+<span class="eqno">(98)<a class="headerlink" href="#equation-c81071cf-f10b-4602-9295-0598921e5529" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \sum_k P(k|n,p)=1.
 \end{equation}\]</div>
 <p>Essentially, if <span class="math notranslate nohighlight">\(k\)</span> can only be one of 10 values, the probabilities of <span class="math notranslate nohighlight">\(k\)</span> being equal to each possible value have to sum up to 1 because there is a probability of 1 it will equal one of those 10 values (no other options exist).</p>
@@ -2387,8 +2387,8 @@ P(k|n,p) &amp;= \left( \begin{array} \\n \\ k\end{array} \right) p^k (1-p)^{n-k}
 </div>
 </div>
 <p>When working with the Bernoulli and binomial distributions, there are only 2 possible outcomes (in this case, turn left or turn right). In the more general case where there are <span class="math notranslate nohighlight">\(n\)</span> possible outcomes (our rat is an n-armed maze) each with their own associated probability <span class="math notranslate nohighlight">\(p_1, p_2, p_3, p_4, ...\)</span> , we use a <strong>categorical distribution</strong>. Draws from this distribution are a simple extension of the Bernoulli trial: we now have a probability for each outcome and draw based on those probabilities. We have to make sure that the probabilities sum to one:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fee85a18-ff0a-4e79-8f22-6ab9a6f2ad81">
-<span class="eqno">(99)<a class="headerlink" href="#equation-fee85a18-ff0a-4e79-8f22-6ab9a6f2ad81" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3acfdc15-7ea1-4ff1-bffd-962a1e4ba917">
+<span class="eqno">(99)<a class="headerlink" href="#equation-3acfdc15-7ea1-4ff1-bffd-962a1e4ba917" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \sum_i P(x=i)=\sum_i p_i =1
 \end{equation}\]</div>
 <p>If we sample from this distribution multiple times, we can then describe the distribution of outcomes from each sample as the <strong>multinomial distribution</strong>. Essentially, the categorical distribution is the multiple outcome extension of the Bernoulli, and the multinomial distribution is the multiple outcome extension of the binomial distribution. We’ll see a bit more about this in the next tutorial when we look at Markov chains.</p>
@@ -2408,8 +2408,8 @@ P(k|n,p) &amp;= \left( \begin{array} \\n \\ k\end{array} \right) p^k (1-p)^{n-k}
 <p>Relevant to us, we can model the number of times a neuron spikes within a time interval using a Poisson distribution. In fact, neuroscientists often do! As an example, if we are recording from a neuron that tends to fire at an average rate of 4 spikes per second, then the Poisson distribution specifies the distribution of recorded spikes over one second, where <span class="math notranslate nohighlight">\(\lambda=4\)</span>.</p>
 </details>
 <p>The formula for a Poisson distribution on <span class="math notranslate nohighlight">\(x\)</span> is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d4e5990a-818b-4157-8725-d164fb2f9a73">
-<span class="eqno">(100)<a class="headerlink" href="#equation-d4e5990a-818b-4157-8725-d164fb2f9a73" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ccf464c8-a7f3-4ccf-aecf-24c23fbec08c">
+<span class="eqno">(100)<a class="headerlink" href="#equation-ccf464c8-a7f3-4ccf-aecf-24c23fbec08c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P(x)=\frac{\lambda^x e^{-\lambda}}{x!}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\lambda\)</span> is a parameter corresponding to the average outcome of <span class="math notranslate nohighlight">\(x\)</span>.</p>
@@ -2510,13 +2510,13 @@ P(x)=\frac{\lambda^x e^{-\lambda}}{x!}
 <p>If we want to make predictions about possible outcomes (“I believe the BOLD signal from the area will be in the range <span class="math notranslate nohighlight">\(x_1\)</span> to <span class="math notranslate nohighlight">\( x_2 \)</span>“) we can use the integral <span class="math notranslate nohighlight">\(\int_{x_1}^{x_2} P(x)\)</span>.
 <span class="math notranslate nohighlight">\(P(x)\)</span> is now a <strong>probability density function</strong>, sometimes written as <span class="math notranslate nohighlight">\(f(x)\)</span> to distinguish it from the probability mass functions.</p>
 <p>With continuous distributions we have to replace the normalising sum</p>
-<div class="amsmath math notranslate nohighlight" id="equation-41c52390-469e-4371-b68f-7653b0c735eb">
-<span class="eqno">(101)<a class="headerlink" href="#equation-41c52390-469e-4371-b68f-7653b0c735eb" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8a418fb1-54a5-4350-a65d-db2b6b208d20">
+<span class="eqno">(101)<a class="headerlink" href="#equation-8a418fb1-54a5-4350-a65d-db2b6b208d20" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \sum_i P(x=p_i) = 1
 \end{equation}\]</div>
 <p>over all possible events, with an integral</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0a600007-3cee-4bb0-ab5a-d6de4c446bcf">
-<span class="eqno">(102)<a class="headerlink" href="#equation-0a600007-3cee-4bb0-ab5a-d6de4c446bcf" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0b1d5ede-c6af-4073-994d-611d71e80975">
+<span class="eqno">(102)<a class="headerlink" href="#equation-0b1d5ede-c6af-4073-994d-611d71e80975" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \int_a^b P(x) = 1
 \end{equation}\]</div>
 <p>where a and b are the limits of the random variable <span class="math notranslate nohighlight">\(x\)</span> (often <span class="math notranslate nohighlight">\(-\infty\)</span> and <span class="math notranslate nohighlight">\(\infty\)</span>).</p>
@@ -2529,8 +2529,8 @@ P(x)=\frac{\lambda^x e^{-\lambda}}{x!}
 <h3>Coding Exercise 3.1A: Gaussian Distribution<a class="headerlink" href="#coding-exercise-3-1a-gaussian-distribution" title="Permalink to this headline">¶</a></h3>
 <p>In this exercise, you will implement a Gaussian by filling in the missing portions of code for the function <code class="docutils literal notranslate"><span class="pre">my_gaussian</span></code> below. Gaussians have two parameters. The <strong>mean</strong> <span class="math notranslate nohighlight">\(\mu\)</span>, which sets the location of its center, and its “scale” or spread is controlled by its <strong>standard deviation</strong> <span class="math notranslate nohighlight">\(\sigma\)</span>, or <strong>variance</strong> <span class="math notranslate nohighlight">\(\sigma^2\)</span> (i.e. the square of standard deviation). <strong>Be careful not to use one when the other is required.</strong></p>
 <p>The equation for a Gaussian probability density function is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-445d54a3-c3ab-4896-b12a-522664b1c9d5">
-<span class="eqno">(103)<a class="headerlink" href="#equation-445d54a3-c3ab-4896-b12a-522664b1c9d5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fdcc680c-8dc2-4ab2-b949-28147e3f0d04">
+<span class="eqno">(103)<a class="headerlink" href="#equation-fdcc680c-8dc2-4ab2-b949-28147e3f0d04" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 f(x;\mu,\sigma^2) = \mathcal{N}(\mu,\sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left(\frac{-(x-\mu)^2}{2\sigma^2}\right)
 \end{equation}\]</div>
 <p>In Python <span class="math notranslate nohighlight">\(\pi\)</span> and <span class="math notranslate nohighlight">\(e\)</span> can be written as <code class="docutils literal notranslate"><span class="pre">np.pi</span></code> and <code class="docutils literal notranslate"><span class="pre">np.exp</span></code> respectively.</p>
@@ -2615,8 +2615,8 @@ f(x;\mu,\sigma^2) = \mathcal{N}(\mu,\sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}\ex
 <div class="section" id="interactive-demo-3-1-sampling-from-a-gaussian-distribution">
 <h3>Interactive Demo 3.1: Sampling from a Gaussian distribution<a class="headerlink" href="#interactive-demo-3-1-sampling-from-a-gaussian-distribution" title="Permalink to this headline">¶</a></h3>
 <p>Now that we have gained a bit of intuition about the shape of the Gaussian, let’s imagine that a human participant is asked to point in the direction of a sound source, which we then measure in horizontal degrees. To simulate that we draw samples from a Normal distribution:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-22fe9aa7-c593-4986-b2a9-4becf16b3294">
-<span class="eqno">(104)<a class="headerlink" href="#equation-22fe9aa7-c593-4986-b2a9-4becf16b3294" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c1d00b2b-ac3b-4434-b7ba-10e085553e4b">
+<span class="eqno">(104)<a class="headerlink" href="#equation-c1d00b2b-ac3b-4434-b7ba-10e085553e4b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 x \sim \mathcal{N}(\mu,\sigma)
 \end{equation}\]</div>
 <p>We can sample from a Gaussian with mean <span class="math notranslate nohighlight">\(\mu\)</span> and standard deviation <span class="math notranslate nohighlight">\(\sigma\)</span> using <code class="docutils literal notranslate"><span class="pre">np.random.normal(mu,</span> <span class="pre">sigma,</span> <span class="pre">size</span> <span class="pre">=</span> <span class="pre">(n_samples,))</span></code>.</p>

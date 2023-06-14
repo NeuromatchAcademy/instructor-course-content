@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -2192,8 +2192,8 @@ const thebe_selector_output = ".output, .cell_output"
 <h1>Section 2: Calculate the variance explained<a class="headerlink" href="#section-2-calculate-the-variance-explained" title="Permalink to this headline">¶</a></h1>
 <p><em>Estimated timing to here from start of tutorial: 15 min</em></p>
 <p>The scree plot suggests that most of the eigenvalues are near zero, with fewer than 100 having large values. Another common way to determine the intrinsic dimensionality is by considering the variance explained. This can be examined with a cumulative plot of the fraction of the total variance explained by the top <span class="math notranslate nohighlight">\(K\)</span> components, i.e.,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-39fd6db2-e4d5-483f-939b-4be1ecad4d1a">
-<span class="eqno">(219)<a class="headerlink" href="#equation-39fd6db2-e4d5-483f-939b-4be1ecad4d1a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-71b60e14-88cb-4ac2-9888-dad331738423">
+<span class="eqno">(219)<a class="headerlink" href="#equation-71b60e14-88cb-4ac2-9888-dad331738423" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \text{var explained} = \frac{\sum_{i=1}^K \lambda_i}{\sum_{i=1}^N \lambda_i}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\lambda_i\)</span> is the <span class="math notranslate nohighlight">\(i^{th}\)</span> eigenvalue and <span class="math notranslate nohighlight">\(N\)</span> is the total number of components (the original number of dimensions in the data).</p>
@@ -2293,18 +2293,18 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell tag_remove-input docutils container">
 </div>
 <p>Now we have seen that the top 100 or so principal components of the data can explain most of the variance. We can use this fact to perform <em>dimensionality reduction</em>, i.e., by storing the data using only 100 components rather than the samples of all 784 pixels. Remarkably, we will be able to reconstruct much of the structure of the data using only the top 100 components. To see this, recall that to perform PCA we projected the data <span class="math notranslate nohighlight">\(\bf X\)</span> onto the eigenvectors of the covariance matrix:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c72a70e9-3a3c-4a07-ae43-3d75c90733b5">
-<span class="eqno">(220)<a class="headerlink" href="#equation-c72a70e9-3a3c-4a07-ae43-3d75c90733b5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-037ad365-5a33-41da-9166-c7532c87b3c3">
+<span class="eqno">(220)<a class="headerlink" href="#equation-037ad365-5a33-41da-9166-c7532c87b3c3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \bf S = X W
 \end{equation}\]</div>
 <p>Since <span class="math notranslate nohighlight">\(\bf W\)</span> is an orthogonal matrix, <span class="math notranslate nohighlight">\({\bf W}^{-1} = {\bf W}^\top\)</span>. So by multiplying by <span class="math notranslate nohighlight">\({\bf W}^\top\)</span> on each side we can rewrite this equation as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-117e6c4f-2eba-4855-a927-9f0de9724cfa">
-<span class="eqno">(221)<a class="headerlink" href="#equation-117e6c4f-2eba-4855-a927-9f0de9724cfa" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0032e829-cc6f-414f-93ca-8f2a260e3904">
+<span class="eqno">(221)<a class="headerlink" href="#equation-0032e829-cc6f-414f-93ca-8f2a260e3904" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 {\bf X = S W}^\top.
 \end{equation}\]</div>
 <p>This now gives us a way to reconstruct the data matrix from the scores and loadings. To reconstruct the data from a low-dimensional approximation, we just have to truncate these matrices.  Let’s denote <span class="math notranslate nohighlight">\({\bf S}_{1:K}\)</span> and <span class="math notranslate nohighlight">\({\bf W}_{1:K}\)</span> the matrices with only the first <span class="math notranslate nohighlight">\(K\)</span> columns of <span class="math notranslate nohighlight">\(\bf S\)</span> and <span class="math notranslate nohighlight">\(\bf W\)</span>, respectively. Then our reconstruction is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-41770f98-7260-484d-971a-17ea586da267">
-<span class="eqno">(222)<a class="headerlink" href="#equation-41770f98-7260-484d-971a-17ea586da267" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ecce70bd-219c-4b30-b48e-4592414df2b2">
+<span class="eqno">(222)<a class="headerlink" href="#equation-ecce70bd-219c-4b30-b48e-4592414df2b2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 {\bf \hat X = S}_{1:K} ({\bf W}_{1:K})^\top.
 \end{equation}\]</div>
 </div>
@@ -2497,8 +2497,8 @@ const thebe_selector_output = ".output, .cell_output"
 <hr class="docutils"/>
 <div class="section" id="notation">
 <h1>Notation<a class="headerlink" href="#notation" title="Permalink to this headline">¶</a></h1>
-<div class="amsmath math notranslate nohighlight" id="equation-af207a1a-b3b9-4e04-bf7a-28b067834ced">
-<span class="eqno">(223)<a class="headerlink" href="#equation-af207a1a-b3b9-4e04-bf7a-28b067834ced" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4181b966-abd3-4529-a9cc-3c74376d3e61">
+<span class="eqno">(223)<a class="headerlink" href="#equation-4181b966-abd3-4529-a9cc-3c74376d3e61" title="Permalink to this equation">¶</a></span>\[\begin{align}
 K &amp;\quad \text{selected number of principal components}\\
 N &amp;\quad \text{total number of principal components}\\
 \bf W &amp;\quad \text{weights, loadings matrix}\\

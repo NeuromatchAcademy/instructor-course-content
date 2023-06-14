@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -1817,48 +1817,48 @@ const thebe_selector_output = ".output, .cell_output"
 <summary> <font color="blue">Click here for text recap of video </font></summary>
 <p>Now that we have considered the univariate case and how to produce confidence intervals for our estimator, we turn to the general linear regression case, where we can have more than one regressor, or feature, in our input.</p>
 <p>Recall that our original univariate linear model was given as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5b197581-3125-4c9d-8679-b310f50d2efe">
-<span class="eqno">(161)<a class="headerlink" href="#equation-5b197581-3125-4c9d-8679-b310f50d2efe" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-92c252d0-84d6-49a8-8fb8-7b49ba7274d4">
+<span class="eqno">(161)<a class="headerlink" href="#equation-92c252d0-84d6-49a8-8fb8-7b49ba7274d4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y = \theta x + \epsilon
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\theta\)</span> is the slope and <span class="math notranslate nohighlight">\(\epsilon\)</span> some noise. We can easily extend this to the multivariate scenario by adding another parameter for each additional feature</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e2014c37-4a16-4d94-8bff-98132e40c761">
-<span class="eqno">(162)<a class="headerlink" href="#equation-e2014c37-4a16-4d94-8bff-98132e40c761" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4d7cf5e0-5fc3-4aef-90cb-6b493c41633c">
+<span class="eqno">(162)<a class="headerlink" href="#equation-4d7cf5e0-5fc3-4aef-90cb-6b493c41633c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + ... +\theta_d x_d + \epsilon
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\theta_0\)</span> is the intercept and <span class="math notranslate nohighlight">\(d\)</span> is the number of features (it is also the dimensionality of our input).</p>
 <p>We can condense this succinctly using vector notation for a single data point</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d9aa23fc-4ee8-4a74-ad36-62382347d703">
-<span class="eqno">(163)<a class="headerlink" href="#equation-d9aa23fc-4ee8-4a74-ad36-62382347d703" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9b614667-b3d0-476f-b5ca-60ae680641ab">
+<span class="eqno">(163)<a class="headerlink" href="#equation-9b614667-b3d0-476f-b5ca-60ae680641ab" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y_i = \boldsymbol{\theta}^{\top}\mathbf{x}_i + \epsilon
 \end{equation}\]</div>
 <p>and fully in matrix form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-26ae27aa-2c09-4fc6-a37c-384fe0d55b5e">
-<span class="eqno">(164)<a class="headerlink" href="#equation-26ae27aa-2c09-4fc6-a37c-384fe0d55b5e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0de850b7-f4ae-4e65-a852-7c17346134a4">
+<span class="eqno">(164)<a class="headerlink" href="#equation-0de850b7-f4ae-4e65-a852-7c17346134a4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{y} = \mathbf{X}\boldsymbol{\theta} + \mathbf{\epsilon}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> is a vector of measurements, <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is a matrix containing the feature values (columns) for each input sample (rows), and <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> is our parameter vector.</p>
 <p>This matrix <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is often referred to as the “<a class="reference external" href="https://en.wikipedia.org/wiki/Design_matrix">design matrix</a>”.</p>
 <p>We want to find an optimal vector of paramters <span class="math notranslate nohighlight">\(\boldsymbol{\hat\theta}\)</span>. Recall our analytic solution to minimizing MSE for a single regressor:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3ec084a4-0ffe-4620-b453-56ccfffc742e">
-<span class="eqno">(165)<a class="headerlink" href="#equation-3ec084a4-0ffe-4620-b453-56ccfffc742e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6604cd54-4a18-49b2-95eb-6102eab18d62">
+<span class="eqno">(165)<a class="headerlink" href="#equation-6604cd54-4a18-49b2-95eb-6102eab18d62" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \hat\theta = \frac{\sum_{i=1}^N x_i y_i}{\sum_{i=1}^N x_i^2}.
 \end{equation}\]</div>
 <p>The same holds true for the multiple regressor case, only now expressed in matrix form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-919c4641-576a-4238-94c2-ad53c1947ec4">
-<span class="eqno">(166)<a class="headerlink" href="#equation-919c4641-576a-4238-94c2-ad53c1947ec4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8ac5b4dd-e950-43a9-962f-7e070af72826">
+<span class="eqno">(166)<a class="headerlink" href="#equation-8ac5b4dd-e950-43a9-962f-7e070af72826" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \boldsymbol{\hat\theta} = (\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top\mathbf{y}.
 \end{equation}\]</div>
 <p>This is called the <a class="reference external" href="https://en.wikipedia.org/wiki/Ordinary_least_squares">ordinary least squares</a> (OLS) estimator.</p>
 </details><p>For this tutorial we will focus on the two-dimensional case (<span class="math notranslate nohighlight">\(d=2\)</span>), which allows us to easily visualize our results. As an example, think of a situation where a scientist records the spiking response of a retinal ganglion cell to patterns of light signals that vary in contrast and in orientation. Then contrast and orientation values can be used as features / regressors to predict the cells response.</p>
 <p>In this case our model can be written for a single data point as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b000f077-181f-4864-a950-d44cadee2df9">
-<span class="eqno">(167)<a class="headerlink" href="#equation-b000f077-181f-4864-a950-d44cadee2df9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a4c139c4-f112-487b-a019-a63265a1ad4e">
+<span class="eqno">(167)<a class="headerlink" href="#equation-a4c139c4-f112-487b-a019-a63265a1ad4e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \epsilon
 \end{equation}\]</div>
 <p>or for multiple data points in matrix form where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a3415e1d-dadc-4695-8208-baef10e13479">
-<span class="eqno">(168)<a class="headerlink" href="#equation-a3415e1d-dadc-4695-8208-baef10e13479" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2c51e1fd-768c-46cd-a798-71d8b7431378">
+<span class="eqno">(168)<a class="headerlink" href="#equation-2c51e1fd-768c-46cd-a798-71d8b7431378" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{X} = 
 \begin{bmatrix}
 1 &amp; x_{1,1} &amp; x_{1,2} \\
@@ -2024,13 +2024,13 @@ y = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \epsilon
 <summary> <font color="blue">Click here for text recap of relevant part of video </font></summary>
 <p>Since polynomial regression is an extension of linear regression, everything you learned so far will come in handy now! The goal is the same: we want to predict the dependent variable <span class="math notranslate nohighlight">\(y\)</span> given the input values <span class="math notranslate nohighlight">\(x\)</span>. The key change is the type of relationship between inputs and outputs that the model can capture.</p>
 <p>Linear regression models predict the outputs as a weighted sum of the inputs:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-abbcdf5b-d090-4cc3-80e5-3409db6da7bc">
-<span class="eqno">(169)<a class="headerlink" href="#equation-abbcdf5b-d090-4cc3-80e5-3409db6da7bc" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5dad09e5-28cb-47d4-b2a4-00ec03f76391">
+<span class="eqno">(169)<a class="headerlink" href="#equation-5dad09e5-28cb-47d4-b2a4-00ec03f76391" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y = \theta_0 + \theta x + \epsilon
 \end{equation}\]</div>
 <p>With polynomial regression, we model the outputs as a polynomial equation based on the inputs. For example, we can model the outputs as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a02fc3f6-65ee-4cce-bd0d-328ffaf7ed60">
-<span class="eqno">(170)<a class="headerlink" href="#equation-a02fc3f6-65ee-4cce-bd0d-328ffaf7ed60" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5cccb0e0-f72d-49d6-bf0a-0c09b19a0333">
+<span class="eqno">(170)<a class="headerlink" href="#equation-5cccb0e0-f72d-49d6-bf0a-0c09b19a0333" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y = \theta_0 + \theta_1 x + \theta_2 x^2 + \theta_3 x^3 + \epsilon
 \end{equation}\]</div>
 <p>We can change how complex a polynomial is fit by changing the order of the polynomial. The order of a polynomial refers to the highest power in the polynomial. The equation above is a third order polynomial because the highest value x is raised to is 3. We could add another term (<span class="math notranslate nohighlight">\(+ \theta_4 x^4\)</span>) to model an order 4 polynomial and so on.</p>
@@ -2067,14 +2067,14 @@ y = \theta_0 + \theta_1 x + \theta_2 x^2 + \theta_3 x^3 + \epsilon
 <p>Now we have the basic idea of polynomial regression and some noisy data, let’s begin! The key difference between fitting a linear regression model and a polynomial regression model lies in how we structure the input variables.</p>
 <p>Let’s go back to one feature for each data point. For linear regression, we used <span class="math notranslate nohighlight">\(\mathbf{X} = \mathbf{x}\)</span> as the input data, where <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is a vector where each element is the input for a single data point. To add a constant bias (a y-intercept in a 2-D plot), we use <span class="math notranslate nohighlight">\(\mathbf{X} = \big[ \boldsymbol 1, \mathbf{x} \big]\)</span>, where <span class="math notranslate nohighlight">\(\boldsymbol 1\)</span> is a column of ones.  When fitting, we learn a weight for each column of this matrix. So we learn a weight that multiples with column 1 - in this case that column is all ones so we gain the bias parameter (<span class="math notranslate nohighlight">\(+ \theta_0\)</span>).</p>
 <p>This matrix <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> that we use for our inputs is known as a <strong>design matrix</strong>. We want to create our design matrix so we learn weights for <span class="math notranslate nohighlight">\(\mathbf{x}^2, \mathbf{x}^3,\)</span> etc. Thus, we want to build our design matrix <span class="math notranslate nohighlight">\(X\)</span> for polynomial regression of order <span class="math notranslate nohighlight">\(k\)</span> as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ef28587e-3fb9-4081-a158-7680927e3535">
-<span class="eqno">(171)<a class="headerlink" href="#equation-ef28587e-3fb9-4081-a158-7680927e3535" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9b7879f6-4a7c-42a5-9953-9c4bd81e79c8">
+<span class="eqno">(171)<a class="headerlink" href="#equation-9b7879f6-4a7c-42a5-9953-9c4bd81e79c8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{X} = \big[ \boldsymbol 1 , \mathbf{x}^1, \mathbf{x}^2 , \ldots , \mathbf{x}^k \big],
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\boldsymbol{1}\)</span> is the vector the same length as <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> consisting of of all ones, and <span class="math notranslate nohighlight">\(\mathbf{x}^p\)</span> is the vector <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> with all elements raised to the power <span class="math notranslate nohighlight">\(p\)</span>. Note that <span class="math notranslate nohighlight">\(\boldsymbol{1} = \mathbf{x}^0\)</span> and <span class="math notranslate nohighlight">\(\mathbf{x}^1 = \mathbf{x}\)</span>.</p>
 <p>If we have inputs with more than one feature, we can use a similar design matrix but include all features raised to each power. Imagine that we have two features per data point: <span class="math notranslate nohighlight">\(\mathbf{x}_m\)</span> is a vector of one feature per data point and  <span class="math notranslate nohighlight">\(\mathbf{x}_n\)</span> is another.  Our design matrix for a polynomial regression would be:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ca196bd5-e855-421e-a3e2-84d989f764b1">
-<span class="eqno">(172)<a class="headerlink" href="#equation-ca196bd5-e855-421e-a3e2-84d989f764b1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3b374bb3-16f9-454e-8ac9-991d4b7f9eaf">
+<span class="eqno">(172)<a class="headerlink" href="#equation-3b374bb3-16f9-454e-8ac9-991d4b7f9eaf" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{X} = \big[ \boldsymbol 1 , \mathbf{x}_m^1, \mathbf{x}_n^1, \mathbf{x}_m^2 , \mathbf{x}_n^2\ldots , \mathbf{x}_m^k , \mathbf{x}_n^k \big],
 \end{equation}\]</div>
 <div class="section" id="coding-exercise-2-1-structure-design-matrix">
@@ -2262,8 +2262,8 @@ y = \theta_0 + \theta_1 x + \theta_2 x^2 + \theta_3 x^3 + \epsilon
 <p><em>Estimated timing to here from start of tutorial: 29 min</em></p>
 <p>As with linear regression, we can compute mean squared error (MSE) to get a sense of how well the model fits the data.</p>
 <p>We compute MSE as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-220b46ca-360b-4c18-9ac3-b363b9c1da0d">
-<span class="eqno">(173)<a class="headerlink" href="#equation-220b46ca-360b-4c18-9ac3-b363b9c1da0d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e04c5ede-00c7-4d49-8204-291dff64cfcc">
+<span class="eqno">(173)<a class="headerlink" href="#equation-e04c5ede-00c7-4d49-8204-291dff64cfcc" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathrm{MSE} = \frac 1 N ||\mathbf{y} - \hat{\mathbf{y}}||^2 = \frac 1 N \sum_{i=1}^N (y_i - \hat y_i)^2 
 \end{equation}\]</div>
 <p>where the predicted values for each model are given by <span class="math notranslate nohighlight">\( \hat{\mathbf{y}} = \mathbf{X}\boldsymbol{\hat\theta}\)</span>.</p>
@@ -2350,8 +2350,8 @@ y = \theta_0 + \theta_1 x + \theta_2 x^2 + \theta_3 x^3 + \epsilon
 <hr class="docutils"/>
 <div class="section" id="notation">
 <h1>Notation<a class="headerlink" href="#notation" title="Permalink to this headline">¶</a></h1>
-<div class="amsmath math notranslate nohighlight" id="equation-332560ab-2838-4fc7-b913-cad5701f9fd2">
-<span class="eqno">(174)<a class="headerlink" href="#equation-332560ab-2838-4fc7-b913-cad5701f9fd2" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-43db1c6f-9c53-4b65-97cc-e24eed40a616">
+<span class="eqno">(174)<a class="headerlink" href="#equation-43db1c6f-9c53-4b65-97cc-e24eed40a616" title="Permalink to this equation">¶</a></span>\[\begin{align}
 x &amp;\quad \text{input, independent variable}\\
 y &amp;\quad \text{response measurement, dependent variable}\\
 \epsilon &amp;\quad \text{measurement error, noise contribution}\\

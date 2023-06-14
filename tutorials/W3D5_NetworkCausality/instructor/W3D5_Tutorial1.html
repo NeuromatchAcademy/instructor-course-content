@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -1969,8 +1969,8 @@ Causal questions are everywhere!</p>
 <p>Let’s think carefully about the statement “<strong>A causes B</strong>”. To be concrete, let’s take two neurons. What does it mean to say that neuron <span class="math notranslate nohighlight">\(A\)</span> causes neuron <span class="math notranslate nohighlight">\(B\)</span> to fire?</p>
 <p>The <em>interventional</em> definition of causality says that:</p>
 <br/>
-<div class="amsmath math notranslate nohighlight" id="equation-578d372c-852c-4043-bab3-b908b5b151bc">
-<span class="eqno">(447)<a class="headerlink" href="#equation-578d372c-852c-4043-bab3-b908b5b151bc" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8d341d9e-1094-47d9-83fa-8c9aefa2747e">
+<span class="eqno">(447)<a class="headerlink" href="#equation-8d341d9e-1094-47d9-83fa-8c9aefa2747e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 (A \text{ causes } B) \Leftrightarrow ( \text{ If we force }A \text { to be different, then }B\text{ changes})
 \end{equation}\]</div>
 <br/>
@@ -1978,8 +1978,8 @@ Causal questions are everywhere!</p>
 <p><strong>A mathematical definition of causality</strong>:
 Over many trials, the average causal effect <span class="math notranslate nohighlight">\(\delta_{A\to B}\)</span> of neuron <span class="math notranslate nohighlight">\(A\)</span> upon neuron <span class="math notranslate nohighlight">\(B\)</span> is the average change in neuron <span class="math notranslate nohighlight">\(B\)</span>’s activity when we set <span class="math notranslate nohighlight">\(A=1\)</span> versus when we set <span class="math notranslate nohighlight">\(A=0\)</span>.</p>
 <br/>
-<div class="amsmath math notranslate nohighlight" id="equation-0d41efa9-ce1b-46a9-9107-24f7c5898e84">
-<span class="eqno">(448)<a class="headerlink" href="#equation-0d41efa9-ce1b-46a9-9107-24f7c5898e84" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e1a80840-323a-4d2f-9dd7-ec0c4173807e">
+<span class="eqno">(448)<a class="headerlink" href="#equation-e1a80840-323a-4d2f-9dd7-ec0c4173807e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \delta_{A\to B} = \mathbb{E}[B | A=1] -  \mathbb{E}[B | A=0] 
 \end{equation}\]</div>
 <br/>
@@ -1992,8 +1992,8 @@ The logic we just described is the logic of a randomized control trial (RCT). If
 <div class="section" id="coding-exercise-1-randomized-controlled-trial-for-two-neurons">
 <h2>Coding Exercise 1: Randomized controlled trial for two neurons<a class="headerlink" href="#coding-exercise-1-randomized-controlled-trial-for-two-neurons" title="Permalink to this headline">¶</a></h2>
 <p>Let’s pretend we can perform a randomized controlled trial for two neurons. Our model will have neuron <span class="math notranslate nohighlight">\(A\)</span> synapsing on Neuron <span class="math notranslate nohighlight">\(B\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b303afff-4cb0-4c95-b2f3-6742ad71b276">
-<span class="eqno">(449)<a class="headerlink" href="#equation-b303afff-4cb0-4c95-b2f3-6742ad71b276" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-327ca275-334d-4e40-865b-94b12d83113a">
+<span class="eqno">(449)<a class="headerlink" href="#equation-327ca275-334d-4e40-865b-94b12d83113a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 B = A + \epsilon
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> represent the activities of the two neurons and <span class="math notranslate nohighlight">\(\epsilon\)</span> is standard normal noise <span class="math notranslate nohighlight">\(\epsilon\sim\mathcal{N}(0,1)\)</span>.</p>
@@ -2077,8 +2077,8 @@ B = A + \epsilon
 <summary> <font color="blue">Click here for text recap of video </font></summary>
 <p>Our system has N interconnected neurons that affect each other over time. Each neuron at time <span class="math notranslate nohighlight">\(t+1\)</span> is a function of the activity of the other neurons from the previous time <span class="math notranslate nohighlight">\(t\)</span>.</p>
 <p>Neurons affect each other nonlinearly: each neuron’s activity at time <span class="math notranslate nohighlight">\(t+1\)</span> consists of a linearly weighted sum of all neural activities at time <span class="math notranslate nohighlight">\(t\)</span>, with added noise, passed through a nonlinearity:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6d0519e1-ab54-4fdc-8162-3e40e914b846">
-<span class="eqno">(450)<a class="headerlink" href="#equation-6d0519e1-ab54-4fdc-8162-3e40e914b846" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9d23df0c-5901-4369-a400-7bee94b2b13d">
+<span class="eqno">(450)<a class="headerlink" href="#equation-9d23df0c-5901-4369-a400-7bee94b2b13d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \vec{x}_{t+1} = \sigma(A\vec{x}_t + \epsilon_t),
 \end{equation}\]</div>
 <ul class="simple">
@@ -2133,8 +2133,8 @@ B = A + \epsilon
 <div class="section" id="coding-exercise-2-system-simulation">
 <h2>Coding Exercise 2: System simulation<a class="headerlink" href="#coding-exercise-2-system-simulation" title="Permalink to this headline">¶</a></h2>
 <p>In this exercise we’re going to simulate the system. Please complete the following function so that at every timestep the activity vector <span class="math notranslate nohighlight">\(x\)</span> is updated according to:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9a1d4f86-d0f4-4fc3-a2e3-e4013e9464d3">
-<span class="eqno">(451)<a class="headerlink" href="#equation-9a1d4f86-d0f4-4fc3-a2e3-e4013e9464d3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d5818b74-8786-4bf0-99f8-6f4ac0ae9928">
+<span class="eqno">(451)<a class="headerlink" href="#equation-d5818b74-8786-4bf0-99f8-6f4ac0ae9928" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \vec{x}_{t+1} = \sigma(A\vec{x}_t + \epsilon_t).
 \end{equation}\]</div>
 <p>We will use helper function <code class="docutils literal notranslate"><span class="pre">sigmoid</span></code>, defined in the cell below.</p>
@@ -2273,13 +2273,13 @@ B = A + \epsilon
 <h2>Section 3.1: Random perturbation in our system of neurons<a class="headerlink" href="#section-3-1-random-perturbation-in-our-system-of-neurons" title="Permalink to this headline">¶</a></h2>
 <p>We want to get the causal effect of each neuron upon each other neuron. The ground truth of the causal effects is the connectivity matrix <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <p>Remember that we would like to calculate:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2eef5526-3e25-4083-81d3-73c4421b4509">
-<span class="eqno">(452)<a class="headerlink" href="#equation-2eef5526-3e25-4083-81d3-73c4421b4509" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7ca1f932-7609-472a-b82b-383582b5483a">
+<span class="eqno">(452)<a class="headerlink" href="#equation-7ca1f932-7609-472a-b82b-383582b5483a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \delta_{A\to B} = \mathbb{E}[B | A=1] -  \mathbb{E}[B | A=0] 
 \end{equation}\]</div>
 <p>We’ll do this by randomly setting the system state to 0 or 1 and observing the outcome after one timestep. If we do this <span class="math notranslate nohighlight">\(N\)</span> times, the effect of neuron <span class="math notranslate nohighlight">\(i\)</span> upon neuron <span class="math notranslate nohighlight">\(j\)</span> is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ba7693c9-b3a7-44df-86b5-cc8a9c8d4b22">
-<span class="eqno">(453)<a class="headerlink" href="#equation-ba7693c9-b3a7-44df-86b5-cc8a9c8d4b22" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f8f138d2-47af-410f-912d-4266b7371fe4">
+<span class="eqno">(453)<a class="headerlink" href="#equation-f8f138d2-47af-410f-912d-4266b7371fe4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \delta_{x^i\to x^j} \approx \frac1N \sum_{\substack{t=0, \ t \text{ even}}}^N[x_{t+1}^j | x^i_t=1] - \frac1N \sum_{\substack{t=0, \ t \text{ even}}}^N[x_{t+1}^j | x^i_t=0]
 \end{equation}\]</div>
 <p>This is just the average difference of the activity of neuron <span class="math notranslate nohighlight">\(j\)</span> in the two conditions.</p>
@@ -2361,8 +2361,8 @@ B = A + \epsilon
 <div class="section" id="coding-exercise-3-2-using-perturbed-dynamics-to-recover-connectivity">
 <h3>Coding Exercise 3.2: Using perturbed dynamics to recover connectivity<a class="headerlink" href="#coding-exercise-3-2-using-perturbed-dynamics-to-recover-connectivity" title="Permalink to this headline">¶</a></h3>
 <p>From the above perturbed dynamics, write a function that recovers the causal effect of a given single neuron (<code class="docutils literal notranslate"><span class="pre">selected_neuron</span></code>) upon all other neurons in the system. Remember from above you’re calculating:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ec21e010-f85f-4445-982f-b921edb1b8b2">
-<span class="eqno">(454)<a class="headerlink" href="#equation-ec21e010-f85f-4445-982f-b921edb1b8b2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-86794d1a-5016-4b4d-9e69-e453b8d546b8">
+<span class="eqno">(454)<a class="headerlink" href="#equation-86794d1a-5016-4b4d-9e69-e453b8d546b8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \delta_{x^i\to x^j} \approx \frac1N \sum_{\substack{t=0, \ t \text{ even}}}^N[x_{t+1}^j | x^i_t=1] - \frac1N \sum_{\substack{t=0, \ t \text{ even}}}^N[x_{t+1}^j | x^i_t=0]
 \end{equation}\]</div>
 <p>Recall that we perturbed every neuron at every other timestep. Despite perturbing every neuron, in this exercise we are concentrating on computing the causal effect of a single neuron (we will look at all neurons effects on all neurons next). We want to exclusively use the timesteps without perturbation for <span class="math notranslate nohighlight">\(x^j_{t+1}\)</span> and the timesteps with perturbation for <span class="math notranslate nohighlight">\(x^j_{t}\)</span> in the formulas above. In numpy, indexing occurs as <code class="docutils literal notranslate"><span class="pre">array[</span> <span class="pre">start_index</span> <span class="pre">:</span> <span class="pre">end_index</span> <span class="pre">:</span> <span class="pre">count_by]</span></code>. So getting every other element in an array (such as every other timestep) is as easy as <code class="docutils literal notranslate"><span class="pre">array[::2]</span></code>.</p>
@@ -2607,16 +2607,16 @@ B = A + \epsilon
 <p><strong>This is an explanation of what the code is doing in <code class="docutils literal notranslate"><span class="pre">get_perturbed_connectivity_all_neurons()</span></code></strong></p>
 <p>First, we compute an estimated connectivity matrix <span class="math notranslate nohighlight">\(R\)</span>. We extract
 perturbation matrix <span class="math notranslate nohighlight">\(P\)</span> and outcomes matrix <span class="math notranslate nohighlight">\(O\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7c16db21-1f23-471e-bca7-c117934f1a4d">
-<span class="eqno">(455)<a class="headerlink" href="#equation-7c16db21-1f23-471e-bca7-c117934f1a4d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1c2362ae-774b-445e-872d-20cbbce443bd">
+<span class="eqno">(455)<a class="headerlink" href="#equation-1c2362ae-774b-445e-872d-20cbbce443bd" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P = \begin{bmatrix}
 \mid &amp; \mid &amp; ... &amp; \mid \\ 
 x_0  &amp; x_2  &amp; ... &amp; x_T  \\ 
 \mid &amp; \mid &amp; ... &amp; \mid
 \end{bmatrix}_{n \times T/2}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-2e1bc948-72a5-415d-8d8f-e16e1b18bebd">
-<span class="eqno">(456)<a class="headerlink" href="#equation-2e1bc948-72a5-415d-8d8f-e16e1b18bebd" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0b116873-759a-4a19-bfb1-755ee2fd652c">
+<span class="eqno">(456)<a class="headerlink" href="#equation-0b116873-759a-4a19-bfb1-755ee2fd652c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 O = \begin{bmatrix}
 \mid &amp; \mid &amp; ... &amp; \mid \\ 
 x_1  &amp; x_3  &amp; ... &amp; x_{T-1}  \\ 
@@ -2624,8 +2624,8 @@ x_1  &amp; x_3  &amp; ... &amp; x_{T-1}  \\
 \end{bmatrix}_{n \times T/2}
 \end{equation}\]</div>
 <p>And calculate the correlation of matrix <span class="math notranslate nohighlight">\(S\)</span>, which is <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(O\)</span> stacked on each other:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6bc79f72-223c-4209-870d-c165ac1288f9">
-<span class="eqno">(457)<a class="headerlink" href="#equation-6bc79f72-223c-4209-870d-c165ac1288f9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-07ffb8a7-366a-426f-8e7c-add5b6efb1a5">
+<span class="eqno">(457)<a class="headerlink" href="#equation-07ffb8a7-366a-426f-8e7c-add5b6efb1a5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 S = \begin{bmatrix}
 P  \\ 
 O

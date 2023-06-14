@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -2036,22 +2036,22 @@ const thebe_selector_output = ".output, .cell_output"
 <summary> <font color="blue">Click here for text recap of video </font></summary>
 <p>Now, it’s your turn to implement one of the simplest mathematical model of a neuron: the leaky integrate-and-fire (LIF) model. The basic idea of LIF neuron was proposed in 1907 by Louis Édouard Lapicque, long before we understood the electrophysiology of a neuron (see a translation of <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/17968583/">Lapicque’s paper</a> ). More details of the model can be found in the book <a class="reference external" href="http://www.gatsby.ucl.ac.uk/~dayan/book/"><strong>Theoretical neuroscience</strong></a> by Peter Dayan and Laurence F. Abbott.</p>
 <p>The subthreshold membrane potential dynamics of a LIF neuron is described by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e91a9bd5-5aaf-45bd-865f-f2663d7b1489">
-<span class="eqno">(282)<a class="headerlink" href="#equation-e91a9bd5-5aaf-45bd-865f-f2663d7b1489" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-d62b2458-f5a3-43ef-880d-f510131af5e2">
+<span class="eqno">(282)<a class="headerlink" href="#equation-d62b2458-f5a3-43ef-880d-f510131af5e2" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray}
 C_m\frac{dV}{dt} = -g_L(V-E_L) + I,\quad (1)
 \end{eqnarray}\]</div>
 <p>where <span class="math notranslate nohighlight">\(C_m\)</span> is the membrane capacitance, <span class="math notranslate nohighlight">\(V\)</span> is the membrane potential, <span class="math notranslate nohighlight">\(g_L\)</span> is the leak conductance (<span class="math notranslate nohighlight">\(g_L = 1/R\)</span>, the inverse of the leak resistance <span class="math notranslate nohighlight">\(R\)</span> mentioned in previous tutorials), <span class="math notranslate nohighlight">\(E_L\)</span> is the resting potential, and <span class="math notranslate nohighlight">\(I\)</span> is the external input current.</p>
 <p>Dividing both sides of the above equation by <span class="math notranslate nohighlight">\(g_L\)</span> gives</p>
-<div class="amsmath math notranslate nohighlight" id="equation-977d0320-eb38-4b69-8405-1934b4c5e343">
-<span class="eqno">(283)<a class="headerlink" href="#equation-977d0320-eb38-4b69-8405-1934b4c5e343" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9256fdb5-cb85-4287-8c9e-b2a11feb600a">
+<span class="eqno">(283)<a class="headerlink" href="#equation-9256fdb5-cb85-4287-8c9e-b2a11feb600a" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \tau_m\frac{dV}{dt} = -(V-E_L) + \frac{I}{g_L}\,,\quad (2)
 \end{align}\]</div>
 <p>where the <span class="math notranslate nohighlight">\(\tau_m\)</span> is membrane time constant and is defined as <span class="math notranslate nohighlight">\(\tau_m=C_m/g_L\)</span>.</p>
 <p>Note that dividing capacitance by conductance gives units of time!</p>
 <p>Below, we will use Eqn.(2) to simulate LIF neuron dynamics.</p>
 <p>If <span class="math notranslate nohighlight">\(I\)</span> is sufficiently strong such that <span class="math notranslate nohighlight">\(V\)</span> reaches a certain threshold value <span class="math notranslate nohighlight">\(V_{\rm th}\)</span>, <span class="math notranslate nohighlight">\(V\)</span> is reset to a reset potential <span class="math notranslate nohighlight">\(V_{\rm reset}&lt; V_{\rm th}\)</span>, and voltage is clamped to <span class="math notranslate nohighlight">\(V_{\rm reset}\)</span> for <span class="math notranslate nohighlight">\(\tau_{\rm ref}\)</span> ms, mimicking the refractoriness of the neuron during an action potential:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b24f7b96-6043-422e-ba22-f06c20e041e7">
-<span class="eqno">(284)<a class="headerlink" href="#equation-b24f7b96-6043-422e-ba22-f06c20e041e7" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-be17004a-32df-455f-b77d-b5b11be5d695">
+<span class="eqno">(284)<a class="headerlink" href="#equation-be17004a-32df-455f-b77d-b5b11be5d695" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray}
 \mathrm{if}\quad V(t_{\text{sp}})\geq V_{\rm th}&amp;:&amp; V(t)=V_{\rm reset} \text{  for } t\in(t_{\text{sp}}, t_{\text{sp}} + \tau_{\text{ref}}]
 \end{eqnarray}\]</div>
 <p>where <span class="math notranslate nohighlight">\(t_{\rm sp}\)</span> is the spike time when <span class="math notranslate nohighlight">\(V(t)\)</span> just exceeded <span class="math notranslate nohighlight">\(V_{\rm th}\)</span>.</p>
@@ -2070,8 +2070,8 @@ C_m\frac{dV}{dt} = -g_L(V-E_L) + I,\quad (1)
 <div class="section" id="coding-exercise-1-python-code-to-simulate-the-lif-neuron">
 <h2>Coding Exercise 1: Python code to simulate the LIF neuron<a class="headerlink" href="#coding-exercise-1-python-code-to-simulate-the-lif-neuron" title="Permalink to this headline">¶</a></h2>
 <p>We now write Python code to calculate our equation for the LIF neuron and simulate the LIF neuron dynamics. We will use the Euler method, which you saw in the linear systems case yesterday  to numerically integrate this equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ecf53e76-6d62-4dce-b431-4f596094edda">
-<span class="eqno">(285)<a class="headerlink" href="#equation-ecf53e76-6d62-4dce-b431-4f596094edda" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b5819105-6422-442f-8bb1-522140b861ea">
+<span class="eqno">(285)<a class="headerlink" href="#equation-b5819105-6422-442f-8bb1-522140b861ea" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \tau_m\frac{dV}{dt} = -(V-E_L) + \frac{I}{g_L}\,
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(V\)</span> is the membrane potential, <span class="math notranslate nohighlight">\(g_L\)</span> is the leak conductance, <span class="math notranslate nohighlight">\(E_L\)</span> is the resting potential, <span class="math notranslate nohighlight">\(I\)</span> is the external input current, and <span class="math notranslate nohighlight">\(\tau_m\)</span> is membrane time constant.</p>
@@ -2461,8 +2461,8 @@ C_m\frac{dV}{dt} = -g_L(V-E_L) + I,\quad (1)
 <p><em>Estimated timing to here from start of tutorial: 48 min</em></p>
 <p>When we plot the output firing rate as a function of GWN mean or DC value, it is called the input-output transfer function of the neuron (so simply F-I curve).</p>
 <p>Spike regularity can be quantified as the <strong>coefficient of variation (CV) of the interspike interval (ISI)</strong>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a5c72c91-bf8a-43ad-b03e-22a5f0f998f6">
-<span class="eqno">(286)<a class="headerlink" href="#equation-a5c72c91-bf8a-43ad-b03e-22a5f0f998f6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-745eb0cc-c14a-4116-b665-b3af0ad2fb93">
+<span class="eqno">(286)<a class="headerlink" href="#equation-745eb0cc-c14a-4116-b665-b3af0ad2fb93" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \text{CV}_{\text{ISI}} = \frac{std(\text{ISI})}{mean(\text{ISI})}
 \end{equation}\]</div>
 <p>A Poisson train is an example of high irregularity, in which <span class="math notranslate nohighlight">\(\textbf{CV}_{\textbf{ISI}} \textbf{= 1}\)</span>. And for a clocklike (regular) process we have <span class="math notranslate nohighlight">\(\textbf{CV}_{\textbf{ISI}} \textbf{= 0}\)</span> because of <strong>std(ISI)=0</strong>.</p>
@@ -2744,18 +2744,18 @@ C_m\frac{dV}{dt} = -g_L(V-E_L) + I,\quad (1)
 <p>When a neuron receives spiking input, the synaptic current is Shot Noise – which is a kind of colored noise and the spectrum of the noise determined by the synaptic kernel time constant. That is, a neuron is driven by <strong>colored noise</strong> and not GWN.</p>
 <p>We can model colored noise using the Ornstein-Uhlenbeck process - filtered white noise.</p>
 <p>We next study if the input current is temporally correlated and is modeled as an Ornstein-Uhlenbeck process <span class="math notranslate nohighlight">\(\eta(t)\)</span>, i.e., low-pass filtered GWN with a time constant <span class="math notranslate nohighlight">\(\tau_{\eta}\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1448c082-cd62-4ac3-8e81-b5989804bceb">
-<span class="eqno">(287)<a class="headerlink" href="#equation-1448c082-cd62-4ac3-8e81-b5989804bceb" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9dd44952-eb15-4b4e-9f8a-188c57a35f10">
+<span class="eqno">(287)<a class="headerlink" href="#equation-9dd44952-eb15-4b4e-9f8a-188c57a35f10" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \tau_\eta \frac{d}{dt}\eta(t) = \mu-\eta(t) + \sigma_\eta\sqrt{2\tau_\eta}\xi(t)
 \end{equation}\]</div>
 <p><strong>Hint:</strong> An OU process as defined above has</p>
-<div class="amsmath math notranslate nohighlight" id="equation-92d604e1-7525-4727-9dad-6fd4e8f6e98f">
-<span class="eqno">(288)<a class="headerlink" href="#equation-92d604e1-7525-4727-9dad-6fd4e8f6e98f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5d96169c-efdc-4f63-ac39-ce687c243d5e">
+<span class="eqno">(288)<a class="headerlink" href="#equation-5d96169c-efdc-4f63-ac39-ce687c243d5e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbb{E}[\eta(t)]=\mu
 \end{equation}\]</div>
 <p>and autocovariance</p>
-<div class="amsmath math notranslate nohighlight" id="equation-574352e5-6b91-4fa6-8324-b3b02ca449c0">
-<span class="eqno">(289)<a class="headerlink" href="#equation-574352e5-6b91-4fa6-8324-b3b02ca449c0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-03194245-7926-4cbb-9630-6747e8e3c02f">
+<span class="eqno">(289)<a class="headerlink" href="#equation-03194245-7926-4cbb-9630-6747e8e3c02f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 [\eta(t)\eta(t+\tau)]=\sigma_\eta^2e^{-|t-\tau|/\tau_\eta}
 \end{equation}\]</div>
 <p>which can be used to check your code.</p>

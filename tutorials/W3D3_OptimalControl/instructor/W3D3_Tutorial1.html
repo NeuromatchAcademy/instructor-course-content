@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -2402,8 +2402,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>To decide “wisely” and maximize your total utility (total points), you will follow a <strong>policy</strong> that prescribes what to do in any situation. Here the situation is determined by your location and your <strong>belief</strong> <span class="math notranslate nohighlight">\(b_t\)</span> (posterior) about the fish location (remember that the fish location is a latent variable).</p>
 <p>In optimal control theory, the belief is the posterior probability over the latent variable given all the past measurements. It can be shown that maximizing the expected utility with respect to this posterior is optimal.</p>
 <p>In our problem, the belief can be represented by a single number because the fish are either on the left or the right side. So we write:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-314729c9-c211-45cb-8185-f2e3b3ba9cf1">
-<span class="eqno">(418)<a class="headerlink" href="#equation-314729c9-c211-45cb-8185-f2e3b3ba9cf1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3a9ba417-48e2-4d20-aa4f-28d9c5e3948c">
+<span class="eqno">(418)<a class="headerlink" href="#equation-3a9ba417-48e2-4d20-aa4f-28d9c5e3948c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 b_t = p(s^{\rm fish}_t = {\rm Right}\  |\  m_{0:t}, a_{0:t-1})
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(m_{0:t}\)</span> are the measurements and <span class="math notranslate nohighlight">\(a_{0:t-1}\)</span> are the actions (stay or switch).</p>
@@ -2836,8 +2836,8 @@ b_t = p(s^{\rm fish}_t = {\rm Right}\  |\  m_{0:t}, a_{0:t-1})
 <h2>Coding Exercise 5: Implementing a value function<a class="headerlink" href="#coding-exercise-5-implementing-a-value-function" title="Permalink to this headline">¶</a></h2>
 <p>Let’s find out how good our threshold is. For that, we will calculate a <strong>value function</strong> that quantifies our utility (total points). We will use this value to compare different thresholds; remember, our goal is to maximize the amount of fish we catch while minimizing the effort involved in changing locations.</p>
 <p>The value is the total expected utility per unit time.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8e022dd4-cb21-4609-8603-6ade7b2a3f8f">
-<span class="eqno">(419)<a class="headerlink" href="#equation-8e022dd4-cb21-4609-8603-6ade7b2a3f8f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b2e4b39d-e38a-4386-b818-f4fb29487ec9">
+<span class="eqno">(419)<a class="headerlink" href="#equation-b2e4b39d-e38a-4386-b818-f4fb29487ec9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 V(\theta) = \frac{1}{T}\left( \sum_t R(s_t) - C(a_t) \right)
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(R(s_t)\)</span> is the instantaneous reward we get at location <span class="math notranslate nohighlight">\(s_t\)</span> and <span class="math notranslate nohighlight">\(C(a_t)\)</span> is the cost we paid for the chosen action. Remember, we receive one point for fish caught and pay <code class="docutils literal notranslate"><span class="pre">cost_sw</span></code> points for switching to the other location.</p>

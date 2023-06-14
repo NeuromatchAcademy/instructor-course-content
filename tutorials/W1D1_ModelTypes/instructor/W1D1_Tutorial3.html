@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -1924,8 +1924,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Neurons can only fire so often in a fixed period of time, as the act of emitting a spike consumes energy that is depleted and must eventually be replenished. To communicate effectively for downstream computation, the neuron would need to make good use of its limited spiking capability. This becomes an optimization problem:</p>
 <p>What is the optimal way for a neuron to fire in order to maximize its ability to communicate information?</p>
 <p>In order to explore this question, we first need to have a quantifiable measure for information. Shannon introduced the concept of entropy to do just that, and defined it as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4a7f97e1-e0f4-428c-9e71-d62496e04e07">
-<span class="eqno">(131)<a class="headerlink" href="#equation-4a7f97e1-e0f4-428c-9e71-d62496e04e07" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bea52b44-0e42-430c-8a38-a0f1533e230b">
+<span class="eqno">(131)<a class="headerlink" href="#equation-bea52b44-0e42-430c-8a38-a0f1533e230b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 H_b(X) = -\sum_{x\in X} p(x) \log_b p(x)
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(H\)</span> is entropy measured in units of base <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(p(x)\)</span> is the probability of observing the event <span class="math notranslate nohighlight">\(x\)</span> from the set of all possible events in <span class="math notranslate nohighlight">\(X\)</span>. See the Bonus Section 1 for a more detailed look at how this equation was derived.</p>
@@ -2085,8 +2085,8 @@ H_b(X) = -\sum_{x\in X} p(x) \log_b p(x)
 <p>Likewise, if we make one of the peaks taller (i.e. its point holds more of the probability mass) and the other one shorter, the entropy will decrease because of the increased certainty that the sample will fall on one point and not the other: : <span class="math notranslate nohighlight">\(-(0.2 \log_2 0.2 + 0.8\log_2 0.8)\approx 0.72\)</span></p>
 <p>Try changing the definition of the number and weighting of peaks, and see how the entropy varies.</p>
 <p>If we split the probability mass among even more points, the entropy continues to increase. Let’s derive the general form for <span class="math notranslate nohighlight">\(N\)</span> points of equal mass, where <span class="math notranslate nohighlight">\(p_i=p=1/N\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8228ed63-94e5-4f40-a4c8-4701603412cb">
-<span class="eqno">(132)<a class="headerlink" href="#equation-8228ed63-94e5-4f40-a4c8-4701603412cb" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1b260517-63a7-4717-9357-5024c8f3b4d7">
+<span class="eqno">(132)<a class="headerlink" href="#equation-1b260517-63a7-4717-9357-5024c8f3b4d7" title="Permalink to this equation">¶</a></span>\[\begin{align}
 -\sum_i p_i \log_b p_i &amp;= -\sum_i^N \frac{1}{N} \log_b \frac{1}{N} \\
 &amp;= -\log_b \frac{1}{N} \\
 &amp;= \log_b N
@@ -2208,8 +2208,8 @@ H_b(X) = -\sum_{x\in X} p(x) \log_b p(x)
 </div>
 <p>In the previous example we created the PMFs by hand to illustrate idealized scenarios. How would we compute them from data recorded from actual neurons?</p>
 <p>One way is to convert the ISI histograms we’ve previously computed into discrete probability distributions using the following equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a8297a63-8200-4416-bf20-76599532ff14">
-<span class="eqno">(133)<a class="headerlink" href="#equation-a8297a63-8200-4416-bf20-76599532ff14" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6ed95695-9e5b-4c87-9a1a-d8e226f4cbf0">
+<span class="eqno">(133)<a class="headerlink" href="#equation-6ed95695-9e5b-4c87-9a1a-d8e226f4cbf0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 p_i = \frac{n_i}{\sum\nolimits_{i}n_i}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(p_i\)</span> is the probability of an ISI falling within a particular interval <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(n_i\)</span> is the count of how many ISIs were observed in that interval.</p>
@@ -2367,8 +2367,8 @@ p_i = \frac{n_i}{\sum\nolimits_{i}n_i}
 <hr class="docutils"/>
 <div class="section" id="notation">
 <h1>Notation<a class="headerlink" href="#notation" title="Permalink to this headline">¶</a></h1>
-<div class="amsmath math notranslate nohighlight" id="equation-236aa21d-4e55-4c0e-ac2a-c44891ada2df">
-<span class="eqno">(134)<a class="headerlink" href="#equation-236aa21d-4e55-4c0e-ac2a-c44891ada2df" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b562f18b-3534-4636-861f-8a720f5d7a7f">
+<span class="eqno">(134)<a class="headerlink" href="#equation-b562f18b-3534-4636-861f-8a720f5d7a7f" title="Permalink to this equation">¶</a></span>\[\begin{align}
 H(X) &amp;\quad \text{entropy of random variable X}\\
 b &amp;\quad \text{base, e.g. b=2 or b=e}\\
 x &amp;\quad \text{event x}\\
@@ -2410,14 +2410,14 @@ p_i  &amp;\quad \text{probability of of an ISI falling within a particular inter
 </li>
 </ul>
 <p>There is a unique function (up to a linear scaling factor) which satisfies these 3 requirements:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9cdd9b53-0113-431f-bae9-1aa5e14f1f88">
-<span class="eqno">(135)<a class="headerlink" href="#equation-9cdd9b53-0113-431f-bae9-1aa5e14f1f88" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-99cab97c-6174-43ff-9d2d-488c68604dfd">
+<span class="eqno">(135)<a class="headerlink" href="#equation-99cab97c-6174-43ff-9d2d-488c68604dfd" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 H_b(X) = -\sum_{x\in X} p(x) \log_b p(x)
 \end{equation}\]</div>
 <p>Where the base of the logarithm <span class="math notranslate nohighlight">\(b&gt;1\)</span> controls the units of entropy. The two most common cases are <span class="math notranslate nohighlight">\(b=2\)</span> for units of <em>bits</em>, and <span class="math notranslate nohighlight">\(b=e\)</span> for <em>nats</em>.</p>
 <p>We can view this function as the expectation of the self-information over a distribution:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ce785b20-991b-4007-9c1f-75584935dd83">
-<span class="eqno">(136)<a class="headerlink" href="#equation-ce785b20-991b-4007-9c1f-75584935dd83" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-21f8c98c-eddc-4740-9c88-52118cf804e7">
+<span class="eqno">(136)<a class="headerlink" href="#equation-21f8c98c-eddc-4740-9c88-52118cf804e7" title="Permalink to this equation">¶</a></span>\[\begin{align}
 H_b(X) &amp;= \mathbb{E}_{x\in X} \left[I_b(x)\right]\\
 I_b(x) &amp;= -\log_b p(x)
 \end{align}\]</div>

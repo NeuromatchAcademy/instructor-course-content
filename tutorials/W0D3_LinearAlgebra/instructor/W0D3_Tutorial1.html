@@ -88,6 +88,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
+   TA Training: Computational Neuroscience (CN)
+  </a>
+</li>
+</ul>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children">
 <a class="reference internal" href="../../Schedule/schedule_intro.html">
    Schedule
@@ -168,13 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1">
 <a class="reference internal" href="../../../prereqs/ComputationalNeuroscience.html">
    Prerequisites and preparatory materials for NMA Computational Neuroscience
-  </a>
-</li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1">
-<a class="reference internal" href="../../../tatraining/TA_Training_CN.html">
-   TA Training - Computational Neuroscience
   </a>
 </li>
 </ul>
@@ -2003,14 +2003,14 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The <strong>dimensionality of a vector</strong> is determined by the number of components in the ordered list (or the dimensionality of the space in which the arrow exists). For example, <span class="math notranslate nohighlight">\(\mathbf{x} = \begin{bmatrix} 4 \\ 2 \\ 1 \end{bmatrix}\)</span> is a 3 dimensional vector. We can refer to components by <span class="math notranslate nohighlight">\(\mathbf{x}_i\)</span> where i indicates the position of the component. In this vector, <span class="math notranslate nohighlight">\(\mathbf{x_1} = 4\)</span>, <span class="math notranslate nohighlight">\(\mathbf{x_2} = 2\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{x_3} = 1\)</span>.</p>
 <p><br/><br/>
 One defining property of a vector is its length: <span class="math notranslate nohighlight">\(||\mathbf{x}||\)</span>. This is the length of the arrow and can be computed as the square root of the sum of all components squared:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ab601c85-e1ce-4ff1-b9b0-a1ef2a0c4bd2">
-<span class="eqno">(8)<a class="headerlink" href="#equation-ab601c85-e1ce-4ff1-b9b0-a1ef2a0c4bd2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ed97ffe4-bfe2-431e-9754-951c454c4c1b">
+<span class="eqno">(8)<a class="headerlink" href="#equation-ed97ffe4-bfe2-431e-9754-951c454c4c1b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 ||\mathbf{x}|| = \sqrt{\sum_{i=1}^N \mathbf{x}_i^2}
 \end{equation}\]</div>
 <p><br/><br/>
 We have two special types of vectors with specific names. <strong>Zero vectors</strong> have length 0 (and all components equal 0). <strong>Unit vectors</strong> have length 1. You can normalize a vector and create a unit vector, <span class="math notranslate nohighlight">\(\tilde{\mathbf{x}}\)</span>, by dividing by its length,<span class="math notranslate nohighlight">\(||\mathbf{x}||\)</span> :</p>
-<div class="amsmath math notranslate nohighlight" id="equation-30c20810-0e0a-4f0f-b89a-f2954eb17581">
-<span class="eqno">(9)<a class="headerlink" href="#equation-30c20810-0e0a-4f0f-b89a-f2954eb17581" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-507dfcc5-90b4-43a2-a11f-19d7362fc45c">
+<span class="eqno">(9)<a class="headerlink" href="#equation-507dfcc5-90b4-43a2-a11f-19d7362fc45c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \tilde{\mathbf{x}} = \frac{\mathbf{x}}{||\mathbf{x}||}
 \end{equation}\]</div>
 </details></div>
@@ -2018,8 +2018,8 @@ We have two special types of vectors with specific names. <strong>Zero vectors</
 <h3>Coding Exercise 1.1: Normalizing vectors<a class="headerlink" href="#coding-exercise-1-1-normalizing-vectors" title="Permalink to this headline">¶</a></h3>
 <p>In this exercise, you will first create the below vector, <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>, using a numpy array. You will then implement a function, <code class="docutils literal notranslate"><span class="pre">normalize_vector</span></code>, that outputs a normalized version of the input vector (by dividing each component by the vector length).  You will then visualize both the original vector and the unit vector.</p>
 <p>First think: how do you think the normalized unit vector will compare to the original vector in terms of direction and length?</p>
-<div class="amsmath math notranslate nohighlight" id="equation-010e5fc1-2aac-47c5-b29b-31dc8244ac6e">
-<span class="eqno">(10)<a class="headerlink" href="#equation-010e5fc1-2aac-47c5-b29b-31dc8244ac6e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-794ef6e5-51d7-4380-a0c4-2d96a24da31a">
+<span class="eqno">(10)<a class="headerlink" href="#equation-794ef6e5-51d7-4380-a0c4-2d96a24da31a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{v} = 
 \begin{bmatrix}
 4 \\
@@ -2127,8 +2127,8 @@ We have two special types of vectors with specific names. <strong>Zero vectors</
 <div class="section" id="interactive-demo-linear-combination-of-vectors">
 <h3>Interactive Demo: Linear combination of vectors<a class="headerlink" href="#interactive-demo-linear-combination-of-vectors" title="Permalink to this headline">¶</a></h3>
 <p>In the following demo, we will demonstrate a linear combination of two vectors, <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-133bb150-2fff-4a93-8051-15558a25bce0">
-<span class="eqno">(11)<a class="headerlink" href="#equation-133bb150-2fff-4a93-8051-15558a25bce0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-43f5aa3d-7802-4bbc-808b-709c77fd027b">
+<span class="eqno">(11)<a class="headerlink" href="#equation-43f5aa3d-7802-4bbc-808b-709c77fd027b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{z} = a\mathbf{x} + b\mathbf{y}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathbf{x} = \begin{bmatrix}3 \\ 1 \end{bmatrix}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y} = \begin{bmatrix}-1 \\ 2 \end{bmatrix}\)</span>.</p>
@@ -2229,8 +2229,8 @@ We have two special types of vectors with specific names. <strong>Zero vectors</
 <div class="section" id="think-2-1-determing-dependence">
 <h3>Think! 2.1: Determing dependence<a class="headerlink" href="#think-2-1-determing-dependence" title="Permalink to this headline">¶</a></h3>
 <p>Let’s say we have four vectors:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-45deff4b-aceb-43d7-87c2-519e704bb69b">
-<span class="eqno">(12)<a class="headerlink" href="#equation-45deff4b-aceb-43d7-87c2-519e704bb69b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-130c44e3-35b7-480e-b1d5-d0e6149312eb">
+<span class="eqno">(12)<a class="headerlink" href="#equation-130c44e3-35b7-480e-b1d5-d0e6149312eb" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{a} = 
 \begin{bmatrix} 4 \\ 2 \\ 0 \end{bmatrix},
 \mathbf{b} = \begin{bmatrix} 1 \\ 0 \\ 3 \end{bmatrix}, 
@@ -2316,8 +2316,8 @@ We have two special types of vectors with specific names. <strong>Zero vectors</
 <details>
 <summary> <font color="blue">Click here for text recap of video </font></summary>
 <p>If a set of vectors spans 2D space are linearly independent, they form a <strong>basis</strong> for 2D space.  This means that we can identify all points in 2D space with reference to these two vectors, instead of to the traditional x-axis and y-axis coordinates. In fact, you’ve been using a basis all along when you identify points by their x-axis and y-axis coordinates: the <strong>standard basis</strong>! In 2D space, the standard basis vectors (<span class="math notranslate nohighlight">\(\tilde{\mathbf{e}}_1\)</span> and <span class="math notranslate nohighlight">\(\tilde{\mathbf{e}}_2\)</span>) are the unit vectors corresponding to the x and y axes:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f37e9f32-a65e-473b-aa0f-373a499e8e17">
-<span class="eqno">(13)<a class="headerlink" href="#equation-f37e9f32-a65e-473b-aa0f-373a499e8e17" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6378a40c-4f75-4d9b-94d5-3f05cd412403">
+<span class="eqno">(13)<a class="headerlink" href="#equation-6378a40c-4f75-4d9b-94d5-3f05cd412403" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \tilde{\mathbf{e}}_1 = \begin{bmatrix} 1\\ 0\\ \end{bmatrix},
 \tilde{\mathbf{e}}_2 = \begin{bmatrix} 0\\ 1\\ \end{bmatrix}
 \end{equation}\]</div>
@@ -2389,13 +2389,13 @@ We have two special types of vectors with specific names. <strong>Zero vectors</
 <details>
 <summary> <font color="blue">Click here for text recap of video </font></summary>
 <p>The dot product between two vectors is a scalar value computed as the sum of element-wise multiplication of vector components.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-76c98336-b130-404f-afa3-f525d5b2084d">
-<span class="eqno">(14)<a class="headerlink" href="#equation-76c98336-b130-404f-afa3-f525d5b2084d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e0a2111e-58b8-45b6-8c3b-540da69c1339">
+<span class="eqno">(14)<a class="headerlink" href="#equation-e0a2111e-58b8-45b6-8c3b-540da69c1339" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \text{Dot product of } \mathbf{x} \text{ and } \mathbf{y} = \mathbf{x} \cdot \mathbf{y} = \sum_{i=1}^{N} \mathbf{x}_i\mathbf{y}_i
 \end{equation}\]</div>
 <p>If we have vector <span class="math notranslate nohighlight">\(\mathbf{x} = \begin{bmatrix}2\\ 3\\\end{bmatrix}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y} = \begin{bmatrix}1\\ 4\\\end{bmatrix}\)</span>, then:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4c3af32b-2ad0-4564-bfc0-f5fff05056ef">
-<span class="eqno">(15)<a class="headerlink" href="#equation-4c3af32b-2ad0-4564-bfc0-f5fff05056ef" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-27f589b6-4217-482c-bf7a-fb76b58d9bba">
+<span class="eqno">(15)<a class="headerlink" href="#equation-27f589b6-4217-482c-bf7a-fb76b58d9bba" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{x} \cdot \mathbf{y} = 2*1 + 3*4 = 14\text{.}
 \end{equation}\]</div>
 <p>We will discuss more about what the dot product represents geometrically after the next demo.</p>
@@ -2410,8 +2410,8 @@ We have two special types of vectors with specific names. <strong>Zero vectors</
 <p>In the following demo, we have two retinal neurons with varying firing rates (<span class="math notranslate nohighlight">\(r_1\)</span> and <span class="math notranslate nohighlight">\(r_2\)</span>). We will allow our firing rates to be negative in this example. We can represent our retinal firing rates with the vector <span class="math notranslate nohighlight">\(\mathbf{r} = \begin{bmatrix} r_1\\ r_2\\ \end{bmatrix}\)</span>.</p>
 <p>We have weights from each of these to an LGN neuron: the weight of the connection from the first retinal neuron is 1 and the weight from the second is 2. See the circuit below. We can represent our weights with the vector <span class="math notranslate nohighlight">\(\mathbf{w} = \begin{bmatrix} 1\\ 2\\ \end{bmatrix}\)</span>.</p>
 <p>The LGN firing rate is the dot product of the retinal firing rate vector and the weight vector:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-48b0bded-26be-46fa-a726-708dcd3f584c">
-<span class="eqno">(16)<a class="headerlink" href="#equation-48b0bded-26be-46fa-a726-708dcd3f584c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-767b6f45-f34b-441c-92b6-b2e10955b6e7">
+<span class="eqno">(16)<a class="headerlink" href="#equation-767b6f45-f34b-441c-92b6-b2e10955b6e7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 g = \mathbf{w}\cdot\mathbf{r} = w_1r_1 + w_2r_2
 \end{equation}\]</div>
 <figure>
@@ -2540,8 +2540,8 @@ g = \mathbf{w}\cdot\mathbf{r} = w_1r_1 + w_2r_2
 <details>
 <summary> <font color="blue">Click here for text recap of video </font></summary>
 <p>An alternate way of defining the dot product is as the multiple of the lengths of the two vectors and the angle between them <span class="math notranslate nohighlight">\(\theta\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7b33c8f6-7d86-46a2-8fdc-2ecbd9f22e89">
-<span class="eqno">(17)<a class="headerlink" href="#equation-7b33c8f6-7d86-46a2-8fdc-2ecbd9f22e89" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-178dd86c-f33c-40de-b831-cb633149ba62">
+<span class="eqno">(17)<a class="headerlink" href="#equation-178dd86c-f33c-40de-b831-cb633149ba62" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{x} \cdot \mathbf{y} = ||\mathbf{x}|| \cdot ||\mathbf{y}|| \cdot \text{cos}\theta
 \end{equation}\]</div>
 <p>This means that:</p>
@@ -2593,18 +2593,18 @@ g = \mathbf{w}\cdot\mathbf{r} = w_1r_1 + w_2r_2
 <h2>Bonus Section 1.2: Polynomial vector space example<a class="headerlink" href="#bonus-section-1-2-polynomial-vector-space-example" title="Permalink to this headline">¶</a></h2>
 <p>We will mostly work with the vector spaces you’ve seen in this tutorial: different N-dimensional spaces of real numbers or subspaces within those. Other things can also be vector spaces though! As an example, one vector space is the set of all polynomials of degree 3 (<span class="math notranslate nohighlight">\(P_3\)</span>).</p>
 <p>Remember that a polynomial of degree 3 is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-81640fed-0426-4c6c-a4e5-0b2c97b90cad">
-<span class="eqno">(18)<a class="headerlink" href="#equation-81640fed-0426-4c6c-a4e5-0b2c97b90cad" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b3152ac7-7e25-48ec-918d-c98e70517e51">
+<span class="eqno">(18)<a class="headerlink" href="#equation-b3152ac7-7e25-48ec-918d-c98e70517e51" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 p(x) = c_o + c_1x + c_2x^2 + c_3x^3
 \end{equation}\]</div>
 <p>We can have the basis for this vector space be:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e876e3bc-c3db-46a6-92ed-633d65e69cd4">
-<span class="eqno">(19)<a class="headerlink" href="#equation-e876e3bc-c3db-46a6-92ed-633d65e69cd4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8d2053d1-1382-4aa8-8152-6f074e8e47b9">
+<span class="eqno">(19)<a class="headerlink" href="#equation-8d2053d1-1382-4aa8-8152-6f074e8e47b9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \text{Basis: } \{ 1, x, x^2, x^3 \}
 \end{equation}\]</div>
 <p>The components of a vector representing a specific polynomial would then be:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-91514eb9-9620-4731-b7e4-450868acfb57">
-<span class="eqno">(20)<a class="headerlink" href="#equation-91514eb9-9620-4731-b7e4-450868acfb57" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-283cc142-77e2-48e6-aa8d-5972d3d6bc03">
+<span class="eqno">(20)<a class="headerlink" href="#equation-283cc142-77e2-48e6-aa8d-5972d3d6bc03" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{x} = \begin{bmatrix} c_0 \\c_1\\ c_2\\ c_3 \end{bmatrix}
 \end{equation}\]</div>
 <p>These vectors obey all of the axioms in the previous section as you add polynomials, multiple them with a scalar, etc.!</p>
@@ -2613,8 +2613,8 @@ p(x) = c_o + c_1x + c_2x^2 + c_3x^3
 <div class="section" id="bonus-section-2-proof-of-dot-product-equivalent-definitions">
 <h2>Bonus Section 2: Proof of dot product equivalent definitions<a class="headerlink" href="#bonus-section-2-proof-of-dot-product-equivalent-definitions" title="Permalink to this headline">¶</a></h2>
 <p>Let’s prove that our two definitions of a dot product are equivalent:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2d7a0a27-bbcc-439a-9a6b-52b82127ad2a">
-<span class="eqno">(21)<a class="headerlink" href="#equation-2d7a0a27-bbcc-439a-9a6b-52b82127ad2a" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-394f67ab-57ae-4ef8-9e6c-addb689123a0">
+<span class="eqno">(21)<a class="headerlink" href="#equation-394f67ab-57ae-4ef8-9e6c-addb689123a0" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mathbf{x}\cdot\mathbf{y} &amp;= \sum_{i=1}^N \mathbf{x}_i\mathbf{y}_i \\
 &amp;= ||\mathbf{x}||||\mathbf{y}||cos(\theta)
 \end{align}\]</div>
@@ -2622,8 +2622,8 @@ p(x) = c_o + c_1x + c_2x^2 + c_3x^3
 <figure>
 <img src="https://raw.githubusercontent.com/NeuromatchAcademy/precourse/main/tutorials/W0D3_LinearAlgebra/static/vector_diagram.png"/>
 </figure><p>We start by using the law of cosines to write out the formula for <span class="math notranslate nohighlight">\(||\mathbf{a}||\)</span>, where <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> is defined in the figure above.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d53edd63-3f94-40e6-b5bd-ee554f46551c">
-<span class="eqno">(22)<a class="headerlink" href="#equation-d53edd63-3f94-40e6-b5bd-ee554f46551c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-acf93178-b1a2-487e-a474-6d04ea5e15b9">
+<span class="eqno">(22)<a class="headerlink" href="#equation-acf93178-b1a2-487e-a474-6d04ea5e15b9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \|\mathbf{a}\|^2 = \color{blue}{\|\mathbf{x}\|^2 + \|\mathbf{y}\|^2 -2\|\mathbf{x}\|\|\mathbf{y}\|cos(\theta)}
 \end{equation}\]</div>
 <br/>
