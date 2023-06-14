@@ -38,6 +38,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
 <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+<script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
 <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
 <link href="../../../_static/nma-logo-square-4xp.png" rel="shortcut icon">
@@ -1796,6 +1798,13 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="video-1-introduction">
 <h2>Video 1: Introduction<a class="headerlink" href="#video-1-introduction" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Video available at https://youtu.be/ceQXN0OUaFo
+</pre></div>
+</div>
+<div class="output text_html">
+<iframe allowfullscreen="" frameborder="0" height="410" src="https://www.youtube.com/embed/ceQXN0OUaFo?fs=1" width="730"></iframe>
+</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1827,6 +1836,8 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+</div>
 </div>
 </div>
 </div>
@@ -1836,6 +1847,13 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="video-2-hmm-for-poisson-spiking-neurons-case-study">
 <h2>Video 2: HMM for Poisson spiking neurons case study<a class="headerlink" href="#video-2-hmm-for-poisson-spiking-neurons-case-study" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Video available at https://youtu.be/Wb8mf5chmyI
+</pre></div>
+</div>
+<div class="output text_html">
+<iframe allowfullscreen="" frameborder="0" height="410" src="https://www.youtube.com/embed/Wb8mf5chmyI?fs=1" width="730"></iframe>
+</div></div>
 </div>
 <p>Given noisy neural or behavioral measurements, we as neuroscientists often want to infer the unobserved latent variables as they change over time. Thalamic relay neurons fire in two distinct modes: a tonic mode where spikes are produced one at a time, and a ‘burst mode’ where several action potentials are produced in rapid succession. These modes are thought to differentially encode how the neurons relay information from sensory receptors to cortex. A distinct molecular mechanism, T-type calcium channels, switches neurons between modes, but it is very challenging to measure in the brain of a living monkey. However, statistical approaches let us recover the hidden state of those calcium channels purely from their spiking activity, which can be measured in a behaving monkey.</p>
 <p>Here, we’re going to tackle a simplified version of that problem.</p>
@@ -2178,6 +2196,9 @@ We have a network of <span class="math notranslate nohighlight">\(C\)</span> neu
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/W3D2_Tutorial5_20_0.png" src="../../../_images/W3D2_Tutorial5_20_0.png"/>
+</div>
 </div>
 </div>
 <div class="section" id="generate-data-for-em-learning">
@@ -2202,6 +2223,11 @@ We have a network of <span class="math notranslate nohighlight">\(C\)</span> neu
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Y has shape: (n_trial=300,T=1000,C=5)
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2212,6 +2238,13 @@ We have a network of <span class="math notranslate nohighlight">\(C\)</span> neu
 <div class="section" id="video-3-em-tutorial">
 <h2>Video 3: EM Tutorial<a class="headerlink" href="#video-3-em-tutorial" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Video available at https://youtu.be/umU4wUWlKvg
+</pre></div>
+</div>
+<div class="output text_html">
+<iframe allowfullscreen="" frameborder="0" height="410" src="https://www.youtube.com/embed/umU4wUWlKvg?fs=1" width="730"></iframe>
+</div></div>
 </div>
 <p>Finding the optimal values of parameters that maximizes the data likelihood is practically infeasible since we need to integrating out all latent variables <span class="math notranslate nohighlight">\(x_{1:T}\)</span>. The time needed is exponential to <span class="math notranslate nohighlight">\(T\)</span>. Thus as an alternative approach, we use the Expectation-Maximization algorithm, which iteratively performs an E-step followed by a M-step and is guaranteed to not decrease(usually increase) the data likelihood after each EM cycle.</p>
 <p>In this section we will briefly review the EM algorithm  for HMM and list</p>
@@ -2224,23 +2257,23 @@ We have a network of <span class="math notranslate nohighlight">\(C\)</span> neu
 <div class="section" id="e-step-forward-backward-algorithm">
 <h2>E-step: Forward-backward algorithm<a class="headerlink" href="#e-step-forward-backward-algorithm" title="Permalink to this headline">¶</a></h2>
 <p>In the forward pass, we calculate the <strong>forward probabilities</strong>, or the joint probability of <span class="math notranslate nohighlight">\(x_t\)</span> and current and past data <span class="math notranslate nohighlight">\(Y_{1:t}\)</span>: <span class="math notranslate nohighlight">\(a_i(t):=p(x_t=i,Y_{1:t})\)</span> recursively by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d9078ec6-f5a4-4dd7-ac9e-186d50209c00">
-<span class="eqno">(406)<a class="headerlink" href="#equation-d9078ec6-f5a4-4dd7-ac9e-186d50209c00" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f1a1c18b-cfc6-433b-ad1d-d9937f036790">
+<span class="eqno">(406)<a class="headerlink" href="#equation-f1a1c18b-cfc6-433b-ad1d-d9937f036790" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 a_i(t) = p_(y_t|x_i=t)\sum_j A_{ji} a_j(t-1)
 \end{equation}\]</div>
 <p>In contrast to the intro, now <span class="math notranslate nohighlight">\(A_{ji}\)</span> means <strong>the transition probability from state <span class="math notranslate nohighlight">\(j\)</span> to state <span class="math notranslate nohighlight">\(i\)</span>.</strong></p>
 <p>The backward pass calculate the <strong>backward probabilities</strong> <span class="math notranslate nohighlight">\(b_i(t):=p_{\theta}(Y_{t+1:T}|x_t=i)\)</span>, which is the likelihood of observing all future data points given current state <span class="math notranslate nohighlight">\(x_t\)</span>. The recursion of <span class="math notranslate nohighlight">\(b_i(t)\)</span> is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9117e535-57f2-4ad7-b4b2-431dc48ebc81">
-<span class="eqno">(407)<a class="headerlink" href="#equation-9117e535-57f2-4ad7-b4b2-431dc48ebc81" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fd709463-6b7b-4cfe-888e-2e0283ac5b92">
+<span class="eqno">(407)<a class="headerlink" href="#equation-fd709463-6b7b-4cfe-888e-2e0283ac5b92" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 b_i(t) = \sum_j p_{\theta}(y_{t+1}|x_{t+1}=j)b_j(t+1)A_{ij}
 \end{equation}\]</div>
 <p>Combining all past and future information, the <strong>singleton and pairwise marginal distributions</strong> are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8413e28f-d16e-4328-ae00-7c3f16159997">
-<span class="eqno">(408)<a class="headerlink" href="#equation-8413e28f-d16e-4328-ae00-7c3f16159997" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f6a960ec-7981-4239-bdd6-f91dfc066ccf">
+<span class="eqno">(408)<a class="headerlink" href="#equation-f6a960ec-7981-4239-bdd6-f91dfc066ccf" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \gamma_{i}(t):=p_{\theta}\left(x_{t}=i | Y_{1: T}\right)=\frac{a_{i}(t) b_{i}(t)}{p_{\theta}\left(Y_{1: T}\right)}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-ee71896d-30c8-4408-923b-73badc688721">
-<span class="eqno">(409)<a class="headerlink" href="#equation-ee71896d-30c8-4408-923b-73badc688721" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f2acc76b-3061-454f-8a80-8431f20a1500">
+<span class="eqno">(409)<a class="headerlink" href="#equation-f2acc76b-3061-454f-8a80-8431f20a1500" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \xi_{i j}(t) = p_{\theta}(x_t=i,x_{t+1}=j|Y_{1:T}) =\frac{b_{j}(t+1)p_{\theta}\left(y_{t+1} | x_{t+1}=j\right) A_{i j} a_{i}(t)}{p_{\theta}\left(Y_{1: T}\right)}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(p_{\theta}(Y_{1:T})=\sum_i a_i(T)\)</span>.</p>
@@ -2248,14 +2281,14 @@ b_i(t) = \sum_j p_{\theta}(y_{t+1}|x_{t+1}=j)b_j(t+1)A_{ij}
 <div class="section" id="m-step">
 <h2>M-step<a class="headerlink" href="#m-step" title="Permalink to this headline">¶</a></h2>
 <p>The M-step for HMM has a closed-form solution. First the new transition matrix is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-70c46502-e2ce-42ed-8448-d61e4cf24899">
-<span class="eqno">(410)<a class="headerlink" href="#equation-70c46502-e2ce-42ed-8448-d61e4cf24899" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d52b0996-868b-4edb-a3ac-f07f82f22ccd">
+<span class="eqno">(410)<a class="headerlink" href="#equation-d52b0996-868b-4edb-a3ac-f07f82f22ccd" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 A_{ij} =\frac{\sum_{t=1}^{T-1} \xi_{i j}(t)}{\sum_{t=1}^{T-1} \gamma_{i}(t)}
 \end{equation}\]</div>
 <p>which is the expected empirical transition probabilities.
 New initial probabilities and parameters of the emission models are also given by their empirical values given single and pairwise marginal distributions:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-809cff1a-b370-4592-8962-5fe034ccde4d">
-<span class="eqno">(411)<a class="headerlink" href="#equation-809cff1a-b370-4592-8962-5fe034ccde4d" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d58f2785-3776-45f5-b006-71e0e5aa6c21">
+<span class="eqno">(411)<a class="headerlink" href="#equation-d58f2785-3776-45f5-b006-71e0e5aa6c21" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \psi_i &amp;= \frac{1}{N}\sum_{trials}\gamma_i(1) \\
 \lambda_{i}^{c} &amp;= \frac{\sum_{t} \gamma_{i}(t) y_{t}^{c}}{\sum_{t} \gamma_{i}(t) d t}
 \end{align}\]</div>
@@ -2265,14 +2298,14 @@ New initial probabilities and parameters of the emission models are also given b
 <p><strong>(Optional)</strong></p>
 <p>In this section you will read through the code for the forward-backward algorithm and understand how to implement the computation efficiently in <code class="docutils literal notranslate"><span class="pre">numpy</span></code> by calculating the recursion for all trials at once.</p>
 <p>Let’s re-write the forward and backward recursions in a more compact form:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7daed579-5d60-43a7-946c-adecec5c5b8d">
-<span class="eqno">(412)<a class="headerlink" href="#equation-7daed579-5d60-43a7-946c-adecec5c5b8d" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-9116f534-e75e-4fc9-9863-385a88d9e1f6">
+<span class="eqno">(412)<a class="headerlink" href="#equation-9116f534-e75e-4fc9-9863-385a88d9e1f6" title="Permalink to this equation">¶</a></span>\[\begin{eqnarray}
 a_i^t &amp;=&amp; \sum_j A_{ji}o_j^t a_j^{t-1}\\
 b^t_i &amp;=&amp; \sum_j A_{ij} o_j^{t+1}b_j^{t+1} \text{, where } o_j^{t}=p(y_{t}|x_{t}=j)
 \end{eqnarray}\]</div>
 <p>Let’s take the backward recursion for example. In practice we will handle all trials together since they are independent of each other. After adding a trial index <span class="math notranslate nohighlight">\(l\)</span> to the recursion equations, the backward recursion becomes:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-31ab8ae7-7d3c-44b7-a9f8-35a8008df799">
-<span class="eqno">(413)<a class="headerlink" href="#equation-31ab8ae7-7d3c-44b7-a9f8-35a8008df799" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5cae61e6-6d6e-4ebb-b528-e24dae08b356">
+<span class="eqno">(413)<a class="headerlink" href="#equation-5cae61e6-6d6e-4ebb-b528-e24dae08b356" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 b^t_{li} = \sum_j A_{ij} o_{lj}^{t+1}b_{lj}^{t+1}
 \end{equation}\]</div>
 <p>What we have in hand are:</p>
@@ -2283,8 +2316,8 @@ b^t_{li} = \sum_j A_{ij} o_{lj}^{t+1}b_{lj}^{t+1}
 </ul>
 <p>where <code class="docutils literal notranslate"><span class="pre">N</span></code> stands for the number of trials.</p>
 <p>The index size and meaning doesn’t match for these three arrays: the index is <span class="math notranslate nohighlight">\(i\)</span> for <span class="math notranslate nohighlight">\(A\)</span> in the first dimension and is <span class="math notranslate nohighlight">\(l\)</span> for <span class="math notranslate nohighlight">\(o\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, so we can’t just multiply them together. However, we can do this by viewing vectors <span class="math notranslate nohighlight">\(o^{t+1}_{l\cdot}\)</span> and <span class="math notranslate nohighlight">\(b^{t+1}_{l\cdot}\)</span> as a matrix with 1 row and re-write the backward equation as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-661e93fd-d0a0-4036-bd95-c0e0d6740997">
-<span class="eqno">(414)<a class="headerlink" href="#equation-661e93fd-d0a0-4036-bd95-c0e0d6740997" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b77a808b-25fe-47e0-a89b-489e87b75e22">
+<span class="eqno">(414)<a class="headerlink" href="#equation-b77a808b-25fe-47e0-a89b-489e87b75e22" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 b^t_{li} = \sum_j A_{ij} o_{l1j}^{t+1}b_{l1j}^{t+1}
 \end{equation}\]</div>
 <p>Now we can just multiply these three arrays element-wise and sum over the last dimension.</p>
@@ -2357,6 +2390,13 @@ b^t_{li} = \sum_j A_{ij} o_{l1j}^{t+1}b_{l1j}^{t+1}
 <div class="section" id="video-4-implement-the-m-step">
 <h3>Video 4: Implement the M-step<a class="headerlink" href="#video-4-implement-the-m-step" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Video available at https://youtu.be/H4GGTg_9BaE
+</pre></div>
+</div>
+<div class="output text_html">
+<iframe allowfullscreen="" frameborder="0" height="410" src="https://www.youtube.com/embed/H4GGTg_9BaE?fs=1" width="730"></iframe>
+</div></div>
 </div>
 </div>
 <div class="section" id="coding-exercise-2-implement-the-m-step">
@@ -2366,8 +2406,8 @@ b^t_{li} = \sum_j A_{ij} o_{l1j}^{t+1}b_{l1j}^{t+1}
 <ol class="simple">
 <li><p>Calculate new initial probabilities as empirical counts of singleton marginals</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-e3d4f209-7522-49be-ac35-bb49ffedc1e1">
-<span class="eqno">(415)<a class="headerlink" href="#equation-e3d4f209-7522-49be-ac35-bb49ffedc1e1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-68c032ef-15e4-4ddb-9535-1483201373ed">
+<span class="eqno">(415)<a class="headerlink" href="#equation-68c032ef-15e4-4ddb-9535-1483201373ed" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \psi_i = \frac{1}{N}\sum_{trials}\gamma_i(1)
 \end{equation}\]</div>
 <ol class="simple">
@@ -2376,13 +2416,13 @@ b^t_{li} = \sum_j A_{ij} o_{l1j}^{t+1}b_{l1j}^{t+1}
 <br/>
 <p><strong>For reference:</strong></p>
 <p>New transition matrix is calculated as empirical counts of transition events from marginals</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8947c0da-4276-497b-9a9f-44d1ea3eac06">
-<span class="eqno">(416)<a class="headerlink" href="#equation-8947c0da-4276-497b-9a9f-44d1ea3eac06" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fa52104d-06be-4e44-8baf-5483da77c1b4">
+<span class="eqno">(416)<a class="headerlink" href="#equation-fa52104d-06be-4e44-8baf-5483da77c1b4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 A_{ij} =\frac{\sum_{t=1}^{T-1} \xi_{i j}(t)}{\sum_{t=1}^{T-1} \gamma_{i}(t)}
 \end{equation}\]</div>
 <p>New spiking rates for each cell and each state are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6113fcc9-6967-4dab-8630-c5606f281c36">
-<span class="eqno">(417)<a class="headerlink" href="#equation-6113fcc9-6967-4dab-8630-c5606f281c36" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-025ea59f-82a5-4dbb-8956-45365fecf6b4">
+<span class="eqno">(417)<a class="headerlink" href="#equation-025ea59f-82a5-4dbb-8956-45365fecf6b4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \lambda_{i}^{c}=\frac{\sum_{t} \gamma_{i}(t) y_{t}^{c}}{\sum_{t} \gamma_{i}(t) d t}
 \end{equation}\]</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
@@ -2452,6 +2492,13 @@ A_{ij} =\frac{\sum_{t=1}^{T-1} \xi_{i j}(t)}{\sum_{t=1}^{T-1} \gamma_{i}(t)}
 <div class="section" id="video-5-running-and-plotting-em">
 <h4>Video 5: Running and plotting EM<a class="headerlink" href="#video-5-running-and-plotting-em" title="Permalink to this headline">¶</a></h4>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Video available at https://youtu.be/6UTsXxE3hG0
+</pre></div>
+</div>
+<div class="output text_html">
+<iframe allowfullscreen="" frameborder="0" height="410" src="https://www.youtube.com/embed/6UTsXxE3hG0?fs=1" width="730"></iframe>
+</div></div>
 </div>
 <hr class="docutils"/>
 </div>
@@ -2493,6 +2540,44 @@ A_{ij} =\frac{\sum_{t=1}^{T-1} \xi_{i j}(t)}{\sum_{t=1}^{T-1} \gamma_{i}(t)}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LL for true 𝜃:    -455.8684143040628
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LL for initial 𝜃: -481.5065734432824
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>epoch:   0, ll = -481.5065734432824
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>epoch:   1, ll = -461.8610532934207
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>epoch:   2, ll = -456.5662172692466
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>epoch:   3, ll = -455.91302019715675
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>epoch:   4, ll = -455.8576708791393
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>epoch:   5, ll = -455.84751797331523
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>epoch:   6, ll = -455.844386568029
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>epoch:   7, ll = -455.8431170392834
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>epoch:   8, ll = -455.8425100302096
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>epoch:   9, ll = -455.8421872772479
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2530,6 +2615,9 @@ A_{ij} =\frac{\sum_{t=1}^{T-1} \xi_{i j}(t)}{\sum_{t=1}^{T-1} \gamma_{i}(t)}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/W3D2_Tutorial5_42_0.png" src="../../../_images/W3D2_Tutorial5_42_0.png"/>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2539,6 +2627,9 @@ A_{ij} =\frac{\sum_{t=1}^{T-1} \xi_{i j}(t)}{\sum_{t=1}^{T-1} \gamma_{i}(t)}
   <span class="n">plot_lls_eclls</span><span class="p">(</span><span class="n">plot_epochs</span><span class="p">,</span> <span class="n">save_vals</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/W3D2_Tutorial5_43_1.png" src="../../../_images/W3D2_Tutorial5_43_1.png"/>
 </div>
 </div>
 </div>
@@ -2552,6 +2643,9 @@ A_{ij} =\frac{\sum_{t=1}^{T-1} \xi_{i j}(t)}{\sum_{t=1}^{T-1} \gamma_{i}(t)}
   <span class="n">plot_learnt_vs_true</span><span class="p">(</span><span class="n">L_true</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">A_true</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/W3D2_Tutorial5_45_1.png" src="../../../_images/W3D2_Tutorial5_45_1.png"/>
 </div>
 </div>
 </div>

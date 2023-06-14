@@ -47,6 +47,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="shortcut icon" href="../../_static/nma-logo-square-4xp.png"/>
@@ -1807,6 +1809,12 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">22.0.4</span> -&gt; <span class=" -Color -Color-Green">23.1.2</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2014,8 +2022,8 @@ title="Print to PDF"
 <p><em>Part of Step 1</em></p>
 <p>We assume that we have build the train illusion model (see the other example project colab). That model predicts that accumulated sensory evidence from vestibular signals determines the decision of whether self-motion is experienced or not. We now have vestibular neuron data (simulated in our case, but let’s pretend) and would like to see if that prediction holds true.</p>
 <p>The data contains <span class="math notranslate nohighlight">\(N\)</span> neurons and <span class="math notranslate nohighlight">\(M\)</span> trials for each of 3 motion conditions: no self-motion, slowly accelerating self-motion and faster accelerating self-motion.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2f849857-9d60-4652-a7f1-ab576dccaac4">
-<span class="eqno">(467)<a class="headerlink" href="#equation-2f849857-9d60-4652-a7f1-ab576dccaac4" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0215030d-7672-4fe4-94b3-1824ea45bbe2">
+<span class="eqno">(467)<a class="headerlink" href="#equation-0215030d-7672-4fe4-94b3-1824ea45bbe2" title="Permalink to this equation">¶</a></span>\[\begin{align}
 N &amp;= 40\\
 M &amp;= 400\\
 \end{align}\]</div>
