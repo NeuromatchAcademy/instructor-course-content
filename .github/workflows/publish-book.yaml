@@ -16,7 +16,7 @@ jobs:
     steps:
 
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           persist-credentials: false
           fetch-depth: 0
@@ -28,23 +28,20 @@ jobs:
           echo "COMMIT_MESSAGE=$msg" >> $GITHUB_ENV
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
-          python-version: 3.7
+          python-version: 3.9
 
       - name: Install CI tools
         run: |
           BRANCH=`python -c 'import os, re; m = re.search(r"nmaci:([\w-]+)", os.environ["COMMIT_MESSAGE"]); print("main" if m is None else m.group(1))'`
           wget https://github.com/NeuromatchAcademy/nmaci/archive/refs/heads/$BRANCH.tar.gz
           tar -xzf $BRANCH.tar.gz
-          rm -rf $BRANCH.tar.gz
-          sudo apt-get update
-          sudo apt-get install --fix-missing
-          sudo apt-get install -y xvfb ffmpeg
           pip install --upgrade pip
           pip install -r nmaci-$BRANCH/requirements.txt
           mv nmaci-$BRANCH/scripts/ ci/
           rm -r nmaci-$BRANCH
+          rm -rf $BRANCH.tar.gz
           echo ci/ >> .gitignore
 
       - name: Install XKCD fonts
