@@ -1810,7 +1810,7 @@ title="Print to PDF"
 <h1>Example Model Project: the Train Illusion<a class="headerlink" href="#example-model-project-the-train-illusion" title="Permalink to this headline">¶</a></h1>
 <p>Marius t’Hart, Megan Peters, Paul Schrater, Gunnar Blohm</p>
 <p><strong>Disclaimer</strong>:  this is a “toy” model used to demonstrate the <a class="reference external" href="https://doi.org/10.1523/ENEURO.0352-19.2019">10 step procedure of how-to-model</a>. It is not meant to be state of the art research.</p>
-<p align='center'><img src='https://github.com/NeuromatchAcademy/widgets/blob/main/sponsors.png?raw=True'/></p></div>
+</div>
 <hr class="docutils" />
 <div class="section" id="phenomenon">
 <h1>Phenomenon<a class="headerlink" href="#phenomenon" title="Permalink to this headline">¶</a></h1>
@@ -1864,8 +1864,8 @@ title="Print to PDF"
 <p><em>Part of step 5</em></p>
 <p>We chose to use a <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2474742/">Drift-Diffusion Model (DDM)</a> because it is a well-established framework that allows us to model decision making in the case of 2 alternative choices (here: self-motion vs. other train motion).</p>
 <p>For our purposes simplest equation looks something like this:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d45e7ce0-e1d4-4917-9a8d-56c710c7b419">
-<span class="eqno">(469)<a class="headerlink" href="#equation-d45e7ce0-e1d4-4917-9a8d-56c710c7b419" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1dfe8f39-fb3d-42a4-ae82-8bad527a50b8">
+<span class="eqno">(469)<a class="headerlink" href="#equation-1dfe8f39-fb3d-42a4-ae82-8bad527a50b8" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \dot e = \frac{de}{dt}= -c \cdot e + v
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(e\)</span> is the accumulated evidence and <span class="math notranslate nohighlight">\(v\)</span> is our vestibular input already containing the noise (so we don’t need to add more noise?). <span class="math notranslate nohighlight">\(c\)</span> is the leakage constant, i.e. <span class="math notranslate nohighlight">\(c=0\)</span> means perfect integration; <span class="math notranslate nohighlight">\(c=1\)</span> means no integration (perfect leakage).</p>
@@ -1941,7 +1941,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;vestibular signal (a.u.)&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/TrainIllusionModel_15_1.png" src="../../_images/TrainIllusionModel_15_1.png" />
+<img alt="../../_images/TrainIllusionModel_14_1.png" src="../../_images/TrainIllusionModel_14_1.png" />
 </div>
 </div>
 </div>
@@ -1984,7 +1984,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;integrated evidence&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/TrainIllusionModel_19_1.png" src="../../_images/TrainIllusionModel_19_1.png" />
+<img alt="../../_images/TrainIllusionModel_18_1.png" src="../../_images/TrainIllusionModel_18_1.png" />
 </div>
 </div>
 </div>
@@ -2133,7 +2133,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/TrainIllusionModel_32_0.png" src="../../_images/TrainIllusionModel_32_0.png" />
+<img alt="../../_images/TrainIllusionModel_31_0.png" src="../../_images/TrainIllusionModel_31_0.png" />
 </div>
 </div>
 <p>There seems to be some parameter redundancy. I.e. we could chose different parameter combinations to make the model do something sensible…</p>
@@ -2154,7 +2154,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Motion detected for no-motion = 27.0 %; and motion = 60.6 %
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Motion detected for no-motion = 29.4 %; and motion = 60.5 %
 </pre></div>
 </div>
 </div>
@@ -2191,7 +2191,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/TrainIllusionModel_38_0.png" src="../../_images/TrainIllusionModel_38_0.png" />
+<img alt="../../_images/TrainIllusionModel_37_0.png" src="../../_images/TrainIllusionModel_37_0.png" />
 </div>
 </div>
 <p>Our <strong>hypothesis</strong> of linear increase of illusion strength with noise only holds true in a limited range of noise… It’s monotonic but saturating of course…</p>
