@@ -55,7 +55,8 @@ jobs:
 
       - name: Copy tutorials from course-content repo
         run: |
-          BRANCH=`python -c 'import os, re; m = re.search(r"course-content:([\w-]+)", os.environ["COMMIT_MESSAGE"]); print("main" if m is None else m.group(1))'`
+          # BRANCH=`python -c 'import os, re; m = re.search(r"course-content:([\w-]+)", os.environ["COMMIT_MESSAGE"]); print("main" if m is None else m.group(1))'`
+          BRANCH=pilot
           wget https://github.com/NeuromatchAcademy/course-content/archive/refs/heads/$BRANCH.tar.gz
           tar -xzf $BRANCH.tar.gz
           mv course-content-$BRANCH/tutorials tutorials/
