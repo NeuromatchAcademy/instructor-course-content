@@ -95,11 +95,6 @@ const thebe_selector_output = ".output, .cell_output"
     </p>
 <ul class="navbar-nav" id="navbar-main-elements">
 <li class="nav-item">
-<a class="nav-link nav-internal" href="../../../tatraining/TA_Training_CN.html">
-                        TA Training: Computational Neuroscience (CN)
-                      </a>
-</li>
-<li class="nav-item">
 <a class="nav-link nav-internal" href="../../Schedule/schedule_intro.html">
                         Schedule
                       </a>
@@ -119,16 +114,16 @@ const thebe_selector_output = ".output, .cell_output"
                         Prerequisites and preparatory materials for NMA Computational Neuroscience
                       </a>
 </li>
-<div class="nav-item dropdown">
-<button aria-expanded="false" aria-haspopup="true" class="btn dropdown-toggle nav-item" data-toggle="dropdown" type="button">
-                    More
-                </button>
-<div class="dropdown-menu">
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../W0D0_NeuroVideoSeries/chapter_title.html">
                         Neuro Video Series (W0D0)
                       </a>
 </li>
+<div class="nav-item dropdown">
+<button aria-expanded="false" aria-haspopup="true" class="btn dropdown-toggle nav-item" data-toggle="dropdown" type="button">
+                    More
+                </button>
+<div class="dropdown-menu">
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../W0D1_PythonWorkshop1/chapter_title.html">
                         Python Workshop 1 (W0D1)
@@ -321,11 +316,6 @@ const thebe_selector_output = ".output, .cell_output"
     </p>
 <ul class="navbar-nav" id="navbar-main-elements">
 <li class="nav-item">
-<a class="nav-link nav-internal" href="../../../tatraining/TA_Training_CN.html">
-                        TA Training: Computational Neuroscience (CN)
-                      </a>
-</li>
-<li class="nav-item">
 <a class="nav-link nav-internal" href="../../Schedule/schedule_intro.html">
                         Schedule
                       </a>
@@ -345,16 +335,16 @@ const thebe_selector_output = ".output, .cell_output"
                         Prerequisites and preparatory materials for NMA Computational Neuroscience
                       </a>
 </li>
-<div class="nav-item dropdown">
-<button aria-expanded="false" aria-haspopup="true" class="btn dropdown-toggle nav-item" data-toggle="dropdown" type="button">
-                    More
-                </button>
-<div class="dropdown-menu">
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../W0D0_NeuroVideoSeries/chapter_title.html">
                         Neuro Video Series (W0D0)
                       </a>
 </li>
+<div class="nav-item dropdown">
+<button aria-expanded="false" aria-haspopup="true" class="btn dropdown-toggle nav-item" data-toggle="dropdown" type="button">
+                    More
+                </button>
+<div class="dropdown-menu">
 <li class="nav-item">
 <a class="nav-link nav-internal" href="../../W0D1_PythonWorkshop1/chapter_title.html">
                         Python Workshop 1 (W0D1)
@@ -542,9 +532,6 @@ const thebe_selector_output = ".output, .cell_output"
                     Introduction
                 </a>
 </li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../tatraining/TA_Training_CN.html">TA Training: Computational Neuroscience (CN)</a></li>
 </ul>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../Schedule/schedule_intro.html">Schedule</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -2133,8 +2120,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p><img alt="Unit sphere S2" src="https://github.com/mpbrigham/colaboratory-figures/raw/master/nma/autoencoders/unit_sphere.png"/></p>
 <br/>
 <p>Projecting to the surface of the sphere is implemented by dividing the coordinates <span class="math notranslate nohighlight">\((z_1, z_2, z_3)\)</span> by their <span class="math notranslate nohighlight">\(L_2\)</span> norm.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-42c0f627-6ce5-4336-b88c-ec74575940b2">
-<span class="eqno">(262)<a class="headerlink" href="#equation-42c0f627-6ce5-4336-b88c-ec74575940b2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-68b42ece-6489-437a-9755-a169cb52fe92">
+<span class="eqno">(262)<a class="headerlink" href="#equation-68b42ece-6489-437a-9755-a169cb52fe92" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (z_1, z_2, z_3)\longmapsto (s_1, s_2, s_3)=(z_1, z_2, z_3)/\|(z_1, z_2, z_3)\|_2=(z_1, z_2, z_3)/ \sqrt{z_1^2+z_2^2+z_3^2}
 \end{equation}\]</div>
 <p>This mapping projects to the surface of the <a class="reference external" href="https://en.wikipedia.org/wiki/N-sphere"><span class="math notranslate nohighlight">\(S_2\)</span> sphere</a> with unit radius. (Why?)</p>
@@ -2355,8 +2342,8 @@ const thebe_selector_output = ".output, .cell_output"
 <section id="section-3-5-visualize-latent-space-on-surface-of-s-2">
 <h2>Section 3.5: Visualize latent space on surface of <span class="math notranslate nohighlight">\(S_2\)</span><a class="headerlink" href="#section-3-5-visualize-latent-space-on-surface-of-s-2" title="Permalink to this heading">#</a></h2>
 <p>The 3D coordinates <span class="math notranslate nohighlight">\((s_1, s_2, s_3)\)</span> on the surface of the unit sphere <span class="math notranslate nohighlight">\(S_2\)</span>  can be mapped to <a class="reference external" href="https://en.wikipedia.org/wiki/Spherical_coordinate_system">spherical coordinates</a> <span class="math notranslate nohighlight">\((r, \theta, \phi)\)</span>, as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-49d77c12-89fa-4e29-9923-0ebe28ad5653">
-<span class="eqno">(263)<a class="headerlink" href="#equation-49d77c12-89fa-4e29-9923-0ebe28ad5653" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9627f644-7e09-4cb7-8a21-e63a3513fdc3">
+<span class="eqno">(263)<a class="headerlink" href="#equation-9627f644-7e09-4cb7-8a21-e63a3513fdc3" title="Permalink to this equation">#</a></span>\[\begin{align}
 r &amp;= \sqrt{s_1^2 + s_2^2 + s_3^2} \\
 \phi &amp;= \arctan \frac{s_2}{s_1} \\
 \theta &amp;= \arccos\frac{s_3}{r}
