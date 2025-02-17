@@ -1874,7 +1874,7 @@ title="Print to PDF"
 <p>Our main hypothesis is that the strength of the illusion has a linear relationship to the amplitude of vestibular noise.</p>
 <p>Mathematically, this would write as <span class="math notranslate nohighlight">\(S = k \cdot N\)</span>, where <span class="math notranslate nohighlight">\(S\)</span> is the illusion strength and <span class="math notranslate nohighlight">\(N\)</span> is the noise level, and <span class="math notranslate nohighlight">\(k\)</span> is a free parameter.</p>
 <blockquote>
-<div><p>we could simply use the frequency of occurance across repetitions as the “strength of the illusion”</p>
+<div><p>we could simply use the frequency of occurrence across repetitions as the “strength of the illusion”</p>
 </div></blockquote>
 <p>We would get the noise as the standard deviation of <span class="math notranslate nohighlight">\(v(t)\)</span>, i.e. <span class="math notranslate nohighlight">\(N=\mathbf{E}[v(t)^2]\)</span>, where <span class="math notranslate nohighlight">\(\mathbf{E}\)</span> stands for the expected value.</p>
 <p>Do we need to take the average across time points?</p>
@@ -1888,8 +1888,8 @@ title="Print to PDF"
 <p><em>Part of step 5</em></p>
 <p>We chose to use a <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2474742/">Drift-Diffusion Model (DDM)</a> because it is a well-established framework that allows us to model decision making in the case of 2 alternative choices (here: self-motion vs. other train motion).</p>
 <p>For our purposes simplest equation looks something like this:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eecaabb6-70fe-428c-8d9e-e85e1316934d">
-<span class="eqno">(469)<a class="headerlink" href="#equation-eecaabb6-70fe-428c-8d9e-e85e1316934d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7502162b-44d8-4380-b8ac-e2c1c916b1bb">
+<span class="eqno">(469)<a class="headerlink" href="#equation-7502162b-44d8-4380-b8ac-e2c1c916b1bb" title="Permalink to this equation">#</a></span>\[\begin{align}
 \dot e = \frac{de}{dt}= -c \cdot e + v
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(e\)</span> is the accumulated evidence and <span class="math notranslate nohighlight">\(v\)</span> is our vestibular input already containing the noise (so we don’t need to add more noise?). <span class="math notranslate nohighlight">\(c\)</span> is the leakage constant, i.e. <span class="math notranslate nohighlight">\(c=0\)</span> means perfect integration; <span class="math notranslate nohighlight">\(c=1\)</span> means no integration (perfect leakage).</p>
@@ -1915,9 +1915,9 @@ title="Print to PDF"
 <p>So let’s go step by step… first we need to get set up…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">norm</span>
 <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>pandas<span class="w"> </span>--quiet
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1928,7 +1928,7 @@ title="Print to PDF"
 <h2>1. Vestibular signal generator<a class="headerlink" href="#vestibular-signal-generator" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">vestibular_signal</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span> <span class="n">mov</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">vestibular_signal</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span> <span class="n">mov</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">  Computes a vestibular signal that corresponds to the acceleration of the</span>
 <span class="sd">  train with different amplitudes of noise</span>
@@ -1965,7 +1965,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;vestibular signal (a.u.)&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/d8f248d96d17924e3cb334a53a1ef7069f59670e1890c23a2c5251f4eab16fd7.png" src="../../_images/d8f248d96d17924e3cb334a53a1ef7069f59670e1890c23a2c5251f4eab16fd7.png" />
+<img alt="../../_images/2047ebe1b9a05ff93177a9bc7defbbb42c337fc755066f5885ab8d0bc97a8095.png" src="../../_images/2047ebe1b9a05ff93177a9bc7defbbb42c337fc755066f5885ab8d0bc97a8095.png" />
 </div>
 </div>
 </section>
@@ -1973,7 +1973,7 @@ title="Print to PDF"
 <h2>2. integrator (DDM mechanism)<a class="headerlink" href="#integrator-ddm-mechanism" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ddm</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ddm</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">  Leaky integration of vestibular signal</span>
 <span class="sd">  Args:</span>
@@ -2008,7 +2008,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;integrated evidence&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/186ab0eca4b239113f54cfba5c0817b75320cc89dda703a22d60116141e9657c.png" src="../../_images/186ab0eca4b239113f54cfba5c0817b75320cc89dda703a22d60116141e9657c.png" />
+<img alt="../../_images/45f5815b4f4c9e728849864ae1688e391d44e6efad9b6a2d31b341b365537c4a.png" src="../../_images/45f5815b4f4c9e728849864ae1688e391d44e6efad9b6a2d31b341b365537c4a.png" />
 </div>
 </div>
 </section>
@@ -2016,7 +2016,7 @@ title="Print to PDF"
 <h2>3. thresholding (decision mechanism)<a class="headerlink" href="#thresholding-decision-mechanism" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">threshold</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">thr</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">threshold</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">thr</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">  Thresholding of motion evidence</span>
 <span class="sd">  Args:</span>
@@ -2049,7 +2049,7 @@ title="Print to PDF"
 <h2>Assembling the model<a class="headerlink" href="#assembling-the-model" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">run_model</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">thr</span><span class="p">,</span><span class="n">mov</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_model</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">thr</span><span class="p">,</span><span class="n">mov</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">  runs the full model to simulate self-motion decision, e.g. for train illusion</span>
 <span class="sd">  Args:</span>
@@ -2090,7 +2090,7 @@ title="Print to PDF"
 <p>So the model seems to work. Running different parameters gives us different results. Are we done?</p>
 <ul class="simple">
 <li><p><strong>can we answer our question</strong>: yes, in our model the illusion arises because integrating very noisy vestibular signals representing motion evidence sometimes accumulate to a decision threshold and sometimes do not reach that threshold.</p></li>
-<li><p><strong>can we speak to our hypothesis</strong>: yes, we can now simulate different trials with different noise levels (and leakage and thrshold parameters) and evaluate the hypothesized linear relationship between  vestibular noise and how often our perceptual system is fooled…</p></li>
+<li><p><strong>can we speak to our hypothesis</strong>: yes, we can now simulate different trials with different noise levels (and leakage and threshold parameters) and evaluate the hypothesized linear relationship between  vestibular noise and how often our perceptual system is fooled…</p></li>
 <li><p><strong>does the model reach our goals</strong>: yes, we wanted to generate a mechanistic model to be able to make some specific predictions that can then be tested experimentally later…</p></li>
 </ul>
 </section>
@@ -2098,11 +2098,11 @@ title="Print to PDF"
 <section class="tex2jax_ignore mathjax_ignore" id="model-evaluation-testing">
 <h1>Model evaluation &amp; testing<a class="headerlink" href="#model-evaluation-testing" title="Permalink to this heading">#</a></h1>
 <p><em>Part of step 9</em></p>
-<p>Ok, so we still need to actually evaluate and test our model performance. Since this is a conceptual model and we don’t have actual data (yet), we will evaluate how our model behaves as a function of the 3 parameters. If we had data with different conditions, we could try to fit the model to the data and evaluate the goodness of fit, etc… If other alterative models existed, we could evaluate our model against those alternatives too.</p>
+<p>Ok, so we still need to actually evaluate and test our model performance. Since this is a conceptual model and we don’t have actual data (yet), we will evaluate how our model behaves as a function of the 3 parameters. If we had data with different conditions, we could try to fit the model to the data and evaluate the goodness of fit, etc… If other alternative models existed, we could evaluate our model against those alternatives too.</p>
 <p>So let’s run out model in different parameter regimes and analyze the result to get some insight into the model performance</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">itertools</span> <span class="c1"># to automatically generat possible combinations of parameters</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span> <span class="c1"># to automatically generate possible combinations of parameters</span>
 
 <span class="c1"># define parameter list</span>
 <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
@@ -2129,7 +2129,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># want data frames:</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Sig&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;Thr&#39;</span><span class="p">,</span><span class="s1">&#39;Mov&#39;</span><span class="p">,</span><span class="s1">&#39;Decisions&#39;</span><span class="p">])</span>
 <span class="c1"># multi panel layout:</span>
 <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
@@ -2157,7 +2157,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/391237801bb16991fe188a9ae72d79b267d435828cd65f391f4bbc549941bfb5.png" src="../../_images/391237801bb16991fe188a9ae72d79b267d435828cd65f391f4bbc549941bfb5.png" />
+<img alt="../../_images/315998e6cef1d5ee1075c4923ea7a6e00527e7efa5134aa9eb0549d907ccaee7.png" src="../../_images/315998e6cef1d5ee1075c4923ea7a6e00527e7efa5134aa9eb0549d907ccaee7.png" />
 </div>
 </div>
 <p>There seems to be some parameter redundancy. I.e. we could chose different parameter combinations to make the model do something sensible…</p>
@@ -2178,7 +2178,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Motion detected for no-motion = 28.9 %; and motion = 58.1 %
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Motion detected for no-motion = 32.0 %; and motion = 58.4 %
 </pre></div>
 </div>
 </div>
@@ -2215,7 +2215,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1e1c2e3d93669e93d5e376c908a6b7451e17070806ca730fb8282fef2eca1a44.png" src="../../_images/1e1c2e3d93669e93d5e376c908a6b7451e17070806ca730fb8282fef2eca1a44.png" />
+<img alt="../../_images/f159566432a7b2facc707ace351ac0f4e89ca9a3cc8e806327891921ea3a3a08.png" src="../../_images/f159566432a7b2facc707ace351ac0f4e89ca9a3cc8e806327891921ea3a3a08.png" />
 </div>
 </div>
 <p>Our <strong>hypothesis</strong> of linear increase of illusion strength with noise only holds true in a limited range of noise… It’s monotonic but saturating of course…</p>
