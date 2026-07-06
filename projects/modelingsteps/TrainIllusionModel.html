@@ -272,8 +272,8 @@ const thebe_selector_output = ".output, .cell_output"
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../../tutorials/W2D2_NewContent/chapter_title.html">
-                        New Content (W2D2)
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D2_SignalProcessing/chapter_title.html">
+                        Signal Processing (W2D2)
                       </a>
                     </li>
                 
@@ -587,8 +587,8 @@ const thebe_selector_output = ".output, .cell_output"
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../../tutorials/W2D2_NewContent/chapter_title.html">
-                        New Content (W2D2)
+                      <a class="nav-link nav-internal" href="../../tutorials/W2D2_SignalProcessing/chapter_title.html">
+                        Signal Processing (W2D2)
                       </a>
                     </li>
                 
@@ -1164,14 +1164,55 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/Module_WrapUps/MachineLearning.html">Machine Learning Wrap-Up</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">TBD</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W2D2_NewContent/chapter_title.html">New Content (W2D2)</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
-</ul>
-</li>
-</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Dynamical Systems</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W2D2_SignalProcessing/chapter_title.html">Signal Processing (W2D2)</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D2_SignalProcessing/instructor/W2D2_Intro.html">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D2_SignalProcessing/instructor/W2D2_Tutorial1.html">Tutorial 1: Sampling</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D2_SignalProcessing/instructor/W2D2_Tutorial2.html">Tutorial 2: Fourier Analysis</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D2_SignalProcessing/instructor/W2D2_Tutorial3.html">Tutorial 3: Filters, Convolution &amp; the Convolution Theorem</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D2_SignalProcessing/instructor/W2D2_Tutorial4.html">Tutorial 4: Time-Frequency Methods</a></li>
+
+
+
+
+
+
+
+
+</ul>
+</li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorials/W2D3_LinearSystems/chapter_title.html">Linear Systems (W2D3)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D3_LinearSystems/instructor/W2D3_Intro.html">Intro</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/W2D3_LinearSystems/instructor/W2D3_Tutorial1.html">Tutorial 1: Linear dynamical systems</a></li>
@@ -1873,8 +1914,8 @@ title="Print to PDF"
 <p><em>Part of step 5</em></p>
 <p>We chose to use a <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2474742/">Drift-Diffusion Model (DDM)</a> because it is a well-established framework that allows us to model decision making in the case of 2 alternative choices (here: self-motion vs. other train motion).</p>
 <p>For our purposes simplest equation looks something like this:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9ec561ec-6a74-45a3-8e6d-a3f37d9ce626">
-<span class="eqno">(469)<a class="headerlink" href="#equation-9ec561ec-6a74-45a3-8e6d-a3f37d9ce626" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-06976ab2-8133-422f-8383-40ff97316f30">
+<span class="eqno">(469)<a class="headerlink" href="#equation-06976ab2-8133-422f-8383-40ff97316f30" title="Permalink to this equation">#</a></span>\[\begin{align}
 \dot e = \frac{de}{dt}= -c \cdot e + v
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(e\)</span> is the accumulated evidence and <span class="math notranslate nohighlight">\(v\)</span> is our vestibular input already containing the noise (so we don’t need to add more noise?). <span class="math notranslate nohighlight">\(c\)</span> is the leakage constant, i.e. <span class="math notranslate nohighlight">\(c=0\)</span> means perfect integration; <span class="math notranslate nohighlight">\(c=1\)</span> means no integration (perfect leakage).</p>
@@ -1950,7 +1991,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;vestibular signal (a.u.)&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/e7747561fe87eed7f4625e9a86b5f58bff70b36731814f82ab318616f3ab01c8.png" src="../../_images/e7747561fe87eed7f4625e9a86b5f58bff70b36731814f82ab318616f3ab01c8.png" />
+<img alt="../../_images/7e5022bfdfa1da4b4b736bab2a7a72d57be170558147f6b7e05788108b1de736.png" src="../../_images/7e5022bfdfa1da4b4b736bab2a7a72d57be170558147f6b7e05788108b1de736.png" />
 </div>
 </div>
 </section>
@@ -1993,7 +2034,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;integrated evidence&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/87152e451fbe0b9cb38cdfe64d7c00399fcc5f61d8eda18874262ffcff3f57f1.png" src="../../_images/87152e451fbe0b9cb38cdfe64d7c00399fcc5f61d8eda18874262ffcff3f57f1.png" />
+<img alt="../../_images/5998adb9ece4b8c3dbac182fe1911f41cf2b0c882f19bb0468185791b0d95964.png" src="../../_images/5998adb9ece4b8c3dbac182fe1911f41cf2b0c882f19bb0468185791b0d95964.png" />
 </div>
 </div>
 </section>
@@ -2142,7 +2183,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d90f2437817265d2d1e637a172c56e41d13f80cc9aebb668dc98b3f944e40983.png" src="../../_images/d90f2437817265d2d1e637a172c56e41d13f80cc9aebb668dc98b3f944e40983.png" />
+<img alt="../../_images/64ea248380237babbfcd3821d3d73865284950e520145525b7096c8dfb39c7a2.png" src="../../_images/64ea248380237babbfcd3821d3d73865284950e520145525b7096c8dfb39c7a2.png" />
 </div>
 </div>
 <p>There seems to be some parameter redundancy. I.e. we could chose different parameter combinations to make the model do something sensible…</p>
@@ -2163,7 +2204,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Motion detected for no-motion = 29.0 %; and motion = 61.0 %
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Motion detected for no-motion = 33.3 %; and motion = 60.4 %
 </pre></div>
 </div>
 </div>
@@ -2200,7 +2241,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c8b02b6cf3194d41361c86598e6129bc900a59544e17f99cec3f280693d3f35b.png" src="../../_images/c8b02b6cf3194d41361c86598e6129bc900a59544e17f99cec3f280693d3f35b.png" />
+<img alt="../../_images/83269f3b40617a838c2f6e5620312e3ef343649313c988f4d543c0a4edac2635.png" src="../../_images/83269f3b40617a838c2f6e5620312e3ef343649313c988f4d543c0a4edac2635.png" />
 </div>
 </div>
 <p>Our <strong>hypothesis</strong> of linear increase of illusion strength with noise only holds true in a limited range of noise… It’s monotonic but saturating of course…</p>
